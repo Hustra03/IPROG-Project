@@ -38,7 +38,8 @@ along with potentially which users have given a like/dislike in order to avoid m
 
 7. quick mock-up/prototype (paper drawing is fine) of the screens your app will have:
 
-See folder named screen prototype in the git repository for mock-ups of screens for the app. 
+See Home Page-1 in the folder named websitePages in the git repository for mock-ups of screens for the app. 
+First page is home screen, second is detail view and third is saved pages.
 
 Git repository: https://github.com/Hustra03/IPROG-Project
 
