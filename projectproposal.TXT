@@ -10,13 +10,39 @@ Yodas Gaming Wiki
 
 3. short description:
 
-This website is a general 
+This website is a wiki for general information about video games, 
+but with a twist since it also includes a feature to translate game descriptions 
+(and potentially other text) to the format used by the popular Star Wars character Yoda. 
+It is intended for a niche market of consumers who are both interested in video games and Star Wars,
+for whom a niche feature along with the more standard wiki features would be the thing to attract users.
+Standard wiki features to be included would be to search for articles of different categories, see a number of results, 
+where the user can then navigate to a page with information about a particular thing in greater detail. 
+Per-user persistence is implemented for a saved articles tab, where users can save articles they are particularly interested under different categories, such as favorites, wishes to play, wishes to buy ect. 
+If the user is not logged in then defaults to a "guest" account which can read normally but not write.
 
-4. framework(s) that will be used: Vue
+(Potential features not sure to be included: 
+1. The ability to read another users saved pages tab, but not edit it.
+2. Allowing users to like or dislike a particular article, and this is then visable to other users who view the article
+3. Per-user age filters, which block the user from checking pages about certain topics or reciving them as search results.
+4. The ability to make reviews/comments on a particular page, which anyone can read but only the user edit. 
+)
+
+4. framework(s) that will be used: Vue, Pinia (?)
 
 5. API that will be used:
 
+IGDB : https://api-docs.igdb.com/?javascript#company-website
+
+Yoda Translator: https://rapidapi.com/orthosie/api/yoda-translator
+
 6. what data will your app work with (which ones come from API and which one is your app specific):
+
+Search results will come from the first API, and will be displayed to the user, also information concerning the current page to be displayes or added to the saved tab. 
+The second API will recive part of the data from the first and then return an altered version, which will then be displayed to the user.
+App "native" information is which pages a user has saved, along with under which categories they have done so.
+The app should also save information about the votes for any page where a vote has been made, 
+along with potentially which users have given a like/dislike in order to avoid multiple likes/dislikes from one person.
 
 7. quick mock-up/prototype (paper drawing is fine) of the screens your app will have:
 
+See folder named screen prototype for mock-ups of screens for the app. 
