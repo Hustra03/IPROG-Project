@@ -6,7 +6,7 @@ https://rapidapi.com/orthosie/api/yoda-translator
   General link:
     https://github.com/vuejs/awesome-vue#ui-components
   Notifications to user:
-    https://github.com/NxtChg/pieces/tree/master/js/vue/vs-notify // For giving user 
+    https://github.com/NxtChg/pieces/tree/master/js/vue/vs-notify // For giving user notifications
     https://github.com/shakee93/vue-toasted#usage
   Select:
     https://github.com/sagalbot/vue-select // For selecting categories in search(?)
