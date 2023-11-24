@@ -25,6 +25,7 @@ If the user is not logged in then defaults to a "guest" account which can read n
 2. Allowing users to like or dislike a particular article, and this is then visable to other users who view the article
 3. Per-user age filters, which block the user from checking pages about certain topics or reciving them as search results.
 4. The ability to make reviews/comments on a particular page, which anyone can read but only the user edit. 
+5. Keeping track of the last pages visited, and then showing these on the sidebar. Max 10, remove oldest when adding new?
 )
 
 4. framework(s) that will be used: Vue, Pinia (?)
