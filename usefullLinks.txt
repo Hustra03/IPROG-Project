@@ -1,0 +1,14 @@
+APIs to consider:
+https://api-docs.igdb.com/?javascript#company-website
+https://rapidapi.com/orthosie/api/yoda-translator
+
+3:rd Party Components to consider: 
+  General link:
+    https://github.com/vuejs/awesome-vue#ui-components
+  Notifications to user:
+    https://github.com/NxtChg/pieces/tree/master/js/vue/vs-notify
+    https://github.com/shakee93/vue-toasted#usage
+  Select:
+    https://github.com/sagalbot/vue-select
+  Color picking:
+    https://github.com/saintplay/vue-swatches
