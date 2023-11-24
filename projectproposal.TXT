@@ -43,8 +43,8 @@ See folder named screen prototype in the git repository for mock-ups of screens 
 Git repository: https://github.com/Hustra03/IPROG-Project
 
 (Potential features not sure to be included, feedback would be appreciated: 
-1. The ability to read another users saved pages tab, but not edit it.
-2. Allowing users to like or dislike a particular article, and this is then visable to other users who view the article
+1. The ability to read another users saved pages tab, but not edit it, perhaps even added search functionality (?).
+2. Allowing users to like or dislike a particular article, and the total score is then visable to other users who view the article
 3. Per-user age filters, which block the user from checking pages about certain topics or reciving them as search results.
 4. The ability to make reviews/comments on a particular page, which anyone can read but only the user edit. 
 5. Keeping track of the last pages visited, and then showing these on the sidebar. Max 10, remove oldest when adding new?
