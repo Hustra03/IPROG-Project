@@ -38,7 +38,9 @@ along with potentially which users have given a like/dislike in order to avoid m
 
 7. quick mock-up/prototype (paper drawing is fine) of the screens your app will have:
 
-See folder named screen prototype for mock-ups of screens for the app. 
+See folder named screen prototype in the git repository for mock-ups of screens for the app. 
+
+Git repository: https://github.com/Hustra03/IPROG-Project
 
 (Potential features not sure to be included, feedback would be appreciated: 
 1. The ability to read another users saved pages tab, but not edit it.
