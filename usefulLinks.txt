@@ -5,16 +5,19 @@ https://rapidapi.com/orthosie/api/yoda-translator
 3:rd Party Components to consider: 
   General link:
     https://github.com/vuejs/awesome-vue#ui-components
-  Notifications to user:
+  Notifications to user //Use only one of the ones below:
     https://github.com/NxtChg/pieces/tree/master/js/vue/vs-notify // For giving user notifications
-    https://github.com/shakee93/vue-toasted#usage
-  Select:
+    https://github.com/shakee93/vue-toasted#usage // For giving user notifications
+  Select //Use only both of the ones below:
     https://github.com/sagalbot/vue-select // For selecting categories in search(?)
     https://github.com/vueform/multiselect // For selecting tags in favorites
   Color picking:
-    https://github.com/saintplay/vue-swatches
+    https://github.com/saintplay/vue-swatches // For user customization
   Search:
-    https://github.com/kouts/vue-search-input
+    https://github.com/kouts/vue-search-input // For search, maybe find a differnt ones?
 
 Course project presentation:
   https://docs.google.com/presentation/d/1pI5dLSpVBd6cbaJf6G8hQm_ByY3cxVSPNkklpyWOXvg/edit#slide=id.g29e124abe43_0_406
+
+Mockup making website:
+  https://www.figma.com/file/tf2cKitFm7HmR51tT5WOvT/Home-Page?type=design&node-id=0%3A1&mode=design&t=4PcBzJa9skaPVpf2-1
