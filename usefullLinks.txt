@@ -12,6 +12,8 @@ https://rapidapi.com/orthosie/api/yoda-translator
     https://github.com/sagalbot/vue-select
   Color picking:
     https://github.com/saintplay/vue-swatches
+  Search:
+    https://github.com/kouts/vue-search-input
 
 Course project presentation:
   https://docs.google.com/presentation/d/1pI5dLSpVBd6cbaJf6G8hQm_ByY3cxVSPNkklpyWOXvg/edit#slide=id.g29e124abe43_0_406
