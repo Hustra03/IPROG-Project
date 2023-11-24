@@ -1,1 +1,22 @@
+1. your names and Canvas IDs.  It is important to confirm who worked in the group so the credit does not go to somebody else.:
+
+Erik Paulinder, Canvas ID: 143241
+Eliaz Biderstrand, Canvas ID: 143208
+Viktor Fredlund, Canvas ID: 143155
+
+2. name of the app:
+
+Yodas Gaming Wiki
+
+3. short description:
+
+This website is a general 
+
+4. framework(s) that will be used: Vue
+
+5. API that will be used:
+
+6. what data will your app work with (which ones come from API and which one is your app specific):
+
+7. quick mock-up/prototype (paper drawing is fine) of the screens your app will have:
 
