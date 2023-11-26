@@ -1,0 +1,147 @@
+/* A debug class, used to separate components graphically during development */
+.sidebar {
+    /* border-style: solid; */
+    min-width: fit-content;
+    max-width: fit-content;
+    padding: 3px;
+    margin-bottom: 4px;
+}
+
+.minusGuests {
+    margin-right:4px;
+}
+
+.plusGuests {
+    margin-left:4px;
+}
+
+@media (min-width:300px) {
+.flexParent {
+    display: flex;
+    flex-direction: row;
+    height:100%;
+}
+}
+
+.mainContent {
+    flex: 0.8;
+}
+
+.sidebarDetail {
+    flex:0.2;
+    margin-right:10px;
+    border-style:solid;
+}
+
+
+.searchForm {
+    max-width: 640px;
+}
+
+.searchBox {
+    margin-right: 8px;
+}
+
+.selectBox {
+    margin-right: 8px;
+}
+
+.searchButton {
+    margin-right:8px;
+}
+
+.summaryButton {
+    margin-right:8px;
+}
+
+.searchResults {
+    border-style: solid;
+    border-color: red;
+    min-width: fit-content;
+    max-width: fit-content;
+    margin-top: 4px;
+    /* margin-bottom: 4px; */
+}
+
+.searchResultImages {
+    text-align: center;
+    font-size: small;
+    display: inline-block;
+    width: 100px;
+    vertical-align: top;
+    margin: 20px;
+}
+
+.image {
+    border-style: solid;
+    width: 100px;
+}
+
+.Amount {
+    text-align: right;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+}
+
+.dishDetails {
+    border-right-style: dashed;
+    border-right-color: grey;
+    padding: 4px;
+}
+
+.detailTitle {
+    font-size: larger;
+    font-weight: bolder;
+    max-width: 200px;
+}
+
+.detailsExplanation {
+    font-weight: bolder;
+}
+
+.detailsImage {}
+
+.detailsPrice {
+    border-style: solid;
+    min-width: fit-content;
+    max-width: fit-content;
+    padding: 3px;
+    margin-bottom: 3px;
+
+}
+
+.detailsIngredients {
+    border-style: solid;
+    min-width: fit-content;
+    max-width: fit-content;
+    padding: 3px;
+    margin-bottom: 3px;
+}
+
+.detailsInstructions {
+    border-style: solid;
+    padding: 3px;
+    max-width: 350px;
+}
+
+.addToMenuDiv {
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.addToMenuButton {
+    align-self: center;
+}
+
+.summary {
+    border-style: solid;
+    border-color: black;
+    min-width: fit-content;
+    max-width: fit-content;
+    padding: 3px;
+    /* margin-top: 15px; */
+}
