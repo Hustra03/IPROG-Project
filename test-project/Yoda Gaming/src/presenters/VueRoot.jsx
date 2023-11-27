@@ -1,4 +1,5 @@
 import InitialPagePresenter from "./initialPagePresenter.jsx";
+import { HeaderView } from "../views/headerView.jsx";
 
 import { createRouter, createWebHashHistory, RouterView } from "vue-router";
 
@@ -22,6 +23,9 @@ export default
 
     return (
         <div className="flexParent">
+            <div className="header">
+                <HeaderView />
+            </div>
             <div className="mainContent">
                 <RouterView />
             </div>
