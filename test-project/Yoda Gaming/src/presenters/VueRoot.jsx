@@ -1,7 +1,7 @@
 import InitialPagePresenter from "./initialPagePresenter.jsx";
-import { HeaderView } from "../views/headerView.jsx";
 
 import { createRouter, createWebHashHistory, RouterView } from "vue-router";
+import HeaderPresenter from "./headerPresenter.jsx";
 
 export function makeRouter(model) {
     return createRouter({
@@ -24,7 +24,7 @@ export default
     return (
         <div className="flexParent">
             <div className="header">
-                <HeaderView />
+                <HeaderPresenter model={props.model}/>
             </div>
             <div className="mainContent">
                 <RouterView />

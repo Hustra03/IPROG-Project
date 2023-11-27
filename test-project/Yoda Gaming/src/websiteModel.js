@@ -6,6 +6,7 @@ import resolvePromise from "./resolvePromise.js";
 import {getResultsSearch} from "./websiteSource.js";
 
 export default {
+  yodafy:false, //Represents if the "standard" text should be yodafied or not
   savedPages: [],
   currentPage: null,
   currentPagePromiseState: {},
@@ -42,6 +43,9 @@ export default {
     // note that we are adding a new object property (currentDish) which was not initialized in the constructor
   },
   // more methods will be added here, don't forget to separate them with comma!
+
+  toggleYodafyValue()
+  {this.yodafy=!this.yodafy;},
 
   setSearchQuery(query) {this.searchParams.query = query}, //This represents the text string the user wishes to search for, ex "Zelda" or "Nintendo", meaning depends on category
   setSearchType(type) {this.searchParams.type = type},  //This represents what type of thing the user is searching, ex RPG or Publisher, meaning depends on category
