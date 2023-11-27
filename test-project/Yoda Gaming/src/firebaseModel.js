@@ -1,18 +1,19 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, get, set, onValue } from "firebase/database";
+import {getDatabase} from "firebase/database";
 // you will find 2 imports already there, add the configuration and instantiate the app and database:
 
 //  PATH is the “root” Firebase path. NN is your TW2_TW3 group number
 const PATH = "ProjectGroup56";
 
 // Add relevant imports here
-// TODO
 import firebaseConfig from "./firebaseConfig.js";
 
 // Initialise firebase app, database, ref
 // TODO
 const app = initializeApp(firebaseConfig)
-const db = getDatabase(app)
+//const db = getDatabase(app)
+
+const db="nothing";
 
 console.log("Database")
 console.log(db)

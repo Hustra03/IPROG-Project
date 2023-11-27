@@ -13,7 +13,7 @@ import { reactive, watch,createApp, h  } from "vue";
 window.React= {createElement:h};  // needed in the lab because it works with both React and Vue
 
 import VueRoot from "./VueRoot.jsx";
-import connectToFirebase from "../firebaseModel.js";
+//import connectToFirebase from "/src/firebaseModel.js";
 
 model.ready=model.ready;
 const reactiveModel= reactive(model);
@@ -28,4 +28,4 @@ app.mount('#root');
 // ------ for debug purposes ----------
 reactiveModel.doSearch({});             // make the model available in the Console
 window.myModel= reactiveModel;  
-connectToFirebase(reactiveModel,watch)
+//connectToFirebase(reactiveModel,watch)
