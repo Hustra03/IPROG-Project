@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, get, set, onValue } from "/src/teacherFirebase.js";
+import { getDatabase, ref, get, set, onValue } from "firebase/database";
 // you will find 2 imports already there, add the configuration and instantiate the app and database:
 
 //  PATH is the “root” Firebase path. NN is your TW2_TW3 group number
@@ -7,7 +7,7 @@ const PATH = "ProjectGroup56";
 
 // Add relevant imports here
 // TODO
-import firebaseConfig from "/src/firebaseConfig.js";
+import firebaseConfig from "./firebaseConfig.js";
 
 // Initialise firebase app, database, ref
 // TODO
