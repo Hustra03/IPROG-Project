@@ -8,7 +8,7 @@ function HeaderView(props) {
     function searchImagePressedCB() { console.log("Search Image pressed"); props.searchCustomEvent(); }
 
     function loggedIn() {
-        if (true) {
+        if (props.yodafy) {
             return <button onClick={loginButtonPressedCB} className="HeaderLoginButton">Login</button>;
         }
         return <button onClick={loginButtonPressedCB} className="HeaderLoginButton">Sign Out</button>;
@@ -16,10 +16,8 @@ function HeaderView(props) {
 
     if (props.yodafy) {
         return <div>
-            {loggedIn()}
             <div className="HeaderTitle">Yodas Gaming Wiki</div>
             <div>Example Text: "The beam dropped down on the workmen's head. Read verse out loud for pleasure."</div>
-
             {loggedIn()}
             <button onClick={yodafyButtonPressedCB} className="HeaderYodafyButton">Yodafy</button>
             <img onClick={searchImagePressedCB} className="HeaderSearchButton" src="http://placekitten.com/200/300" height={100} alt="" />
