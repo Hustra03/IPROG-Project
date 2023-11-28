@@ -13,8 +13,7 @@ import { reactive, watch,createApp, h  } from "vue";
 window.React= {createElement:h};  // needed in the lab because it works with both React and Vue
 
 import VueRoot from "./VueRoot.jsx";
-//import connectToFirebase from "/src/firebaseModel.js";
-
+import "/src/firebaseModel.js";
 model.ready=model.ready;
 const reactiveModel= reactive(model);
 const app= createApp(<VueRoot model={reactiveModel}/>);
