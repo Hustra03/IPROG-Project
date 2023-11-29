@@ -8,6 +8,6 @@ Erik Paulinder, Git account: Hustra03 and eripau, Canvas ID: 143241
 
 Eliaz Biderstrand, Git account:EliazBid , Canvas ID: 143208
 
-Viktor Fredlund, Git account:, Canvas ID: 143155
+Viktor Fredlund, Git account: MrBregott, Canvas ID: 143155
 
-William Ma Jönsson, Git account: , Canvas ID: 143089
+William Ma Jönsson, Git account: EroHex, Canvas ID: 143089
