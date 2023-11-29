@@ -16,7 +16,7 @@ import VueRoot from "./VueRoot.jsx";
 import "/src/firebaseModel.js";
 import connectToFirebase from "../firebaseModel.js";
 
-import { createNotivue } from 'notivue' 
+import { createNotivue } from 'notivue' // https://github.com/smastrom/notivue
 
 import 'notivue/notifications.css' // Only needed if using built-in notifications 
 import 'notivue/animations.css' // Only needed if using built-in animations 
