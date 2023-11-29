@@ -18,7 +18,8 @@ function HeaderView(props) {
         }
         return (
             <div>
-                <div>Current User: {props.loggedIn.uid}</div>
+                <div>Current User: {props.loggedIn.displayName}</div>
+                <div>Email: {props.loggedIn.email}</div>
                 <button onClick={loginButtonPressedCB} className="HeaderLoginButton">Sign Out</button>
             </div>
         )
@@ -37,12 +38,19 @@ function HeaderView(props) {
         }
     }
 
+    function yodafyButton() {
+        if (!props.yodafy) {
+            return <button onClick={yodafyButtonPressedCB} className="HeaderYodafyButton">Yodafy</button>
+        }
+        return <button onClick={yodafyButtonPressedCB} className="HeaderYodafyButton">De-Yodafy</button>
+    }
+
     return (
     <div>
         <div className="HeaderTitle">Yodas Gaming Wiki</div>
         {yodafiedText()}
         {loggedIn()}
-        <button onClick={yodafyButtonPressedCB} className="HeaderYodafyButton">Yodafy</button>
+        {yodafyButton()}
         {savedPages()}
         <img onClick={searchImagePressedCB} className="HeaderSearchButton" src="http://placekitten.com/200/300" height={100} alt="" />
     

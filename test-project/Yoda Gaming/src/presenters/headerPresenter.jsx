@@ -10,6 +10,7 @@ export default
             signInWithPopup(auth, provider);
             props.model.user=auth.currentUser;
         }
+        console.log(props.model.user);
         signOut(auth);
         props.model.user=null;
      }
