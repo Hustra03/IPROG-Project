@@ -3,8 +3,14 @@ https://github.com/public-apis/public-apis
 https://api-docs.igdb.com/?javascript#company-website
 https://rapidapi.com/orthosie/api/yoda-translator
 
+?:
+
+https://github.com/richchurcher/yoda-api
+
 Yoda translator: 
 https://lingojam.com/EnglishtoYoda
+
+
 
 3:rd Party Components to consider: 
   General link:
