@@ -12,6 +12,7 @@ export default {
   currentPagePromiseState: {},
   searchParams: {},
   searchResultsPromiseState: {},
+  user:null,
 
   //Model is initially just a modified version of dinnerModel, with minor changes when relevant
 

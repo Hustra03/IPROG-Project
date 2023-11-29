@@ -14,6 +14,8 @@ window.React= {createElement:h};  // needed in the lab because it works with bot
 
 import VueRoot from "./VueRoot.jsx";
 import "/src/firebaseModel.js";
+import connectToFirebase from "../firebaseModel.js";
+
 model.ready=model.ready;
 const reactiveModel= reactive(model);
 const app= createApp(<VueRoot model={reactiveModel}/>);
@@ -27,4 +29,4 @@ app.mount('#root');
 // ------ for debug purposes ----------
 reactiveModel.doSearch({});             // make the model available in the Console
 window.myModel= reactiveModel;  
-//connectToFirebase(reactiveModel,watch)
+connectToFirebase(reactiveModel,watch)
