@@ -10,6 +10,7 @@
   "dependencies": {
     "@innologica/vue-dropdown-menu": "^0.1.4",
     "firebase": "^9.17.1",
+    "notivue": "^1.4.4",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5",
     "vue-toasted": "^1.1.28"
