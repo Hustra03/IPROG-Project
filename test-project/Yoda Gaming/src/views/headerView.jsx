@@ -2,7 +2,7 @@ import "/src/style.css"
 
 import DropdownMenu from '@innologica/vue-dropdown-menu'
 
-//Above is a custom component
+//Above is a custom component, https://github.com/Innologica/vue-dropdown-menu
 
 function HeaderView(props) {
 

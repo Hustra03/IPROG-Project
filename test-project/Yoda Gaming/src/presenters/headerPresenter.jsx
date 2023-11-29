@@ -1,12 +1,13 @@
 import { auth, provider, signOut, signInWithPopup } from "../firebaseModel.js";
 import { HeaderView } from "../views/headerView.jsx";
 import Toasted from 'vue-toasted';
+//3:rd Party Component, https://github.com/shakee93/vue-toasted#usage
 
 export default
     function HeaderPresenter(props) {
     function loginCustomEventHandler() {
 
-        
+
 
         if (!auth.currentUser) {
             signInWithPopup(auth, provider);
