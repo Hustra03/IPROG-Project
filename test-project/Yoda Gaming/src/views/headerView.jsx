@@ -1,10 +1,14 @@
 import "/src/style.css"
 
+import DropdownMenu from '@innologica/vue-dropdown-menu'
+
+//Above is a custom component
+
 function HeaderView(props) {
 
     function loginButtonPressedCB() { console.log("Log button pressed"); props.loginCustomEvent(); }
     function yodafyButtonPressedCB() { console.log("Yodafy button pressed"); props.yodafyCustomEvent(); }
-    function savedPagesButtonPressedCB(){}
+    function savedPagesButtonPressedCB() { }
 
     function searchImagePressedCB() { console.log("Search Image pressed"); props.searchCustomEvent(); }
 
@@ -46,15 +50,14 @@ function HeaderView(props) {
     }
 
     return (
-    <div>
-        <div className="HeaderTitle">Yodas Gaming Wiki</div>
-        {yodafiedText()}
-        {loggedIn()}
-        {yodafyButton()}
-        {savedPages()}
-        <img onClick={searchImagePressedCB} className="HeaderSearchButton" src="http://placekitten.com/200/300" height={100} alt="" />
-    
-    </div>
+        <div>
+            <div className="HeaderTitle">Yodas Gaming Wiki</div>
+            {yodafiedText()}
+            {loggedIn()}
+            {yodafyButton()}
+            {savedPages()}
+            <img onClick={searchImagePressedCB} className="HeaderSearchButton" src="http://placekitten.com/200/300" height={100} alt="" />
+        </div>
     )
 
 }
