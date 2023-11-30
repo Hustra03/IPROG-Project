@@ -1,7 +1,7 @@
 import '@coreui/coreui/dist/css/coreui.min.css'
 import "/src/style.css"
 
-import { CDropdown, CDropdownToggle, CDropdownMenu, CDropdownDivider, CDropdownItem, CForm, CFormInput, CFormLabel, CFormCheck, CToast, CToastBody, CButton } from '@coreui/vue';
+import { CDropdown, CDropdownToggle, CDropdownMenu, CDropdownDivider, CDropdownItem, CForm, CFormInput, CFormLabel, CFormCheck, CFormSelect, CButton } from '@coreui/vue';
 // Custom component, https://coreui.io/vue/docs/components/dropdown.html
 // Custom component, https://coreui.io/vue/docs/components/toast.html
 // Custom component, https://coreui.io/vue/docs/getting-started/introduction.html
@@ -81,16 +81,33 @@ function HeaderView(props) {
                         <CDropdownToggle color="primary">Search</CDropdownToggle>
                         <CDropdownMenu>
 
-                            <CForm class="px-4 py-4">
-                                <div class="mb-3">
-                                    <CFormLabel for="exampleDropdownFormEmail1">Email address</CFormLabel>
-                                    <CFormInput type="text" id="exampleDropdownFormEmail1" placeholder="email@example.com" />
+                            <CForm className="px-4 py-4">
+                                <div className="mb-3">
+                                    <CFormLabel for="queryForm">Search Query</CFormLabel>
+                                    <CFormInput type="text" id="queryForm" placeholder="Star Wars, The Force Awakens" />
                                 </div>
-                                <div class="mb-3">
+                                <div className="mb-3">
                                     <CFormLabel for="exampleDropdownFormPassword1">Password</CFormLabel>
-                                    <CFormInput type="password" id="exampleDropdownFormPassword1" placeholder="Password" />
+                                    <CFormInput type="text" id="exampleDropdownFormPassword1" placeholder="Password" />
                                 </div>
-                                <div class="mb-3">
+                                <div>
+                                    <CFormSelect aria-label="Default select example">
+                                        <option>Genre</option>
+                                        <option value="RPG">RPG</option>
+                                        <option value="MMO">MMO</option>
+                                        <option value="Romance">Romance</option>
+                                    </CFormSelect>
+                                </div>
+
+                                <div>
+                                    <CFormSelect aria-label="Default select example">
+                                        <option>Sort By</option>
+                                        <option value="Popularity">Popularity</option>
+                                        <option value="Trending">Trending</option>
+                                    </CFormSelect>
+                                </div>
+
+                                <div className="mb-3">
                                     <CFormCheck id="dropdownCheck" label="Remember me" />
                                 </div>
                                 <CButton type="submit">Sign in</CButton>
