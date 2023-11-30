@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@coreui/vue": "^4.10.1",
     "@innologica/vue-dropdown-menu": "^0.1.4",
     "firebase": "^9.17.1",
     "notivue": "^1.4.4",

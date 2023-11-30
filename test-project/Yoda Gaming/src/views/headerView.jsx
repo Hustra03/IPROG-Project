@@ -1,16 +1,32 @@
+import '@coreui/coreui/dist/css/coreui.min.css'
 import "/src/style.css"
 
 import DropdownMenu from '@innologica/vue-dropdown-menu'
 
 //Above is a custom component, https://github.com/Innologica/vue-dropdown-menu
 
+import { CDropdown, CDropdownToggle, CDropdownMenu, CDropdownItem, CToast, CToastBody } from '@coreui/vue';
+// Custom component, https://coreui.io/vue/docs/components/dropdown.html
+// Custom component, https://coreui.io/vue/docs/components/toast.html
+
 function HeaderView(props) {
 
-    function loginButtonPressedCB() { console.log("Log button pressed"); props.loginCustomEvent(); }
+    function loginButtonPressedCB() {
+        console.log("Log button pressed"); props.loginCustomEvent();
+
+          return  <CToast v-for="(toast, index) in toasts">
+                    <CToastHeader closeButton>
+                        <span class="me-auto fw-bold">{{ toast, title }}</span>
+                        <small>7 min ago</small>
+                    </CToastHeader>
+                    <CToastBody>
+                        {{ toast, content }}
+                    </CToastBody>
+                </CToast>
+
+    }
     function yodafyButtonPressedCB() { console.log("Yodafy button pressed"); props.yodafyCustomEvent(); }
     function savedPagesButtonPressedCB() { }
-
-    function searchImagePressedCB() { console.log("Search Image pressed"); props.searchCustomEvent(); }
 
     function UpperHalfButtons() {
         if (props.loggedIn == null) {
@@ -62,14 +78,29 @@ function HeaderView(props) {
             </div>
             <div className="HeaderLowerHalf">
 
+
+
                 <div className="HeaderExampleText">
-                {yodafiedText()}
+                    {yodafiedText()}
                 </div>
                 <div className="HeaderLowerButtons">
                     {savedPages()}
-                </div></div>
 
-        </div>
+
+                    <CDropdown>
+                        <CDropdownToggle color="primary">Search</CDropdownToggle>
+                        <CDropdownMenu>
+                            <CDropdownItem href="#">Action</CDropdownItem>
+                            <CDropdownItem href="#">Another action</CDropdownItem>
+                            <CDropdownItem href="#">Something else here</CDropdownItem>
+                        </CDropdownMenu>
+                    </CDropdown>
+
+
+                </div>
+            </div>
+
+        </div >
     )
 
 }
