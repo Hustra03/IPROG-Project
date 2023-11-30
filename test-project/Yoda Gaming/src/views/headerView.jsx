@@ -12,19 +12,21 @@ function HeaderView(props) {
 
     function searchImagePressedCB() { console.log("Search Image pressed"); props.searchCustomEvent(); }
 
-    function loggedIn() {
+    function UpperHalfButtons() {
         if (props.loggedIn == null) {
             return (
-                <div>
+                <div className="LoggedIn">
                     <button onClick={loginButtonPressedCB} className="HeaderLoginButton">Login</button>
+                    {yodafyButton()}
                 </div>
             )
         }
         return (
-            <div>
+            <div className="LoggedIn">
                 <div>Current User: {props.loggedIn.displayName}</div>
                 <div>Email: {props.loggedIn.email}</div>
                 <button onClick={loginButtonPressedCB} className="HeaderLoginButton">Sign Out</button>
+                {yodafyButton()}
             </div>
         )
     }//TODO Fix above section when per-user persitence has been implemented so login when not logged in, and sign out when logged in
@@ -50,13 +52,23 @@ function HeaderView(props) {
     }
 
     return (
-        <div>
-            <div className="HeaderTitle">Yodas Gaming Wiki</div>
-            {yodafiedText()}
-            {loggedIn()}
-            {yodafyButton()}
-            {savedPages()}
-            <img onClick={searchImagePressedCB} className="HeaderSearchButton" src="http://placekitten.com/200/300" height={100} alt="" />
+        <div className="HeaderEntire">
+
+            <div className="HeaderUpperHalf">
+                <div className="HeaderTitle">Yodas Gaming Wiki</div>
+                <div className="HeaderUpperButtons">
+                    {UpperHalfButtons()}
+                </div>
+            </div>
+            <div className="HeaderLowerHalf">
+
+                <div className="HeaderExampleText">
+                {yodafiedText()}
+                </div>
+                <div className="HeaderLowerButtons">
+                    {savedPages()}
+                </div></div>
+
         </div>
     )
 
