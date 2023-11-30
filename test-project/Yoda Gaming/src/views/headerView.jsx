@@ -1,29 +1,15 @@
 import '@coreui/coreui/dist/css/coreui.min.css'
 import "/src/style.css"
 
-import DropdownMenu from '@innologica/vue-dropdown-menu'
-
-//Above is a custom component, https://github.com/Innologica/vue-dropdown-menu
-
-import { CDropdown, CDropdownToggle, CDropdownMenu, CDropdownItem, CToast, CToastBody } from '@coreui/vue';
+import { CDropdown, CDropdownToggle, CDropdownMenu, CDropdownDivider, CDropdownItem, CForm, CFormInput, CFormLabel, CFormCheck, CToast, CToastBody, CButton } from '@coreui/vue';
 // Custom component, https://coreui.io/vue/docs/components/dropdown.html
 // Custom component, https://coreui.io/vue/docs/components/toast.html
+// Custom component, https://coreui.io/vue/docs/getting-started/introduction.html
 
 function HeaderView(props) {
 
     function loginButtonPressedCB() {
         console.log("Log button pressed"); props.loginCustomEvent();
-
-          return  <CToast v-for="(toast, index) in toasts">
-                    <CToastHeader closeButton>
-                        <span class="me-auto fw-bold">{{ toast, title }}</span>
-                        <small>7 min ago</small>
-                    </CToastHeader>
-                    <CToastBody>
-                        {{ toast, content }}
-                    </CToastBody>
-                </CToast>
-
     }
     function yodafyButtonPressedCB() { console.log("Yodafy button pressed"); props.yodafyCustomEvent(); }
     function savedPagesButtonPressedCB() { }
@@ -67,6 +53,11 @@ function HeaderView(props) {
         return <button onClick={yodafyButtonPressedCB} className="HeaderYodafyButton">De-Yodafy</button>
     }
 
+    function toast() {
+        console.log("Toast Pressed");
+        return <component ></component>;
+    }
+
     return (
         <div className="HeaderEntire">
 
@@ -78,23 +69,38 @@ function HeaderView(props) {
             </div>
             <div className="HeaderLowerHalf">
 
-
-
                 <div className="HeaderExampleText">
                     {yodafiedText()}
+                    <CButton onClick={toast} type="submit" color="primary">Toast</CButton>
                 </div>
                 <div className="HeaderLowerButtons">
                     {savedPages()}
 
 
-                    <CDropdown>
+                    <CDropdown auto-close="outside">
                         <CDropdownToggle color="primary">Search</CDropdownToggle>
                         <CDropdownMenu>
-                            <CDropdownItem href="#">Action</CDropdownItem>
-                            <CDropdownItem href="#">Another action</CDropdownItem>
-                            <CDropdownItem href="#">Something else here</CDropdownItem>
+
+                            <CForm class="px-4 py-4">
+                                <div class="mb-3">
+                                    <CFormLabel for="exampleDropdownFormEmail1">Email address</CFormLabel>
+                                    <CFormInput type="text" id="exampleDropdownFormEmail1" placeholder="email@example.com" />
+                                </div>
+                                <div class="mb-3">
+                                    <CFormLabel for="exampleDropdownFormPassword1">Password</CFormLabel>
+                                    <CFormInput type="password" id="exampleDropdownFormPassword1" placeholder="Password" />
+                                </div>
+                                <div class="mb-3">
+                                    <CFormCheck id="dropdownCheck" label="Remember me" />
+                                </div>
+                                <CButton type="submit">Sign in</CButton>
+                            </CForm>
+                            <CDropdownDivider />
+                            <CDropdownItem href="#">New around here? Sign up</CDropdownItem>
+                            <CDropdownItem href="#">Forgot password?</CDropdownItem>
                         </CDropdownMenu>
                     </CDropdown>
+                    {/*TODO Add options for search query and function for search submission*/}
 
 
                 </div>
