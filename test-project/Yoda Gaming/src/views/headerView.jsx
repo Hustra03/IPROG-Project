@@ -5,6 +5,7 @@ import { CDropdown, CDropdownToggle, CDropdownMenu, CDropdownDivider, CDropdownI
 // Custom component, https://coreui.io/vue/docs/components/dropdown.html
 // Custom component, https://coreui.io/vue/docs/components/toast.html
 // Custom component, https://coreui.io/vue/docs/getting-started/introduction.html
+// Custom component, https://coreui.io/vue/docs/forms/select.html
 
 function HeaderView(props) {
 
