@@ -19,44 +19,48 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 function modelToPersistence(model) {
-/*
+
     return {
-        guests: model.numberOfGuests,
-        currentDish: model.currentDish,
-        dishesID: model.dishes.map(dishTransformCB).sort(intCB),
-    };*/
+        yodafy: model.yodafy,
+        searchParam: model.searchParam,
+    };
 }
 
 function persistenceToModel(data, model) {
-    // TODO return a promise
-    /*if (!data) {
-        model.setNumberOfGuests(2);
-        model.setCurrentDish(null);
-        model.dishes = [];
-        return getMenuDetails(model.dishes).then(saveDishesToModelACB);
+    if (!data) {//Sets initial values
+        model.setYodafyValue(false);
+        model.setSearchParams({});
+        //TODO return the promises from any searches
+        return;
     }
-    model.setNumberOfGuests(data.guests);
-    model.setCurrentDish(data.currentDish);
-    if (!data.dishesID) { data.dishesID = [] }
-    return getMenuDetails(data.dishesID).then(saveDishesToModelACB);
-    function saveDishesToModelACB(dishes) { model.dishes = dishes; }*/
+    model.setYodafyValue(data.yodafy);
+    if (data.searchParam) {
+
+        model.setSearchParams(data.searchParam);
+    }
+    else { model.setSearchParams({}); }
+    return;
 }
 
 function saveToFirebase(model) {
-    if (model.ready) {
+    if (model.user) {
 
         set(ref(db, PATH + "/model" + "/" + auth.currentUser.uid), modelToPersistence(model));
     }
 }
 function readFromFirebase(model) {
 
-    onValue(ref(db, PATH + "/model" + "/" + auth.currentUser.uid), (snapshot) => {
-        const data = snapshot.val();
-        persistenceToModel(data, model);
-    });
+    if (model.user) {
 
-    model.ready = false;
-    return getFromDatabaseACB().then(persistenceToModelACB).then(modelReadyCB);
+
+        onValue(ref(db, PATH + "/model" + "/" + auth.currentUser.uid), (snapshot) => {
+            const data = snapshot.val();
+            persistenceToModel(data, model);
+        });
+
+        model.ready = false;
+        return getFromDatabaseACB().then(persistenceToModelACB).then(modelReadyCB);
+    }
 
     function getFromDatabaseACB() { return get(ref(db, PATH + "/model" + "/" + auth.currentUser.uid)) }
     function persistenceToModelACB(snapshot) {
@@ -68,24 +72,23 @@ function readFromFirebase(model) {
 }
 function connectToFirebase(model, watchFunction) {
 
-    onAuthStateChanged(auth,authChangeACB)
+    onAuthStateChanged(auth, authChangeACB)
 
-    function authChangeACB(user)
-    {
+    function authChangeACB(user) {
         if (user) {
-            model.user=user;
+            model.user = user;
             readFromFirebase(model);
             watchFunction(checkACB, effectACB);
         }
     }
     function checkACB() {
-        return [model.numberOfGuests, model.currentDish, model.dishes]
+        return [model.searchParam, model.yodafy]
     }
     function effectACB() {
         saveToFirebase(model);
     }
 }
-export {auth,provider,signInWithPopup,signOut};
+export { auth, provider, signInWithPopup, signOut };
 
 export default connectToFirebase;
 

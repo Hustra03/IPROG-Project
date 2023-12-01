@@ -3,21 +3,21 @@
 */
 
 import resolvePromise from "./resolvePromise.js";
-import {getResultsSearch} from "./websiteSource.js";
+import { getResultsSearch } from "./websiteSource.js";
 
 export default {
-  yodafy:false, //Represents if the "standard" text should be yodafied or not
+  yodafy: false, //Represents if the "standard" text should be yodafied or not
   savedPages: [],
   currentPage: null,
   currentPagePromiseState: {},
   searchParams: {},
   searchResultsPromiseState: {},
-  user:null,
+  user: null,
 
   //Model is initially just a modified version of dinnerModel, with minor changes when relevant
 
   addToSavedPage(pageToAdd, initialCategory) {
-    const savedPage={actualPage:pageToAdd,category:initialCategory};
+    const savedPage = { actualPage: pageToAdd, category: initialCategory };
     this.savedPages = [...this.savedPages, (savedPage)];
   },//By Erik Paulinder, saves the current page with a specified category
 
@@ -38,22 +38,29 @@ export default {
   setPage(id) {
     if (id !== this.currentDish && id !== null && Number.isInteger(id)) { //TODO Check that each page has an id parameter, and what it is called if it is not id
       resolvePromise(getDishDetails(id), this.currentPagePromiseState);
-      this.currentPage=id; // Is this correct, it works but i do not think it is 
+      this.currentPage = id; // Is this correct, it works but i do not think it is 
     }
 
     // note that we are adding a new object property (currentDish) which was not initialized in the constructor
   },
   // more methods will be added here, don't forget to separate them with comma!
 
-  toggleYodafyValue()
-  {this.yodafy=!this.yodafy;},
+  toggleYodafyValue() {
+    if (this.yodafy) {
 
-  setSearchQuery(query) {this.searchParams.query = query}, //This represents the text string the user wishes to search for, ex "Zelda" or "Nintendo", meaning depends on category
-  setSearchType(type) {this.searchParams.type = type},  //This represents what type of thing the user is searching, ex RPG or Publisher, meaning depends on category
-  setSearchCategory(category) {this.searchParams.category = category},  //This represents what category of thing the user is searching, ex game or company ect.
-  setSearchSortBy(SortBy) {this.searchParams.SortBy = SortBy},  //This represents what results should be sorted by, ex "Rating" or "Release Date", , meaning depends on category
+      this.yodafy = false;
+    }
+    else { this.yodafy = true; }
+  },
+  setYodafyValue(value) { this.yodafy = value; },
+
+  setSearchParams(params) { this.searchParams = params }, //Sets all of the search params, used for persistence
+  setSearchQuery(query) { this.searchParams.query = query }, //This represents the text string the user wishes to search for, ex "Zelda" or "Nintendo", meaning depends on category
+  setSearchType(type) { this.searchParams.type = type },  //This represents what type of thing the user is searching, ex RPG or Publisher, meaning depends on category
+  setSearchCategory(category) { this.searchParams.category = category },  //This represents what category of thing the user is searching, ex game or company ect.
+  setSearchSortBy(SortBy) { this.searchParams.SortBy = SortBy },  //This represents what results should be sorted by, ex "Rating" or "Release Date", , meaning depends on category
   //TODO Add more search parameters, exactly which depends on implementation of search
-  
+
   doSearch(searchParams) {
     resolvePromise(getResultsSearch(searchParams), this.searchResultsPromiseState);
   },//TODO Ensure that the search function above can accept each category, and picks the correct function to get results from the API
