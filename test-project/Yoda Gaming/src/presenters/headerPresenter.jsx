@@ -23,12 +23,24 @@ export default
     return (
         <div>
             <HeaderView
+                type={props.model.searchParams.type}
                 yodafy={props.model.yodafy}
                 loggedIn={props.model.user}
                 loginCustomEvent={loginCustomEventHandler}
                 yodafyCustomEvent={yodafyCustomEventHandler}
                 searchCustomEvent={searchCustomEventHandler}
+                onSearchInputChange={onSearchInputChangeCustomEventHandler}
             />
         </div>
     );
+
+    function onSearchInputChangeCustomEventHandler(text) {
+        props.model.setSearchQuery(text);
+    }
+    function onSearchSelectChangeCustomEventHandler(type) {
+        props.model.setSearchType(type);
+    }
+    function onSearchButtonPressCustomEventHandler() {
+        props.model.doSearch(props.model.searchParams);
+    }
 }

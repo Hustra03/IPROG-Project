@@ -59,6 +59,9 @@ function HeaderView(props) {
         return <component ></component>;
     }
 
+    function searchInputCB(evt) {props.onSearchInputChange(evt.target.value);}
+
+
     return (
         <div className="HeaderEntire">
 
@@ -85,11 +88,11 @@ function HeaderView(props) {
                             <CForm className="px-4 py-4">
                                 <div className="mb-3">
                                     <CFormLabel for="queryForm">Search Query</CFormLabel>
-                                    <CFormInput type="text" id="queryForm" placeholder="Star Wars, The Force Awakens" />
+                                    <CFormInput type="text" value={props.text} onChange={searchInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
                                 </div>
                                 <div className="mb-3">
                                     <CFormLabel for="exampleDropdownFormPassword1">Password</CFormLabel>
-                                    <CFormInput type="text" id="exampleDropdownFormPassword1" placeholder="Password" />
+                                    <CFormInput type="text" value={props.text} onChange={searchInputCB} id="exampleDropdownFormPassword1" placeholder="Password" />
                                 </div>
                                 <div>
                                     <CFormSelect aria-label="Default select example">
