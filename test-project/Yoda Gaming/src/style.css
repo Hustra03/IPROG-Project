@@ -11,6 +11,7 @@
 }
 
 .header {
+    width: 100%;
     flex: 0.2;
     background-color: lightgreen;
 
@@ -21,8 +22,6 @@
 
 .HeaderTitle {
 
-    margin: auto;
-    margin-right: auto;
     font-family: Georgia, serif;
     font-size: 32px;
     color: #007324;
@@ -31,20 +30,12 @@
     font-style: normal;
     font-variant: normal;
     text-transform: none;
-    flex: 0.8;
 }
 
 
-.HeaderUpperHalf {
+.HeaderLeftHalf {
     width: 100%;
-    flex: 0.2;
-    display: flex;
-    flex-direction: row;
-}
-
-.HeaderUpperButtons {
-    flex: 0.2;
-    align-items: right;
+    flex: 0.5;
 }
 
 .LoggedIn {
@@ -52,18 +43,21 @@
     width: 200px;
 }
 
-.HeaderLowerHalf {
-    flex: 0.8;
+.HeaderRightHalf {
+    right: 0;
+    flex: 0.5;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
-.HeaderExampleText {
-    margin: auto;
-    flex: 0.8;
+.HeaderUpperButtons {
+    right: 0;
+    flex: 0.2;
+    align-items: right;
+    place-items: start end;
 }
-
 .HeaderLowerButtons {
+    right: 0;
     margin: auto;
 }
 

@@ -13,7 +13,7 @@ function HeaderView(props) {
         console.log("Log button pressed"); props.loginCustomEvent();
     }
     function yodafyButtonPressedCB() { console.log("Yodafy button pressed"); props.yodafyCustomEvent(); }
-    function savedPagesButtonPressedCB() {window.location.hash = "#/savedPages"; }
+    function savedPagesButtonPressedCB() { window.location.hash = "#/savedPages"; }
 
     function UpperHalfButtons() {
         if (props.loggedIn == null) {
@@ -59,23 +59,19 @@ function HeaderView(props) {
         return <component ></component>;
     }
 
-    function searchInputCB(evt) {props.onSearchInputChange(evt.target.value);}
+    function searchInputCB(evt) { props.onSearchInputChange(evt.target.value); }
 
 
     return (
         <div className="header">
 
-            <div className="HeaderUpperHalf">
+            <div className="HeaderLeftHalf">
                 <div className="HeaderTitle">Yodas Gaming Wiki</div>
+
+            </div>
+            <div className="HeaderRightHalf">
                 <div className="HeaderUpperButtons">
                     {UpperHalfButtons()}
-                </div>
-            </div>
-            <div className="HeaderLowerHalf">
-
-                <div className="HeaderExampleText">
-                    {yodafiedText()}
-                    <CButton onClick={toast} type="submit" color="success">Toast</CButton>
                 </div>
                 <div className="HeaderLowerButtons">
                     {savedPages()}
