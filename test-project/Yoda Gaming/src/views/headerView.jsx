@@ -19,7 +19,7 @@ function HeaderView(props) {
         if (props.loggedIn == null) {
             return (
                 <div className="LoggedIn">
-                    <button onClick={loginButtonPressedCB} className="HeaderLoginButton">Login</button>
+                    <CButton onClick={loginButtonPressedCB} type="submit" color="success">Login</CButton>
                     {yodafyButton()}
                 </div>
             )
@@ -28,14 +28,14 @@ function HeaderView(props) {
             <div className="LoggedIn">
                 <div>Current User: {props.loggedIn.displayName}</div>
                 <div>Email: {props.loggedIn.email}</div>
-                <button onClick={loginButtonPressedCB} className="HeaderLoginButton">Sign Out</button>
+                <CButton onClick={loginButtonPressedCB} type="submit" color="success">Sign Out</CButton>
                 {yodafyButton()}
             </div>
         )
     }//TODO Fix above section when per-user persitence has been implemented so login when not logged in, and sign out when logged in
 
     function yodafiedText() {
-        if (props.yodafy) {
+        if (!props.yodafy) {
             return <div>Example Text: "The beam dropped down on the workmen's head. Read verse out loud for pleasure."</div>
         }
         return <div> Example Text: "The beam dropped down on the workmen's head. Verse out loud for pleasure read." </div>
@@ -43,15 +43,15 @@ function HeaderView(props) {
 
     function savedPages() {
         if (props.loggedIn) {
-            return <button onClick={savedPagesButtonPressedCB}>Saved Pages</button>
+            return <CButton onClick={savedPagesButtonPressedCB} type="submit" color="success">Saved Pages</CButton>
         }
     }
 
     function yodafyButton() {
         if (!props.yodafy) {
-            return <button onClick={yodafyButtonPressedCB} className="HeaderYodafyButton">Yodafy</button>
+            return <CButton onClick={yodafyButtonPressedCB} type="submit" color="success">Yodafy</CButton>
         }
-        return <button onClick={yodafyButtonPressedCB} className="HeaderYodafyButton">De-Yodafy</button>
+        return <CButton onClick={yodafyButtonPressedCB} type="submit" color="success">De-Yodafy</CButton>
     }
 
     function toast() {
@@ -63,7 +63,7 @@ function HeaderView(props) {
 
 
     return (
-        <div className="HeaderEntire">
+        <div className="header">
 
             <div className="HeaderUpperHalf">
                 <div className="HeaderTitle">Yodas Gaming Wiki</div>
@@ -75,14 +75,14 @@ function HeaderView(props) {
 
                 <div className="HeaderExampleText">
                     {yodafiedText()}
-                    <CButton onClick={toast} type="submit" color="primary">Toast</CButton>
+                    <CButton onClick={toast} type="submit" color="success">Toast</CButton>
                 </div>
                 <div className="HeaderLowerButtons">
                     {savedPages()}
 
 
                     <CDropdown auto-close="outside">
-                        <CDropdownToggle color="primary">Search</CDropdownToggle>
+                        <CDropdownToggle color="success">Search</CDropdownToggle>
                         <CDropdownMenu>
 
                             <CForm className="px-4 py-4">
@@ -114,11 +114,8 @@ function HeaderView(props) {
                                 <div className="mb-3">
                                     <CFormCheck id="dropdownCheck" label="Remember me" />
                                 </div>
-                                <CButton type="submit">Sign in</CButton>
+                                <CButton type="submit">Search!</CButton>
                             </CForm>
-                            <CDropdownDivider />
-                            <CDropdownItem href="#">New around here? Sign up</CDropdownItem>
-                            <CDropdownItem href="#">Forgot password?</CDropdownItem>
                         </CDropdownMenu>
                     </CDropdown>
                     {/*TODO Add options for search query and function for search submission*/}

@@ -21,7 +21,7 @@ export default
     }
     function searchCustomEventHandler() { }
     return (
-        <div>
+        
             <HeaderView
                 type={props.model.searchParams.type}
                 yodafy={props.model.yodafy}
@@ -31,7 +31,7 @@ export default
                 searchCustomEvent={searchCustomEventHandler}
                 onSearchInputChange={onSearchInputChangeCustomEventHandler}
             />
-        </div>
+            
     );
 
     function onSearchInputChangeCustomEventHandler(text) {
