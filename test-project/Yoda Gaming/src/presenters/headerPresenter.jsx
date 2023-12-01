@@ -30,6 +30,7 @@ export default
                 yodafyCustomEvent={yodafyCustomEventHandler}
                 searchCustomEvent={searchCustomEventHandler}
                 onSearchInputChange={onSearchInputChangeCustomEventHandler}
+                savedPagesCustomEvent={savedPagesCustomEventHandler}
             />
             
     );
@@ -42,5 +43,9 @@ export default
     }
     function onSearchButtonPressCustomEventHandler() {
         props.model.doSearch(props.model.searchParams);
+    }
+    function savedPagesCustomEventHandler()
+    {
+        window.location.hash = "#/savedPages";
     }
 }

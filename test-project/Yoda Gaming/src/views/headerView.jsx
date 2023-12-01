@@ -13,7 +13,7 @@ function HeaderView(props) {
         console.log("Log button pressed"); props.loginCustomEvent();
     }
     function yodafyButtonPressedCB() { console.log("Yodafy button pressed"); props.yodafyCustomEvent(); }
-    function savedPagesButtonPressedCB() { }
+    function savedPagesButtonPressedCB() {window.location.hash = "#/savedPages"; }
 
     function UpperHalfButtons() {
         if (props.loggedIn == null) {
