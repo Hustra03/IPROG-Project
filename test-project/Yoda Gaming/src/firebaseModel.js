@@ -22,7 +22,6 @@ function modelToPersistence(model) {
 
     return {
         yodafy: model.yodafy,
-        searchParam: model.searchParam,
     };
 }
 
@@ -33,19 +32,17 @@ function persistenceToModel(data, model) {
         //TODO return the promises from any searches
         return;
     }
-    model.setYodafyValue(data.yodafy);
-    if (data.searchParam) {
-
-        model.setSearchParams(data.searchParam);
+    if (data.yodafy) {
+        model.setYodafyValue(data.yodafy);
     }
-    else { model.setSearchParams({}); }
-    return;
+    else { model.setYodafyValue(false); }
+    return;//TODO return the promises from any searches
 }
 
 function saveToFirebase(model) {
     if (model.user) {
 
-        set(ref(db, PATH + "/model" + "/" + auth.currentUser.uid), modelToPersistence(model));
+        set(ref(db, PATH + "/" + model.user.uid), modelToPersistence(model));
     }
 }
 function readFromFirebase(model) {
@@ -53,7 +50,7 @@ function readFromFirebase(model) {
     if (model.user) {
 
 
-        onValue(ref(db, PATH + "/model" + "/" + auth.currentUser.uid), (snapshot) => {
+        onValue(ref(db, PATH + "/" + model.user.uid), (snapshot) => {
             const data = snapshot.val();
             persistenceToModel(data, model);
         });
@@ -62,7 +59,7 @@ function readFromFirebase(model) {
         return getFromDatabaseACB().then(persistenceToModelACB).then(modelReadyCB);
     }
 
-    function getFromDatabaseACB() { return get(ref(db, PATH + "/model" + "/" + auth.currentUser.uid)) }
+    function getFromDatabaseACB() { return get(ref(db, PATH + "/" + model.user.uid)) }
     function persistenceToModelACB(snapshot) {
         return persistenceToModel(snapshot.val(), model);
     }
@@ -82,7 +79,7 @@ function connectToFirebase(model, watchFunction) {
         }
     }
     function checkACB() {
-        return [model.searchParam, model.yodafy]
+        return [model.yodafy]
     }
     function effectACB() {
         saveToFirebase(model);

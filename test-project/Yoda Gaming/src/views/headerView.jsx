@@ -28,6 +28,7 @@ function HeaderView(props) {
             <div className="LoggedIn">
                 <div>Current User: {props.loggedIn.displayName}</div>
                 <div>Email: {props.loggedIn.email}</div>
+                <img src={props.loggedIn.photoURL} alt="" />
                 <CButton onClick={loginButtonPressedCB} type="submit" color="success">Sign Out</CButton>
                 {yodafyButton()}
             </div>
