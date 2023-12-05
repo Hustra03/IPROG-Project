@@ -20,6 +20,7 @@ function HeaderView(props) {
             return (
                 <div className="LoggedIn">
                     <CButton onClick={loginButtonPressedCB} type="submit" color="success">Login</CButton>
+                    <img className="userIcon" src="https://placekitten.com/37/37" alt="user icon" />
                 </div>
             )
         }
@@ -35,9 +36,9 @@ function HeaderView(props) {
         if (props.loggedIn) {
             return (
                 <div>
+                    <CButton onClick={savedPagesButtonPressedCB} type="submit" color="success">Saved Pages</CButton>
                     {searchButton()}
                     {yodafyButton()}
-                    <CButton onClick={savedPagesButtonPressedCB} type="submit" color="success">Saved Pages</CButton>
                 </div>)
 
         }
