@@ -1,7 +1,7 @@
 import '@coreui/coreui/dist/css/coreui.min.css'
 import "/src/style.css"
 
-import { CDropdown, CDropdownToggle, CDropdownMenu, CDropdownDivider, CDropdownItem, CForm, CFormInput, CFormLabel, CFormCheck, CFormSelect, CButton } from '@coreui/vue';
+import { CDropdown, CDropdownToggle, CDropdownMenu, CForm, CFormInput, CFormLabel, CFormSelect, CButton } from '@coreui/vue';
 // Custom component, https://coreui.io/vue/docs/components/dropdown.html
 // Custom component, https://coreui.io/vue/docs/components/toast.html
 // Custom component, https://coreui.io/vue/docs/getting-started/introduction.html
@@ -20,32 +20,28 @@ function HeaderView(props) {
             return (
                 <div className="LoggedIn">
                     <CButton onClick={loginButtonPressedCB} type="submit" color="success">Login</CButton>
-                    {yodafyButton()}
                 </div>
             )
         }
         return (
             <div className="LoggedIn">
-                <div>Current User: {props.loggedIn.displayName}</div>
-                <div>Email: {props.loggedIn.email}</div>
-                <img src={props.loggedIn.photoURL} alt="" />
                 <CButton onClick={loginButtonPressedCB} type="submit" color="success">Sign Out</CButton>
-                {yodafyButton()}
+                <img className="userIcon" src={props.loggedIn.photoURL} alt="user icon" />
             </div>
         )
-    }//TODO Fix above section when per-user persitence has been implemented so login when not logged in, and sign out when logged in
-
-    function yodafiedText() {
-        if (!props.yodafy) {
-            return <div>Example Text: "The beam dropped down on the workmen's head. Read verse out loud for pleasure."</div>
-        }
-        return <div> Example Text: "The beam dropped down on the workmen's head. Verse out loud for pleasure read." </div>
     }
 
-    function savedPages() {
+    function HeaderLowerButtons() {
         if (props.loggedIn) {
-            return <CButton onClick={savedPagesButtonPressedCB} type="submit" color="success">Saved Pages</CButton>
+            return (
+                <div>
+                    {searchButton()}
+                    {yodafyButton()}
+                    <CButton onClick={savedPagesButtonPressedCB} type="submit" color="success">Saved Pages</CButton>
+                </div>)
+
         }
+        return (<div>{searchButton()} {yodafyButton()}</div>)
     }
 
     function yodafyButton() {
@@ -55,69 +51,61 @@ function HeaderView(props) {
         return <CButton onClick={yodafyButtonPressedCB} type="submit" color="success">De-Yodafy</CButton>
     }
 
-    function toast() {
-        console.log("Toast Pressed");
-        return <component ></component>;
-    }
 
     function searchInputCB(evt) { props.onSearchInputChange(evt.target.value); }
 
+    function searchButton() {
+        return (<CDropdown auto-close="outside">
+                <CDropdownToggle color="success">Search</CDropdownToggle>
+                <CDropdownMenu>
+                    <CForm className="px-4 py-4">
+                        <div className="mb-3">
+                            <CFormLabel for="queryForm">Search Query</CFormLabel>
+                            <CFormInput type="text" value={props.text} onChange={searchInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
+                        </div>
+                        <div className="mb-3">
+                            <CFormLabel for="exampleDropdownFormPassword1">Password</CFormLabel>
+                            <CFormInput type="text" value={props.text} onChange={searchInputCB} id="exampleDropdownFormPassword1" placeholder="Password" />
+                        </div>
+                        <div>
+                            <CFormSelect aria-label="Default select example">
+                                <option>Genre</option>
+                                <option value="RPG">RPG</option>
+                                <option value="MMO">MMO</option>
+                                <option value="Romance">Romance</option>
+                            </CFormSelect>
+                        </div>
+
+                        <div>
+                            <CFormSelect aria-label="Default select example">
+                                <option>Sort By</option>
+                                <option value="Popularity">Popularity</option>
+                                <option value="Trending">Trending</option>
+                            </CFormSelect>
+                        </div>
+
+                        <CButton type="submit">Search!</CButton>
+                    </CForm>
+                </CDropdownMenu>
+            </CDropdown>
+        //TODO implement all search parameters correctly when API implemented for testing
+        )
+    }
 
     return (
         <div className="header">
 
-            <div className="HeaderLeftHalf">
-                <div className="HeaderTitle">Yodas Gaming Wiki</div>
 
+            <div className="HeaderLeftHalf">
+                <h1 className="HeaderTitle">Yodas Gaming Wiki</h1>
             </div>
+
             <div className="HeaderRightHalf">
                 <div className="HeaderUpperButtons">
                     {UpperHalfButtons()}
                 </div>
                 <div className="HeaderLowerButtons">
-                    {savedPages()}
-
-
-                    <CDropdown auto-close="outside">
-                        <CDropdownToggle color="success">Search</CDropdownToggle>
-                        <CDropdownMenu>
-
-                            <CForm className="px-4 py-4">
-                                <div className="mb-3">
-                                    <CFormLabel for="queryForm">Search Query</CFormLabel>
-                                    <CFormInput type="text" value={props.text} onChange={searchInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
-                                </div>
-                                <div className="mb-3">
-                                    <CFormLabel for="exampleDropdownFormPassword1">Password</CFormLabel>
-                                    <CFormInput type="text" value={props.text} onChange={searchInputCB} id="exampleDropdownFormPassword1" placeholder="Password" />
-                                </div>
-                                <div>
-                                    <CFormSelect aria-label="Default select example">
-                                        <option>Genre</option>
-                                        <option value="RPG">RPG</option>
-                                        <option value="MMO">MMO</option>
-                                        <option value="Romance">Romance</option>
-                                    </CFormSelect>
-                                </div>
-
-                                <div>
-                                    <CFormSelect aria-label="Default select example">
-                                        <option>Sort By</option>
-                                        <option value="Popularity">Popularity</option>
-                                        <option value="Trending">Trending</option>
-                                    </CFormSelect>
-                                </div>
-
-                                <div className="mb-3">
-                                    <CFormCheck id="dropdownCheck" label="Remember me" />
-                                </div>
-                                <CButton type="submit">Search!</CButton>
-                            </CForm>
-                        </CDropdownMenu>
-                    </CDropdown>
-                    {/*TODO Add options for search query and function for search submission*/}
-
-
+                    {HeaderLowerButtons()}
                 </div>
             </div>
 

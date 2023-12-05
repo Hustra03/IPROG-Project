@@ -35,9 +35,7 @@ export default
 
     return (
         <div className="flexParent">
-            <div className="header">
-                <HeaderPresenter model={props.model}/>
-            </div>
+            <HeaderPresenter model={props.model} />
             <div className="mainContent">
                 <RouterView />
             </div>
