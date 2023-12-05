@@ -29,3 +29,6 @@ coverage
 
 #Configs
 **/*Config.js*
+
+#Firebase hosting, does not work?
+.firebase
