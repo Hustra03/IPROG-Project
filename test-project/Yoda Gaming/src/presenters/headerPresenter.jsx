@@ -6,11 +6,13 @@ export default
     function loginCustomEventHandler() {
 
         if (!auth.currentUser) {
+            
+            props.model.setCurrentUser(false);
             signInWithPopup(auth, provider);
-            props.model.user = auth.currentUser;
+            props.model.setCurrentUser(currentUser);
         }
         signOut(auth);
-        props.model.user = null;
+        props.model.setCurrentUser(null);
     }
     function yodafyCustomEventHandler() {
         props.model.toggleYodafyValue();

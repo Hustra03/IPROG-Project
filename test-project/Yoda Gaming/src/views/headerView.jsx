@@ -1,7 +1,7 @@
 import '@coreui/coreui/dist/css/coreui.min.css'
 import "/src/style.css"
 
-import { CDropdown, CDropdownToggle, CDropdownMenu, CForm, CFormInput, CFormLabel, CFormSelect, CButton } from '@coreui/vue';
+import { CDropdown, CDropdownToggle, CDropdownMenu, CForm, CFormInput, CFormLabel, CFormSelect, CButton, CSpinner } from '@coreui/vue';
 // Custom component, https://coreui.io/vue/docs/components/dropdown.html
 // Custom component, https://coreui.io/vue/docs/components/toast.html
 // Custom component, https://coreui.io/vue/docs/getting-started/introduction.html
@@ -11,11 +11,20 @@ function HeaderView(props) {
 
     function loginButtonPressedCB() {
         console.log("Log button pressed"); props.loginCustomEvent();
+        return <div>{authWorking()}</div>;
     }
     function yodafyButtonPressedCB() { console.log("Yodafy button pressed"); props.yodafyCustomEvent(); }
     function savedPagesButtonPressedCB() { window.location.hash = "#/savedPages"; }
 
     function UpperHalfButtons() {
+        function currentlyLoggingInFuction() {
+            console.log("Current User:");
+            console.log(props.loggedIn);
+            if (props.loggedIn == false) {
+                return <CSpinner color="primary" />;
+            }
+            return <img className="userIcon" src={props.loggedIn.photoURL} alt="user icon" />;
+        }
         if (props.loggedIn == null) {
             return (
                 <div className="LoggedIn">
@@ -27,7 +36,7 @@ function HeaderView(props) {
         return (
             <div className="LoggedIn">
                 <CButton onClick={loginButtonPressedCB} type="submit" color="success">Sign Out</CButton>
-                <img className="userIcon" src={props.loggedIn.photoURL} alt="user icon" />
+                {currentlyLoggingInFuction()}
             </div>
         )
     }

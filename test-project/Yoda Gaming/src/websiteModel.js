@@ -45,6 +45,9 @@ export default {
   },
   // more methods will be added here, don't forget to separate them with comma!
 
+  setCurrentUser(user)
+  {this.user=user;},
+
   toggleYodafyValue() {
     if (this.yodafy) {
 
