@@ -25,6 +25,9 @@ function getResultsSearch(searchParams)
     if (searchParams.ordering){
         URL += "&ordering=" + searchParams.ordering; // Add "-" before the order variable to reverse the order
     }
+    if (searchParams.page_size){
+        URL += "&page_size=" + searchParams.page_size;
+    }
 
     function getTheJSON_ACB(respons){
         if(!respons.ok){
