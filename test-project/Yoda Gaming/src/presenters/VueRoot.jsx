@@ -1,5 +1,5 @@
 import InitialPagePresenter from "./initialPagePresenter.jsx";
-import pageDetailsPresenter from "./pageDetailsPresenter.jsx";
+import Details from "./pageDetailsPresenter.jsx";
 import { createRouter, createWebHashHistory, RouterView } from "vue-router";
 import HeaderPresenter from "./headerPresenter.jsx";
 import SearchPresenter from "./searchPresenter.jsx";
@@ -26,7 +26,7 @@ export function makeRouter(model) {
             },
             {
                 path: "/details",
-                component: <pageDetailsPresenter model={model} />,
+                component: <Details model={model} />,
             }
         ]
     });
