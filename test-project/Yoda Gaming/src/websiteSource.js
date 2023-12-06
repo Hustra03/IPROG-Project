@@ -71,7 +71,7 @@ function yodafyText(text){
     }
 
     function giveOnlyRelevantInfoACB(json){
-        //console.log(json); //Uncomment to see the the api response object
+        console.log(json); //Uncomment to see the the api response object
         return json.results;
     }
     return fetch(YODA_SEARCH_URL, {

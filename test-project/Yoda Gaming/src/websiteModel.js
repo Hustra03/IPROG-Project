@@ -10,7 +10,7 @@ export default {
   savedPages: [],
   currentPage: null,
   currentPagePromiseState: {},
-  searchParams: {minMetacritic:0,maxMetacritic:100},
+  searchParams: {},
   searchResultsPromiseState: {},
   user: null,
 
@@ -58,18 +58,18 @@ export default {
   setYodafyValue(value) { this.yodafy = value; },
 
   setSearchParams(params) { this.searchParams = params }, //Sets all of the search params, used for persistence
-  setSearchQuery(query) { this.searchParams.query = query }, //This represents the text string the user wishes to search for, ex "Zelda" or "Nintendo", meaning depends on category
-  setSearchType(type) { this.searchParams.type = type },  //This represents what type of thing the user is searching, ex RPG or Publisher, meaning depends on category
-  setSearchGenre(genre) { this.searchParams.genre = genre }, //
+  setSearchQuery(query) { this.searchParams.search = query }, //This represents the text string the user wishes to search for, ex "Zelda" or "Nintendo", meaning depends on category
+  setSearchType(type) { this.searchParams.tags = type },  //This represents what type of thing the user is searching, ex RPG or Publisher, meaning depends on category
+  setSearchGenre(genre) { this.searchParams.genres = genre }, //
   
-  setSearchMinMetacritic(minMetacritic) { this.searchParams.minMetacritic = minMetacritic },  //
-  setSearchMaxMetacritic(maxMetacritic) { this.searchParams.maxMetacritic = maxMetacritic },  //
+  setSearchMinMetacritic(minMetacritic) { this.searchParams.metacritic_min = minMetacritic },  //
+  setSearchMaxMetacritic(maxMetacritic) { this.searchParams.metacritic_max = maxMetacritic },  //
 
-  
+  setSearchPageLimit(page_size){this.searchParams.page_size=page_size;},
   setSearchFuzzyDisabled(fuzzy) { this.searchParams.fuzzy = fuzzy },  //
   setSearchExactOnlyDisabled(exact) { this.searchParams.exact = exact },  //
 
-  setSearchSortBy(SortBy) { this.searchParams.SortBy = SortBy },  //This represents what results should be sorted by, ex "Rating" or "Release Date", , meaning depends on category
+  setSearchSortBy(SortBy) { this.searchParams.ordering = SortBy },  //This represents what results should be sorted by, ex "Rating" or "Release Date", , meaning depends on category
   //TODO Add more search parameters, exactly which depends on implementation of search
 
   doSearch(searchParams) {

@@ -12,11 +12,15 @@ export default
                 maxMetacritic={searchParams.maxMetacritic}
                 exact={searchParams.exact}
                 fuzzy={searchParams.fuzzy}
+                page_size={searchParams.page_size}
                 SortBy={searchParams.SortBy}
                 onQueryInputChange={onQueryInputChangeCustomEventHandler}
+                onTagsInputChange={onTagsInputChangeCustomEventHandler}
+                onGenreInputChange={onGenreInputChangeCustomEventHandler}
+                onSortByInputChange={onSortByInputChangeCustomEventHandler}
                 onMinMetacriticChange={onMinMetacriticChangeCustomEventHandler}
                 onMaxMetacriticChange={onMaxMetacriticChangeCustomEventHandler}
-                
+                onPageSizeChange={onPageSizeChangeCustomEventHandler}
                 onExactChange={onExactInputChangeCustomEventHandler}
                 onFuzzyChange={onFuzzyInputChangeCustomEventHandler}
                 searchCustomEvent={onSearchButtonPressCustomEventHandler} />
@@ -25,11 +29,19 @@ export default
     function onQueryInputChangeCustomEventHandler(query) {
         props.model.setSearchQuery(query);
     }
+
+    function onTagsInputChangeCustomEventHandler(tags) { props.model.setSearchType(tags); }
+
+    function onGenreInputChangeCustomEventHandler(genres) { props.model.setSearchGenre(genres); }
+
     function onMinMetacriticChangeCustomEventHandler(number) { props.model.setSearchMinMetacritic(number); }
 
     function onMaxMetacriticChangeCustomEventHandler(number) { props.model.setSearchMaxMetacritic(number); }
-    function onExactInputChangeCustomEventHandler(exact) { props.model.setSearchFuzzyDisabled(exact) }
+    function onPageSizeChangeCustomEventHandler(pageSize) { props.model.setSearchPageLimit(pageSize); }
+    function onExactInputChangeCustomEventHandler(exact) { props.model.setSearchExactOnlyDisabled(exact) }
     function onFuzzyInputChangeCustomEventHandler(fuzzy) { props.model.setSearchFuzzyDisabled(fuzzy) }
+
+    function onSortByInputChangeCustomEventHandler(sortBy) { props.model.setSearchSortBy(sortBy) }
 
     function onSearchButtonPressCustomEventHandler() {
         props.model.doSearch(props.model.searchParams);
