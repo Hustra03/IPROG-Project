@@ -16,20 +16,12 @@ import VueRoot from "./VueRoot.jsx";
 import "/src/firebaseModel.js";
 import connectToFirebase from "../firebaseModel.js";
 
-import { createNotivue } from 'notivue' // https://github.com/smastrom/notivue
-
-import 'notivue/notifications.css' // Only needed if using built-in notifications 
-import 'notivue/animations.css' // Only needed if using built-in animations 
-
-
-
 model.ready=model.ready;
 const reactiveModel= reactive(model);
 const app= createApp(<VueRoot model={reactiveModel}/>);
 app.use(makeRouter(reactiveModel));
 
 // Export push at the END of your plugins chain, just before mounting the app
-export const push = createNotivue(app);
 
 
 app.mount('#root'); 

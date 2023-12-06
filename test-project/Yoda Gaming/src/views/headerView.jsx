@@ -5,7 +5,7 @@ import { CDropdown, CDropdownToggle, CDropdownMenu, CForm, CFormInput, CFormLabe
 // Custom component, https://coreui.io/vue/docs/components/dropdown.html
 // Custom component, https://coreui.io/vue/docs/components/toast.html
 // Custom component, https://coreui.io/vue/docs/getting-started/introduction.html
-// Custom component, https://coreui.io/vue/docs/forms/select.html
+// Custom component, https://coreui.io/vue/docs/forms/select.htm
 
 function HeaderView(props) {
 
@@ -57,39 +57,39 @@ function HeaderView(props) {
 
     function searchButton() {
         return (<CDropdown auto-close="outside">
-                <CDropdownToggle color="success">Search</CDropdownToggle>
-                <CDropdownMenu>
-                    <CForm className="px-4 py-4">
-                        <div className="mb-3">
-                            <CFormLabel for="queryForm">Search Query</CFormLabel>
-                            <CFormInput type="text" value={props.text} onChange={searchInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
-                        </div>
-                        <div className="mb-3">
-                            <CFormLabel for="exampleDropdownFormPassword1">Password</CFormLabel>
-                            <CFormInput type="text" value={props.text} onChange={searchInputCB} id="exampleDropdownFormPassword1" placeholder="Password" />
-                        </div>
-                        <div>
-                            <CFormSelect aria-label="Default select example">
-                                <option>Genre</option>
-                                <option value="RPG">RPG</option>
-                                <option value="MMO">MMO</option>
-                                <option value="Romance">Romance</option>
-                            </CFormSelect>
-                        </div>
+            <CDropdownToggle color="success">Search</CDropdownToggle>
+            <CDropdownMenu>
+                <CForm className="px-4 py-4">
+                    <div className="mb-3">
+                        <CFormLabel for="queryForm">Search Query</CFormLabel>
+                        <CFormInput type="text" value={props.text} onChange={searchInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
+                    </div>
+                    <div className="mb-3">
+                        <CFormLabel for="exampleDropdownFormPassword1">Password</CFormLabel>
+                        <CFormInput type="text" value={props.text} onChange={searchInputCB} id="exampleDropdownFormPassword1" placeholder="Password" />
+                    </div>
+                    <div>
+                        <CFormSelect aria-label="Default select example">
+                            <option>Genre</option>
+                            <option value="RPG">RPG</option>
+                            <option value="MMO">MMO</option>
+                            <option value="Romance">Romance</option>
+                        </CFormSelect>
+                    </div>
 
-                        <div>
-                            <CFormSelect aria-label="Default select example">
-                                <option>Sort By</option>
-                                <option value="Popularity">Popularity</option>
-                                <option value="Trending">Trending</option>
-                            </CFormSelect>
-                        </div>
+                    <div>
+                        <CFormSelect aria-label="Default select example">
+                            <option>Sort By</option>
+                            <option value="Popularity">Popularity</option>
+                            <option value="Trending">Trending</option>
+                        </CFormSelect>
+                    </div>
 
-                        <CButton type="submit">Search!</CButton>
-                    </CForm>
-                </CDropdownMenu>
-            </CDropdown>
-        //TODO implement all search parameters correctly when API implemented for testing
+                    <CButton type="submit">Search!</CButton>
+                </CForm>
+            </CDropdownMenu>
+        </CDropdown>
+            //TODO implement all search parameters correctly when API implemented for testing
         )
     }
 

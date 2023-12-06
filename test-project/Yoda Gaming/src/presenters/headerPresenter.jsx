@@ -1,7 +1,6 @@
 import { auth, provider, signOut, signInWithPopup } from "../firebaseModel.js";
 import { HeaderView } from "../views/headerView.jsx";
 
-import { push } from './index.jsx'
 export default
     function HeaderPresenter(props) {
     function loginCustomEventHandler() {
