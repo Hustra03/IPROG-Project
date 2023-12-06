@@ -1,4 +1,4 @@
-import { API_KEY, BASE_URL } from "./apiConfig";
+import { API_KEY, BASE_URL, YODA_URL, YODA_API_KEY } from "./apiConfig";
 
 function getResultsSearch(searchParams)
 {
@@ -28,7 +28,7 @@ function getResultsSearch(searchParams)
 
     function getTheJSON_ACB(respons){
         if(!respons.ok){
-            throw new Error("Something went wrong.");
+            throw new Error("Something went wrong with the Game API.");
         }
         return respons.json();
     }
@@ -45,5 +45,29 @@ function getGameDetails(gameID){
 
 }
 
+function yodafyText(text){
+    const YODA_SEARCH_URL = YODA_URL + encodeURIComponent(text);
 
-export { getResultsSearch, getGameDetails};
+    function getTheJSON_ACB(respons){
+        if(!respons.ok){
+            throw new Error("Something went wrong with the Yoda API.");
+        }
+        return respons.json();
+    }
+
+    function giveOnlyRelevantInfoACB(json){
+        //console.log(json); //Uncomment to see the the api response object
+        return json.results;
+
+    }
+    return fetch(YODA_SEARCH_URL, {
+        "method": "POST",
+        "headers": {
+            "x-RapidAPI-Key": YODA_API_KEY,
+            "x-RapidAPI-Host": "yodish.p.rapidapi.com"
+        },
+    }).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
+}
+
+
+export { getResultsSearch, getGameDetails, yodafyText};
