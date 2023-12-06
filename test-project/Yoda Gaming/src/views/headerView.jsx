@@ -76,7 +76,7 @@ function HeaderView(props) {
                         <CFormInput type="text" value={props.text} onChange={searchInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
                     </div>
                     <CButton onClick={searchButtonPressedCB} type="submit">Search!</CButton>
-                    <div><a href='#search'>Detailed Search</a></div>
+                    <div><a href='#/search'>Detailed Search</a></div>
                 </CForm>
             </CDropdownMenu>
         </CDropdown>
