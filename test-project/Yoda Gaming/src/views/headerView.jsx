@@ -11,8 +11,8 @@ function HeaderView(props) {
 
     function loginButtonPressedCB() {
         console.log("Log button pressed"); props.loginCustomEvent();
-        return <div>{authWorking()}</div>;
     }
+
     function yodafyButtonPressedCB() { console.log("Yodafy button pressed"); props.yodafyCustomEvent(); }
     function savedPagesButtonPressedCB() { window.location.hash = "#/savedPages"; }
 
@@ -63,6 +63,9 @@ function HeaderView(props) {
 
     function searchInputCB(evt) { props.onSearchInputChange(evt.target.value); }
 
+    function searchButtonPressedCB()
+    {props.searchCustomEvent();}
+
     function searchButton() {
         return (<CDropdown auto-close="outside">
             <CDropdownToggle color="success">Search</CDropdownToggle>
@@ -72,7 +75,8 @@ function HeaderView(props) {
                         <CFormLabel for="queryForm">Search Query</CFormLabel>
                         <CFormInput type="text" value={props.text} onChange={searchInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
                     </div>
-                    <CButton type="submit">Search!</CButton>
+                    <CButton onClick={searchButtonPressedCB} type="submit">Search!</CButton>
+                    <div><a href='#/search'>Detailed Search</a></div>
                 </CForm>
             </CDropdownMenu>
         </CDropdown>

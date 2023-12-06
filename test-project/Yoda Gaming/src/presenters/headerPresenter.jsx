@@ -9,7 +9,7 @@ export default
             
             props.model.setCurrentUser(false);
             signInWithPopup(auth, provider);
-            props.model.setCurrentUser(currentUser);
+            props.model.setCurrentUser(auth.currentUser);
         }
         signOut(auth);
         props.model.setCurrentUser(null);
@@ -17,7 +17,6 @@ export default
     function yodafyCustomEventHandler() {
         props.model.toggleYodafyValue();
     }
-    function searchCustomEventHandler() { }
     return (
         
             <HeaderView
@@ -26,9 +25,8 @@ export default
                 loggedIn={props.model.user}
                 loginCustomEvent={loginCustomEventHandler}
                 yodafyCustomEvent={yodafyCustomEventHandler}
-                searchCustomEvent={searchCustomEventHandler}
+                searchCustomEvent={onSearchButtonPressCustomEventHandler}
                 onSearchInputChange={onSearchInputChangeCustomEventHandler}
-                savedPagesCustomEvent={savedPagesCustomEventHandler}
             />
             
     );
@@ -36,14 +34,7 @@ export default
     function onSearchInputChangeCustomEventHandler(text) {
         props.model.setSearchQuery(text);
     }
-    function onSearchSelectChangeCustomEventHandler(type) {
-        props.model.setSearchType(type);
-    }
     function onSearchButtonPressCustomEventHandler() {
         props.model.doSearch(props.model.searchParams);
-    }
-    function savedPagesCustomEventHandler()
-    {
-        window.location.hash = "#/initialPage";
     }
 }

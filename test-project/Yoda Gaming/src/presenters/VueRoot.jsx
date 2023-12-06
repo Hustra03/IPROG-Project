@@ -2,6 +2,7 @@ import InitialPagePresenter from "./initialPagePresenter.jsx";
 import pageDetailsPresenter from "./pageDetailsPresenter.jsx";
 import { createRouter, createWebHashHistory, RouterView } from "vue-router";
 import HeaderPresenter from "./headerPresenter.jsx";
+import SearchPresenter from "./searchPresenter.jsx";
 
 export function makeRouter(model) {
     return createRouter({
@@ -13,7 +14,7 @@ export function makeRouter(model) {
             },
             {
                 path: "/search",
-                component: <searchPresenter model={model} />,
+                component: <SearchPresenter model={model} />,
             },
             {
                 path: "/results",
