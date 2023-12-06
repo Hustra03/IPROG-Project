@@ -29,7 +29,6 @@ function HeaderView(props) {
             return (
                 <div className="LoggedIn">
                     <CButton onClick={loginButtonPressedCB} type="submit" color="success">Login</CButton>
-                    <img className="userIcon" src="https://placekitten.com/37/37" alt="user icon" />
                 </div>
             )
         }
@@ -73,28 +72,8 @@ function HeaderView(props) {
                         <CFormLabel for="queryForm">Search Query</CFormLabel>
                         <CFormInput type="text" value={props.text} onChange={searchInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
                     </div>
-                    <div className="mb-3">
-                        <CFormLabel for="exampleDropdownFormPassword1">Password</CFormLabel>
-                        <CFormInput type="text" value={props.text} onChange={searchInputCB} id="exampleDropdownFormPassword1" placeholder="Password" />
-                    </div>
-                    <div>
-                        <CFormSelect aria-label="Default select example">
-                            <option>Genre</option>
-                            <option value="RPG">RPG</option>
-                            <option value="MMO">MMO</option>
-                            <option value="Romance">Romance</option>
-                        </CFormSelect>
-                    </div>
-
-                    <div>
-                        <CFormSelect aria-label="Default select example">
-                            <option>Sort By</option>
-                            <option value="Popularity">Popularity</option>
-                            <option value="Trending">Trending</option>
-                        </CFormSelect>
-                    </div>
-
                     <CButton type="submit">Search!</CButton>
+                    <CFormItem><a href='#search'>Detailed Search</a></CFormItem>
                 </CForm>
             </CDropdownMenu>
         </CDropdown>
@@ -102,12 +81,17 @@ function HeaderView(props) {
         )
     }
 
+    function headerTitleClicked()
+    {
+        window.location.hash = "/";
+    }
+
     return (
         <div className="header">
 
 
             <div className="HeaderLeftHalf">
-                <h1 className="HeaderTitle">Yodas Gaming Wiki</h1>
+                <h1 className="HeaderTitle" onClick={headerTitleClicked}>Yodas Gaming Wiki</h1>
             </div>
 
             <div className="HeaderRightHalf">
