@@ -61,7 +61,7 @@ function HeaderView(props) {
     }
 
 
-    function searchInputCB(evt) { props.onSearchInputChange(evt.target.value); }
+    function searchInputCB(evt) { props.onQueryInputChange(evt.target.value); }
 
     function searchButtonPressedCB()
     {props.searchCustomEvent();}
@@ -73,7 +73,7 @@ function HeaderView(props) {
                 <CForm className="px-4 py-4">
                     <div className="mb-3">
                         <CFormLabel for="queryForm">Search Query</CFormLabel>
-                        <CFormInput type="text" value={props.text} onChange={searchInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
+                        <CFormInput type="text" value={props.query} onChange={searchInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
                     </div>
                     <CButton onClick={searchButtonPressedCB} type="submit">Search!</CButton>
                     <div><a href='#/search'>Detailed Search</a></div>

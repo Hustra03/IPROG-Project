@@ -10,7 +10,7 @@ export default {
   savedPages: [],
   currentPage: null,
   currentPagePromiseState: {},
-  searchParams: {},
+  searchParams: {minMetacritic:0,maxMetacritic:100},
   searchResultsPromiseState: {},
   user: null,
 
@@ -60,7 +60,15 @@ export default {
   setSearchParams(params) { this.searchParams = params }, //Sets all of the search params, used for persistence
   setSearchQuery(query) { this.searchParams.query = query }, //This represents the text string the user wishes to search for, ex "Zelda" or "Nintendo", meaning depends on category
   setSearchType(type) { this.searchParams.type = type },  //This represents what type of thing the user is searching, ex RPG or Publisher, meaning depends on category
-  setSearchCategory(category) { this.searchParams.category = category },  //This represents what category of thing the user is searching, ex game or company ect.
+  setSearchGenre(genre) { this.searchParams.genre = genre }, //
+  
+  setSearchMinMetacritic(minMetacritic) { this.searchParams.minMetacritic = minMetacritic },  //
+  setSearchMaxMetacritic(maxMetacritic) { this.searchParams.maxMetacritic = maxMetacritic },  //
+
+  
+  setSearchFuzzyDisabled(fuzzy) { this.searchParams.fuzzy = fuzzy },  //
+  setSearchExactOnlyDisabled(exact) { this.searchParams.exact = exact },  //
+
   setSearchSortBy(SortBy) { this.searchParams.SortBy = SortBy },  //This represents what results should be sorted by, ex "Rating" or "Release Date", , meaning depends on category
   //TODO Add more search parameters, exactly which depends on implementation of search
 

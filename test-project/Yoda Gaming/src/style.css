@@ -37,8 +37,7 @@
     min-height: 50%;
 }
 
-.userIcon
-{
+.userIcon {
     max-height: 37.6px;
 }
 
@@ -58,8 +57,9 @@
     flex: 0.1;
 }
 
+.detailedSearch {
+    background-color: lightgreen;
+    color: #007324;
+    margin: 2%;
+}
 
-.HeaderYodafyButton {}
-
-
-.HeaderSearchButton {}
