@@ -28,7 +28,7 @@ function getResultsSearch(searchParams)
 
     function getTheJSON_ACB(respons){
         if(!respons.ok){
-            throw new Error("Something went wrong with the Game API.");
+            throw new Error("Something went wrong with the Game Search API call.");
         }
         return respons.json();
     }
@@ -36,13 +36,25 @@ function getResultsSearch(searchParams)
     function giveOnlyRelevantInfoACB(json){
         //console.log(json); //Uncomment to see the the api response object
         return json.results;
-
     }
     return fetch(URL).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
 }
 
 function getGameDetails(gameID){
+    const GAME_DETAILS_URL = BASE_URL + "games/" + gameID + "?key=" + API_KEY;
 
+    function getTheJSON_ACB(respons){
+        if(!respons.ok){
+            throw new Error("Something went wrong with the Game Details API call.");
+        }
+        return respons.json();
+    }
+
+    function giveOnlyRelevantInfoACB(json){
+        //console.log(json); //Uncomment to see the the api response object
+        return json.results;
+    }
+    return fetch(GAME_DETAILS_URL).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
 }
 
 function yodafyText(text){
@@ -50,7 +62,7 @@ function yodafyText(text){
 
     function getTheJSON_ACB(respons){
         if(!respons.ok){
-            throw new Error("Something went wrong with the Yoda API.");
+            throw new Error("Something went wrong with the Yoda API call.");
         }
         return respons.json();
     }
@@ -58,7 +70,6 @@ function yodafyText(text){
     function giveOnlyRelevantInfoACB(json){
         //console.log(json); //Uncomment to see the the api response object
         return json.results;
-
     }
     return fetch(YODA_SEARCH_URL, {
         "method": "POST",
