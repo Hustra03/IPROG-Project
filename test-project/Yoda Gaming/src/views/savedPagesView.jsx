@@ -1,6 +1,7 @@
 import "/src/style.css"
 import { CForm, CFormInput, CButton, CFormSelect, CFormCheck } from '@coreui/vue';
 
+//file mainly worked on by Eliaz Biderstrand
 
 function SavedPagesView(props){
 
