@@ -13,7 +13,7 @@ function SearchView(props) {
     
     function searchGenreInputCB(evt) { props.onGenreInputChange(evt.target.value); }
 
-    function searchButtonPressedCB() { props.searchCustomEvent(); window.location.hash = "#/savedPages"; }//TODO fix to instead point towards searchResult when implemented
+    function searchButtonPressedCB() { props.searchCustomEvent(); window.location.hash = "#/searchResult"; }
 
     function exactChangeCB(evt) { props.onExactChange(evt.target.value) }
     function fuzzyChangeCB(evt) { props.onFuzzyChange(evt.target.value) }
