@@ -1,24 +1,24 @@
 import { API_KEY, BASE_URL, YODA_URL, YODA_API_KEY } from "./apiConfig";
 
-function getResultsSearch(searchParams)
+function getResultsSearch(searchParams) //Used for Search and retreiving games to display on the HomePage
 {
 
     let URL = BASE_URL + "games?key=" + API_KEY + "&search_precise=true%search_exact=true";
 
-    if (searchParams.search){ 
+    if (searchParams.search){ //String on game name, example: "Mario"
         URL += "&search=" + searchParams.search;
     }
-    if (searchParams.genres){
+    if (searchParams.genres){ //Integer(s) or string of genres names seperated with commas, example: 1,2 or Action
         URL += "&genres=" + searchParams.genres;
     }
-    if (searchParams.tags){
+    if (searchParams.tags){ //Integer or string of tag name seperated with commas, example: 1 or "singleplayer"
         URL += "&tags=" + searchParams.tags;
     }
-    if (searchParams.metacritic_min){
-        if (searchParams.metacritic_max){
+    if (searchParams.metacritic_min){ //One integer or two integer seperated with commas, example: 70 or 60,90
+        if (searchParams.metacritic_max){ //If user has set both min and max metacritic scores
             URL += "&metacritic=" + searchParams.minMetacritic + "," + searchParams.maxMetacritic;
         }
-        else{
+        else{ //If user has only set min metacritic score, default max to 100
             URL += "&metacritic=" + searchParams.minMetacritic + ",100";
         }
     }
@@ -26,9 +26,14 @@ function getResultsSearch(searchParams)
         URL += "&ordering=" + searchParams.ordering; // Add "-" before the order variable to reverse the order
     }
     if (searchParams.page_size){
-        URL += "&page_size=" + searchParams.page_size;
+        URL += "&page_size=" + searchParams.page_size; //integer, example: 10
     }
-
+    if (searchParams.dates){
+        URL += "&dates=" + searchParams.dates; //Format: YYYY-MM-DD,YYYY-MM-DD, example: 2015-01-01,2022-12-31
+    }
+    if (searchParams.platforms){
+        URL += "&platforms=" + searchParams.platforms; //integer(s), example: 4,2 (PC,Xbox One)
+    }
     function getTheJSON_ACB(respons){
         if(!respons.ok){
             throw new Error("Something went wrong with the Game Search API call.");
