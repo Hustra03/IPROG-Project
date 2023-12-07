@@ -1,8 +1,8 @@
 APIs to consider:
 https://github.com/public-apis/public-apis
-https://api-docs.igdb.com/?javascript#company-website
+https://api-docs.igdb.com/?javascript#company-website # Requiers proxy to word
 https://rapidapi.com/orthosie/api/yoda-translator
-
+https://api.rawg.io/docs/ # Replacement
 ?:
 
 https://github.com/richchurcher/yoda-api
@@ -25,6 +25,11 @@ https://lingojam.com/EnglishtoYoda
     https://github.com/saintplay/vue-swatches // For user customization
   Search:
     https://github.com/kouts/vue-search-input // For search, maybe find a differnt ones?
+
+  Links to components used:
+  https://coreui.io/vue/docs/forms/select.htm
+  https://coreui.io/vue/docs/components/dropdown.html
+  https://coreui.io/vue/docs/getting-started/introduction.html
 
 Course project presentation:
   https://docs.google.com/presentation/d/1pI5dLSpVBd6cbaJf6G8hQm_ByY3cxVSPNkklpyWOXvg/edit#slide=id.g29e124abe43_0_406
