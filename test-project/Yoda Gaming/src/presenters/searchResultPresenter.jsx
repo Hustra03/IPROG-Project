@@ -5,10 +5,6 @@ export default
     return (
         <div>
             {showResult()}
-            {/* <SearchResultView
-                model={props.model}
-                 searchResults={props.model.searchResultsPromiseState}
-            />    */}
         </div>
        
     );
