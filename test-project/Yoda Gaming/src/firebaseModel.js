@@ -40,14 +40,14 @@ function persistenceToModel(data, model) {
 }
 
 function saveToFirebase(model) {
-    if (model.user) {
+    if (model.user && model.ready) {
 
         set(ref(db, PATH + "/" + model.user.uid), modelToPersistence(model));
     }
 }
 function readFromFirebase(model) {
 
-    if (model.user) {
+    if (model.user && model.ready) {
 
 
         onValue(ref(db, PATH + "/" + model.user.uid), (snapshot) => {
@@ -69,6 +69,7 @@ function readFromFirebase(model) {
 }
 function connectToFirebase(model, watchFunction) {
 
+    model.ready=true;
     onAuthStateChanged(auth, authChangeACB)
 
     function authChangeACB(user) {

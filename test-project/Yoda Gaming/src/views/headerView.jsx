@@ -18,13 +18,12 @@ function HeaderView(props) {
 
     function UpperHalfButtons() {
         function currentlyLoggingInFuction() {
-            console.log("Current User:");
-            console.log(props.loggedIn);
-            if (props.loggedIn == false) {
+            if (!props.loggedIn) {
                 return <CSpinner color="primary" />;
             }
             return <img className="userIcon" src={props.loggedIn.photoURL} alt="user icon" />;
         }
+
         if (props.loggedIn == null) {
             return (
                 <div className="LoggedIn">
