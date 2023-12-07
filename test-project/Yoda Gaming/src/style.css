@@ -72,22 +72,45 @@
 { flex:0.8;}
 
 .searchResults{
+    max-width: 100%;
     margin:40px;
+    background-color: #007324;
+}
+
+.searchResultInitial {
+    padding:0px;
+    margin-top:20px;
+    margin-left:20px;
+    background-color: lightgreen;
 }
 
 .searchResult {
-    max-width: 70%;
-    margin:20px;
+    background-color: lightgreen;
+    margin-top:20px;
+    margin-left:20px;
+    margin-right:20px;
     display: flex; /* Use flexbox to control layout */
     justify-content: space-between; /* Align items with space between */
     align-items: center; /* Vertically center items */
 }
 
+.searchResultTitle {
+    font-size: larger;
+    cursor:pointer;
+}
+
 .searchResultInfo {
-    font-size: large;
+    font-size: smaller;
+    cursor:pointer;
 }
 
 .searchResultImage {
+    max-width:200px; /* Ensure the image doesn't exceed its container width */
+    max-height: 100%; /* Ensure the image doesn't exceed its container height */
+    width: auto; /* Allow the width to adjust while maintaining aspect ratio */
+    height: auto;
+    margin-right:10px;
     margin-left: auto; /* Push the image to the very right */
+    cursor:pointer;
     
 }
