@@ -3,6 +3,7 @@ import Details from "./pageDetailsPresenter.jsx";
 import { createRouter, createWebHashHistory, RouterView } from "vue-router";
 import HeaderPresenter from "./headerPresenter.jsx";
 import SearchPresenter from "./searchPresenter.jsx";
+import ViewingHistoryPresenter from "./viewingHistoryPresenter.jsx";
 
 export function makeRouter(model) {
     return createRouter({
@@ -42,7 +43,11 @@ export default
         <div className="flexParent">
             <HeaderPresenter model={props.model} />
             <div className="mainContent">
-                <RouterView />
+                <div className="viewHistory">
+                    <ViewingHistoryPresenter/>
+                </div>
+                <div className="mainPage">
+                <RouterView /></div>
             </div>
         </div>
     );

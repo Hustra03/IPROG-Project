@@ -8,6 +8,8 @@
 
 .mainContent {
     flex: 0.5;
+    display: flex;
+    flex-direction: row;
 }
 
 .header {
@@ -63,3 +65,8 @@
     margin: 2%;
 }
 
+.ViewingHistory
+{ flex:0.2;}
+
+.mainPage
+{ flex:0.8;}
