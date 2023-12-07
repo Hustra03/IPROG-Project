@@ -64,7 +64,7 @@ function HeaderView(props) {
     function searchInputCB(evt) { props.onQueryInputChange(evt.target.value); }
 
     function searchButtonPressedCB()
-    {props.searchCustomEvent();}
+    {props.searchCustomEvent();window.location.hash = "#/searchResult"; }
 
     function searchButton() {
         return (<CDropdown auto-close="outside">
