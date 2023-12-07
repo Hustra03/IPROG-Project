@@ -6,6 +6,7 @@ function PageDetailsView(props) {
             <h1>Details Page</h1>
             <p>testesttest</p>
             {console.log("test2")}
+            {props.gameDetails.name}
         </div>
     )
 

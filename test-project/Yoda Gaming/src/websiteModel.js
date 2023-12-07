@@ -3,7 +3,7 @@
 */
 
 import resolvePromise from "./resolvePromise.js";
-import { getResultsSearch } from "./websiteSource.js";
+import { getResultsSearch, getGameDetails } from "./websiteSource.js";
 
 export default {
   yodafy: false, //Represents if the "standard" text should be yodafied or not
@@ -37,7 +37,7 @@ export default {
  */
   setPage(id) {
     if (id !== this.currentDish && id !== null && Number.isInteger(id)) { //TODO Check that each page has an id parameter, and what it is called if it is not id
-      resolvePromise(getDishDetails(id), this.currentPagePromiseState);
+      resolvePromise(getGameDetails(id), this.currentPagePromiseState);
       this.currentPage = id; // Is this correct, it works but i do not think it is 
     }
 

@@ -60,6 +60,23 @@ function getGameDetails(gameID){
     return fetch(GAME_DETAILS_URL).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
 }
 
+function getAllGenres(){
+    const GENRES_URL = BASE_URL + "genres?key=" + API_KEY;
+
+    function getTheJSON_ACB(respons){
+        if(!respons.ok){
+            throw new Error("Something went wrong with the Game Genres API call.");
+        }
+        return respons.json();
+    }
+
+    function giveOnlyRelevantInfoACB(json){
+        //console.log(json); //Uncomment to see the the api response object
+        return json.results;
+    }
+    return fetch(GENRES_URL).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
+}
+
 function yodafyText(text){
     const YODA_SEARCH_URL = YODA_URL + encodeURIComponent(text);
 
@@ -84,4 +101,4 @@ function yodafyText(text){
 }
 
 
-export { getResultsSearch, getGameDetails, yodafyText};
+export { getResultsSearch, getGameDetails, yodafyText, getAllGenres};
