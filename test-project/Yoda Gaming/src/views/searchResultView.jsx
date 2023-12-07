@@ -1,15 +1,17 @@
 import "/src/style.css"
 import { CForm, CFormInput, CButton, CFormSelect, CFormCheck } from '@coreui/vue';
 
+//file mainly worked on by Eliaz Biderstrand
+
 function SearchResultView(props) {
 
     function backToSavedPagesCB() {window.location.hash = "#/"; }
     return(
     <div className="searchResults">
         <span>{props.searchResult}</span>
-        <CButton onClick={backToSavedPagesCB} className="searchResultInitial">back to initial</CButton>
+        <CButton onClick={backToSavedPagesCB} className="searchResultInitial">Main Menu</CButton>
         {props.searchResults.map(searchResultsMapCB)}
-        <div>hi</div>
+        <div className="hiddenText">hi</div>
     </div>
     )
 
