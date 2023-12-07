@@ -59,8 +59,8 @@ function getGameDetails(gameID){
     }
 
     function giveOnlyRelevantInfoACB(json){
-        //console.log(json); //Uncomment to see the the api response object
-        return json.results;
+        console.log(json); //Uncomment to see the the api response object
+        return json;
     }
     return fetch(GAME_DETAILS_URL).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
 }
