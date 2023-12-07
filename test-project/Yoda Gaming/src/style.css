@@ -125,3 +125,57 @@
     margin-left:50px;
     font-size:larger;
 }
+
+
+.gameDetailsImages{
+    margin:80px;
+    flex-direction: row;
+    height: auto;
+    width: 90%;
+}
+.gameDetailsImages img {
+    width: 300px;
+}
+
+@media (min-width:1500px) {
+    
+    .gameDetailsImages{
+        display: flex;
+    }
+    .gameDetailsImages img {
+        width: 50%;
+    }
+    
+}
+.gameDetailsDescription{
+    max-width: 100%;
+    margin:40px;
+    flex-direction: row;
+    border-radius: 10px;
+    border-color: rgb(98, 33, 158);
+    border-style:solid;
+    background-color: #828884;
+}
+.gameDetails{
+    background-color: #252b27;
+    flex-direction: row;
+}
+.backButton{
+    margin:20px;
+    background-color: #127e34;
+    color: #252b27;
+    border-radius: 10px;
+    border-color: rgb(24, 95, 14);
+    border-style:solid;
+}
+.gameDetailsTitle{
+    margin:30px;
+    color: #007324;
+    
+}
+.detailsPageName{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    color: #007324;
+}
