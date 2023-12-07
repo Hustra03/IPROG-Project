@@ -1,5 +1,7 @@
 import {SearchResultView} from "../views/searchResultView";
 
+//file mainly worked on by Eliaz Biderstrand
+
 export default
     function SearchResultPresenter(props) {
     return (
@@ -19,7 +21,7 @@ export default
         }
 
         if (!props.model.searchResultsPromiseState.error){
-            return <div>loading</div>
+            return <div className="searchResultLoading">Games are loading</div>
         }
         console.log(props.model.searchResultsPromiseState.error)
         return <div>{props.model.searchResultsPromiseState.error}</div>
