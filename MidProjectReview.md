@@ -57,6 +57,10 @@ All buttons are a third party component, https://coreui.io/vue/docs/, along with
 
 #### pageDetailsView.jsx
 
+Is the implementation for the game details UI, which will contain a lot of information about the selected game and a button it the top left of the screen to go back to the searchResultView.
+
+Implementation for the detailed search UI, uses third party components from https://coreui.io/vue/docs/ to create a form where the user can input values, either string or integers within a range. 
+
 #### searchView.jsx
 
 Implementation for the detailed search UI, uses third party components from https://coreui.io/vue/docs/ to create a form where the user can input values, either string or integers within a range. 
