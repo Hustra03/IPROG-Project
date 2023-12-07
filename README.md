@@ -75,3 +75,17 @@ All buttons are a third party component, https://coreui.io/vue/docs/, along with
 Implementation for the detailed search UI, uses third party components from https://coreui.io/vue/docs/ to create a form where the user can input values, either string or integers within a range. 
 
 ### Model 
+
+Some files will not be explained explicitly, if they copied directly from the lab, such as the resolvePromise.js or teacherFetch.js
+
+#### fireBaseModel.js
+
+This file handles all interactions with the firebase database, for both authentication and persistence. Data will only be read or written if the user is signed in, with the user being able to read any data but only write to their own, as a form of per-user persitence. 
+
+#### websiteModel.js
+
+This file represents the model itself, with the different variables which are needed by the presenter and views, along with the promises for searching for data. It also hold data about the current user, to allow the headerView to display their current user icon for the logged in google account. 
+
+#### websiteSource.js
+
+Handles fetching, removing any unspecified paramters to simplify the query. 
