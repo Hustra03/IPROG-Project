@@ -15,7 +15,7 @@ export default
         }
         if (props.model.searchResultsPromiseState.data) {
             console.log(props.model.searchResultsPromiseState.data)
-            return <SearchResultView model={props.model} searchResults={props.model.searchResultsPromiseState.data}/>
+            return <SearchResultView searchResults={props.model.searchResultsPromiseState.data} chosenGame={chosenGameCustomEventHandler}/>
         }
 
         if (!props.model.searchResultsPromiseState.error){
@@ -24,4 +24,9 @@ export default
         console.log(props.model.searchResultsPromiseState.error)
         return <div>{props.model.searchResultsPromiseState.error}</div>
     }
+
+    function chosenGameCustomEventHandler(game){
+        props.model.setPage(game.id)
+    }
 }
+

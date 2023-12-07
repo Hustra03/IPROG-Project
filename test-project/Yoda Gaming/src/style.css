@@ -70,3 +70,24 @@
 
 .mainPage
 { flex:0.8;}
+
+.searchResults{
+    margin:40px;
+}
+
+.searchResult {
+    max-width: 70%;
+    margin:20px;
+    display: flex; /* Use flexbox to control layout */
+    justify-content: space-between; /* Align items with space between */
+    align-items: center; /* Vertically center items */
+}
+
+.searchResultInfo {
+    font-size: large;
+}
+
+.searchResultImage {
+    margin-left: auto; /* Push the image to the very right */
+    
+}
