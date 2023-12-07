@@ -4,6 +4,7 @@ import { createRouter, createWebHashHistory, RouterView } from "vue-router";
 import HeaderPresenter from "./headerPresenter.jsx";
 import SearchPresenter from "./searchPresenter.jsx";
 import SearchResultPresenter from "./searchResultPresenter.jsx";
+import SavedPagesPresenter from "./savedPagesPresenter.jsx";
 import ViewingHistoryPresenter from "./viewingHistoryPresenter.jsx";
 
 export function makeRouter(model) {
@@ -28,7 +29,7 @@ export function makeRouter(model) {
             },
             {
                 path: "/savedPages",
-                component: <InitialPagePresenter model={model} />,
+                component: <SavedPagesPresenter model={model} />,
             },
             {
                 path: "/details",

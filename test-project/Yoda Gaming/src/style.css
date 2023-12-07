@@ -125,3 +125,20 @@
     margin-left:50px;
     font-size:larger;
 }
+
+.centeredContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh; /* Adjust as needed */
+  }
+  
+.noSavedPages {
+    text-align: center;
+    font-size:larger;
+    /* Add any other styles you want for the container */
+}
+
+.noSavedPagesReturn{
+    margin:10px;
+}
