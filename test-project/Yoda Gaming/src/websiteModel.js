@@ -37,8 +37,12 @@ export default {
  */
   setPage(id) {
     if (id !== this.currentDish && id !== null && Number.isInteger(id)) { //TODO Check that each page has an id parameter, and what it is called if it is not id
-      resolvePromise(getGameDetails(id), this.currentPagePromiseState);
-      this.currentPage = id; // Is this correct, it works but i do not think it is 
+      if (this.currentPage === id)
+        return;
+      if (id){
+        this.currentPage = id;
+        resolvePromise(getGameDetails(id), this.currentPagePromiseState);
+      }
     }
 
     // note that we are adding a new object property (currentDish) which was not initialized in the constructor
