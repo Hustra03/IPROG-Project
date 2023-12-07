@@ -35,7 +35,7 @@ function HeaderView(props) {
         return (
             <div className="LoggedIn">
                 <CButton onClick={loginButtonPressedCB} type="submit" color="success">Sign Out</CButton>
-                <img className="userIcon" src={props.loggedIn.photoURL} alt="user icon" />;
+                <img className="userIcon" src={props.loggedIn.photoURL} alt="user icon" />
             </div>
         )
     }
