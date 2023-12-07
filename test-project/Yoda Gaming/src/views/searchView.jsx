@@ -18,11 +18,11 @@ function SearchView(props) {
     function exactChangeCB(evt) { props.onExactChange(evt.target.value) }
     function fuzzyChangeCB(evt) { props.onFuzzyChange(evt.target.value) }
 
-    function minMetacriticInputCB(evt) { props.onMinMetacriticChange(evt.target.value) }
-    function maxMetacriticInputCB(evt) { props.onMaxMetacriticChange(evt.target.value) }
-    function pageSizeInputCB(evt){props.onPageSizeChange(evt.target.value)}
+    function minMetacriticInputCB(evt) { props.onMinMetacriticChange(evt.target.value); }
+    function maxMetacriticInputCB(evt) { props.onMaxMetacriticChange(evt.target.value); }
+    function pageSizeInputCB(evt){props.onPageSizeChange(evt.target.value);}
 
-    function sortByInputCB(evt){props.onSortByInputChange(evt.target.value)}
+    function sortByInputCB(evt){props.onSortByInputChange(evt.target.value);}
     return (
         <div>
             <div className='detailedSearch'>
@@ -35,17 +35,17 @@ function SearchView(props) {
 
                     <label>MinMetacritic:</label><br />
                     <div>
-                        <input type="range" value={props.minMetacritic} onChange={minMetacriticInputCB} className="range" list="values" min="0" max={props.maxMetacritic} />
+                        <input type="range" value={props.minMetacritic} onChange={minMetacriticInputCB} className="range"min="0" max={props.maxMetacritic} />
                         {props.minMetacritic}
                     </div>
                     <label>Max Metacritic:</label><br />
                     <div>
-                        <input type="range" value={props.maxMetacritic} onChange={maxMetacriticInputCB} className="range" list="values" min={props.minMetacritic} max="100" />
+                        <input type="range" value={props.maxMetacritic} onChange={maxMetacriticInputCB} className="range" min={props.minMetacritic} max="100" />
                         {props.maxMetacritic}
                     </div>
                     <label>Number Of Pages In Result:</label><br />
                     <div>
-                        <input type="range" value={props.page_size} onChange={pageSizeInputCB} className="range" list="values" min="5" max="20" />
+                        <input type="range" value={props.page_size} onChange={pageSizeInputCB} className="range" min="5" max="20" />
                         {props.page_size}
                     </div>
 

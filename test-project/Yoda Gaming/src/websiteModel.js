@@ -10,7 +10,7 @@ export default {
   savedPages: [],
   currentPage: null,
   currentPagePromiseState: {},
-  searchParams: {},
+  searchParams: {minMetacritic:0,maxMetacritic:100},
   searchResultsPromiseState: {},
   user: null,
 
@@ -62,8 +62,8 @@ export default {
   setSearchType(type) { this.searchParams.tags = type },  //This represents what type of thing the user is searching, ex RPG or Publisher, meaning depends on category
   setSearchGenre(genre) { this.searchParams.genres = genre }, //
   
-  setSearchMinMetacritic(minMetacritic) { this.searchParams.metacritic_min = minMetacritic },  //
-  setSearchMaxMetacritic(maxMetacritic) { this.searchParams.metacritic_max = maxMetacritic },  //
+  setSearchMinMetacritic(minMetacritic) { this.searchParams.minMetacritic = minMetacritic },  //
+  setSearchMaxMetacritic(maxMetacritic) { this.searchParams.maxMetacritic = maxMetacritic },  //
 
   setSearchPageLimit(page_size){this.searchParams.page_size=page_size;},
   setSearchFuzzyDisabled(fuzzy) { this.searchParams.fuzzy = fuzzy },  //

@@ -16,10 +16,10 @@ function getResultsSearch(searchParams)
     }
     if (searchParams.metacritic_min){
         if (searchParams.metacritic_max){
-            URL += "&metacritic=" + searchParams.metacritic_min + "," + searchParams.metacritic_max;
+            URL += "&metacritic=" + searchParams.minMetacritic + "," + searchParams.maxMetacritic;
         }
         else{
-            URL += "&metacritic=" + searchParams.metacritic_min + ",100";
+            URL += "&metacritic=" + searchParams.minMetacritic + ",100";
         }
     }
     if (searchParams.ordering){
