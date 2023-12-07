@@ -5,7 +5,7 @@ import PageDetailsView from '../views/pageDetailsView.jsx';
 export default
 function Details(props) {
     
-    /*
+    
     if(!props.model.currentPagePromiseState.promise){
         console.log("no data")
         return(
@@ -30,7 +30,7 @@ function Details(props) {
             </div>
         )
     }
-    */
+    
     return (
         <div>
             <PageDetailsView gameDetails={props.model.currentPagePromiseState.data}/>
