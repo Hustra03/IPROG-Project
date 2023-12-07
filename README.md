@@ -15,10 +15,12 @@ William Ma Jönsson, Git account: EroHex, Canvas ID: 143089
 
 # Mid-project review
 
-Short description of your project
+## Short description of your project
 
-What you have done
+## What you have done
 
-What you still plan to do
+## What you still plan to do
 
-Your project file structure (short description/purpose of each file)
+## Your project file structure (short description/purpose of each file)
+
+### Views 
