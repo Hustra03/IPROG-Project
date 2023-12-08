@@ -73,7 +73,7 @@ export default {
   setSearchFuzzyDisabled(fuzzy) { this.searchParams.fuzzy = fuzzy },  //
   setSearchExactOnlyDisabled(exact) { this.searchParams.exact = exact },  //
 
-  setSearchSortBy(SortBy) { this.searchParams.ordering = SortBy },  //This represents what results should be sorted by, ex "Rating" or "Release Date", , meaning depends on category
+  setSearchOrdering(ordering) { this.searchParams.ordering = ordering },  //This represents what results should be sorted by, ex "Rating" or "Release Date", , meaning depends on category
   //TODO Add more search parameters, exactly which depends on implementation of search
 
   doSearch(searchParams) {
