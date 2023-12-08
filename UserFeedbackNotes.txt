@@ -16,5 +16,23 @@ Also similar to dropdown in search not being immediatly noticable.
 
 Solutions:
 
-2. Create color palette, with a few complementary colors,
+1. Ensure elements in the header have a constant relative location,
+ add a spinner which is shown when logging in. 
+
+2., 10. Create color palette, with a few complementary colors,
 and use similar styling for each element of the same type, for example decide on one font and stick to it. 
+
+4. Redesign the pages so that less empty space exists, but do not remove all of the margins. 
+Ex the page likes button on the FIGMA page was pretty bad design, if included add it as part of the larger box instead of outside it.
+
+5. Redesign the search dropdown menu, make the search a clearly marked button instead of plain text.
+
+6. Redesign the detailed search menu, -||- as 5., but also make the boxes have a variable width dependent on input, with a shorter initial width.
+
+7. When rest is done, check if there is enough static text for the yodafy feature to have a purpose, remove or keep depending on that.
+
+8. Make viewing history a bit like the dropdown menu, with a small but clearly marked button making it pop up.
+
+11. Make the ascending/descending part either be included in search or in search results.
+
+12. Add a dropdown menu from each result in search result which contains additional information. 
