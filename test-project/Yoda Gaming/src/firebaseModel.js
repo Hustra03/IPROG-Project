@@ -1,6 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get, set, onValue } from "firebase/database";  //  NOTE:  had to add {ref} here, it was not imported
 
+//File mainly worked on by Erik Paulinder
+
+
 //  PATH is the “root” Firebase path. NN is your TW2_TW3 group number
 const PATH = "ProjectGroup56";
 

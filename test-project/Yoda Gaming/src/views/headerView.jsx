@@ -1,6 +1,9 @@
 import '@coreui/coreui/dist/css/coreui.min.css'
 import "/src/style.css"
 
+//File mainly worked on by Erik Paulinder
+
+
 import { CDropdown, CDropdownToggle, CDropdownMenu, CForm, CFormInput, CFormLabel, CFormSelect, CButton, CSpinner } from '@coreui/vue';
 // Custom component, https://coreui.io/vue/docs/components/dropdown.html
 // Custom component, https://coreui.io/vue/docs/components/toast.html
@@ -24,7 +27,7 @@ function HeaderView(props) {
             }
         }
 
-        if (props.loggedIn == null) {
+        if (!props.loggedIn) {
             return (
                 <div className="LoggedIn">
                     <CButton onClick={loginButtonPressedCB} type="submit" color="success">Login</CButton>

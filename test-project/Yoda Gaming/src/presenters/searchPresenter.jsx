@@ -1,4 +1,7 @@
 import { SearchView } from "../views/searchView";
+
+//File mainly worked on by Erik Paulinder
+
 export default
     function SearchPresenter(props) {
     let searchParams = props.model.searchParams;

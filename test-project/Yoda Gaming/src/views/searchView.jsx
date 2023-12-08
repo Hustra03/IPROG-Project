@@ -3,6 +3,8 @@ import "/src/style.css"
 
 import { CForm, CFormInput, CButton, CFormSelect, CFormCheck } from '@coreui/vue';
 
+//File mainly worked on by Erik Paulinder
+
 // Custom component, https://coreui.io/vue/docs/forms/form-control.html 
 
 function SearchView(props) {
