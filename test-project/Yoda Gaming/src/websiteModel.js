@@ -44,7 +44,7 @@ export default {
    So we store also abstract data that will influence the application status.
  */
   setPage(id) {
-    if (id !== this.currentDish && id !== null && Number.isInteger(id)) { //TODO Check that each page has an id parameter, and what it is called if it is not id
+    if (id !== this.currentPage && id !== null && Number.isInteger(id)) { //TODO Check that each page has an id parameter, and what it is called if it is not id
       if (this.currentPage === id)
         return;
       if (id){
