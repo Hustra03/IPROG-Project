@@ -44,7 +44,7 @@ export default
     function onExactInputChangeCustomEventHandler(exact) { props.model.setSearchExactOnlyDisabled(exact) }
     function onFuzzyInputChangeCustomEventHandler(fuzzy) { props.model.setSearchFuzzyDisabled(fuzzy) }
 
-    function onSortByInputChangeCustomEventHandler(sortBy) { props.model.setSearchSortBy(sortBy) }
+    function onSortByInputChangeCustomEventHandler(ordering) { props.model.setSearchOrdering(ordering) }
 
     function onSearchButtonPressCustomEventHandler() {
         props.model.doSearch(props.model.searchParams);
