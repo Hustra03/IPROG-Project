@@ -1,0 +1,12 @@
+Problems:
+
+1. Elements in the header jumping around is distracting, and the login status is not entierly clear.
+2. Different parts of the UI has different styles, which is distracting for the user.
+3. The home page only showing search results is a bit weird, maybe have some additional aspect to it?
+4. Having to much empty space in the UI is a waste, and will make other parts smaller and less easily usable, and may be distracting.
+5. The search dropdown menu is not very well designed, and the place to press to search is easily missed with the detailed search link below being more noticable.
+6. The detailed search UI could be improved, for example the ranges could have a scale of values added, and the search boxes are a bit wide. 
+Also similar to dropdown in search not being immediatly noticable. 
+7. Yodafy should make changes to the website, nor be removed, since it currently does nothing. 
+
+Solutions:
