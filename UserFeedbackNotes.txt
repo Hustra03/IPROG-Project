@@ -13,4 +13,8 @@ Also similar to dropdown in search not being immediatly noticable.
 11. add sort by highest/lowest rating option in search Results
 12. add a show more functionality in search Results
 
+
 Solutions:
+
+2. Create color palette, with a few complementary colors,
+and use similar styling for each element of the same type, for example decide on one font and stick to it. 
