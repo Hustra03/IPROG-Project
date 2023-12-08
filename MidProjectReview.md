@@ -14,6 +14,10 @@ Header implemented, with login functionality using google authenticator, along w
 
 Searching, both a simple search using only a text query in a dropdown menu but also a more detailed search in on a seperate page where additional aspects can be detailed about the query, such as the number of results to return between 5 and 20, how exact and fuzzy the result should be ext. Currently limited to searching for games. 
 
+A page which shows details about one of the search results at a time, currently only the description + a number of images related to the game.
+
+Per-user persistence for 3 aspects, the yodafy value, the current page and the saved pages. Only current page has any impact for the current implementation, since it allows the user to refresh the page without losing the detailed data. 
+
 ## What you still plan to do
 
 Implement saved pages, with the user being able to save pages under different categories, either a small set of predefined options or potentially even custom tags. 
