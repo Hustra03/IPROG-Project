@@ -28,7 +28,7 @@ Potentially allowing searches for other things than games, such as publishers, a
 
 Implement the yodafy feature for certain text, which will use another API in order to translate the text to the speech pattern of the star wars character yoda
 
-Homepage
+Homepage is not yet implemented, and should show some "standard" view, such as the result from a few pre-selected searches. 
 
 Viewing history, which shows the last 10 or so pages visited on the left hand side of the screen,
 which is persisted and can be pressed to easily go back to one of them.
