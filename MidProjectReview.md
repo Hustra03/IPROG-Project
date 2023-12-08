@@ -26,7 +26,7 @@ Homepage
 
 Viewing history, which shows the last 10 or so pages wisited on the left hand side of the screen,
 which is persisted and can be pressed to easily go back to one of them. 
-
+ 
 Improve styling for all components, and ensure this is more uniform between components. 
 
 ## Your project file structure (short description/purpose of each file)
