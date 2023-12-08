@@ -10,9 +10,9 @@ import { CForm, CFormInput, CButton, CFormSelect, CFormCheck } from '@coreui/vue
 function SearchView(props) {
 
     function searchQueryInputCB(evt) { props.onQueryInputChange(evt.target.value); }
-    
+
     function searchTagsInputCB(evt) { props.onTagsInputChange(evt.target.value); }
-    
+
     function searchGenreInputCB(evt) { props.onGenreInputChange(evt.target.value); }
 
     function searchButtonPressedCB() { props.searchCustomEvent(); window.location.hash = "#/searchResult"; }
@@ -22,11 +22,11 @@ function SearchView(props) {
 
     function minMetacriticInputCB(evt) { props.onMinMetacriticChange(evt.target.value); }
     function maxMetacriticInputCB(evt) { props.onMaxMetacriticChange(evt.target.value); }
-    function pageSizeInputCB(evt){props.onPageSizeChange(evt.target.value);}
+    function pageSizeInputCB(evt) { props.onPageSizeChange(evt.target.value); }
 
-    function sortByInputCB(evt){props.onSortByInputChange(evt.target.value);}    
-    function searchDatesInput(evt){props.onDatesInputChange(evt.target.value);}
-    function searchPlatformsInput(evt){props.onPlatformsInputChange(evt.target.value);}
+    function sortByInputCB(evt) { props.onSortByInputChange(evt.target.value); }
+    function searchDatesInput(evt) { props.onDatesInputChange(evt.target.value); }
+    function searchPlatformsInput(evt) { props.onPlatformsInputChange(evt.target.value); }
     return (
         <div>
             <div className='detailedSearch'>
@@ -39,7 +39,7 @@ function SearchView(props) {
 
                     <label>MinMetacritic:</label><br />
                     <div>
-                        <input type="range" value={props.minMetacritic} onChange={minMetacriticInputCB} className="range"min="0" max={props.maxMetacritic} />
+                        <input type="range" value={props.minMetacritic} onChange={minMetacriticInputCB} className="range" min="0" max={props.maxMetacritic} />
                         {props.minMetacritic}
                     </div>
                     <label>Max Metacritic:</label><br />
@@ -69,7 +69,7 @@ function SearchView(props) {
                     <CFormInput label="Dates" type="text" value={props.dates} onChange={searchDatesInput} id="queryForm" placeholder="2023-11-24" />
                     <CFormInput label="Platforms" type="text" value={props.platforms} onChange={searchPlatformsInput} id="queryForm" placeholder="PlayStation 4" />
 
-                    <CButton onClick={searchButtonPressedCB} type="submit">Search!</CButton>
+                    <CButton onClick={searchButtonPressedCB} type="submit" color="success">Search!</CButton>
                 </CForm>
             </div>
         </div>

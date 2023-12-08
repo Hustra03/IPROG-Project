@@ -22,7 +22,7 @@ function HeaderView(props) {
     function UpperHalfButtons() {
         function currentlyLoggingInFuction() {
 
-            if (props.loggedIn==false) {
+            if (props.loggingIn==true) {
                 return <CSpinner color="primary" />;
             }
         }
@@ -78,7 +78,8 @@ function HeaderView(props) {
                         <CFormLabel for="queryForm">Search Query</CFormLabel>
                         <CFormInput type="text" value={props.query} onChange={searchInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
                     </div>
-                    <CButton onClick={searchButtonPressedCB} type="submit">Search!</CButton>
+
+                    <CButton onClick={searchButtonPressedCB} type="submit" color="success">Search!</CButton>
                     <div><a href='#/search'>Detailed Search</a></div>
                 </CForm>
             </CDropdownMenu>

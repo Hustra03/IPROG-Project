@@ -1,7 +1,6 @@
 import { auth, provider, signOut, signInWithPopup } from "../firebaseModel.js";
 import { HeaderView } from "../views/headerView.jsx";
 
-//File mainly worked on by Erik Paulinder
 
 
 export default
@@ -9,14 +8,16 @@ export default
     function loginCustomEventHandler() {
 
         if (!auth.currentUser) {
-
-            props.model.setCurrentUser(false);
+            
+            props.model.setLoggingIn(true)
             signInWithPopup(auth, provider);
             props.model.setCurrentUser(auth.currentUser);
+            
         }
         else {
             signOut(auth);
             props.model.setCurrentUser(null);
+            props.model.setLoggingIn(false)
         }
 
 
@@ -30,6 +31,7 @@ export default
             query={props.model.searchParams.query}
             yodafy={props.model.yodafy}
             loggedIn={props.model.user}
+            loggingIn={props.model.loggingIn}
             loginCustomEvent={loginCustomEventHandler}
             yodafyCustomEvent={yodafyCustomEventHandler}
             searchCustomEvent={onSearchButtonPressCustomEventHandler}

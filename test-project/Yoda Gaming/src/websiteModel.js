@@ -13,6 +13,7 @@ export default {
   searchParams: {minMetacritic:0,maxMetacritic:100},
   searchResultsPromiseState: {},
   user: null,
+  loggingIn:false,
 
   //Model is initially just a modified version of dinnerModel, with minor changes when relevant
 
@@ -32,6 +33,9 @@ export default {
   //For persistence
   setSavedPages(savedPages)
   {this.savedPages=savedPages; },
+
+  setLoggingIn(value)
+  {this.loggingIn=value;},
 
   /* 
    setting the ID of dish currently checked by the user.
