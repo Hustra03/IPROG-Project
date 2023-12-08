@@ -6,7 +6,7 @@ This section will discuss the project, as of 2023-12-07, which is preserved in t
 
 ## Short description of your project
 
-The website which is to be developed is to be a gaming wiki, with information about different games, potentially also including screenshots and achivements. To put a unique spin on the concept there will be the option to translate any larger text to match the speaking pattern of the well known Star Wars charachter Yoda using an API translator. This will hopefully make the site memorable and something which users may wish to share with others who are also interested in video games and/or Star Wars content. 
+The website which is to be developed is to be a gaming wiki, with information about different games, potentially also including screenshots and achivements. To put a unique spin on the concept there will be the option to translate any larger text to match the speaking pattern of the well known Star Wars charachter Yoda using an API translator (which is a compromise as the translator API has limited access, the original idea being that the description of each game would always be translated). This will put a fun spin on the site making it something unusual/fun which users may wish to share with other video game/Star Wars fans. 
 
 ## What you have done
 
@@ -21,6 +21,8 @@ Searching, both a simple search using only a text query in a dropdown menu but a
 Implement saved pages, with the user being able to save pages under different categories, either a small set of predefined options or potentially even custom tags. 
 
 Potentially allowing searches for other thing than games, such as publishers, achivements/dlc/series for a particular game ext. 
+
+Homepage
 
 Viewing history, which shows the last 10 or so pages wisited on the left hand side of the screen,
 which is persisted and can be pressed to easily go back to one of them. 
