@@ -53,6 +53,10 @@ Handles searchView.jsx, which is mainly all of the custom events needed to handl
 
 Handles searchResultView, handles both what to show during the promise state and the custom event of the user selecting a game to show in detail.
 
+#### savedPagesPresenter.jsx
+
+Handles savedPagesView, as of right now only returns the view without any condition and handles no custom events.
+
 ### Views 
 
 #### headerView.jsx
@@ -71,9 +75,13 @@ Implementation for the detailed search UI, uses third party components from http
 
 Implementation for the detailed search UI, uses third party components from https://coreui.io/vue/docs/ to create a form where the user can input values, either string or integers within a range. 
 
-#### searchResultView
+#### searchResultView.jsx
 
 Implementation for the search result UI, uses callbacks to generate individual divs based on the search parameters from searchView, also uses third party component button from https://coreui.io/vue/docs/. 
+
+#### savedPagesView.jsx
+
+Implementation for the saved pages UI, is only a page which lets the user go back to the home page or the search page so far. Uses third party component buttons from https://coreui.io/vue/docs/.
 
 ### Model 
 
