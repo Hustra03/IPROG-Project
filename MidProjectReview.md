@@ -14,7 +14,11 @@ Header implemented, with login functionality using google authenticator, along w
 
 Searching, both a simple search using only a text query in a dropdown menu but also a more detailed search in on a separate page where additional aspects can be detailed about the query, such as the number of results to return between 5 and 20, how exact and fuzzy the result should be ext. Currently limited to searching for games.
 
+A page showing the results of the search, showing a few details of the game, these can be clicked to go to the page described below
+
 A page which shows additional details about one of the search results at a time, currently only the description + a number of images related to the game, is done using a separate fetch.
+
+A page that will show games that the user has decided to save, currently not fully implemented but can be navigated to and from when a user is signed in.
 
 ## What you still plan to do
 
