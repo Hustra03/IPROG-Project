@@ -7,6 +7,6 @@ Problems:
 5. The search dropdown menu is not very well designed, and the place to press to search is easily missed with the detailed search link below being more noticable.
 6. The detailed search UI could be improved, for example the ranges could have a scale of values added, and the search boxes are a bit wide. 
 Also similar to dropdown in search not being immediatly noticable. 
-7. Yodafy should make changes to the website, nor be removed, since it currently does nothing. 
+7. Yodafy button on header should make changes to the website, or be removed, since it currently does nothing. 
 
 Solutions:
