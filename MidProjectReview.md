@@ -49,7 +49,7 @@ Handles headerView.jsx, implements login and sign out when the custom event for 
 
 Handles searchView.jsx, which is mainly all of the custom events needed to handle all of the different parameters and updating them when needed along with initiating the search itself. 
 
-### searchResultPresenter.jsx
+#### searchResultPresenter.jsx
 
 Handles searchResultView, handles both what to show during the promise state and the custom event of the user selecting a game to show in detail.
 
@@ -71,7 +71,7 @@ Implementation for the detailed search UI, uses third party components from http
 
 Implementation for the detailed search UI, uses third party components from https://coreui.io/vue/docs/ to create a form where the user can input values, either string or integers within a range. 
 
-### searchResultView
+#### searchResultView
 
 Implementation for the search result UI, uses callbacks to generate individual divs based on the search parameters from searchView, also uses third party component button from https://coreui.io/vue/docs/. 
 
