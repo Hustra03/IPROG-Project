@@ -1,0 +1,38 @@
+Problems:
+
+1. Elements in the header jumping around is distracting, and the login status is not entierly clear.
+2. Different parts of the UI has different styles, which is distracting for the user.
+3. The home page only showing search results is a bit weird, maybe have some additional aspect to it?
+4. Having to much empty space in the UI is a waste, and will make other parts smaller and less easily usable, and may be distracting.
+5. The search dropdown menu is not very well designed, and the place to press to search is easily missed with the detailed search link below being more noticable.
+6. The detailed search UI could be improved, for example the ranges could have a scale of values added, and the search boxes are a bit wide. 
+Also similar to dropdown in search not being immediatly noticable. 
+7. Yodafy button on header should make changes to the website, or be removed, since it currently does nothing. 
+8. Make viewing history pop-up, e.g. arrow in, arrow out, and maybe move view history to the right
+10. Make detail page match the game color
+11. add sort by highest/lowest rating option in search Results
+12. add a show more functionality in search Results
+
+
+Solutions:
+
+1. Ensure elements in the header have a constant relative location,
+ add a spinner which is shown when logging in. 
+
+2., 10. Create color palette, with a few complementary colors,
+and use similar styling for each element of the same type, for example decide on one font and stick to it. 
+
+4. Redesign the pages so that less empty space exists, but do not remove all of the margins. 
+Ex the page likes button on the FIGMA page was pretty bad design, if included add it as part of the larger box instead of outside it.
+
+5. Redesign the search dropdown menu, make the search a clearly marked button instead of plain text.
+
+6. Redesign the detailed search menu, -||- as 5., but also make the boxes have a variable width dependent on input, with a shorter initial width.
+
+7. When rest is done, check if there is enough static text for the yodafy feature to have a purpose, remove or keep depending on that.
+
+8. Make viewing history a bit like the dropdown menu, with a small but clearly marked button making it pop up.
+
+11. Make the ascending/descending part either be included in search or in search results.
+
+12. Add a dropdown menu from each result in search result which contains additional information. 

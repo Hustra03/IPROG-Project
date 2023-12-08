@@ -29,6 +29,10 @@ export default {
 
   },//By Erik Paulinder, saves the current page with a specified category
 
+  //For persistence
+  setSavedPages(savedPages)
+  {this.savedPages=savedPages; },
+
   /* 
    setting the ID of dish currently checked by the user.
    A strict MVC/MVP Model would not keep such data, 
@@ -49,8 +53,8 @@ export default {
   },
   // more methods will be added here, don't forget to separate them with comma!
 
-  setCurrentUser(user)
-  {this.user=user;},
+  setCurrentUser(value)
+  {this.user=value;},
 
   toggleYodafyValue() {
     if (this.yodafy) {
@@ -72,8 +76,9 @@ export default {
   setSearchPageLimit(page_size){this.searchParams.page_size=page_size;},
   setSearchFuzzyDisabled(fuzzy) { this.searchParams.fuzzy = fuzzy },  //
   setSearchExactOnlyDisabled(exact) { this.searchParams.exact = exact },  //
-
-  setSearchSortBy(SortBy) { this.searchParams.ordering = SortBy },  //This represents what results should be sorted by, ex "Rating" or "Release Date", , meaning depends on category
+  setDates(dates){this.searchParams.dates = dates},
+  setDates(dates){this.searchParams.dates = dates},
+  setSearchOrdering(ordering) { this.searchParams.ordering = ordering },  //This represents what results should be sorted by, ex "Rating" or "Release Date", , meaning depends on category
   //TODO Add more search parameters, exactly which depends on implementation of search
 
   doSearch(searchParams) {

@@ -7,6 +7,9 @@ import SearchResultPresenter from "./searchResultPresenter.jsx";
 import SavedPagesPresenter from "./savedPagesPresenter.jsx";
 import ViewingHistoryPresenter from "./viewingHistoryPresenter.jsx";
 
+//File mainly worked on by Erik Paulinder
+
+
 export function makeRouter(model) {
     return createRouter({
         history: createWebHashHistory(),

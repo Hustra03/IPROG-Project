@@ -4,7 +4,7 @@ export default
     function InitialPagePresenter(props) {
     return (
         <div>
-            <InitialPageView model={props.model }/>
+            <InitialPageView searchParams={props.model.searchParams }/>
         </div>
     );
 }

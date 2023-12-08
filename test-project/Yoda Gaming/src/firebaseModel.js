@@ -1,6 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get, set, onValue } from "firebase/database";  //  NOTE:  had to add {ref} here, it was not imported
 
+//File mainly worked on by Erik Paulinder
+
+
 //  PATH is the “root” Firebase path. NN is your TW2_TW3 group number
 const PATH = "ProjectGroup56";
 
@@ -22,13 +25,17 @@ function modelToPersistence(model) {
 
     return {
         yodafy: model.yodafy,
+        currentPage:model.currentPage,
+        savedPages:model.savedPages,
     };
 }
 
 function persistenceToModel(data, model) {
     if (!data) {//Sets initial values
         model.setYodafyValue(false);
+        model.setPage(null)
         model.setSearchParams({});
+        model.setSavedPages({})
         //TODO return the promises from any searches
         return;
     }
@@ -36,6 +43,16 @@ function persistenceToModel(data, model) {
         model.setYodafyValue(data.yodafy);
     }
     else { model.setYodafyValue(false); }
+    if (data.currentPage) {
+        model.setPage(data.currentPage)
+    }
+    else
+    { model.setPage(null)}
+    if (data.savedPages) {
+        model.setPage(data.savedPages)
+    }
+    else
+    { model.setPage({})}
     return;//TODO return the promises from any searches
 }
 
@@ -80,7 +97,7 @@ function connectToFirebase(model, watchFunction) {
         }
     }
     function checkACB() {
-        return [model.yodafy]
+        return [model.yodafy, model.currentPage]
     }
     function effectACB() {
         saveToFirebase(model);

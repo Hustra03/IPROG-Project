@@ -3,6 +3,8 @@ import "/src/style.css"
 
 import { CForm, CFormInput, CButton, CFormSelect, CFormCheck } from '@coreui/vue';
 
+//File mainly worked on by Erik Paulinder
+
 // Custom component, https://coreui.io/vue/docs/forms/form-control.html 
 
 function SearchView(props) {
@@ -22,7 +24,9 @@ function SearchView(props) {
     function maxMetacriticInputCB(evt) { props.onMaxMetacriticChange(evt.target.value); }
     function pageSizeInputCB(evt){props.onPageSizeChange(evt.target.value);}
 
-    function sortByInputCB(evt){props.onSortByInputChange(evt.target.value);}
+    function sortByInputCB(evt){props.onSortByInputChange(evt.target.value);}    
+    function searchDatesInput(evt){props.onDatesInputChange(evt.target.value);}
+    function searchPlatformsInput(evt){props.onPlatformsInputChange(evt.target.value);}
     return (
         <div>
             <div className='detailedSearch'>
@@ -62,6 +66,8 @@ function SearchView(props) {
                         <option value="metacritic">Metacritic Score</option>
                     </CFormSelect>
                     <CFormCheck label="Order results in ascending order" id="formSwitchCheckDefault" />
+                    <CFormInput label="Dates" type="text" value={props.dates} onChange={searchDatesInput} id="queryForm" placeholder="2023-11-24" />
+                    <CFormInput label="Platforms" type="text" value={props.platforms} onChange={searchPlatformsInput} id="queryForm" placeholder="PlayStation 4" />
 
                     <CButton onClick={searchButtonPressedCB} type="submit">Search!</CButton>
                 </CForm>

@@ -1,5 +1,8 @@
 import "/src/teacherFetch.js"; // protection against fetch() in infinite re-render
 
+//File mainly worked on by Erik Paulinder
+
+
 // (1) ------------ application state (model) -----------
 import model from "/src/websiteModel.js";
 import { makeRouter } from "./VueRoot.jsx";

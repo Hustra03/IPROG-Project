@@ -14,8 +14,6 @@ Header implemented, with login functionality using google authenticator, along w
 
 Searching, both a simple search using only a text query in a dropdown menu but also a more detailed search in on a seperate page where additional aspects can be detailed about the query, such as the number of results to return between 5 and 20, how exact and fuzzy the result should be ext. Currently limited to searching for games. 
 
-
-
 ## What you still plan to do
 
 Implement saved pages, with the user being able to save pages under different categories, either a small set of predefined options or potentially even custom tags. 
@@ -49,6 +47,14 @@ Handles headerView.jsx, implements login and sign out when the custom event for 
 
 Handles searchView.jsx, which is mainly all of the custom events needed to handle all of the different parameters and updating them when needed along with initiating the search itself. 
 
+#### searchResultPresenter.jsx
+
+Handles searchResultView, handles both what to show during the promise state and the custom event of the user selecting a game to show in detail.
+
+#### savedPagesPresenter.jsx
+
+Handles savedPagesView, as of right now only returns the view without any condition and handles no custom events.
+
 ### Views 
 
 #### headerView.jsx
@@ -66,6 +72,14 @@ Implementation for the detailed search UI, uses third party components from http
 #### searchView.jsx
 
 Implementation for the detailed search UI, uses third party components from https://coreui.io/vue/docs/ to create a form where the user can input values, either string or integers within a range. 
+
+#### searchResultView.jsx
+
+Implementation for the search result UI, uses callbacks to generate individual divs based on the search parameters from searchView, also uses third party component button from https://coreui.io/vue/docs/. 
+
+#### savedPagesView.jsx
+
+Implementation for the saved pages UI, is only a page which lets the user go back to the home page or the search page so far. Uses third party component buttons from https://coreui.io/vue/docs/.
 
 ### Model 
 
