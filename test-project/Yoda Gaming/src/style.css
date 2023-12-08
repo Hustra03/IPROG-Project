@@ -99,6 +99,10 @@
     cursor:pointer;
 }
 
+.searchResultRating{
+    font-size:smaller
+}
+
 .searchResultInfo {
     font-size: smaller;
     cursor:pointer;
