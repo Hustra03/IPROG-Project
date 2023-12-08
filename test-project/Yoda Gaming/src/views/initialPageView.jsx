@@ -7,16 +7,17 @@ function InitialPageView(props) {
     return (
         <div>
 
-            <div>Query : {props.searchParams.query}</div>
-            <div>Tags : {props.searchParams.type}</div>
-            <div>Genre : {props.searchParams.genre}</div>
+            <div>Query : {props.searchParams.search}</div>
+            <div>Tags : {props.searchParams.tags}</div>
+            <div>Genre : {props.searchParams.genres}</div>
             <div>Sort By : {props.searchParams.ordering}</div>
             <div>MinMetacritic : {props.searchParams.minMetacritic}</div>
             <div>MaxMetacritic : {props.searchParams.maxMetacritic}</div>    
             <div>Page Size : {props.searchParams.page_size}</div>
             <div>Fuzzy : {props.searchParams.fuzzy}</div>
             <div>Exact : {props.searchParams.exact}</div>
-
+            <div>Dates : {props.searchParams.dates}</div>
+            <div>Platforms : {props.searchParams.platforms}</div>
         </div>
     )
 

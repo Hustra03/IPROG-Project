@@ -14,8 +14,6 @@ Header implemented, with login functionality using google authenticator, along w
 
 Searching, both a simple search using only a text query in a dropdown menu but also a more detailed search in on a seperate page where additional aspects can be detailed about the query, such as the number of results to return between 5 and 20, how exact and fuzzy the result should be ext. Currently limited to searching for games. 
 
-
-
 ## What you still plan to do
 
 Implement saved pages, with the user being able to save pages under different categories, either a small set of predefined options or potentially even custom tags. 

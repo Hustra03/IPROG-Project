@@ -25,13 +25,17 @@ function modelToPersistence(model) {
 
     return {
         yodafy: model.yodafy,
+        currentPage:model.currentPage,
+        savedPages:model.savedPages,
     };
 }
 
 function persistenceToModel(data, model) {
     if (!data) {//Sets initial values
         model.setYodafyValue(false);
+        model.setPage(null)
         model.setSearchParams({});
+        model.setSavedPages({})
         //TODO return the promises from any searches
         return;
     }
@@ -39,6 +43,16 @@ function persistenceToModel(data, model) {
         model.setYodafyValue(data.yodafy);
     }
     else { model.setYodafyValue(false); }
+    if (data.currentPage) {
+        model.setPage(data.currentPage)
+    }
+    else
+    { model.setPage(null)}
+    if (data.savedPages) {
+        model.setPage(data.savedPages)
+    }
+    else
+    { model.setPage({})}
     return;//TODO return the promises from any searches
 }
 
@@ -83,7 +97,7 @@ function connectToFirebase(model, watchFunction) {
         }
     }
     function checkACB() {
-        return [model.yodafy]
+        return [model.yodafy, model.currentPage]
     }
     function effectACB() {
         saveToFirebase(model);

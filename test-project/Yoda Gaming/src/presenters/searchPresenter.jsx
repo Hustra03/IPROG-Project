@@ -26,6 +26,8 @@ export default
                 onPageSizeChange={onPageSizeChangeCustomEventHandler}
                 onExactChange={onExactInputChangeCustomEventHandler}
                 onFuzzyChange={onFuzzyInputChangeCustomEventHandler}
+                onDatesInputChange={onDatesInputChangeCustomEventHandler}
+                onPlatformsInputChange={onPlatformsInputChangeCustomEventHandler}
                 searchCustomEvent={onSearchButtonPressCustomEventHandler} />
         </div>
     );
@@ -43,7 +45,8 @@ export default
     function onPageSizeChangeCustomEventHandler(pageSize) { props.model.setSearchPageLimit(pageSize); }
     function onExactInputChangeCustomEventHandler(exact) { props.model.setSearchExactOnlyDisabled(exact) }
     function onFuzzyInputChangeCustomEventHandler(fuzzy) { props.model.setSearchFuzzyDisabled(fuzzy) }
-
+    function onDatesInputChangeCustomEventHandler(dates){props.model.setDates(dates);}
+    function onPlatformsInputChangeCustomEventHandler(platforms){props.model.setDates(platforms);}
     function onSortByInputChangeCustomEventHandler(ordering) { props.model.setSearchOrdering(ordering) }
 
     function onSearchButtonPressCustomEventHandler() {
