@@ -26,8 +26,8 @@ function SearchResultView(props) {
             <div onClick={onSearchResultClickCB} className="searchResult">
                 <div class="titleAndInfo">
                     <div className="searchResultTitle">{game.name}</div>
-                    <div className="searchResultRating">{game.rating}</div>
-                    <span className="searchResultInfo">Here goes some game descrition, consectetur adipiscing elit. Nullam tincidunt pharetra nibh ut egestas.</span>
+                    <div className="searchResultRating">Rating: {game.rating}</div>
+                    <span className="searchResultInfo">Here goes some game descrition. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt pharetra nibh ut egestas. Sed eros enim, laoreet vitae enim eget, facilisis dapibus ipsum. Morbi quam libero, ultrices quis efficitur in, imperdiet in diam.</span>
                 </div>
                 <img className="searchResultImage" src={game.background_image} width="150"></img>
             </div>

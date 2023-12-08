@@ -100,7 +100,7 @@
 }
 
 .searchResultRating{
-    font-size:smaller
+    font-size:smaller;
 }
 
 .searchResultInfo {
@@ -130,6 +130,24 @@
     font-size:larger;
 }
 
+.centeredContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; /* Adjust as needed */
+  }
+  
+.noSavedPages{
+    text-align: center;
+    font-size:larger;
+    /* Add any other styles you want for the container */
+}
+
+.noSavedPagesReturn{
+   margin:10px;
+   margin-right:20px;
+   margin-left:20px;
+}
 
 .gameDetailsImages{
     margin:80px;
