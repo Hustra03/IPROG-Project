@@ -13,7 +13,9 @@ export default {
   searchParams: {minMetacritic:0,maxMetacritic:100},
   searchResultsPromiseState: {},
   user: null,
-  loggingIn:false,
+  loggingIn:null,
+  toastBody:null,
+
 
   //Model is initially just a modified version of dinnerModel, with minor changes when relevant
 
@@ -33,6 +35,9 @@ export default {
   //For persistence
   setSavedPages(savedPages)
   {this.savedPages=savedPages; },
+
+  setToastBody(toastBody)
+  {this.toastBody=toastBody; },
 
   setLoggingIn(value)
   {this.loggingIn=value;},

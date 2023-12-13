@@ -4,11 +4,15 @@ import "/src/style.css"
 //File mainly worked on by Erik Paulinder
 
 
-import { CDropdown, CDropdownToggle, CDropdownMenu, CForm, CFormInput, CFormLabel, CFormSelect, CButton, CSpinner } from '@coreui/vue';
+import { CDropdown, CDropdownToggle, CDropdownMenu, CForm, CFormInput, CFormLabel, CFormSelect, CButton, CSpinner, } from '@coreui/vue';
 // Custom component, https://coreui.io/vue/docs/components/dropdown.html
 // Custom component, https://coreui.io/vue/docs/components/toast.html
 // Custom component, https://coreui.io/vue/docs/getting-started/introduction.html
 // Custom component, https://coreui.io/vue/docs/forms/select.htm
+
+
+import { CToast, CToastHeader, CToastBody, CToastClose } from '@coreui/vue';
+
 
 function HeaderView(props) {
 
@@ -19,10 +23,32 @@ function HeaderView(props) {
     function yodafyButtonPressedCB() { console.log("Yodafy button pressed"); props.yodafyCustomEvent(); }
     function savedPagesButtonPressedCB() { window.location.hash = "#/savedPages"; }
 
+    function toast() {
+
+        if (props.loggingIn) {
+            props.toastBodyChange("Signing In");
+        }
+        else {
+
+            if (props.loggingIn == false) {
+                props.toastBodyChange("Loggin Out");
+            }
+
+        } if (props.toastBody) {
+            return (
+                <CToast delay={2000} class="align-items-center" visible>
+                    <CToastBody>
+                        {props.toastBody}
+                    </CToastBody>
+                </CToast>
+            )
+        }
+    }
+
     function UpperHalfButtons() {
         function currentlyLoggingInFuction() {
 
-            if (props.loggingIn==true) {
+            if (props.loggingIn == true) {
                 return <CSpinner color="primary" />;
             }
         }
@@ -66,8 +92,7 @@ function HeaderView(props) {
 
     function searchInputCB(evt) { props.onQueryInputChange(evt.target.value); }
 
-    function searchButtonPressedCB()
-    {props.searchCustomEvent();window.location.hash = "#/searchResult"; }
+    function searchButtonPressedCB() { props.searchCustomEvent(); window.location.hash = "#/searchResult"; }
 
     function searchButton() {
         return (<CDropdown auto-close="outside">
@@ -88,8 +113,7 @@ function HeaderView(props) {
         )
     }
 
-    function headerTitleClicked()
-    {
+    function headerTitleClicked() {
         window.location.hash = "/";
     }
 
@@ -99,8 +123,9 @@ function HeaderView(props) {
 
             <div className="HeaderLeftHalf">
                 <h1 className="HeaderTitle" onClick={headerTitleClicked}>Yodas Gaming Wiki</h1>
-            </div>
 
+            </div>
+            {toast()}
             <div className="HeaderRightHalf">
                 <div className="HeaderUpperButtons">
                     {UpperHalfButtons()}
