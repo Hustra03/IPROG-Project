@@ -26,12 +26,16 @@ function HeaderView(props) {
     function toast() {
 
         if (props.loggingIn) {
-            props.toastBodyChange("Signing In");
+            
+            if (props.loggedIn) {console.log(props.loggedIn)
+                props.toastBodyChange(props.loggedIn.email+" Signed In Successfully");
+            }
+            else { props.toastBodyChange("Signing In"); }
+
         }
         else {
-
             if (props.loggingIn == false) {
-                props.toastBodyChange("Loggin Out");
+                props.toastBodyChange("Logged Out");
             }
 
         } if (props.toastBody) {
