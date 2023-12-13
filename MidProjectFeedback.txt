@@ -1,0 +1,42 @@
+Person 1:
+General: 
+
+You have Views with multiple responsibilities/roles and the code looks good. 
+The application need to be refined a bit to look more appealing (if you manage to do what you have shown in the websitePages folder it will look great). 
+Good that you have managed to fix persistence, that is something I had trouble with. 
+
+Is the architecture following the principles you learned through the course and/or the guidlines of the framework the group is using?
+
+It seems like you are following the MVP pattern which is good. I can also see some promise handling.  
+
+Is the code DRY (Don’t Repeat Yourself)? 
+If there is code duplication (similar segments of code repeated in several places), they should have been extracted in a loop, method or module that can be reused.
+
+I would not say so.
+
+Naming convention: Are the files, methods and variables named in meaningful way (reflecting their purpose)? Is the same pattern used consistently throughout the code?
+
+yes this makes it easier to understand the code.
+
+Code formatting: is the code properly indented and formatted for good readability?
+
+If you read the code carefully and multiple times you can understand it. Initially it's a bit hard to understand, which is probably true for most project groups.
+
+Person 2:
+Your project seems comprehensive and well-defined, combining technical aspects with a focus on user experience. 
+I personally like gaming, so this topic compels me. In terms of HCI I would recommend implementing breadcrumbs for better navigation.
+The code architecture appears aligned with the principles taught in the course. The use of Vue and APIs showcases a good technical understanding.
+Regarding DRY principles, there are areas where code repetition could potentially be reduced. For instance, in the Vue components, certain segments might benefit from abstraction into reusable methods or components to minimize redundancy. The searchResultPresenter.jsx file, for instance, contains similar conditional rendering logic that could be abstracted into a shared function (utilities.js in the lab).
+Naming conventions generally appear meaningful and consistent throughout the codebase. The file names indicate their purpose or content, such as searchResultPresenter.jsx or firebaseModel.js, aiding in quickly identifying functionalities. However, there might be room for improvement in variable naming within functions or methods, ensuring a clearer representation of their roles. Code formatting and indentation are generally well-maintained.
+In summary, while the code demonstrates consistency to best practices and principles, there are opportunities for enhancement in reducing repetition, refining naming conventions for better clarity.
+
+Keep up the good work!
+Looking forward to seeing it ready! 
+
+Summary of possible improvements:
+
+1. Ensure each view handles only one concern, find those in current which handle more than one and remake those parts.
+2. Implement breadcrumbs to improve user experience, which means adding more information about current location, 
+https://vwo.com/blog/why-use-breadcrumbs/
+3. Refactor repeated rendering logic into a utility, to reduce code repetition. 
+4. Improve variable naming, so the names clearly represent what the variable contains and is used for. 
