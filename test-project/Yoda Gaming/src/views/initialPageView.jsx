@@ -11,6 +11,7 @@ function InitialPageView(props) {
             <div>Tags : {props.searchParams.tags}</div>
             <div>Genre : {props.searchParams.genres}</div>
             <div>Sort By : {props.searchParams.ordering}</div>
+            <div>Sort By : {props.searchParams.asc}</div>
             <div>MinMetacritic : {props.searchParams.minMetacritic}</div>
             <div>MaxMetacritic : {props.searchParams.maxMetacritic}</div>
             <div>Page Size : {props.searchParams.page_size}</div>

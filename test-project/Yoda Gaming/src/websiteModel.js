@@ -10,7 +10,7 @@ export default {
   savedPages: [],
   currentPage: null,
   currentPagePromiseState: {},
-  searchParams: {minMetacritic:0,maxMetacritic:100},
+  searchParams: {minMetacritic:0,maxMetacritic:100,page_size:10,asc:false},
   searchResultsPromiseState: {},
   user: null,
   loggingIn:null,
@@ -86,7 +86,8 @@ export default {
   setSearchFuzzyDisabled(fuzzy) { this.searchParams.fuzzy = fuzzy },  //
   setSearchExactOnlyDisabled(exact) { this.searchParams.exact = exact },  //
   setDates(dates){this.searchParams.dates = dates},
-  setDates(dates){this.searchParams.dates = dates},
+  setPlatform(platform){this.searchParams.platform = platform},
+  setSearchOrderingAsc(asc) { this.searchParams.asc = asc },
   setSearchOrdering(ordering) { this.searchParams.ordering = ordering },  //This represents what results should be sorted by, ex "Rating" or "Release Date", , meaning depends on category
   //TODO Add more search parameters, exactly which depends on implementation of search
 

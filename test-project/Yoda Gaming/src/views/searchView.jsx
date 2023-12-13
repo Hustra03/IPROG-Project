@@ -27,6 +27,8 @@ function SearchView(props) {
     function sortByInputCB(evt) { props.onSortByInputChange(evt.target.value); }
     function searchDatesInput(evt) { props.onDatesInputChange(evt.target.value); }
     function searchPlatformsInput(evt) { props.onPlatformsInputChange(evt.target.value); }
+    function sortOrderInput(){props.onSortAscChange();}
+
     return (
         <div>
             <div className='detailedSearch'>
@@ -65,7 +67,7 @@ function SearchView(props) {
                         <option value="rating">Rating</option>
                         <option value="metacritic">Metacritic Score</option>
                     </CFormSelect>
-                    <CFormCheck label="Order results in ascending order" id="formSwitchCheckDefault" />
+                    <CFormCheck label="Order results in ascending order" value={props.dates} onChange={sortOrderInput} id="formSwitchCheckDefault" />
                     <CFormInput label="Dates" type="text" value={props.dates} onChange={searchDatesInput} id="queryForm" placeholder="2023-11-24" />
                     <CFormInput label="Platforms" type="text" value={props.platforms} onChange={searchPlatformsInput} id="queryForm" placeholder="PlayStation 4" />
 

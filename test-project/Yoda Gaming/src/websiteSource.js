@@ -23,7 +23,11 @@ function getResultsSearch(searchParams) //Used for Search and retreiving games t
         }
     }
     if (searchParams.ordering){
-        URL += "&ordering=" + searchParams.ordering; // Add "-" before the order variable to reverse the order
+        URL += "&ordering="
+        if (searchParams.asc) {
+            URL += "-"// reverses search order
+        }
+        URL += searchParams.ordering; // Add "-" before the order variable to reverse the order
     }
     if (searchParams.page_size){
         URL += "&page_size=" + searchParams.page_size; //integer, example: 10

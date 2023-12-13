@@ -26,11 +26,13 @@ function HeaderView(props) {
     function toast() {
 
         if (props.loggingIn) {
-            
-            if (props.loggedIn) {console.log(props.loggedIn)
-                props.toastBodyChange(props.loggedIn.email+" Signed In Successfully");
+
+            if (props.loggedIn) {
+                props.toastBodyChange(props.loggedIn.email + " Signed In Successfully");
             }
-            else { props.toastBodyChange("Signing In"); }
+            else { 
+                props.toastBodyChange("Signing In"); 
+            }
 
         }
         else {

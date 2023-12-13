@@ -28,6 +28,7 @@ export default
                 onFuzzyChange={onFuzzyInputChangeCustomEventHandler}
                 onDatesInputChange={onDatesInputChangeCustomEventHandler}
                 onPlatformsInputChange={onPlatformsInputChangeCustomEventHandler}
+                onSortAscChange={onSortByAscInputChangeCustomEventHandler}
                 searchCustomEvent={onSearchButtonPressCustomEventHandler} />
         </div>
     );
@@ -46,8 +47,9 @@ export default
     function onExactInputChangeCustomEventHandler(exact) { props.model.setSearchExactOnlyDisabled(exact) }
     function onFuzzyInputChangeCustomEventHandler(fuzzy) { props.model.setSearchFuzzyDisabled(fuzzy) }
     function onDatesInputChangeCustomEventHandler(dates){props.model.setDates(dates);}
-    function onPlatformsInputChangeCustomEventHandler(platforms){props.model.setDates(platforms);}
-    function onSortByInputChangeCustomEventHandler(ordering) { props.model.setSearchOrdering(ordering) }
+    function onPlatformsInputChangeCustomEventHandler(platforms){props.model.setPlatform(platforms);}
+    function onSortByInputChangeCustomEventHandler(ordering) { props.model.setSearchOrdering(ordering); }
+    function onSortByAscInputChangeCustomEventHandler(asc) { props.model.setSearchOrderingAsc(!asc); }
 
     function onSearchButtonPressCustomEventHandler() {
         props.model.doSearch(props.model.searchParams);
