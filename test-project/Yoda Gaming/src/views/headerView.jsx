@@ -36,7 +36,7 @@ function HeaderView(props) {
 
         } if (props.toastBody) {
             return (
-                <CToast delay={2000} class="align-items-center" visible>
+                <CToast delay={2000} color="success" class="align-items-center" visible>
                     <CToastBody>
                         {props.toastBody}
                     </CToastBody>
