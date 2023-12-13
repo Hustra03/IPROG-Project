@@ -67,7 +67,7 @@ function SearchView(props) {
                         <option value="rating">Rating</option>
                         <option value="metacritic">Metacritic Score</option>
                     </CFormSelect>
-                    <CFormCheck label="Order results in ascending order" value={props.dates} onChange={sortOrderInput} id="formSwitchCheckDefault" />
+                    <CFormCheck label="Order results in ascending order" value={props.asc} onChange={sortOrderInput} id="formSwitchCheckDefault" />
                     <CFormInput label="Dates" type="text" value={props.dates} onChange={searchDatesInput} id="queryForm" placeholder="2023-11-24" />
                     <CFormInput label="Platforms" type="text" value={props.platforms} onChange={searchPlatformsInput} id="queryForm" placeholder="PlayStation 4" />
 

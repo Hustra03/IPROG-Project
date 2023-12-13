@@ -4,6 +4,12 @@ import "/src/style.css"
 
 function InitialPageView(props) {
 
+    function asc ()
+    {
+        if (props.searchParams.asc) { return <div>Reverse Sort : true</div>}
+        return <div>Reverse Sort : false</div>
+    }
+
     return (
         <div>
 
@@ -11,7 +17,7 @@ function InitialPageView(props) {
             <div>Tags : {props.searchParams.tags}</div>
             <div>Genre : {props.searchParams.genres}</div>
             <div>Sort By : {props.searchParams.ordering}</div>
-            <div>Sort By : {props.searchParams.asc}</div>
+            {asc()}
             <div>MinMetacritic : {props.searchParams.minMetacritic}</div>
             <div>MaxMetacritic : {props.searchParams.maxMetacritic}</div>
             <div>Page Size : {props.searchParams.page_size}</div>

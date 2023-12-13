@@ -16,6 +16,7 @@ export default
                 exact={searchParams.exact}
                 fuzzy={searchParams.fuzzy}
                 page_size={searchParams.page_size}
+                asc={searchParams.asc}
                 SortBy={searchParams.SortBy}
                 onQueryInputChange={onQueryInputChangeCustomEventHandler}
                 onTagsInputChange={onTagsInputChangeCustomEventHandler}
@@ -49,7 +50,7 @@ export default
     function onDatesInputChangeCustomEventHandler(dates){props.model.setDates(dates);}
     function onPlatformsInputChangeCustomEventHandler(platforms){props.model.setPlatform(platforms);}
     function onSortByInputChangeCustomEventHandler(ordering) { props.model.setSearchOrdering(ordering); }
-    function onSortByAscInputChangeCustomEventHandler(asc) { props.model.setSearchOrderingAsc(!asc); }
+    function onSortByAscInputChangeCustomEventHandler() { props.model.toggleSearchOrderingAsc(); }
 
     function onSearchButtonPressCustomEventHandler() {
         props.model.doSearch(props.model.searchParams);
