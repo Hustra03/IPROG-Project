@@ -50,7 +50,7 @@ export default
     function onDatesInputChangeCustomEventHandler(dates){props.model.setDates(dates);}
     function onPlatformsInputChangeCustomEventHandler(platforms){props.model.setPlatform(platforms);}
     function onSortByInputChangeCustomEventHandler(ordering) { props.model.setSearchOrdering(ordering); }
-    function onSortByAscInputChangeCustomEventHandler() { props.model.toggleSearchOrderingAsc(); }
+    function onSortByAscInputChangeCustomEventHandler() { props.model.setAsc(!props.model.searchParams.asc); }
 
     function onSearchButtonPressCustomEventHandler() {
         props.model.doSearch(props.model.searchParams);
