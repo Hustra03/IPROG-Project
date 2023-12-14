@@ -15,6 +15,7 @@ export default {
   user: null,
   loggingIn:null,
   toastBody:null,
+  showAllTags: false,
 
 
   //Model is initially just a modified version of dinnerModel, with minor changes when relevant
@@ -97,4 +98,12 @@ export default {
     resolvePromise(getResultsSearch(searchParams), this.searchResultsPromiseState);
   },//TODO Ensure that the search function above can accept each category, and picks the correct function to get results from the API
 
+  toggleShowAllTags(){
+    if (this.showAllTags) {
+      this.showAllTags = false;
+    }
+    else { 
+      this.showAllTags = true; 
+    }
+  },
 };

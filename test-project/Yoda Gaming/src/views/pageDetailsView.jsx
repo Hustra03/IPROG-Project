@@ -1,5 +1,6 @@
 import {CButton} from '@coreui/vue';
 import "/src/style.css"
+    //file mainly worked on by Viktor Fredlund
 
 function PageDetailsView(props) {
     function backToSearchResultPageCB() {
@@ -7,12 +8,8 @@ function PageDetailsView(props) {
     }
     const firstFiveTags = props.gameDetails.tags.slice(0, 5);
     const moreTags = props.gameDetails.tags.length > 5;
-    let tagsToDisplay = firstFiveTags;
     function changeTagsToDisplayCB() {
-        if (tagsToDisplay === firstFiveTags)
-            tagsToDisplay = props.gameDetails.tags;
-        else
-            tagsToDisplay = firstFiveTags
+        props.showAllTagsCustomEvent();
     }
     return (
         <div className="gameDetails">
@@ -43,7 +40,7 @@ function PageDetailsView(props) {
             </div>
             <tbody className="tags">
                 <h3 className="gameDetailsTagsTitle">Tags</h3>
-                {(tagsToDisplay).map(displayTagsCB)}
+                {tagsToShow()}
                 {moreTags ? <CButton onClick={changeTagsToDisplayCB} className="tagsButton">Show more tags</CButton> : null}
             </tbody>
             <tbody className="genres">
@@ -52,7 +49,12 @@ function PageDetailsView(props) {
             </tbody>
         </div>
     )
-    
+    function tagsToShow(){
+        if (!props.showAllTags){
+            return (firstFiveTags).map(displayTagsCB)
+        }
+        return (props.gameDetails.tags).map(displayTagsCB)
+    }
     function displayTagsCB(tags){
         return(
             <tr> {tags.name} </tr>
