@@ -41,7 +41,7 @@ function PageDetailsView(props) {
             <tbody className="tags">
                 <h3 className="gameDetailsTagsTitle">Tags</h3>
                 {tagsToShow()}
-                {moreTags ? <CButton onClick={changeTagsToDisplayCB} className="tagsButton">Show more tags</CButton> : null}
+                
             </tbody>
             <tbody className="genres">
                 <h3 className="gameDetailsGenresTitle">Genres</h3>
@@ -51,9 +51,22 @@ function PageDetailsView(props) {
     )
     function tagsToShow(){
         if (!props.showAllTags){
-            return (firstFiveTags).map(displayTagsCB)
+            return (
+                <div>
+                    {(firstFiveTags).map(displayTagsCB)}
+                    {moreTags ? <CButton onClick={changeTagsToDisplayCB} className="tagsButton">Show more tags</CButton> : null}
+                </div>
+            )
         }
-        return (props.gameDetails.tags).map(displayTagsCB)
+        return (
+            <div>
+                {(props.gameDetails.tags).map(displayTagsCB)}
+                {moreTags ? <CButton onClick={changeTagsToDisplayCB} className="tagsButton">Show less tags</CButton> : null}
+            </div>
+            
+
+        )
+
     }
     function displayTagsCB(tags){
         return(
