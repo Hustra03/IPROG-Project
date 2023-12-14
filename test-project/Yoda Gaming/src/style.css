@@ -198,7 +198,6 @@
 }
 .detailsTopInfo{
     margin:40px;
-    flex-direction: column;
     border-radius: 15px;
     border-color: black;
     border-style:solid;
@@ -207,13 +206,15 @@
     justify-content: space-between;
 }
 .gameDetailsReleased{
+    
 }
 .gameDetailsMetacritic{
-    align-self: flex-end;
 }
 .gameDetailsRating{
-    align-self: flex-end;
 
+}
+.leftInfo, .middleInfo, .rightInfo{
+    flex-direction: column;
 }
 .gameDetails{
     background-color: #4b7d00;

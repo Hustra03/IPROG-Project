@@ -18,13 +18,21 @@ function PageDetailsView(props) {
         <div className="gameDetails">
 
             <CButton onClick={backToSearchResultPageCB} className="backButton">Back to search results</CButton>
-            <h3 className="detailsPageName">Details Page</h3>
+            <h2 className="detailsPageName">Details Page</h2>
             <div className="detailsTopInfo">
-                <h4 className="gameDetailsMetacritic"> Metacritic Score: {props.gameDetails.metacritic ? props.gameDetails.metacritic : "Rating missing"}/100</h4>
-                <h4 className="gameDetailsRating">Rating: {props.gameDetails.rating ? props.gameDetails.rating : "Rating missing"}/5</h4>
-                <h4 className="gameDetailsReleased">Released: {props.gameDetails.released ? props.gameDetails.released : "Not relesed yet"}</h4>
-                <h4 className="gameDetailsPlaytime">Playtime: {props.gameDetails.playtime} hours</h4>
-                <h4 className="gameDetailsMatureRating">Age Rating: {props.gameDetails.esrb_rating ? props.gameDetails.esrb_rating.name : "Rating missing"}</h4>
+                <div className="leftInfo">
+                    <h4 className="gameDetailsPublisher">Publisher: {props.gameDetails.publishers ? props.gameDetails.publishers[0].name : "Publisher missing"}</h4>
+                    <h4 className="gameDetailsDeveloper">Developer: {props.gameDetails.developers ? props.gameDetails.developers[0].name : "Developer missing"}</h4>
+                </div>
+                <div className="middleInfo">
+                    <h4 className="gameDetailsReleased">Released: {props.gameDetails.released ? props.gameDetails.released : "Not relesed yet"}</h4>
+                    <h4 className="gameDetailsPlaytime">Playtime: {props.gameDetails.playtime} hours</h4>
+                </div>
+                <div className="rightInfo">
+                    <h4 className="gameDetailsMetacritic"> Metacritic Score: {props.gameDetails.metacritic ? props.gameDetails.metacritic : "Rating missing"}/100</h4>
+                    <h4 className="gameDetailsRating">Rating: {props.gameDetails.rating ? props.gameDetails.rating : "Rating missing"}/5</h4>
+                    <h4 className="gameDetailsMatureRating">Age Rating: {props.gameDetails.esrb_rating ? props.gameDetails.esrb_rating.name : "Rating missing"}</h4>
+                </div>
             </div>
            
             <h1 className="gameDetailsTitle">{props.gameDetails.name}</h1>
