@@ -207,10 +207,13 @@
     justify-content: space-between;
 }
 .gameDetailsReleased{
-    align-self: flex-end;
 }
 .gameDetailsMetacritic{
     align-self: flex-end;
+}
+.gameDetailsRating{
+    align-self: flex-end;
+
 }
 .gameDetails{
     background-color: #4b7d00;

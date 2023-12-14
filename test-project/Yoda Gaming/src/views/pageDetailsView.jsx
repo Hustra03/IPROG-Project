@@ -18,10 +18,13 @@ function PageDetailsView(props) {
         <div className="gameDetails">
 
             <CButton onClick={backToSearchResultPageCB} className="backButton">Back to search results</CButton>
+            <h3 className="detailsPageName">Details Page</h3>
             <div className="detailsTopInfo">
-                <h3 className="detailsPageName">Details Page</h3>
-                <h4 className="gameDetailsMetacritic"> Metacritic score: {props.gameDetails.metacritic}/100</h4>
-                <h4 className="gameDetailsReleased">Released: {props.gameDetails.released}</h4>
+                <h4 className="gameDetailsMetacritic"> Metacritic Score: {props.gameDetails.metacritic ? props.gameDetails.metacritic : "Rating missing"}/100</h4>
+                <h4 className="gameDetailsRating">Rating: {props.gameDetails.rating ? props.gameDetails.rating : "Rating missing"}/5</h4>
+                <h4 className="gameDetailsReleased">Released: {props.gameDetails.released ? props.gameDetails.released : "Not relesed yet"}</h4>
+                <h4 className="gameDetailsPlaytime">Playtime: {props.gameDetails.playtime} hours</h4>
+                <h4 className="gameDetailsMatureRating">Age Rating: {props.gameDetails.esrb_rating ? props.gameDetails.esrb_rating.name : "Rating missing"}</h4>
             </div>
            
             <h1 className="gameDetailsTitle">{props.gameDetails.name}</h1>
