@@ -196,6 +196,22 @@
     border-style:solid;
     background-color: #6bb300;
 }
+.detailsTopInfo{
+    margin:40px;
+    flex-direction: column;
+    border-radius: 15px;
+    border-color: black;
+    border-style:solid;
+    background-color: #6bb300;
+    display: flex;
+    justify-content: space-between;
+}
+.gameDetailsReleased{
+    align-self: flex-end;
+}
+.gameDetailsMetacritic{
+    align-self: flex-end;
+}
 .gameDetails{
     background-color: #4b7d00;
     flex-direction: row;

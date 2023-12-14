@@ -18,7 +18,12 @@ function PageDetailsView(props) {
         <div className="gameDetails">
 
             <CButton onClick={backToSearchResultPageCB} className="backButton">Back to search results</CButton>
-            <h3 className="detailsPageName">Details Page</h3>
+            <div className="detailsTopInfo">
+                <h3 className="detailsPageName">Details Page</h3>
+                <h4 className="gameDetailsMetacritic"> Metacritic score: {props.gameDetails.metacritic}/100</h4>
+                <h4 className="gameDetailsReleased">Released: {props.gameDetails.released}</h4>
+            </div>
+           
             <h1 className="gameDetailsTitle">{props.gameDetails.name}</h1>
             <span className="gameDetailsImages"><img src={props.gameDetails.background_image} alt="game image" /><img src={props.gameDetails.background_image_additional} /></span>
             <div>
