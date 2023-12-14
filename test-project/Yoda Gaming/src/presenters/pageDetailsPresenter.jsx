@@ -34,7 +34,6 @@ function Details(props) {
     return (
         <div>
             <PageDetailsView gameDetails={props.model.currentPagePromiseState.data}/>
-            {console.log("testtt")}
         </div>
     );
     
