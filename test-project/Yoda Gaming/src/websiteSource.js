@@ -24,7 +24,7 @@ function getResultsSearch(searchParams) //Used for Search and retreiving games t
     }
     if (searchParams.ordering){
         URL += "&ordering="
-        if (searchParams.asc) {
+        if (!searchParams.asc) {
             URL += "-"// reverses search order
         }
         URL += searchParams.ordering; // Add "-" before the order variable to reverse the order
