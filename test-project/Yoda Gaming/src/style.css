@@ -71,7 +71,7 @@
 .mainPage
 { flex:0.8;}
 
-.searchResults{
+.searchResultsContainer{
     max-width: 100%;
     margin:40px;
     background-color: #007324;
@@ -92,6 +92,10 @@
     display: flex; /* Use flexbox to control layout */
     justify-content: space-between; /* Align items with space between */
     align-items: center; /* Vertically center items */
+}
+
+.searchResultTitleAndInfo {
+    
 }
 
 .searchResultTitle {

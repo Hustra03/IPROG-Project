@@ -7,7 +7,7 @@ function SearchResultView(props) {
 
     function backToMainMenuCB() {window.location.hash = "#/"; }
     return(
-    <div className="searchResults">
+    <div className="searchResultsContainer">
         <span>{props.searchResult}</span>
         <CButton onClick={backToMainMenuCB} className="searchResultInitial">Main Menu</CButton>
         {props.searchResults.map(searchResultsMapCB)}
@@ -24,10 +24,10 @@ function SearchResultView(props) {
 
         return (
             <div onClick={onSearchResultClickCB} className="searchResult">
-                <div class="titleAndInfo">
+                <div class="SearchResultTitleAndInfo">
                     <div className="searchResultTitle">{game.name}</div>
                     <div className="searchResultRating">Rating: {game.rating}</div>
-                    <span className="searchResultInfo">Here goes some game descrition. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt pharetra nibh ut egestas. Sed eros enim, laoreet vitae enim eget, facilisis dapibus ipsum. Morbi quam libero, ultrices quis efficitur in, imperdiet in diam.</span>
+                    <span className="searchResultInfo">Released in {game.released}</span>
                 </div>
                 <img className="searchResultImage" src={game.background_image} width="150"></img>
             </div>
