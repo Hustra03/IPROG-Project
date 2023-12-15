@@ -15,6 +15,7 @@ export default {
   user: null,
   loggingIn:null,
   toastBody:null,
+  showAllTags: false,
 
 
   //Model is initially just a modified version of dinnerModel, with minor changes when relevant
@@ -87,13 +88,9 @@ export default {
   setSearchExactOnlyDisabled(exact) { this.searchParams.exact = exact },  //
   setDates(dates){this.searchParams.dates = dates},
   setPlatform(platform){this.searchParams.platform = platform},
-  toggleSearchOrderingAsc() {
-    if (this.asc) {
 
-      this.asc = true;
-    }
-    else { this.asc = false; }
-  },
+  setAsc(asc){this.searchParams.asc = asc},
+
   setSearchOrdering(ordering) { this.searchParams.ordering = ordering },  //This represents what results should be sorted by, ex "Rating" or "Release Date", , meaning depends on category
   //TODO Add more search parameters, exactly which depends on implementation of search
 
@@ -101,4 +98,12 @@ export default {
     resolvePromise(getResultsSearch(searchParams), this.searchResultsPromiseState);
   },//TODO Ensure that the search function above can accept each category, and picks the correct function to get results from the API
 
+  toggleShowAllTags(){
+    if (this.showAllTags) {
+      this.showAllTags = false;
+    }
+    else { 
+      this.showAllTags = true; 
+    }
+  },
 };

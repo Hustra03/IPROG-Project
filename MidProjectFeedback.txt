@@ -33,10 +33,25 @@ In summary, while the code demonstrates consistency to best practices and princi
 Keep up the good work!
 Looking forward to seeing it ready! 
 
+Person 3:
+
+Usability:
+Clear benefits for the user and a defined target group. Good job!
+
+Architecture:
+The MVP is respected. The website images on GitHub indicate a well-structured site, allowing users to press "Enter" to search. Additionally, the search function works effectively. Overall, an interesting project with a good initial design.
+
+Suggestions:
+Include information about the website on the homepage and highlight the benefits of logging in. It might be challenging for users to understand the website's purpose and the functionality of the "Yodafy" button if they haven't seen the GitHub page. Another suggestion is to increase the size of the button in the top bar.
+
+Hope this helps! 
+Good luck!
+
 Summary of possible improvements:
 
 1. Ensure each view handles only one concern, find those in current which handle more than one and remake those parts.
 2. Implement breadcrumbs to improve user experience, which means adding more information about current location, 
 https://vwo.com/blog/why-use-breadcrumbs/
 3. Refactor repeated rendering logic into a utility, to reduce code repetition. 
-4. Improve variable naming, so the names clearly represent what the variable contains and is used for. 
+4. Improve variable naming, so the names clearly represent what the variable contains and is used for.
+5. Include information about the website + logging in on the home page. 

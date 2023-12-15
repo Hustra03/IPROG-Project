@@ -1,6 +1,6 @@
 import PageDetailsView from '../views/pageDetailsView.jsx';
 
-
+        //file mainly worked on by Viktor Fredlund
 
 export default
 function Details(props) {
@@ -30,11 +30,12 @@ function Details(props) {
             </div>
         )
     }
-    
+    function showAllTagsCustomEventHandler(){
+        props.model.toggleShowAllTags();
+    }
     return (
         <div>
-            <PageDetailsView gameDetails={props.model.currentPagePromiseState.data}/>
-            {console.log("testtt")}
+            <PageDetailsView gameDetails={props.model.currentPagePromiseState.data} yodafy={props.model.yodafy} showAllTags={props.model.showAllTags} showAllTagsCustomEvent={showAllTagsCustomEventHandler}/>
         </div>
     );
     

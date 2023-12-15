@@ -173,17 +173,55 @@
     }
     
 }
-.gameDetailsDescription{
-    max-width: 100%;
-    margin:40px;
-    flex-direction: row;
+.tags{
     border-radius: 10px;
     border-color: rgb(98, 33, 158);
     border-style:solid;
     background-color: #828884;
 }
+
+.genres{
+    border-radius: 10px;
+    border-color: rgb(98, 33, 158);
+    border-style:solid;
+    background-color: #25994c;
+}
+.gameDetailsDescriptionTitle{
+    margin-left: 40px;
+    color: #05471a;
+}
+.gameDetailsDescription{
+    max-width: 50%;
+    margin:40px;
+    margin-top: 0px;
+    flex-direction: row;
+    border-radius: 15px;
+    border-color: black;
+    border-style:solid;
+    background-color: #6bb300;
+}
+.detailsTopInfo{
+    margin:40px;
+    border-radius: 15px;
+    border-color: black;
+    border-style:solid;
+    background-color: #6bb300;
+    display: flex;
+    justify-content: space-between;
+}
+.gameDetailsReleased{
+    
+}
+.gameDetailsMetacritic{
+}
+.gameDetailsRating{
+
+}
+.leftInfo, .middleInfo, .rightInfo{
+    flex-direction: column;
+}
 .gameDetails{
-    background-color: #252b27;
+    background-color: #4b7d00;
     flex-direction: row;
 }
 .backButton{

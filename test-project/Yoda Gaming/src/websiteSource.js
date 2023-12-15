@@ -1,5 +1,7 @@
 import { API_KEY, BASE_URL, YODA_URL, YODA_API_KEY } from "./apiConfig";
 
+    //file mainly worked on by Viktor Fredlund
+
 function getResultsSearch(searchParams) //Used for Search and retreiving games to display on the HomePage
 {
 
@@ -24,7 +26,7 @@ function getResultsSearch(searchParams) //Used for Search and retreiving games t
     }
     if (searchParams.ordering){
         URL += "&ordering="
-        if (searchParams.asc) {
+        if (!searchParams.asc) {
             URL += "-"// reverses search order
         }
         URL += searchParams.ordering; // Add "-" before the order variable to reverse the order
