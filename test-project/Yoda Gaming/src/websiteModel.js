@@ -14,7 +14,8 @@ export default {
   searchResultsPromiseState: {},
   user: null, // Represents the current user
   loggingIn: null, // Represents if the user is currently logging in or not
-  toastBody: null, // Contains the text to be shown in notifications
+  alertBody: null, // Contains the text to be shown in notifications
+  alertVisability:true,
   showAllTags: false,
 
 
@@ -36,7 +37,9 @@ export default {
   //For persistence
   setSavedPages(savedPages) { this.savedPages = savedPages; },
 
-  setToastBody(toastBody) { this.toastBody = toastBody; },
+  setAlertBody(alertBody) { this.alertBody = alertBody; },
+  setAlertVisability(alertVisability) { this.alertVisability = alertVisability; },
+
 
   setLoggingIn(value) { this.loggingIn = value; },
 
@@ -90,8 +93,12 @@ export default {
   setSearchOrdering(ordering) { this.searchParams.ordering = ordering },  //This represents what results should be sorted by, ex "Rating" or "Release Date", , meaning depends on category
   //TODO Add more search parameters, exactly which depends on implementation of search
 
-  doSearch(searchParams) {
-    this.toastBody = "Searching"//Updates notification text
+  //First parameter boolean determines if alert is to be updated, false for initial search
+  doSearch(alert, searchParams) {
+    if (alert) {
+      this.setAlertBody("Searching");
+      this.setAlertVisability(true);//Updates alert and shows it again
+    }
     resolvePromise(getResultsSearch(searchParams), this.searchResultsPromiseState);
 
   },//TODO Ensure that the search function above can accept each category, and picks the correct function to get results from the API
