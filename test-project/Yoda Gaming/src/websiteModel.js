@@ -15,7 +15,7 @@ export default {
   user: null, // Represents the current user
   loggingIn: null, // Represents if the user is currently logging in or not
   alertBody: null, // Contains the text to be shown in notifications
-  alertVisability:true,
+  alertVisability: true,
   showAllTags: false,
 
 
@@ -38,7 +38,24 @@ export default {
   setSavedPages(savedPages) { this.savedPages = savedPages; },
 
   setAlertBody(alertBody) { this.alertBody = alertBody; },
-  setAlertVisability(alertVisability) { this.alertVisability = alertVisability; },
+  setAlertVisability(alertVisability) { this.alertVisability = alertVisability; this.asyncCall(); },
+
+  resolveAfter2Seconds() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve('resolved');
+      }, 3000);
+    });
+  },
+
+  async asyncCall() {
+    await this.resolveAfter2Seconds();
+    this.setAlertVisability(false);
+  },
+  //Above is a bootleg timed dismiss
+  //It is called whenever is called setAlertVisability, and sets it to false after 2 seconds
+  //TODO get above checked by Coach, so that it is an ok implementation
+
 
 
   setLoggingIn(value) { this.loggingIn = value; },
