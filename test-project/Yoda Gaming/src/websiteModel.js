@@ -163,5 +163,6 @@ export default {
       image: this.currentPagePromiseState.data.background_image,
       id: this.currentPage,
     });
+    console.log(this.savedPages);
   },
 };
