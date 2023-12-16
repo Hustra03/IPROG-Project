@@ -17,7 +17,7 @@ function PageDetailsView(props) {
     return (
         <div className="gameDetails">
 
-            <CButton onClick={backToSearchResultPageCB} className="backButton">Back to search results</CButton>
+            <CButton onClick={backToSearchResultPageCB} className="backButton, detailsButton">Back to search results</CButton>
             <h2 className="detailsPageName">Details Page</h2>
             <div className="detailsTopInfo">
                 <div className="leftInfo">
@@ -58,7 +58,7 @@ function PageDetailsView(props) {
             return (
                 <div>
                     {(firstFiveTags).map(displayTagsCB)}
-                    {moreTags ? <CButton onClick={changeTagsToDisplayCB} className="tagsButton">Show more tags</CButton> : null}
+                    {moreTags ? <CButton onClick={changeTagsToDisplayCB} className="tagsButton, detailsButton">Show more tags</CButton> : null}
                 </div>
             )
         }
