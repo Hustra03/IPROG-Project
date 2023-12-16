@@ -44,7 +44,6 @@ function Details(props) {
             <PageDetailsView 
             gameDetails={props.model.currentPagePromiseState.data} 
             gameScreenshots={props.model.currentGameScreenshotsPromiseState.data}
-            currentGameScreenshots={props.model.currentScreenshotPage}
             yodafy={props.model.yodafy}
             showAllTags={props.model.showAllTags} 
             showAllTagsCustomEvent={showAllTagsCustomEventHandler} 

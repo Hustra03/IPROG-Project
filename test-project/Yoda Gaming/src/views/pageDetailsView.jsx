@@ -46,7 +46,7 @@ function PageDetailsView(props) {
                 
                 
                 {imageToDisplay()}
-                <CButton onClick={loadScreenshotsCB} className="detailsButton">Load More Screenshots</CButton>
+                <CButton onClick={loadScreenshotsCB} className="detailsButton">Show Screenshots</CButton>
                 </div>
                 <div className="infoBesideImage">
                     <tbody className="tags">
@@ -112,7 +112,7 @@ function PageDetailsView(props) {
         )
     }
     function imageToDisplay(){
-        if (props.gameScreenshots && props.currentGameScreenshots === props.gameDetails.id){
+        if (props.gameScreenshots){
             return (
             <CCarousel controls indicators>
                 {(props.gameScreenshots).map(displayScreenshotsCB)}
@@ -121,7 +121,7 @@ function PageDetailsView(props) {
         }
         else
             return <CImage fluid src={props.gameDetails.background_image} class="img-thumbnail"/>
-    }
+        }
 }
 
 export default PageDetailsView

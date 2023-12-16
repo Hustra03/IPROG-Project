@@ -95,6 +95,7 @@ export default {
         return;
       if (id) {
         this.currentPage = id;
+        this.currentGameScreenshotsPromiseState.data = null;
         resolvePromise(getGameDetails(id), this.currentPagePromiseState);
       }
     }
@@ -168,7 +169,6 @@ export default {
       image: this.currentPagePromiseState.data.background_image,
       id: this.currentPage,
     });
-    //this.savedPages = [...this.savedPages, gameToAddToSavedPages];
     console.log(this.savedPages);
   },
   getScreenshotsForCurrentGame(){
