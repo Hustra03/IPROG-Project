@@ -33,9 +33,12 @@ function Details(props) {
     function showAllTagsCustomEventHandler(){
         props.model.toggleShowAllTags();
     }
+    function addGameToSavedPagesCustomEventHandler(){
+        props.model.addGameToSavedPages();
+    }
     return (
         <div>
-            <PageDetailsView gameDetails={props.model.currentPagePromiseState.data} yodafy={props.model.yodafy} showAllTags={props.model.showAllTags} showAllTagsCustomEvent={showAllTagsCustomEventHandler}/>
+            <PageDetailsView gameDetails={props.model.currentPagePromiseState.data} yodafy={props.model.yodafy} showAllTags={props.model.showAllTags} showAllTagsCustomEvent={showAllTagsCustomEventHandler} addGameToSavedPagesCustomEvent={addGameToSavedPagesCustomEventHandler}/>
         </div>
     );
     

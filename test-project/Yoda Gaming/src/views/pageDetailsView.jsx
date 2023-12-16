@@ -11,6 +11,9 @@ function PageDetailsView(props) {
     function changeTagsToDisplayCB() {
         props.showAllTagsCustomEvent();
     }
+    function addGameToSavedPagesCB(){
+        props.addGameToSavedPagesCustomEvent();
+    }
     return (
         <div className="gameDetails">
 
@@ -47,6 +50,7 @@ function PageDetailsView(props) {
                 <h3 className="gameDetailsGenresTitle">Genres</h3>
                 {(props.gameDetails.genres).map(displayGenresCB)}
             </tbody>
+            <CButton onClick={addGameToSavedPagesCB} className="favoriteButton">Add this game to your saved page</CButton>
         </div>
     )
     function tagsToShow(){

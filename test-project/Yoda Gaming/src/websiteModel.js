@@ -153,4 +153,11 @@ export default {
       this.showAllTags = true;
     }
   },
+  addGameToSavedPages(){
+    this.savedPages.push({
+      name: props.model.currentPagePromiseState.data.name,
+      image: props.model.currentPagePromiseState.data.background_image,
+      id: this.currentPage,
+    })
+  },
 };
