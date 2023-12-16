@@ -50,7 +50,7 @@ function PageDetailsView(props) {
                 <h3 className="gameDetailsGenresTitle">Genres</h3>
                 {(props.gameDetails.genres).map(displayGenresCB)}
             </tbody>
-            <CButton onClick={addGameToSavedPagesCB} className="favoriteButton">Add this game to your saved page</CButton>
+            {showAddToSavedPagesButtonCB()}
         </div>
     )
     function tagsToShow(){
@@ -65,12 +65,19 @@ function PageDetailsView(props) {
         return (
             <div>
                 {(props.gameDetails.tags).map(displayTagsCB)}
-                {moreTags ? <CButton onClick={changeTagsToDisplayCB} className="tagsButton">Show less tags</CButton> : null}
+                {moreTags ? <CButton onClick={changeTagsToDisplayCB} className="tagsButton, detailsButton">Show less tags</CButton> : null}
             </div>
             
 
         )
 
+    }
+    function showAddToSavedPagesButtonCB(){
+        if(props.loggedIn){
+            return(
+                <CButton onClick={addGameToSavedPagesCB} className="favoriteButton, detailsButton">Add this game to your saved pages</CButton>
+            )
+        }
     }
     function displayTagsCB(tags){
         return(

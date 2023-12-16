@@ -38,7 +38,12 @@ function Details(props) {
     }
     return (
         <div>
-            <PageDetailsView gameDetails={props.model.currentPagePromiseState.data} yodafy={props.model.yodafy} showAllTags={props.model.showAllTags} showAllTagsCustomEvent={showAllTagsCustomEventHandler} addGameToSavedPagesCustomEvent={addGameToSavedPagesCustomEventHandler}/>
+            <PageDetailsView 
+            gameDetails={props.model.currentPagePromiseState.data} 
+            yodafy={props.model.yodafy} showAllTags={props.model.showAllTags} 
+            showAllTagsCustomEvent={showAllTagsCustomEventHandler} 
+            addGameToSavedPagesCustomEvent={addGameToSavedPagesCustomEventHandler}
+            loggedIn={props.model.user}/>
         </div>
     );
     
