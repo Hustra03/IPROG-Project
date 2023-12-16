@@ -82,7 +82,6 @@
 }
 
 .searchResultInitial {
-    padding:0px;
     margin-top:20px;
     margin-left:20px;
     background-color: lightgreen;
@@ -154,6 +153,10 @@
    margin:10px;
    margin-right:20px;
    margin-left:20px;
+}
+
+.savedPagesContainer{
+    background-color:#4B7D00;
 }
 
 .gameDetailsImages{
