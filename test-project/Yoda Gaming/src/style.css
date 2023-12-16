@@ -176,18 +176,25 @@
     border-style:solid;
     background-color: #828884;
     padding: 10px;
-    margin-top: 5%;
+    margin-top: 20%;
     margin-bottom: 5%;
+    width: 60%;
+    height: 50%;
+    min-width: 150px;
+    min-height: 280px;
+    max-height: 400px;
+    overflow: auto;
 }
-.detailsText{
-    color: #05471a;
-}
+
 .genres{
     border-radius: 10px;
     border-color: rgb(98, 33, 158);
     border-style:solid;
     background-color: #25994c;
-    margin-top: 5%;
+    margin: 5%;
+    width: 40%;
+    height: 30%;
+    margin-top: 20%;
     margin-bottom: 5%;
 }
 .belowTopInfo{
@@ -210,6 +217,10 @@
     
     .belowTopInfo{
         display: inline-block;
+    }
+    .tags, .genres{
+        max-width: 30%;
+        max-height: 280px;
     }
 }
 
@@ -264,9 +275,15 @@
     border-style:solid;
 }
 .gameDetailsTitle{
-    margin:30px;
-    color: #007324;
     
+        
+}
+.detailsText{
+    color: #05471a;
+    margin-left:30px;
+}
+.gameDetailsGenresTitle, .gameDetailsTagsTitle{
+    color: #05471a;
 }
 .detailsPageName{
     margin-top: 10px;

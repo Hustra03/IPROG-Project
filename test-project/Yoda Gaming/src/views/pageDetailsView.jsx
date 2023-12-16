@@ -1,4 +1,5 @@
 import {CButton, CImage, CCarousel, CCarouselItem} from '@coreui/vue';
+
 import "/src/style.css"
     //file mainly worked on by Viktor Fredlund
 
@@ -51,11 +52,11 @@ function PageDetailsView(props) {
                 </div>
                 <div className="infoBesideImage">
                     <tbody className="tags">
-                        <h3 className="gameDetailsTagsTitle, detailsText">Tags</h3>
+                        <h3 className="gameDetailsTagsTitle">Tags</h3>
                         {tagsToShow()}
                     </tbody>
                     <tbody className="genres">
-                        <h3 className="gameDetailsGenresTitle, detailsText">Genres</h3>
+                        <h3 className="gameDetailsGenresTitle">Genres</h3>
                         {(props.gameDetails.genres).map(displayGenresCB)}
                     </tbody>
                 </div>
@@ -95,8 +96,8 @@ function PageDetailsView(props) {
         }
     }
     function displayTagsCB(tags){
-        return(
-            <tr> {tags.name} </tr>
+        return( 
+                <tr> {tags.name} </tr>
         )
     }
     function displayGenresCB(genres){
