@@ -111,5 +111,22 @@ function yodafyText(text){
     }).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
 }
 
+function getGameScreenshots(gameID){
+    const GAME_SCREENSHOTS_URL = BASE_URL + "games/" + gameID + "/screenshots" + "?key=" + API_KEY;
 
-export { getResultsSearch, getGameDetails, yodafyText, getAllGenres};
+    function getTheJSON_ACB(respons){
+        if(!respons.ok){
+            throw new Error("Something went wrong with the Game Screenshots API call.");
+        }
+        return respons.json();
+    }
+
+    function giveOnlyRelevantInfoACB(json){
+        console.log(json.results); //Uncomment to see the the api response object
+        return json.results;
+    }
+    return fetch(GAME_SCREENSHOTS_URL).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
+}
+
+
+export { getResultsSearch, getGameDetails, yodafyText, getAllGenres, getGameScreenshots};

@@ -2,6 +2,7 @@ import {CButton, CImage, CCarousel, CCarouselItem} from '@coreui/vue';
 
 import "/src/style.css"
     //file mainly worked on by Viktor Fredlund
+    //
 
 function PageDetailsView(props) {
     function backToSearchResultPageCB() {
@@ -14,6 +15,9 @@ function PageDetailsView(props) {
     }
     function addGameToSavedPagesCB(){
         props.addGameToSavedPagesCustomEvent();
+    }
+    function loadScreenshotsCB(){
+        props.loadScreenshotsCustomEvent();
     }
     return (
         <div className="gameDetails">
@@ -39,15 +43,9 @@ function PageDetailsView(props) {
             <h1 className="gameDetailsTitle, detailsText">{props.gameDetails.name}</h1>
             <div className="belowTopInfo">
                 <div className="gameDetailsImages">
-                <CCarousel controls indicators>
-                    <CCarouselItem>
-                        <CImage fluid src={props.gameDetails.background_image} class="img-thumbnail"/>
-                    </CCarouselItem>
-                    <CCarouselItem>
-                        <CImage fluid src={props.gameDetails.background_image_additional} class="img-thumbnail"/>
-                    </CCarouselItem>
-                    
-                </CCarousel>
+                
+                
+                {imageToDisplay()}
 
                 </div>
                 <div className="infoBesideImage">
@@ -67,6 +65,8 @@ function PageDetailsView(props) {
             </div>
             
             {showAddToSavedPagesButtonCB()}
+            <CButton onClick={loadScreenshotsCB} className="detailsButton">Load More Screenshots</CButton>
+
         </div>
     )
     function tagsToShow(){
@@ -104,6 +104,24 @@ function PageDetailsView(props) {
         return(
             <tr> {genres.name} </tr>
         )
+    }
+    function displayScreenshotsCB(gameScreenshots){
+        return (
+                <CCarouselItem>
+                    <CImage fluid src={gameScreenshots.image} class="img-thumbnail"/>
+                </CCarouselItem>
+        )
+    }
+    function imageToDisplay(){
+        if (props.gameScreenshots && props.currentGameScreenshots === props.gameDetails.id){
+            return (
+            <CCarousel controls indicators>
+                {(props.gameScreenshots).map(displayScreenshotsCB)}
+            </CCarousel>
+            )
+        }
+        else
+            return <CImage fluid src={props.gameDetails.background_image} class="img-thumbnail"/>
     }
 }
 

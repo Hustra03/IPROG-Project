@@ -3,7 +3,7 @@
 */
 
 import resolvePromise from "./resolvePromise.js";
-import { getResultsSearch, getGameDetails } from "./websiteSource.js";
+import { getResultsSearch, getGameDetails, getGameScreenshots } from "./websiteSource.js";
 
 export default {
   yodafy: false, //Represents if the "standard" text should be yodafied or not
@@ -18,6 +18,8 @@ export default {
   alertVisability: true, // States if notification is to be shown or not
   raceConditionAvoidance:null, //To avoid race conditions for alerts, random value between 0 and 1
   showAllTags: false,
+  currentGameScreenshotsPromiseState: {},
+  currentScreenshotPage: null,
 
 
   //Model is initially just a modified version of dinnerModel, with minor changes when relevant
@@ -168,5 +170,11 @@ export default {
     });
     //this.savedPages = [...this.savedPages, gameToAddToSavedPages];
     console.log(this.savedPages);
+  },
+  getScreenshotsForCurrentGame(){
+    if (this.currentScreenshotPage === this.currentPage)
+      return;
+    this.currentScreenshotPage = this.currentPage;
+    resolvePromise(getGameScreenshots(this.currentPage), this.currentGameScreenshotsPromiseState);
   },
 };
