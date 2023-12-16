@@ -155,8 +155,8 @@ export default {
   },
   addGameToSavedPages(){
     this.savedPages.push({
-      name: props.model.currentPagePromiseState.data.name,
-      image: props.model.currentPagePromiseState.data.background_image,
+      name: currentPagePromiseState.data.name,
+      image: currentPagePromiseState.data.background_image,
       id: this.currentPage,
     })
   },
