@@ -10,7 +10,12 @@ export default
                 savedPages={props.model.savedPages}
                 loggedIn={props.model.user}
                 model={props.model}
+                chosenGame={chosenGameCustomEventHandler}
             />
         </div>
     );
+
+    function chosenGameCustomEventHandler(game){
+        props.model.setPage(game.id)
+    }
 }
