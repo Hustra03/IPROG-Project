@@ -34,7 +34,6 @@ function persistenceToModel(data, model) {
     if (!data) {//Sets initial values
         model.setYodafyValue(false);
         model.setPage(null)
-        model.setSearchParams({});
         model.setSavedPages({})
         //TODO return the promises from any searches
         return;
@@ -49,10 +48,10 @@ function persistenceToModel(data, model) {
     else
     { model.setPage(null)}
     if (data.savedPages) {
-        model.setPage(data.savedPages)
+        model.setSavedPages(data.savedPages)
     }
     else
-    { model.setPage({})}
+    { model.setSavedPages({})}
     return;//TODO return the promises from any searches
 }
 
