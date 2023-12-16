@@ -15,7 +15,8 @@ export default {
   user: null, // Represents the current user
   loggingIn: null, // Represents if the user is currently logging in or not
   alertBody: null, // Contains the text to be shown in notifications
-  alertVisability: true,
+  alertVisability: true, // States if notification is to be shown or not
+  raceConditionAvoidance:null, //To avoid race conditions for alerts, random value between 0 and 1
   showAllTags: false,
 
 
@@ -38,7 +39,11 @@ export default {
   setSavedPages(savedPages) { this.savedPages = savedPages; },
 
   setAlertBody(alertBody) { this.alertBody = alertBody; },
-  setAlertVisability(alertVisability) { this.alertVisability = alertVisability; this.asyncCall(this.alertBody); },
+  setAlertVisability(alertVisability) { 
+    this.alertVisability = alertVisability; 
+    this.raceConditionAvoidance=Math.random(); 
+    this.asyncCall(this.raceConditionAvoidance);
+   },
 
   resolveAfter2Seconds() {
     return new Promise((resolve) => {
@@ -48,9 +53,9 @@ export default {
     });
   },
 
-  async asyncCall(alertBody) {
+  async asyncCall(oldRaceConditionAvoidance) {
     await this.resolveAfter2Seconds();
-    if (this.alertBody=alertBody) {
+    if (this.raceConditionAvoidance==oldRaceConditionAvoidance) {
       this.setAlertVisability(false);
     }
   },

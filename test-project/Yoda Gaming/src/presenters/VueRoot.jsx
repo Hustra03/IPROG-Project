@@ -47,7 +47,7 @@ export function makeRouter(model) {
 export default
     function VueRoot(props) {
 
-    if (!props.model.ready) { return <LoadingView></LoadingView> }
+    if (!props.model.ready) { return <LoadingView/> }
 
     return (
         <div className="flexParent">
