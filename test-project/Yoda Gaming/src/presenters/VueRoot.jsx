@@ -6,6 +6,7 @@ import SearchPresenter from "./searchPresenter.jsx";
 import SearchResultPresenter from "./searchResultPresenter.jsx";
 import SavedPagesPresenter from "./savedPagesPresenter.jsx";
 import ViewingHistoryPresenter from "./viewingHistoryPresenter.jsx";
+import { LoadingView } from "../views/loadingView.jsx";
 
 //File mainly worked on by Erik Paulinder
 
@@ -46,7 +47,7 @@ export function makeRouter(model) {
 export default
     function VueRoot(props) {
 
-    if (!props.model.ready) { return <img src="https://brfenergi.se/iprog/loading.gif" alt="loading" />; }
+    if (!props.model.ready) { return <LoadingView/> }
 
     return (
         <div className="flexParent">

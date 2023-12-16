@@ -38,6 +38,11 @@ function SearchView(props) {
         return <CButton onClick={sortOrderInput} type="submit" color="success">Sort In Reverse Order</CButton>
      }
 
+     function linkToSearchResults(){
+        if (props.searchResultsData) {
+            return <div><a href='#/searchResult'>Previous Search Results</a></div>
+        }
+    }
 
     return (
         <div>
@@ -82,6 +87,7 @@ function SearchView(props) {
                     <CFormInput label="Platforms" type="text" value={props.platforms} onChange={searchPlatformsInput} id="queryForm" placeholder="PlayStation 4" />
                     <CButton onClick={searchButtonPressedCB} type="submit" color="success">Search!</CButton>
                     {sortOrder()}
+                    {linkToSearchResults()}
                 </CForm>
             </div>
         </div>

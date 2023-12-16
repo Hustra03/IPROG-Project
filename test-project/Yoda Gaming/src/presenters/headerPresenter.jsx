@@ -29,6 +29,7 @@ export default
             loggingIn={props.model.loggingIn}
             alertBody={props.model.alertBody}
             alertVisability={props.model.alertVisability}
+            searchResultsData={props.model.searchResultsPromiseState.data}
             loginCustomEvent={loginCustomEventHandler}
             signOutCustomEvent={signOutCustomEventHandler}
             yodafyCustomEvent={yodafyCustomEventHandler}
