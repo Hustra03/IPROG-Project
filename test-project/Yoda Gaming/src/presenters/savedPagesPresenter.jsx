@@ -9,6 +9,7 @@ export default
             <SavedPagesView
                 savedPages={props.model.savedPages}
                 loggedIn={props.model.user}
+                model={props.model}
             />
         </div>
     );

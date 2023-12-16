@@ -35,6 +35,10 @@ export default {
 
   },//By Erik Paulinder, saves the current page with a specified category
 
+  clearSavedPages() {
+    this.savedPages=[];
+  },
+
   //For persistence
   setSavedPages(savedPages) { this.savedPages = savedPages; },
 

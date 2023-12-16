@@ -7,12 +7,14 @@ function SavedPagesView(props){
 
     function backToMainMenuCB() {window.location.hash = "#/"; }
     function backToSearchCB() {window.location.hash = "#/search"; }
+    function clearSavedCB() {props.model.clearSavedPages()}
 
     if (props.loggedIn) {
         if (props.savedPages.length == 0) {
             return <div className="noSavedPagesContainer">
                         <div className="noSavedPages">
-                        <div>No Pages Seem To Have Been Saved Yet</div>
+                        <div>No Pages Seem To Have Been Saved Yet {props.savedPages.length}</div>
+                        {console.log(props.savedPages)}
                         <CButton onClick={backToMainMenuCB} className="noSavedPagesReturn">Main Menu</CButton>
                         <CButton onClick={backToSearchCB} className="noSavedPagesReturn">Find A New Favorite</CButton>
                         </div>
@@ -20,8 +22,9 @@ function SavedPagesView(props){
         }
 
         return <div className="savedPagesContainer">
-            {console.log(props.savedPages)}
-            some text
+            {console.log("savedPages:" + props.savedPages)}
+            amount of saved games: {props.savedPages.length}
+            <button onClick={clearSavedCB}>clear saved pages</button>
         </div>
     }
 
@@ -36,7 +39,7 @@ function SavedPagesView(props){
         return (
             <div className="savedPagesImageAndTitle" onClick={onSavedPageClickCB}>
                 <div className="savedPagesImage">
-                     here it saved games
+                     here is saved games
                 </div>
             </div>
         )
