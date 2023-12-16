@@ -15,7 +15,11 @@ import { CAlert } from '@coreui/vue'
 function HeaderView(props) {
 
     function loginButtonPressedCB() {
-        console.log("Log button pressed"); props.loginCustomEvent();
+        props.loginCustomEvent();
+    }
+
+    function signOutButtonPressedCB() {
+        props.signOutCustomEvent();
     }
 
     function yodafyButtonPressedCB() { console.log("Yodafy button pressed"); props.yodafyCustomEvent(); }
@@ -49,7 +53,7 @@ function HeaderView(props) {
         }
         return (
             <div className="LoggedIn">
-                <CButton onClick={loginButtonPressedCB} type="submit" color="success">Sign Out</CButton>
+                <CButton onClick={signOutButtonPressedCB} type="submit" color="success">Sign Out</CButton>
                 <img className="userIcon" src={props.loggedIn.photoURL} alt="user icon" />
             </div>
         )

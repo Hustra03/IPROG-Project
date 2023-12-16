@@ -5,29 +5,21 @@ import { HeaderView } from "../views/headerView.jsx";
 
 export default
     function HeaderPresenter(props) {
+
     function loginCustomEventHandler() {
-
-
-        if (!auth.currentUser) {
-
-            props.model.setLoggingIn(true);
-            signInWithPopup(auth, provider);
-            props.model.setCurrentUser(auth.currentUser);
-            props.model.setAlertBody("Signed In");
-        }
-        else {
-            props.model.setAlertBody(props.model.user.email + " Logged Out");
-            props.model.setLoggingIn(false);
-            signOut(auth);
-            props.model.setCurrentUser(null);
-
-        }
-        props.model.setAlertVisability(true);
-
+        props.model.setLoggingIn(true);
+        signInWithPopup(auth, provider).then(props.model.setCurrentUser(auth.currentUser));
     }
+
+    function signOutCustomEventHandler() {
+        props.model.signOut();
+        signOut(auth);
+    }
+
     function yodafyCustomEventHandler() {
         props.model.toggleYodafyValue();
     }
+
     return (
 
         <HeaderView
@@ -38,6 +30,7 @@ export default
             alertBody={props.model.alertBody}
             alertVisability={props.model.alertVisability}
             loginCustomEvent={loginCustomEventHandler}
+            signOutCustomEvent={signOutCustomEventHandler}
             yodafyCustomEvent={yodafyCustomEventHandler}
             searchCustomEvent={onSearchButtonPressCustomEventHandler}
             onQueryInputChange={onQueryInputChangeCustomEventHandler}

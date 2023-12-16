@@ -46,17 +46,18 @@ export function makeRouter(model) {
 export default
     function VueRoot(props) {
 
-    if (!props.model.ready) {return <img src="https://brfenergi.se/iprog/loading.gif" alt="loading" />;}
+    if (!props.model.ready) { return <img src="https://brfenergi.se/iprog/loading.gif" alt="loading" />; }
 
     return (
         <div className="flexParent">
             <HeaderPresenter model={props.model} />
             <div className="mainContent">
                 <div className="viewHistory">
-                    <ViewingHistoryPresenter/>
+                    <ViewingHistoryPresenter />
                 </div>
                 <div className="mainPage">
-                <RouterView /></div>
+                    <RouterView />
+                </div>
             </div>
         </div>
     );

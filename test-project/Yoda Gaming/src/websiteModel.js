@@ -38,25 +38,37 @@ export default {
   setSavedPages(savedPages) { this.savedPages = savedPages; },
 
   setAlertBody(alertBody) { this.alertBody = alertBody; },
-  setAlertVisability(alertVisability) { this.alertVisability = alertVisability; this.asyncCall(); },
+  setAlertVisability(alertVisability) { this.alertVisability = alertVisability; this.asyncCall(this.alertBody); },
 
   resolveAfter2Seconds() {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve('resolved');
-      }, 3000);
+      }, 2000);
     });
   },
 
-  async asyncCall() {
+  async asyncCall(alertBody) {
     await this.resolveAfter2Seconds();
-    this.setAlertVisability(false);
+    if (this.alertBody=alertBody) {
+      this.setAlertVisability(false);
+    }
   },
+
   //Above is a bootleg timed dismiss
   //It is called whenever is called setAlertVisability, and sets it to false after 2 seconds
   //TODO get above checked by Coach, so that it is an ok implementation
 
 
+  signOut()
+  {
+    this.setAlertBody(this.user.email + " Logged Out");
+    this.setLoggingIn(false);
+    this.setCurrentUser(null);
+    this.setAlertVisability(true);
+  },
+  //Above handles sign out, not a similar for login since that requiers 2 methods no matter what, 
+  //one for giving the info that it is logging in, while other handles login
 
   setLoggingIn(value) { this.loggingIn = value; },
 
@@ -80,7 +92,15 @@ export default {
   },
   // more methods will be added here, don't forget to separate them with comma!
 
-  setCurrentUser(value) { this.user = value; },
+  setCurrentUser(value) {
+    this.user = value;
+
+    if (value != null) {
+
+      this.setAlertBody("Signed In As : " + this.user.email);
+      this.setAlertVisability(true);
+    }
+  },
 
   toggleYodafyValue() {
     if (this.yodafy) {
