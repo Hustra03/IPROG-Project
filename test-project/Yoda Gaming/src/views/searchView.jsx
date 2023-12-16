@@ -40,7 +40,7 @@ function SearchView(props) {
 
      function linkToSearchResults(){
         if (props.searchResultsData) {
-            return <div><a href='#/searchResult'>Previous Search Results</a></div>
+            return <div><a href='#/searchResult'>Go To Previous Search Results</a></div>
         }
     }
 

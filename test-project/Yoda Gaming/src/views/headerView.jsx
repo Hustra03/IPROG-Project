@@ -87,7 +87,7 @@ function HeaderView(props) {
 
     function linkToSearchResults(){
         if (props.searchResultsData) {
-            return <div><a href='#/searchResult'>Previous Search Results</a></div>
+            return <div><a href='#/searchResult'>Old Search Results</a></div>
         }
     }
 
@@ -103,7 +103,8 @@ function HeaderView(props) {
 
                     <CButton onClick={searchButtonPressedCB} type="submit" color="success">Search!</CButton>
                     <div><a href='#/search'>Detailed Search</a></div>
-                    {linkToSearchResults()}
+                    <div>{linkToSearchResults()}</div>
+                    
                 </CForm>
             </CDropdownMenu>
         </CDropdown>

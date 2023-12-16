@@ -51,6 +51,6 @@ export default
         props.model.setSearchQuery(query);
     }
     function onSearchButtonPressCustomEventHandler() {
-        props.model.doSearch(true, props.model.searchParams);
+        props.model.doSearch(true);
     }
 }

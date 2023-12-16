@@ -54,6 +54,6 @@ export default
     function onSortByAscInputChangeCustomEventHandler() { props.model.setAsc(!props.model.searchParams.asc); }
 
     function onSearchButtonPressCustomEventHandler() {
-        props.model.doSearch(true, props.model.searchParams);
+        props.model.doSearch(true);
     }
 }

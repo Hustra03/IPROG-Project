@@ -136,12 +136,12 @@ export default {
   //TODO Add more search parameters, exactly which depends on implementation of search
 
   //First parameter boolean determines if alert is to be updated, false for initial search
-  doSearch(alert, searchParams) {
+  doSearch(alert) {
     if (alert) {
       this.setAlertBody("Searching");
       this.setAlertVisability(true);//Updates alert and shows it again
     }
-    resolvePromise(getResultsSearch(searchParams), this.searchResultsPromiseState);
+    resolvePromise(getResultsSearch(this.searchParams), this.searchResultsPromiseState);
 
   },//TODO Ensure that the search function above can accept each category, and picks the correct function to get results from the API
 

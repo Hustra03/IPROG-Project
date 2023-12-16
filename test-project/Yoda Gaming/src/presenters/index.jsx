@@ -37,6 +37,6 @@ app.mount('#root');
 
 
 // ------ for debug purposes ----------
-reactiveModel.doSearch(false,{});             // make the model available in the Console
+reactiveModel.doSearch(false);             // make the model available in the Console
 window.myModel= reactiveModel;  
 connectToFirebase(reactiveModel,watch)
