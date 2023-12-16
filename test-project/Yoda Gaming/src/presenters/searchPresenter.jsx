@@ -18,6 +18,7 @@ export default
                 page_size={searchParams.page_size}
                 asc={searchParams.asc}
                 SortBy={searchParams.SortBy}
+                searchResultsData={props.model.searchResultsPromiseState.data}
                 onQueryInputChange={onQueryInputChangeCustomEventHandler}
                 onTagsInputChange={onTagsInputChangeCustomEventHandler}
                 onGenreInputChange={onGenreInputChangeCustomEventHandler}

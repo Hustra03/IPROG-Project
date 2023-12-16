@@ -84,6 +84,13 @@ function HeaderView(props) {
 
     function searchButtonPressedCB() { props.searchCustomEvent(); window.location.hash = "#/searchResult"; }
 
+
+    function linkToSearchResults(){
+        if (props.searchResultsData) {
+            return <div><a href='#/searchResult'>Previous Search Results</a></div>
+        }
+    }
+
     function searchButton() {
         return (<CDropdown auto-close="outside">
             <CDropdownToggle color="success">Search</CDropdownToggle>
@@ -96,6 +103,7 @@ function HeaderView(props) {
 
                     <CButton onClick={searchButtonPressedCB} type="submit" color="success">Search!</CButton>
                     <div><a href='#/search'>Detailed Search</a></div>
+                    {linkToSearchResults()}
                 </CForm>
             </CDropdownMenu>
         </CDropdown>
