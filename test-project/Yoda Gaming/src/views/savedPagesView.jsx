@@ -20,7 +20,7 @@ function SavedPagesView(props){
         }
 
         return <div className="savedPagesContainer">
-            {props.savedPages.map(savedPagesMapCB)}
+            some text
         </div>
     }
 
@@ -35,7 +35,7 @@ function SavedPagesView(props){
         return (
             <div className="savedPagesImageAndTitle" onClick={onSavedPageClickCB}>
                 <div className="savedPagesImage">
-                     
+                     here it saved games
                 </div>
             </div>
         )
