@@ -10,11 +10,12 @@ export default {
   savedPages: [],
   currentPage: null,
   currentPagePromiseState: {},
-  searchParams: {minMetacritic:0,maxMetacritic:100,page_size:10,asc:false},
+  searchParams: { minMetacritic: 0, maxMetacritic: 100, page_size: 10, asc: false },
   searchResultsPromiseState: {},
-  user: null,
-  loggingIn:null,
-  toastBody:null,
+  user: null, // Represents the current user
+  loggingIn: null, // Represents if the user is currently logging in or not
+  alertBody: null, // Contains the text to be shown in notifications
+  alertVisability: true,
   showAllTags: false,
 
 
@@ -34,14 +35,42 @@ export default {
   },//By Erik Paulinder, saves the current page with a specified category
 
   //For persistence
-  setSavedPages(savedPages)
-  {this.savedPages=savedPages; },
+  setSavedPages(savedPages) { this.savedPages = savedPages; },
 
-  setToastBody(toastBody)
-  {this.toastBody=toastBody; },
+  setAlertBody(alertBody) { this.alertBody = alertBody; },
+  setAlertVisability(alertVisability) { this.alertVisability = alertVisability; this.asyncCall(this.alertBody); },
 
-  setLoggingIn(value)
-  {this.loggingIn=value;},
+  resolveAfter2Seconds() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve('resolved');
+      }, 2000);
+    });
+  },
+
+  async asyncCall(alertBody) {
+    await this.resolveAfter2Seconds();
+    if (this.alertBody=alertBody) {
+      this.setAlertVisability(false);
+    }
+  },
+
+  //Above is a bootleg timed dismiss
+  //It is called whenever is called setAlertVisability, and sets it to false after 2 seconds
+  //TODO get above checked by Coach, so that it is an ok implementation
+
+
+  signOut()
+  {
+    this.setAlertBody(this.user.email + " Logged Out");
+    this.setLoggingIn(false);
+    this.setCurrentUser(null);
+    this.setAlertVisability(true);
+  },
+  //Above handles sign out, not a similar for login since that requiers 2 methods no matter what, 
+  //one for giving the info that it is logging in, while other handles login
+
+  setLoggingIn(value) { this.loggingIn = value; },
 
   /* 
    setting the ID of dish currently checked by the user.
@@ -53,7 +82,7 @@ export default {
     if (id !== this.currentPage && id !== null && Number.isInteger(id)) { //TODO Check that each page has an id parameter, and what it is called if it is not id
       if (this.currentPage === id)
         return;
-      if (id){
+      if (id) {
         this.currentPage = id;
         resolvePromise(getGameDetails(id), this.currentPagePromiseState);
       }
@@ -63,8 +92,15 @@ export default {
   },
   // more methods will be added here, don't forget to separate them with comma!
 
-  setCurrentUser(value)
-  {this.user=value;},
+  setCurrentUser(value) {
+    this.user = value;
+
+    if (value != null) {
+
+      this.setAlertBody("Signed In As : " + this.user.email);
+      this.setAlertVisability(true);
+    }
+  },
 
   toggleYodafyValue() {
     if (this.yodafy) {
@@ -79,31 +115,37 @@ export default {
   setSearchQuery(query) { this.searchParams.search = query }, //This represents the text string the user wishes to search for, ex "Zelda" or "Nintendo", meaning depends on category
   setSearchType(type) { this.searchParams.tags = type },  //This represents what type of thing the user is searching, ex RPG or Publisher, meaning depends on category
   setSearchGenre(genre) { this.searchParams.genres = genre }, //
-  
+
   setSearchMinMetacritic(minMetacritic) { this.searchParams.minMetacritic = minMetacritic },  //
   setSearchMaxMetacritic(maxMetacritic) { this.searchParams.maxMetacritic = maxMetacritic },  //
 
-  setSearchPageLimit(page_size){this.searchParams.page_size=page_size;},
+  setSearchPageLimit(page_size) { this.searchParams.page_size = page_size; },
   setSearchFuzzyDisabled(fuzzy) { this.searchParams.fuzzy = fuzzy },  //
   setSearchExactOnlyDisabled(exact) { this.searchParams.exact = exact },  //
-  setDates(dates){this.searchParams.dates = dates},
-  setPlatform(platform){this.searchParams.platform = platform},
+  setDates(dates) { this.searchParams.dates = dates },
+  setPlatform(platform) { this.searchParams.platform = platform },
 
-  setAsc(asc){this.searchParams.asc = asc},
+  setAsc(asc) { this.searchParams.asc = asc },
 
   setSearchOrdering(ordering) { this.searchParams.ordering = ordering },  //This represents what results should be sorted by, ex "Rating" or "Release Date", , meaning depends on category
   //TODO Add more search parameters, exactly which depends on implementation of search
 
-  doSearch(searchParams) {
+  //First parameter boolean determines if alert is to be updated, false for initial search
+  doSearch(alert, searchParams) {
+    if (alert) {
+      this.setAlertBody("Searching");
+      this.setAlertVisability(true);//Updates alert and shows it again
+    }
     resolvePromise(getResultsSearch(searchParams), this.searchResultsPromiseState);
+
   },//TODO Ensure that the search function above can accept each category, and picks the correct function to get results from the API
 
-  toggleShowAllTags(){
+  toggleShowAllTags() {
     if (this.showAllTags) {
       this.showAllTags = false;
     }
-    else { 
-      this.showAllTags = true; 
+    else {
+      this.showAllTags = true;
     }
   },
 };

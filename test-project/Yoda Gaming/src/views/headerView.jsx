@@ -6,47 +6,31 @@ import "/src/style.css"
 
 import { CDropdown, CDropdownToggle, CDropdownMenu, CForm, CFormInput, CFormLabel, CFormSelect, CButton, CSpinner, } from '@coreui/vue';
 // Custom component, https://coreui.io/vue/docs/components/dropdown.html
-// Custom component, https://coreui.io/vue/docs/components/toast.html
 // Custom component, https://coreui.io/vue/docs/getting-started/introduction.html
 // Custom component, https://coreui.io/vue/docs/forms/select.htm
+// Custom component, https://coreui.io/vue/docs/components/alert.html 
 
-
-import { CToast, CToastHeader, CToastBody, CToastClose } from '@coreui/vue';
-
+import { CAlert } from '@coreui/vue'
 
 function HeaderView(props) {
 
     function loginButtonPressedCB() {
-        console.log("Log button pressed"); props.loginCustomEvent();
+        props.loginCustomEvent();
+    }
+
+    function signOutButtonPressedCB() {
+        props.signOutCustomEvent();
     }
 
     function yodafyButtonPressedCB() { console.log("Yodafy button pressed"); props.yodafyCustomEvent(); }
     function savedPagesButtonPressedCB() { window.location.hash = "#/savedPages"; }
 
+    function closedAlertCB() { props.closeAlert(); }
     function toast() {
 
-        if (props.loggingIn) {
-
-            if (props.loggedIn) {
-                props.toastBodyChange(props.loggedIn.email + " Signed In Successfully");
-            }
-            else { 
-                props.toastBodyChange("Signing In"); 
-            }
-
-        }
-        else {
-            if (props.loggingIn == false) {
-                props.toastBodyChange("Logged Out");
-            }
-
-        } if (props.toastBody) {
+        if (props.alertBody) {
             return (
-                <CToast delay={2000} color="success" class="align-items-center" visible>
-                    <CToastBody>
-                        {props.toastBody}
-                    </CToastBody>
-                </CToast>
+                <CAlert color="success" visible={props.alertVisability}>{props.alertBody} <CButton onClick={closedAlertCB}>X</CButton></CAlert>
             )
         }
     }
@@ -69,7 +53,7 @@ function HeaderView(props) {
         }
         return (
             <div className="LoggedIn">
-                <CButton onClick={loginButtonPressedCB} type="submit" color="success">Sign Out</CButton>
+                <CButton onClick={signOutButtonPressedCB} type="submit" color="success">Sign Out</CButton>
                 <img className="userIcon" src={props.loggedIn.photoURL} alt="user icon" />
             </div>
         )
@@ -132,6 +116,7 @@ function HeaderView(props) {
 
             </div>
             {toast()}
+
             <div className="HeaderRightHalf">
                 <div className="HeaderUpperButtons">
                     {UpperHalfButtons()}

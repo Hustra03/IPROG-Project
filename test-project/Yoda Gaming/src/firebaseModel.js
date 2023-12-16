@@ -91,7 +91,7 @@ function connectToFirebase(model, watchFunction) {
 
     function authChangeACB(user) {
         if (user) {
-            model.user = user;
+            model.setCurrentUser(user);
             readFromFirebase(model);
             watchFunction(checkACB, effectACB);
         }

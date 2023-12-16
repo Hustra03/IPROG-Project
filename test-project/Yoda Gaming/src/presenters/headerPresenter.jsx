@@ -5,25 +5,21 @@ import { HeaderView } from "../views/headerView.jsx";
 
 export default
     function HeaderPresenter(props) {
+
     function loginCustomEventHandler() {
-
-        if (!auth.currentUser) {
-
-            props.model.setLoggingIn(true);
-            signInWithPopup(auth, provider);
-            props.model.setCurrentUser(auth.currentUser);
-        }
-        else {
-            props.model.setLoggingIn(false);
-            signOut(auth);
-            props.model.setCurrentUser(null);
-
-        }
-
+        props.model.setLoggingIn(true);
+        signInWithPopup(auth, provider).then(props.model.setCurrentUser(auth.currentUser));
     }
+
+    function signOutCustomEventHandler() {
+        props.model.signOut();
+        signOut(auth);
+    }
+
     function yodafyCustomEventHandler() {
         props.model.toggleYodafyValue();
     }
+
     return (
 
         <HeaderView
@@ -31,23 +27,29 @@ export default
             yodafy={props.model.yodafy}
             loggedIn={props.model.user}
             loggingIn={props.model.loggingIn}
-            toastBody={props.model.toastBody}
+            alertBody={props.model.alertBody}
+            alertVisability={props.model.alertVisability}
             loginCustomEvent={loginCustomEventHandler}
+            signOutCustomEvent={signOutCustomEventHandler}
             yodafyCustomEvent={yodafyCustomEventHandler}
             searchCustomEvent={onSearchButtonPressCustomEventHandler}
             onQueryInputChange={onQueryInputChangeCustomEventHandler}
-            toastBodyChange={onToastBodyChangeCustomEventHandler}
+            alertBodyChange={onAlertBodyChangeCustomEventHandler}
+            closeAlert={closeAlertCustomEventHandler}
         />
 
     );
 
-    function onToastBodyChangeCustomEventHandler(toastBody) {
-        props.model.setToastBody(toastBody);
+    function closeAlertCustomEventHandler() { props.model.setAlertVisability(false); }
+
+    function onAlertBodyChangeCustomEventHandler(alertBody) {
+        props.model.setAlertBody(alertBody);
+        props.model.setAlertVisability(true);
     }
     function onQueryInputChangeCustomEventHandler(query) {
         props.model.setSearchQuery(query);
     }
     function onSearchButtonPressCustomEventHandler() {
-        props.model.doSearch(props.model.searchParams);
+        props.model.doSearch(true, props.model.searchParams);
     }
 }

@@ -47,12 +47,12 @@ export default
     function onPageSizeChangeCustomEventHandler(pageSize) { props.model.setSearchPageLimit(pageSize); }
     function onExactInputChangeCustomEventHandler(exact) { props.model.setSearchExactOnlyDisabled(exact) }
     function onFuzzyInputChangeCustomEventHandler(fuzzy) { props.model.setSearchFuzzyDisabled(fuzzy) }
-    function onDatesInputChangeCustomEventHandler(dates){props.model.setDates(dates);}
-    function onPlatformsInputChangeCustomEventHandler(platforms){props.model.setPlatform(platforms);}
+    function onDatesInputChangeCustomEventHandler(dates) { props.model.setDates(dates); }
+    function onPlatformsInputChangeCustomEventHandler(platforms) { props.model.setPlatform(platforms); }
     function onSortByInputChangeCustomEventHandler(ordering) { props.model.setSearchOrdering(ordering); }
     function onSortByAscInputChangeCustomEventHandler() { props.model.setAsc(!props.model.searchParams.asc); }
 
     function onSearchButtonPressCustomEventHandler() {
-        props.model.doSearch(props.model.searchParams);
+        props.model.doSearch(true, props.model.searchParams);
     }
 }
