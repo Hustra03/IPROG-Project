@@ -1,4 +1,4 @@
-import {CButton} from '@coreui/vue';
+import {CButton, CImage, CCarousel, CCarouselItem} from '@coreui/vue';
 import "/src/style.css"
     //file mainly worked on by Viktor Fredlund
 
@@ -18,7 +18,7 @@ function PageDetailsView(props) {
         <div className="gameDetails">
 
             <CButton onClick={backToSearchResultPageCB} className="backButton, detailsButton">Back to search results</CButton>
-            <h2 className="detailsPageName">Details Page</h2>
+            <h2 className="detailsPageName, detailsText">Details Page</h2>
             <div className="detailsTopInfo">
                 <div className="leftInfo">
                     {props.gameDetails.publishers ? <h4 className="gameDetailsPublisher">Publisher: {props.gameDetails.publishers[0].name}</h4> : null}
@@ -35,21 +35,36 @@ function PageDetailsView(props) {
                 </div>
             </div>
            
-            <h1 className="gameDetailsTitle">{props.gameDetails.name}</h1>
-            <span className="gameDetailsImages"><img src={props.gameDetails.background_image} alt="game image" /><img src={props.gameDetails.background_image_additional} /></span>
+            <h1 className="gameDetailsTitle, detailsText">{props.gameDetails.name}</h1>
+            <div className="belowTopInfo">
+                <div className="gameDetailsImages">
+                <CCarousel controls indicators>
+                    <CCarouselItem>
+                        <CImage fluid src={props.gameDetails.background_image} class="img-thumbnail"/>
+                    </CCarouselItem>
+                    <CCarouselItem>
+                        <CImage fluid src={props.gameDetails.background_image_additional} class="img-thumbnail"/>
+                    </CCarouselItem>
+                    
+                </CCarousel>
+
+                </div>
+                <div className="infoBesideImage">
+                    <tbody className="tags">
+                        <h3 className="gameDetailsTagsTitle, detailsText">Tags</h3>
+                        {tagsToShow()}
+                    </tbody>
+                    <tbody className="genres">
+                        <h3 className="gameDetailsGenresTitle, detailsText">Genres</h3>
+                        {(props.gameDetails.genres).map(displayGenresCB)}
+                    </tbody>
+                </div>
+            </div>
             <div>
                 <h2 className="gameDetailsDescriptionTitle">Description</h2>
                 <p className="gameDetailsDescription">{props.gameDetails.description_raw}</p>
             </div>
-            <tbody className="tags">
-                <h3 className="gameDetailsTagsTitle">Tags</h3>
-                {tagsToShow()}
-                
-            </tbody>
-            <tbody className="genres">
-                <h3 className="gameDetailsGenresTitle">Genres</h3>
-                {(props.gameDetails.genres).map(displayGenresCB)}
-            </tbody>
+            
             {showAddToSavedPagesButtonCB()}
         </div>
     )
