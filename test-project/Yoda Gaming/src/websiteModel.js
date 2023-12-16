@@ -10,7 +10,7 @@ export default {
   savedPages: [],
   currentPage: null,
   currentPagePromiseState: {},
-  searchParams: { minMetacritic: 0, maxMetacritic: 100, page_size: 10, asc: false, ordering:"metacritic" },
+  searchParams: { minMetacritic: 0, maxMetacritic: 100, page_size: 10, asc: false},
   searchResultsPromiseState: {},
   user: null, // Represents the current user
   loggingIn: null, // Represents if the user is currently logging in or not
