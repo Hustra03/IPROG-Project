@@ -46,7 +46,7 @@ function PageDetailsView(props) {
                 
                 
                 {imageToDisplay()}
-
+                <CButton onClick={loadScreenshotsCB} className="detailsButton">Load More Screenshots</CButton>
                 </div>
                 <div className="infoBesideImage">
                     <tbody className="tags">
@@ -65,7 +65,6 @@ function PageDetailsView(props) {
             </div>
             
             {showAddToSavedPagesButtonCB()}
-            <CButton onClick={loadScreenshotsCB} className="detailsButton">Load More Screenshots</CButton>
 
         </div>
     )
