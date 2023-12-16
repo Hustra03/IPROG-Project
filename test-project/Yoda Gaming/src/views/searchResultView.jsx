@@ -27,7 +27,7 @@ function SearchResultView(props) {
                 <div class="SearchResultTitleAndInfo">
                     <div className="searchResultTitle">{game.name}</div>
                     <div className="searchResultRating">Rating: {game.rating}</div>
-                    <span className="searchResultInfo">Released in {game.released}</span>
+                    <span className="searchResultInfo">Released: {game.released}</span>
                 </div>
                 <img className="searchResultImage" src={game.background_image} width="150"></img>
             </div>

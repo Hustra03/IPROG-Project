@@ -10,7 +10,7 @@ function SavedPagesView(props){
 
 
     if (props.savedPages.length == 0) {
-        return <div className="centeredContainer">
+        return <div className="noSavedPagesContainer">
                     <div className="noSavedPages">
                     <div>No Pages Seem To Have Been Saved Yet</div>
                     <CButton onClick={backToMainMenuCB} className="noSavedPagesReturn">Main Menu</CButton>

@@ -134,7 +134,7 @@
     font-size:larger;
 }
 
-.centeredContainer{
+.noSavedPagesContainer{
     display: flex;
     justify-content: center;
     align-items: center;
