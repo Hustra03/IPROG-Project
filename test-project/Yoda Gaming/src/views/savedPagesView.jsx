@@ -20,6 +20,7 @@ function SavedPagesView(props){
         }
 
         return <div className="savedPagesContainer">
+            {console.log(props.savedPages)}
             some text
         </div>
     }
