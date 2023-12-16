@@ -162,6 +162,6 @@ export default {
       name: this.currentPagePromiseState.data.name,
       image: this.currentPagePromiseState.data.background_image,
       id: this.currentPage,
-    })
+    });
   },
 };
