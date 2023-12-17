@@ -182,7 +182,7 @@
     height: 50%;
     min-width: 150px;
     min-height: 280px;
-    max-height: 400px;
+    max-height: 280px;
     overflow: auto;
 }
 
@@ -198,7 +198,7 @@
     margin-top: 20%;
     min-width: 150px;
     min-height: 280px;
-    max-height: 400px;
+    max-height: 280px;
 }
 .belowTopInfo{
     width: 100%;
@@ -224,6 +224,10 @@
     .tags, .genres{
         max-width: 30%;
         max-height: 280px;
+    }
+    .gameDetailsDescription{
+        max-height: 500px;
+        overflow: auto;
     }
 }
 
