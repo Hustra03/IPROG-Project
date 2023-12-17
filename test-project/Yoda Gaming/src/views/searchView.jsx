@@ -1,7 +1,7 @@
 import '@coreui/coreui/dist/css/coreui.min.css'
 import "/src/style.css"
 
-import { CForm, CFormInput, CButton, CFormSelect, CFormCheck } from '@coreui/vue';
+import { CForm, CFormInput, CButton, CFormSelect, CFormCheck, CCard, CCardBody, CCardTitle, CCardText, CListGroup, CListGroupItem, CCardLink } from '@coreui/vue';
 
 //File mainly worked on by Erik Paulinder
 
@@ -9,7 +9,7 @@ import { CForm, CFormInput, CButton, CFormSelect, CFormCheck } from '@coreui/vue
 
 function SearchView(props) {
 
-    
+
 
     function searchQueryInputCB(evt) { props.onQueryInputChange(evt.target.value); }
 
@@ -29,69 +29,137 @@ function SearchView(props) {
     function sortByInputCB(evt) { props.onSortByInputChange(evt.target.value); }
     function searchDatesInput(evt) { props.onDatesInputChange(evt.target.value); }
     function searchPlatformsInput(evt) { props.onPlatformsInputChange(evt.target.value); }
-    function sortOrderInput(){props.onSortAscChange();}
+    function sortOrderInput() { props.onSortAscChange(); }
 
-    function sortOrder() { 
-        if (props.asc==true) {
-           return <CButton onClick={sortOrderInput} type="submit" color="success">Sort In Order</CButton>
+    function sortOrder() {
+        if (props.asc == true) {
+            return <CButton onClick={sortOrderInput} type="submit" color="primary">Sort In Order</CButton>
         }
-        return <CButton onClick={sortOrderInput} type="submit" color="success">Sort In Reverse Order</CButton>
-     }
+        return <CButton onClick={sortOrderInput} type="submit" color="primary">Sort In Reverse Order</CButton>
+    }
 
-     function linkToSearchResults(){
+    function linkToSearchResults() {
         if (props.searchResultsData) {
             return <div><a href='#/searchResult'>Go To Previous Search Results</a></div>
         }
     }
 
+
     return (
-        <div>
-            <div className='detailedSearch'>
-                <CForm>
-                    <CFormInput label="Search Query" type="text" value={props.query} onChange={searchQueryInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
 
-                    <CFormInput label="tags" type="text" value={props.tags} onChange={searchTagsInputCB} id="queryForm" placeholder="Single Player" />
+        <div className='detailedSearch'>
+            <CCard color="success">
+                <CCardBody color="success">
+                    <CCardTitle>Detailed Search</CCardTitle>
+                </CCardBody>
+                <CListGroup flush color="success">
+                    <CListGroupItem color="success"><CFormInput label="Search Query" type="text" value={props.query} onChange={searchQueryInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" /></CListGroupItem>
+                    <CListGroupItem color="success"><CFormInput label="tags" type="text" value={props.tags} onChange={searchTagsInputCB} id="queryForm" placeholder="Single Player" /></CListGroupItem>
+                    <CListGroupItem color="success"><CFormInput label="genres" type="text" value={props.tags} onChange={searchGenreInputCB} id="queryForm" placeholder="RPG" /></CListGroupItem>
+                    <CListGroupItem color="success">
+                        <label>MinMetacritic:</label><br />
+                        <div>
+                            <input type="range" value={props.minMetacritic} onChange={minMetacriticInputCB} className="range" min="0" max={props.maxMetacritic} />
+                            {props.minMetacritic}
+                        </div>
+                    </CListGroupItem>
+                    <CListGroupItem color="success">
+                        <label>Max Metacritic:</label><br />
+                        <div>
+                            <input type="range" value={props.maxMetacritic} onChange={maxMetacriticInputCB} className="range" min={props.minMetacritic} max="100" />
+                            {props.maxMetacritic}
+                        </div>
+                    </CListGroupItem>
+                    <CListGroupItem color="success">
+                        <label>Number Of Pages In Result:</label><br />
+                        <div>
+                            <input type="range" value={props.page_size} onChange={pageSizeInputCB} className="range" min="5" max="20" />
+                            {props.page_size}
+                        </div>
+                    </CListGroupItem>
+                    <CListGroupItem color="success">
+                        <CFormCheck value={props.exact} onChange={exactChangeCB} label="Search only for exact matches" id="formSwitchCheckDefault" />
+                        <CFormCheck value={props.fuzzy} onChange={fuzzyChangeCB} label="Exclude fuzzy matches from results" id="formSwitchCheckDefault" />
+                    </CListGroupItem>
+                    <CListGroupItem color="success">
 
-                    <CFormInput label="genres" type="text" value={props.tags} onChange={searchGenreInputCB} id="queryForm" placeholder="RPG" />
+                        <CFormSelect label="Sort Results By" onChange={sortByInputCB} class="mb-3" aria-label="Default select example">
+                            <option value="name">Name</option>
+                            <option value="released">Release Date</option>
+                            <option value="added">Date Added To API</option>
+                            <option value="created">Date Created In API</option>
+                            <option value="updated">Date Updated In API</option>
+                            <option value="rating">Rating</option>
+                            <option value="metacritic">Metacritic Score</option>
+                        </CFormSelect>
 
-                    <label>MinMetacritic:</label><br />
-                    <div>
-                        <input type="range" value={props.minMetacritic} onChange={minMetacriticInputCB} className="range" min="0" max={props.maxMetacritic} />
-                        {props.minMetacritic}
-                    </div>
-                    <label>Max Metacritic:</label><br />
-                    <div>
-                        <input type="range" value={props.maxMetacritic} onChange={maxMetacriticInputCB} className="range" min={props.minMetacritic} max="100" />
-                        {props.maxMetacritic}
-                    </div>
-                    <label>Number Of Pages In Result:</label><br />
-                    <div>
-                        <input type="range" value={props.page_size} onChange={pageSizeInputCB} className="range" min="5" max="20" />
-                        {props.page_size}
-                    </div>
-
-                    <CFormCheck value={props.exact} onChange={exactChangeCB} label="Search only for exact matches" id="formSwitchCheckDefault" />
-                    <CFormCheck value={props.fuzzy} onChange={fuzzyChangeCB} label="Exclude fuzzy matches from results" id="formSwitchCheckDefault" />
-
-                    <CFormSelect label="Sort Results By" onChange={sortByInputCB} class="mb-3" aria-label="Default select example">
-                        <option value="name">Name</option>
-                        <option value="released">Release Date</option>
-                        <option value="added">Date Added To API</option>
-                        <option value="created">Date Created In API</option>
-                        <option value="updated">Date Updated In API</option>
-                        <option value="rating">Rating</option>
-                        <option value="metacritic">Metacritic Score</option>
-                    </CFormSelect>
-
-                    <CFormInput label="Dates" type="text" value={props.dates} onChange={searchDatesInput} id="queryForm" placeholder="2023-11-24" />
-                    <CFormInput label="Platforms" type="text" value={props.platforms} onChange={searchPlatformsInput} id="queryForm" placeholder="PlayStation 4" />
-                    <CButton onClick={searchButtonPressedCB} type="submit" color="success">Search!</CButton>
+                    </CListGroupItem>
+                    <CListGroupItem color="success">
+                        <CFormInput label="Dates" type="text" value={props.dates} onChange={searchDatesInput} id="queryForm" placeholder="2023-11-24" />
+                    </CListGroupItem>
+                    <CListGroupItem color="success">
+                        <CFormInput label="Platforms" type="text" value={props.platforms} onChange={searchPlatformsInput} id="queryForm" placeholder="PlayStation 4" />
+                    </CListGroupItem>
+                    <CListGroupItem color="success">
                     {sortOrder()}
-                    {linkToSearchResults()}
-                </CForm>
-            </div>
+                    </CListGroupItem>
+                </CListGroup>
+                <CCardBody color="success">
+                    <CButton onClick={searchButtonPressedCB} type="submit" color="primary">Search!</CButton>
+                    <CCardLink href="#">Previous Search Results</CCardLink>
+                </CCardBody>
+            </CCard>
         </div>
     )
+
+    /* return (
+         <div>
+             <div className='detailedSearch'>
+                 <CForm>
+                     <CFormInput label="Search Query" type="text" value={props.query} onChange={searchQueryInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
+ 
+                     <CFormInput label="tags" type="text" value={props.tags} onChange={searchTagsInputCB} id="queryForm" placeholder="Single Player" />
+ 
+                     <CFormInput label="genres" type="text" value={props.tags} onChange={searchGenreInputCB} id="queryForm" placeholder="RPG" />
+ 
+                     <label>MinMetacritic:</label><br />
+                     <div>
+                         <input type="range" value={props.minMetacritic} onChange={minMetacriticInputCB} className="range" min="0" max={props.maxMetacritic} />
+                         {props.minMetacritic}
+                     </div>
+                     <label>Max Metacritic:</label><br />
+                     <div>
+                         <input type="range" value={props.maxMetacritic} onChange={maxMetacriticInputCB} className="range" min={props.minMetacritic} max="100" />
+                         {props.maxMetacritic}
+                     </div>
+                     <label>Number Of Pages In Result:</label><br />
+                     <div>
+                         <input type="range" value={props.page_size} onChange={pageSizeInputCB} className="range" min="5" max="20" />
+                         {props.page_size}
+                     </div>
+ 
+                     <CFormCheck value={props.exact} onChange={exactChangeCB} label="Search only for exact matches" id="formSwitchCheckDefault" />
+                     <CFormCheck value={props.fuzzy} onChange={fuzzyChangeCB} label="Exclude fuzzy matches from results" id="formSwitchCheckDefault" />
+ 
+                     <CFormSelect label="Sort Results By" onChange={sortByInputCB} class="mb-3" aria-label="Default select example">
+                         <option value="name">Name</option>
+                         <option value="released">Release Date</option>
+                         <option value="added">Date Added To API</option>
+                         <option value="created">Date Created In API</option>
+                         <option value="updated">Date Updated In API</option>
+                         <option value="rating">Rating</option>
+                         <option value="metacritic">Metacritic Score</option>
+                     </CFormSelect>
+ 
+                     <CFormInput label="Dates" type="text" value={props.dates} onChange={searchDatesInput} id="queryForm" placeholder="2023-11-24" />
+                     <CFormInput label="Platforms" type="text" value={props.platforms} onChange={searchPlatformsInput} id="queryForm" placeholder="PlayStation 4" />
+                     <CButton onClick={searchButtonPressedCB} type="submit" color="success">Search!</CButton>
+                     {sortOrder()}
+                     {linkToSearchResults()}
+                 </CForm>
+             </div>
+         </div>
+     )*/
 
 }
 
