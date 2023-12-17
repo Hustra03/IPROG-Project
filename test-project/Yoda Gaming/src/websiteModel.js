@@ -3,7 +3,7 @@
 */
 
 import resolvePromise from "./resolvePromise.js";
-import { getResultsSearch, getGameDetails, getGameScreenshots } from "./websiteSource.js";
+import { getResultsSearch, getGameDetails, getGameScreenshots, yodafyText } from "./websiteSource.js";
 
 export default {
   yodafy: false, //Represents if the "standard" text should be yodafied or not
@@ -20,6 +20,8 @@ export default {
   showAllTags: false,
   currentGameScreenshotsPromiseState: {},
   currentScreenshotPage: null,
+  yodafiedDescriptionPromiseState: {},
+  currentYodafiedDescription: null,
 
 
   //Model is initially just a modified version of dinnerModel, with minor changes when relevant
@@ -96,6 +98,7 @@ export default {
       if (id) {
         this.currentPage = id;
         this.currentGameScreenshotsPromiseState.data = null;
+        this.yodafiedDescriptionPromiseState.data = null;
         resolvePromise(getGameDetails(id), this.currentPagePromiseState);
       }
     }
@@ -176,5 +179,11 @@ export default {
       return;
     this.currentScreenshotPage = this.currentPage;
     resolvePromise(getGameScreenshots(this.currentPage), this.currentGameScreenshotsPromiseState);
+  },
+  yodafyDescription(){
+    if (this.currentYodafiedDescription === this.currentPage)
+      return;
+    this.currentYodafiedDescription = this.currentPage;
+    resolvePromise(yodafyText(this.currentPagePromiseState.data.description_raw), this.yodafiedDescriptionPromiseState);
   },
 };

@@ -39,17 +39,22 @@ function Details(props) {
     function loadScreenshotsCustomEventHandler(){
         props.model.getScreenshotsForCurrentGame();
     }
+    function yodafyDescriptionCutomEventHandler(){
+        props.model.yodafyDescription();
+    }
     return (
         <div>
             <PageDetailsView 
             gameDetails={props.model.currentPagePromiseState.data} 
             gameScreenshots={props.model.currentGameScreenshotsPromiseState.data}
+            yodafiedDescriptionText={props.model.yodafiedDescriptionPromiseState.data}
             yodafy={props.model.yodafy}
             showAllTags={props.model.showAllTags} 
             showAllTagsCustomEvent={showAllTagsCustomEventHandler} 
             addGameToSavedPagesCustomEvent={addGameToSavedPagesCustomEventHandler}
             loggedIn={props.model.user}
             loadScreenshotsCustomEvent={loadScreenshotsCustomEventHandler}
+            yodafyDescriptionCustomEvent={yodafyDescriptionCutomEventHandler}
             />
         </div>
     );

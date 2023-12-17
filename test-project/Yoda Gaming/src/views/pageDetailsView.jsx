@@ -19,6 +19,9 @@ function PageDetailsView(props) {
     function loadScreenshotsCB(){
         props.loadScreenshotsCustomEvent();
     }
+    function yodafyDescriptionCB(){
+        props.yodafyDescriptionCustomEvent();
+    }
     return (
         <div className="gameDetails">
 
@@ -48,7 +51,7 @@ function PageDetailsView(props) {
                 {imageToDisplay()}
                 <CButton onClick={loadScreenshotsCB} className="detailsButton">Show Screenshots</CButton>
                 {showAddToSavedPagesButtonCB()}
-
+                <CButton onClick={yodafyDescriptionCB} className="detailsButton">Yodafy description text</CButton>
                 </div>
                 <div className="infoBesideImage">
                     <tbody className="tags">
@@ -63,7 +66,8 @@ function PageDetailsView(props) {
             </div>
             <div>
                 <h2 className="gameDetailsDescriptionTitle">Description</h2>
-                <p className="gameDetailsDescription">{props.gameDetails.description_raw}</p>
+                {props.yodafiedDescriptionText ? <p className="gameDetailsDescription">{props.yodafiedDescriptionText}</p> : 
+                <p className="gameDetailsDescription">{props.gameDetails.description_raw}</p>}
             </div>
             
 
