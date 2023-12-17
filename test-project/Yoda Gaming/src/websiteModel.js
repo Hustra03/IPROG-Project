@@ -22,6 +22,7 @@ export default {
   currentScreenshotPage: null,
   yodafiedDescriptionPromiseState: {},
   currentYodafiedDescription: null,
+  showCoverImage: true,
 
 
   //Model is initially just a modified version of dinnerModel, with minor changes when relevant
@@ -156,12 +157,10 @@ export default {
   },//TODO Ensure that the search function above can accept each category, and picks the correct function to get results from the API
 
   toggleShowAllTags() {
-    if (this.showAllTags) {
+    if (this.showAllTags)
       this.showAllTags = false;
-    }
-    else {
+    else
       this.showAllTags = true;
-    }
   },
   addGameToSavedPages(){
     if (!Array.isArray(this.savedPages))
@@ -174,9 +173,11 @@ export default {
     this.savedPages = [...this.savedPages, gameToAdd];
     console.log(this.savedPages);
   },
-  getScreenshotsForCurrentGame(){
-    if (this.currentScreenshotPage === this.currentPage)
+  showScreenshotsForCurrentGame(){
+    this.showCoverImage = false;
+    if (this.currentScreenshotPage === this.currentPage){
       return;
+    }
     this.currentScreenshotPage = this.currentPage;
     resolvePromise(getGameScreenshots(this.currentPage), this.currentGameScreenshotsPromiseState);
   },
@@ -185,5 +186,11 @@ export default {
       return;
     this.currentYodafiedDescription = this.currentPage;
     resolvePromise(yodafyText(this.currentPagePromiseState.data.description_raw), this.yodafiedDescriptionPromiseState);
+  },
+  toggleShowCoverImage(){
+    if (this.showCoverImage)
+      this.showCoverImage = false;
+    else
+      this.showCoverImage = true;
   },
 };

@@ -1,4 +1,4 @@
-import {CButton, CImage, CCarousel, CCarouselItem} from '@coreui/vue';
+import {CButton, CCarousel, CCarouselItem} from '@coreui/vue';
 
 import "/src/style.css"
     //file mainly worked on by Viktor Fredlund
@@ -16,8 +16,11 @@ function PageDetailsView(props) {
     function addGameToSavedPagesCB(){
         props.addGameToSavedPagesCustomEvent();
     }
-    function loadScreenshotsCB(){
-        props.loadScreenshotsCustomEvent();
+    function showScreenshotsCB(){
+        props.showScreenshotsCustomEvent();
+    }
+    function showCoverImageCB(){
+        props.showCoverImageCustomEvent();
     }
     function yodafyDescriptionCB(){
         props.yodafyDescriptionCustomEvent();
@@ -49,8 +52,8 @@ function PageDetailsView(props) {
                 
                 
                 {imageToDisplay()}
-                <CButton onClick={loadScreenshotsCB} className="detailsButton">Show Screenshots</CButton>
-                {showAddToSavedPagesButtonCB()}
+                {imageButtonToShow()}
+                {showAddToSavedPagesButton()}
                 <CButton onClick={yodafyDescriptionCB} className="detailsButton">Yodafy description text</CButton>
                 </div>
                 <div className="infoBesideImage">
@@ -92,10 +95,10 @@ function PageDetailsView(props) {
         )
 
     }
-    function showAddToSavedPagesButtonCB(){
+    function showAddToSavedPagesButton(){
         if(props.loggedIn){
-            function isGameInSavedPagesCB(page){
-                return page.id === props.gameDetails.id;
+            function isGameInSavedPagesCB(game){
+                return game.id === props.gameDetails.id;
             }
             return(
                 <CButton onClick={addGameToSavedPagesCB} disabled={props.savedPages.some(isGameInSavedPagesCB)} className="favoriteButton, detailsButton">Add this game to your saved pages</CButton>
@@ -115,12 +118,13 @@ function PageDetailsView(props) {
     function displayScreenshotsCB(gameScreenshots){
         return (
                 <CCarouselItem>
-                    <CImage fluid src={gameScreenshots.image} class="img-thumbnail"/>
+                    <img src={gameScreenshots.image} class="detailsImages"/>
                 </CCarouselItem>
         )
     }
     function imageToDisplay(){
-        if (props.gameScreenshots){
+        console.log(props.showCoverImage)
+        if (props.gameScreenshots && !props.showCoverImage){
             return (
             <CCarousel controls indicators>
                 {(props.gameScreenshots).map(displayScreenshotsCB)}
@@ -128,8 +132,16 @@ function PageDetailsView(props) {
             )
         }
         else
-            return <CImage fluid src={props.gameDetails.background_image} class="img-thumbnail"/>
+            return <img src={props.gameDetails.background_image} class="detailsImages"/>
         }
+    function imageButtonToShow(){
+        if (!props.gameScreenshots || props.showCoverImage){
+            return <CButton onClick={showScreenshotsCB} className="detailsButton">Show Screenshots</CButton>
+        }
+        else
+            return <CButton onClick={showCoverImageCB} className="detailsButton">Show Cover Image</CButton>
+
+    }
 }
 
 export default PageDetailsView

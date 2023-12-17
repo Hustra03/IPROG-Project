@@ -298,3 +298,7 @@
     margin-left: 20px;
     color: #007324;
 }
+.detailsImages{
+    max-width: 100%;
+    height: auto;
+}
