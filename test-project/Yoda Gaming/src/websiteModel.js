@@ -181,7 +181,8 @@ export default {
     this.currentScreenshotPage = this.currentPage;
     resolvePromise(getGameScreenshots(this.currentPage), this.currentGameScreenshotsPromiseState);
   },
-  yodafyDescription(){
+  toggleYodafyDescription(){
+    this.toggleYodafyValue();
     if (this.currentYodafiedDescription === this.currentPage)
       return;
     this.currentYodafiedDescription = this.currentPage;

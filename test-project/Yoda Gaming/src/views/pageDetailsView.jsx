@@ -22,9 +22,10 @@ function PageDetailsView(props) {
     function showCoverImageCB(){
         props.showCoverImageCustomEvent();
     }
-    function yodafyDescriptionCB(){
-        props.yodafyDescriptionCustomEvent();
+    function toggleYodafyDescriptionCB(){
+        props.toggleYodafyDescriptionCustomEvent();
     }
+    
     return (
         <div className="gameDetails">
 
@@ -54,7 +55,7 @@ function PageDetailsView(props) {
                 {imageToDisplay()}
                 {imageButtonToShow()}
                 {showAddToSavedPagesButton()}
-                <CButton onClick={yodafyDescriptionCB} className="detailsButton">Yodafy description text</CButton>
+                {descriptionButtonToShow()}
                 </div>
                 <div className="infoBesideImage">
                     <tbody className="tags">
@@ -69,8 +70,7 @@ function PageDetailsView(props) {
             </div>
             <div>
                 <h2 className="gameDetailsDescriptionTitle">Description</h2>
-                {props.yodafiedDescriptionText ? <p className="gameDetailsDescription">{props.yodafiedDescriptionText}</p> : 
-                <p className="gameDetailsDescription">{props.gameDetails.description_raw}</p>}
+                {descriptionTextToShow()}
             </div>
             
 
@@ -141,6 +141,19 @@ function PageDetailsView(props) {
         else
             return <CButton onClick={showCoverImageCB} className="detailsButton">Show Cover Image</CButton>
 
+    }
+    function descriptionButtonToShow(){
+        if(!props.yodafy || !props.yodafiedDescriptionText)
+            return  <CButton onClick={toggleYodafyDescriptionCB} className="detailsButton">Yodafy description text</CButton>
+        else
+            return  <CButton onClick={toggleYodafyDescriptionCB} className="detailsButton">Unyodafy description text</CButton>
+    }
+    function descriptionTextToShow(){
+        if(!props.yodafy || !props.yodafiedDescriptionText)
+            return <p className="gameDetailsDescription">{props.gameDetails.description_raw}</p>
+        else
+            return <p className="gameDetailsDescription">{props.yodafiedDescriptionText}</p>
+            
     }
 }
 

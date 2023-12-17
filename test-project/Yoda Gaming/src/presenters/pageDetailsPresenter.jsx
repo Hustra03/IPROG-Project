@@ -39,8 +39,8 @@ function Details(props) {
     function showScreenshotsCustomEventHandler(){
         props.model.showScreenshotsForCurrentGame();
     }
-    function yodafyDescriptionCutomEventHandler(){
-        props.model.yodafyDescription();
+    function toggleYodafyDescriptionCutomEventHandler(){
+        props.model.toggleYodafyDescription();
     }
     function showCoverImageCustomEventHandler(){
         props.model.toggleShowCoverImage();
@@ -60,7 +60,7 @@ function Details(props) {
             loggedIn={props.model.user}
             showScreenshotsCustomEvent={showScreenshotsCustomEventHandler}
             showCoverImageCustomEvent={showCoverImageCustomEventHandler}
-            yodafyDescriptionCustomEvent={yodafyDescriptionCutomEventHandler}
+            toggleYodafyDescriptionCustomEvent={toggleYodafyDescriptionCutomEventHandler}
             />
         </div>
     );
