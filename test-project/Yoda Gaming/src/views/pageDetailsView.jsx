@@ -29,7 +29,7 @@ function PageDetailsView(props) {
     return (
         <div className="gameDetails">
 
-            <CButton onClick={backToSearchResultPageCB} className="backButton, detailsButton">Back to search results</CButton>
+            <CButton onClick={backToSearchResultPageCB} component="a" color="success" size="lg">Back to search results</CButton>
             <h2 className="detailsPageName, detailsText">Details Page</h2>
             <div className="detailsTopInfo">
                 <div className="leftInfo">
@@ -81,14 +81,14 @@ function PageDetailsView(props) {
             return (
                 <div>
                     {(firstFiveTags).map(displayTagsCB)}
-                    {moreTags ? <CButton onClick={changeTagsToDisplayCB} className="tagsButton, detailsButton">Show more tags</CButton> : null}
+                    {moreTags ? <CButton onClick={changeTagsToDisplayCB} type="submit" color="dark" size="sm">Show more tags</CButton> : null}
                 </div>
             )
         }
         return (
             <div>
                 {(props.gameDetails.tags).map(displayTagsCB)}
-                {moreTags ? <CButton onClick={changeTagsToDisplayCB} className="tagsButton, detailsButton">Show less tags</CButton> : null}
+                {moreTags ? <CButton onClick={changeTagsToDisplayCB} type="submit" color="dark" size="sm">Show less tags</CButton> : null}
             </div>
             
 
@@ -101,7 +101,7 @@ function PageDetailsView(props) {
                 return game.id === props.gameDetails.id;
             }
             return(
-                <CButton onClick={addGameToSavedPagesCB} disabled={props.savedPages.some(isGameInSavedPagesCB)} className="favoriteButton, detailsButton">Add this game to your saved pages</CButton>
+                <CButton onClick={addGameToSavedPagesCB} type="submit" color="success" style={{ margin: '10px' }} disabled={props.savedPages.some(isGameInSavedPagesCB)  } >Add this game to your saved pages</CButton>
             )
         }
     }
@@ -136,17 +136,17 @@ function PageDetailsView(props) {
         }
     function imageButtonToShow(){
         if (!props.gameScreenshots || props.showCoverImage){
-            return <CButton onClick={showScreenshotsCB} className="detailsButton">Show Screenshots</CButton>
+            return <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={showScreenshotsCB} >Show Screenshots</CButton>
         }
         else
-            return <CButton onClick={showCoverImageCB} className="detailsButton">Show Cover Image</CButton>
+            return <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={showCoverImageCB} >Show Cover Image</CButton>
 
     }
     function descriptionButtonToShow(){
         if(!props.yodafy || !props.yodafiedDescriptionText)
-            return  <CButton onClick={toggleYodafyDescriptionCB} className="detailsButton">Yodafy description text</CButton>
+            return  <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={toggleYodafyDescriptionCB} >Yodafy description text</CButton>
         else
-            return  <CButton onClick={toggleYodafyDescriptionCB} className="detailsButton">Unyodafy description text</CButton>
+            return  <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={toggleYodafyDescriptionCB} >Unyodafy description text</CButton>
     }
     function descriptionTextToShow(){
         if(!props.yodafy || !props.yodafiedDescriptionText)
