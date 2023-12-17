@@ -30,7 +30,7 @@ function PageDetailsView(props) {
         <div className="gameDetails">
 
             <CButton onClick={backToSearchResultPageCB} component="a" color="success" size="lg">Back to search results</CButton>
-            <h2 className="detailsPageName, detailsText">Details Page</h2>
+            <h2 className="detailsPageName detailsText">Details Page</h2>
             <div className="detailsTopInfo">
                 <div className="leftInfo">
                     {props.gameDetails.publishers ? <h4 className="gameDetailsPublisher">Publisher: {props.gameDetails.publishers[0].name}</h4> : null}
@@ -47,7 +47,7 @@ function PageDetailsView(props) {
                 </div>
             </div>
            
-            <h1 className="gameDetailsTitle, detailsText">{props.gameDetails.name}</h1>
+            <h1 className="gameDetailsTitle detailsText">{props.gameDetails.name}</h1>
             <div className="belowTopInfo">
                 <div className="gameDetailsImages">
                 
@@ -58,19 +58,33 @@ function PageDetailsView(props) {
                 {descriptionButtonToShow()}
                 </div>
                 <div className="infoBesideImage">
-                    <tbody className="tags">
-                        <h3 className="gameDetailsTagsTitle">Tags</h3>
+                    <tbody className="tags detailsInfoBoxes">
+                        <h3 className="infoBoxTitle">Tags</h3>
                         {tagsToShow()}
                     </tbody>
-                    <tbody className="genres">
-                        <h3 className="gameDetailsGenresTitle">Genres</h3>
+                    <tbody className="genres detailsInfoBoxes">
+                        <h3 className="infoBoxTitle">Genres</h3>
                         {(props.gameDetails.genres).map(displayGenresCB)}
                     </tbody>
                 </div>
             </div>
-            <div>
-                <h2 className="gameDetailsDescriptionTitle">Description</h2>
-                {descriptionTextToShow()}
+            <div className="detailsBottomInfo">
+                <div className="desciptionBox">
+                    <h2 className="gameDetailsDescriptionTitle">Description</h2>
+                    {descriptionTextToShow()}
+                </div>
+                <div className="infoBesideDescription">
+                    <tbody className="platforms detailsInfoBoxes">
+                        <h3 className="infoBoxTitle">Platforms</h3>
+                        {(props.gameDetails.platforms).map(displayPlatformsCB)}
+                    </tbody>
+                    <tbody className="stores detailsInfoBoxes">
+                        <h3 className="infoBoxTitle">Stores</h3>
+                        {(props.gameDetails.stores).map(displayStoresCB)}
+                    </tbody>
+                </div>
+                
+                
             </div>
             
 
@@ -113,6 +127,16 @@ function PageDetailsView(props) {
     function displayGenresCB(genres){
         return(
             <tr> {genres.name} </tr>
+        )
+    }
+    function displayPlatformsCB(platforms){
+        return(
+            <tr> {platforms.platform.name} </tr>
+        )
+    }
+    function displayStoresCB(stores){
+        return(
+            <tr> {stores.store.name} </tr>
         )
     }
     function displayScreenshotsCB(gameScreenshots){
