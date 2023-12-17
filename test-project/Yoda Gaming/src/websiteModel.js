@@ -166,12 +166,12 @@ export default {
   addGameToSavedPages(){
     if (!Array.isArray(this.savedPages))
       this.savedPages = [];
-
-    this.savedPages.push({
+    const gameToAdd = {
       name: this.currentPagePromiseState.data.name,
       image: this.currentPagePromiseState.data.background_image,
       id: this.currentPage,
-    });
+    };
+    this.savedPages = [...this.savedPages, gameToAdd];
     console.log(this.savedPages);
   },
   getScreenshotsForCurrentGame(){

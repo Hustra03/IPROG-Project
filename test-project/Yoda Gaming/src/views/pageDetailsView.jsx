@@ -94,8 +94,11 @@ function PageDetailsView(props) {
     }
     function showAddToSavedPagesButtonCB(){
         if(props.loggedIn){
+            function isGameInSavedPagesCB(page){
+                return page.id === props.gameDetails.id;
+            }
             return(
-                <CButton onClick={addGameToSavedPagesCB} className="favoriteButton, detailsButton">Add this game to your saved pages</CButton>
+                <CButton onClick={addGameToSavedPagesCB} disabled={props.savedPages.some(isGameInSavedPagesCB)} className="favoriteButton, detailsButton">Add this game to your saved pages</CButton>
             )
         }
     }

@@ -50,6 +50,7 @@ function Details(props) {
             yodafiedDescriptionText={props.model.yodafiedDescriptionPromiseState.data}
             yodafy={props.model.yodafy}
             showAllTags={props.model.showAllTags} 
+            savedPages={props.model.savedPages}
             showAllTagsCustomEvent={showAllTagsCustomEventHandler} 
             addGameToSavedPagesCustomEvent={addGameToSavedPagesCustomEventHandler}
             loggedIn={props.model.user}
