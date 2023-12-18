@@ -14,7 +14,6 @@ function SavedPagesView(props){
             return <div className="noSavedPagesContainer">
                         <div className="noSavedPages">
                         <div>No Pages Seem To Have Been Saved Yet {props.savedPages.length}</div>
-                        {console.log(props.savedPages)}
                         <CButton onClick={backToMainMenuCB} className="noSavedPagesReturn">Main Menu</CButton>
                         <CButton onClick={backToSearchCB} className="noSavedPagesReturn">Find A New Favorite</CButton>
                         </div>
