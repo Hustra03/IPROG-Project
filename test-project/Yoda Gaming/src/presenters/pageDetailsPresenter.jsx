@@ -1,5 +1,5 @@
 import PageDetailsView from '../views/pageDetailsView.jsx';
-
+import {getCurrentGameUpvotes} from '../utilities.js';
         //file mainly worked on by Viktor Fredlund
 
 export default
@@ -45,6 +45,9 @@ function Details(props) {
     function loadScreenshotsCustomEventHandler(){
         props.model.loadScreenshotsForCurrentGame();
     }
+    function toggleUpvoteGameCustomEventHandler(id){
+        props.model.toggleUserUpvote(id);
+    }
     return (
         <div>
             <PageDetailsView 
@@ -61,6 +64,8 @@ function Details(props) {
             loadScreenshotsCustomEvent={loadScreenshotsCustomEventHandler}
             toggleShowCoverImageCustomEvent={toggleShowCoverImageCustomEventHandler}
             toggleYodafyDescriptionCustomEvent={toggleYodafyDescriptionCutomEventHandler}
+            toggleUpvoteGameCustomEvent={toggleUpvoteGameCustomEventHandler}
+            totalUpvotesForCurrentGame={getCurrentGameUpvotes(props.model.allUpvotes, props.model.currentPagePromiseState.data.id)}
             />
         </div>
     );

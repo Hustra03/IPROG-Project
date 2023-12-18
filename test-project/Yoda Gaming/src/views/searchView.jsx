@@ -28,7 +28,6 @@ function SearchView(props) {
 
     function sortByInputCB(evt) { props.onSortByInputChange(evt.target.value); }
     function searchDatesInput(evt) { props.onDatesInputChange(evt.target.value); }
-    function searchPlatformsInput(evt) { props.onPlatformsInputChange(evt.target.value); }
     function sortOrderInput() { props.onSortAscChange(); }
 
     function sortOrder() {
@@ -44,7 +43,42 @@ function SearchView(props) {
         }
     }
 
+
+    function searchPlatformsInput() { 
+
+        let currentPlatformString="";
+        let allPlatformOptions=document.getElementById("multiple-select").children;
+
+        let firstElement=false;
+        for (let i of allPlatformOptions) {
+            if (i.selected==true) {
+                if (firstElement==true) {
+                    currentPlatformString+=","
+                }
+                currentPlatformString+=i.value;
+                firstElement=true;
+            }
+        }
+
+        props.onPlatformsInputChange(currentPlatformString); 
+    }
     function platformOptions() {
+
+        if (props.allPlatforms) {
+
+            function platformMapCB(platform) {
+
+                return <option value={platform.id}>{platform.name}</option>
+            }
+
+            return (
+                <select onChange={searchPlatformsInput} id="multiple-select" value={props.platform} multiple>
+
+                    {props.allPlatforms.map(platformMapCB)}
+
+                </select>)
+        }
+
         return (
             //TODO store data in an object, and then render as an array
             // { “”: “None”, “4”: “PC”, …}

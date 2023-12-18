@@ -25,6 +25,9 @@ function PageDetailsView(props) {
     function toggleYodafyDescriptionCB(){
         props.toggleYodafyDescriptionCustomEvent();
     }
+    function toggleUpvoteGameCB(){
+        props.toggleUpvoteGameCustomEvent(props.gameDetails.id);
+    }
     
     return (
         <div className="gameDetails">
@@ -55,7 +58,9 @@ function PageDetailsView(props) {
                 {imageToDisplay()}
                 {imageButtonToShow()}
                 {showAddToSavedPagesButton()}
+                {showUpvoteGameButton()}
                 {descriptionButtonToShow()}
+                <h4 className="gameDetailsTotalUpvotes">Total upvotes: {props.totalUpvotesForCurrentGame}</h4>
                 </div>
                 <div className="infoBesideImage">
                     <tbody className="tags detailsInfoBoxes">
@@ -116,6 +121,13 @@ function PageDetailsView(props) {
             }
             return(
                 <CButton onClick={addGameToSavedPagesCB} type="submit" color="success" style={{ margin: '10px' }} disabled={props.savedPages.some(isGameInSavedPagesCB)  } >Add this game to your saved pages</CButton>
+            )
+        }
+    }
+    function showUpvoteGameButton(){
+        if(props.loggedIn){
+            return(
+                <CButton onClick={toggleUpvoteGameCB} type="submit" color="success" style={{ margin: '10px' }} >Upvote this game</CButton>
             )
         }
     }

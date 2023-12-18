@@ -232,21 +232,28 @@ export default {
     }
   },
   updateAllUpvotes(id, boolean){
-    if (!(this.allUpvotes.some(game => game.id === id))){
+    if (!(this.allUpvotes.some(game => game.gameID === id))){
+      console.log("Adding new game to allUpvotes")
       const upvoteToAdd = {gameID: id, upvotes: 1};
       this.allUpvotes = [...this.allUpvotes, upvoteToAdd];
     }
     else{
+      console.log("Updating upvotes for existing game")
       this.allUpvotes = this.allUpvotes.map(changeValueOfUpvoteCB);
       function changeValueOfUpvoteCB(game){
-        if (game.id === id){
+        if (game.gameID === id){
           if (boolean)
-            game.upvotes++;
+            return {
+              ...game, upvotes: game.upvotes + 1,
+            }
           else
-            game.upvotes--;
+            return {
+              ...game, upvotes: game.upvotes - 1,
+            }
         }
         return game;
       }
     } 
+    console.log(this.allUpvotes);
   },
 };
