@@ -106,3 +106,4 @@ export { auth, provider, signInWithPopup, signOut };
 
 export default connectToFirebase;
 
+//TODO If time create a watch function for each element, to reduce the size of each update
