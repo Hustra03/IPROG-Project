@@ -82,7 +82,9 @@ function HeaderView(props) {
 
     function searchInputCB(evt) { props.onQueryInputChange(evt.target.value); }
 
-    function searchButtonPressedCB() { props.searchCustomEvent(); window.location.hash = "#/searchResult"; }
+    function searchButtonPressedCB() { 
+        props.searchCustomEvent(); 
+        window.location.hash = "#/searchResult"; }
 
 
     function linkToSearchResults() {
@@ -117,7 +119,7 @@ function HeaderView(props) {
     }
 
     function breadcrumb() {
-        if (props.currentLocation.endsWith("/")) {
+        if (props.currentLocation.endsWith("#/")) {
 
             return (
                 <CBreadcrumb>
@@ -125,7 +127,7 @@ function HeaderView(props) {
                 </CBreadcrumb>
             )
         }
-        if (props.currentLocation.endsWith("/savedPages")) {
+        if (props.currentLocation.endsWith("#/savedPages")) {
             return (
                 <CBreadcrumb>
                     <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
@@ -133,7 +135,7 @@ function HeaderView(props) {
                 </CBreadcrumb>
             )
         }
-        if (props.currentLocation.endsWith("/search")) {
+        if (props.currentLocation.endsWith("#/search")) {
             return (
                 <CBreadcrumb>
                     <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
@@ -141,7 +143,7 @@ function HeaderView(props) {
                 </CBreadcrumb>
             )
         }
-        if (props.currentLocation.endsWith("/searchResult")) {
+        if (props.currentLocation.endsWith("#/searchResult")) {
             return (
                 <CBreadcrumb>
                     <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
@@ -150,7 +152,7 @@ function HeaderView(props) {
                 </CBreadcrumb>
             )
         }
-        if (props.currentLocation.endsWith("/details")) {
+        if (props.currentLocation.endsWith("#/details")) {
             return (
                 <CBreadcrumb>
                     <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
