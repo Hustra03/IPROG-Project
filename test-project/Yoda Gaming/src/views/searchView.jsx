@@ -57,21 +57,21 @@ function SearchView(props) {
                     <CListGroupItem color="success"><CFormInput label="tags" type="text" value={props.tags} onChange={searchTagsInputCB} id="queryForm" placeholder="Single Player" /></CListGroupItem>
                     <CListGroupItem color="success"><CFormInput label="genres" type="text" value={props.tags} onChange={searchGenreInputCB} id="queryForm" placeholder="RPG" /></CListGroupItem>
                     <CListGroupItem color="success">
-                        <label>MinMetacritic:</label><br />
+                        <label>MinMetacritic:</label>
                         <div>
                             <input type="range" value={props.minMetacritic} onChange={minMetacriticInputCB} className="range" min="0" max={props.maxMetacritic} />
                             {props.minMetacritic}
                         </div>
                     </CListGroupItem>
                     <CListGroupItem color="success">
-                        <label>Max Metacritic:</label><br />
+                        <label>Max Metacritic:</label>
                         <div>
                             <input type="range" value={props.maxMetacritic} onChange={maxMetacriticInputCB} className="range" min={props.minMetacritic} max="100" />
                             {props.maxMetacritic}
                         </div>
                     </CListGroupItem>
                     <CListGroupItem color="success">
-                        <label>Number Of Pages In Result:</label><br />
+                        <label>Number Of Pages In Result:</label>
                         <div>
                             <input type="range" value={props.page_size} onChange={pageSizeInputCB} className="range" min="5" max="20" />
                             {props.page_size}
@@ -101,7 +101,7 @@ function SearchView(props) {
                         <CFormInput label="Platforms" type="text" value={props.platforms} onChange={searchPlatformsInput} id="queryForm" placeholder="PlayStation 4" />
                     </CListGroupItem>
                     <CListGroupItem color="success">
-                    {sortOrder()}
+                        {sortOrder()}
                     </CListGroupItem>
                 </CListGroup>
                 <CCardBody color="success">
