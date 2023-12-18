@@ -46,7 +46,7 @@ function Details(props) {
         props.model.loadScreenshotsForCurrentGame();
     }
     function toggleUpvoteGameCustomEventHandler(id){
-        props.model.toggleUserUpvote(id);
+        props.model.updateAllUpvotes(id);
     }
     return (
         <div>

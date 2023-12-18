@@ -27,7 +27,6 @@ export default {
   currentLocation:"/",
   allPlatformsPromiseState:{},
   allUpvotes: [],
-  userUpvotes: [],
 
   updateAvailablePlatforms()
   {
@@ -221,34 +220,26 @@ export default {
     this.viewHistory = [...this.viewHistory, pageToAdd];
     console.log(this.viewHistory);
   },
-  toggleUserUpvote(id){
-    if (this.userUpvotes.includes(id)){
-      this.userUpvotes = this.userUpvotes.filter(gameID => gameID !== id);
-      this.updateAllUpvotes(id, false);
-    }
-    else{
-      this.userUpvotes = [...this.userUpvotes, id];
-      this.updateAllUpvotes(id, true);
-    }
-  },
-  updateAllUpvotes(id, boolean){
-    if (!(this.allUpvotes.some(game => game.gameID === id))){
+  updateAllUpvotes(idOfGame){
+    const currentUserID = this.user.uid;
+    if (!(this.allUpvotes.some(game => game.gameID === idOfGame))){
       console.log("Adding new game to allUpvotes")
-      const upvoteToAdd = {gameID: id, upvotes: 1};
-      this.allUpvotes = [...this.allUpvotes, upvoteToAdd];
+      const gameUpvoteToAdd = {gameID: idOfGame, upvotes: [currentUserID]};
+      this.allUpvotes = [...this.allUpvotes, gameUpvoteToAdd];
     }
     else{
       console.log("Updating upvotes for existing game")
       this.allUpvotes = this.allUpvotes.map(changeValueOfUpvoteCB);
       function changeValueOfUpvoteCB(game){
-        if (game.gameID === id){
-          if (boolean)
+        if (game.gameID === idOfGame){
+          const userHasAlreadyUpvoted = game.upvotes.includes(currentUserID);
+          if (userHasAlreadyUpvoted)
             return {
-              ...game, upvotes: game.upvotes + 1,
+              ...game, upvotes: game.upvotes.filter(id => id !== currentUserID),
             }
           else
             return {
-              ...game, upvotes: game.upvotes - 1,
+              ...game, upvotes: [...game.upvotes, currentUserID],
             }
         }
         return game;
