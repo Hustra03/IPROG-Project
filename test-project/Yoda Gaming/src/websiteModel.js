@@ -23,6 +23,7 @@ export default {
   yodafiedDescriptionPromiseState: {},
   currentYodafiedDescription: null,
   showCoverImage: true,
+  viewHistory: [],
 
 
   //Model is initially just a modified version of dinnerModel, with minor changes when relevant
@@ -193,5 +194,21 @@ export default {
       this.showCoverImage = false;
     else
       this.showCoverImage = true;
+  },
+
+  addCurrentPageToViewHistory(){
+    const pageToAdd = {
+      name: this.currentPagePromiseState.data.name,
+      image: this.currentPagePromiseState.data.background_image,
+      id: this.currentPage,
+    };
+    if (!Array.isArray(this.viewHistory))
+      this.viewHistory = [];
+    function removePageFromViewHistoryCB(page) {
+      return page.id !== pageToAdd.id;
+    }
+    this.viewHistory = this.viewHistory.filter(removePageFromViewHistoryCB);
+    this.viewHistory = [...this.viewHistory, pageToAdd];
+    console.log(this.viewHistory);
   },
 };
