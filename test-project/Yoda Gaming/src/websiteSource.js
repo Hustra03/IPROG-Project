@@ -46,8 +46,6 @@ function getResultsSearch(searchParams) //Used for Search and retreiving games t
         }
         return respons.json();
     }
-
-    getAllPlatforms();
     function giveOnlyRelevantInfoACB(json){
         //console.log(json); //Uncomment to see the the api response object
         return json.results;
