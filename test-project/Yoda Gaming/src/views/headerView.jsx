@@ -26,7 +26,7 @@ function HeaderView(props) {
     function savedPagesButtonPressedCB() { window.location.hash = "#/savedPages"; }
 
     function closedAlertCB() { props.closeAlert(); }
-    function toast() {
+    function alert() {
 
         if (props.alertBody) {
             return (
@@ -190,7 +190,7 @@ function HeaderView(props) {
                 <h1 className="HeaderTitle" onClick={headerTitleClicked}>Yoda's Gaming Wiki</h1>
                 {breadcrumb()}
             </div>
-            {toast()}
+            {alert()}
 
             <div className="HeaderRightHalf">
                 <div className="HeaderUpperButtons">
