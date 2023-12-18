@@ -7,13 +7,18 @@ export default
     function HeaderPresenter(props) {
 
     function loginCustomEventHandler() {
-        props.model.setLoggingIn(true);
-        signInWithPopup(auth, provider).then(props.model.setCurrentUser(auth.currentUser));
+        if (!auth.currentUser) {
+            props.model.setLoggingIn(true);
+            signInWithPopup(auth, provider).then(props.model.setCurrentUser(auth.currentUser));
+        }
     }
 
     function signOutCustomEventHandler() {
-        props.model.signOut();
-        signOut(auth);
+        if (auth.currentUser) {
+            props.model.signOut();
+            signOut(auth);
+            props.model.setLoggingIn(false);
+        }
     }
 
     function yodafyCustomEventHandler() {
