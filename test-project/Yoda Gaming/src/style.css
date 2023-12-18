@@ -170,45 +170,24 @@
 }
 
 
-.tags{
-    border-radius: 10px;
-    border-color: rgb(98, 33, 158);
-    border-style:solid;
-    background-color: #828884;
-    padding: 10px;
-    margin-top: 20%;
-    margin-bottom: 5%;
-    width: 60%;
-    height: 50%;
-    min-width: 150px;
-    min-height: 280px;
-    max-height: 280px;
-    overflow: auto;
-}
+
 
 .genres{
-    padding: 10px;
-    border-radius: 10px;
-    border-color: rgb(98, 33, 158);
-    border-style:solid;
-    background-color: #25994c;
-    margin: 5%;
-    width: 40%;
-    height: 30%;
-    margin-top: 20%;
-    min-width: 150px;
-    min-height: 280px;
-    max-height: 280px;
+    
 }
 .belowTopInfo{
     width: 100%;
     display:flex;
 }
 .infoBesideImage{
-    width: auto;
     display: flex;
     
     margin-right: 5%;
+    margin-left: 5%;
+}
+.infoBesideDescription{
+    display: flex;
+    margin-right: 10%;
     margin-left: 5%;
 }
 @media (max-width:1500px) {
@@ -230,8 +209,46 @@
         min-width: 70%;
         overflow: auto;
     }
+    .detailsBottomInfo{
+        flex-direction: column;
+    }
+    .infoBesideDescription{
+        margin-right: 30%;
+    }
+}
+.platforms{
+    
+}
+.tags::-webkit-scrollbar {
+    width: 10px;
 }
 
+.tags::-webkit-scrollbar-thumb {
+    background: hsl(0, 4%, 22%); 
+}
+
+
+.detailsInfoBoxes{ /*All the tbody elements in pageDetailsView*/
+    margin: 5%;
+    border-radius: 10px;
+    background-color: #828884;
+    padding: 10px;
+    margin-top: 20%;
+    margin-bottom: 5%;
+    width: 60%;
+    height: 50%;
+    min-width: 150px;
+    min-height: 280px;
+    max-height: 280px;
+    overflow: auto;
+    border-width: 2px;
+    border-color: black;
+    border-style:solid;
+}
+.tags{
+    
+    
+}
 
 .gameDetailsDescriptionTitle{
     margin-left: 40px;
@@ -277,15 +294,21 @@
 .detailsButton{
     margin: 15px;
 }
-.gameDetailsTitle{
+.detailsBottomInfo{
     
+    width: auto;
+    display: flex;
+    
+    margin-right: 5%;
+    margin-left: 5%;
         
 }
+
 .detailsText{
     color: #05471a;
     margin-left:30px;
 }
-.gameDetailsGenresTitle, .gameDetailsTagsTitle{
+.infoBoxTitle{
     color: #05471a;
 }
 .detailsPageName{
