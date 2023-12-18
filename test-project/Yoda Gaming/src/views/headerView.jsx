@@ -121,7 +121,7 @@ function HeaderView(props) {
 
 
             <div className="HeaderLeftHalf">
-                <h1 className="HeaderTitle" onClick={headerTitleClicked}>Yodas Gaming Wiki</h1>
+                <h1 className="HeaderTitle" onClick={headerTitleClicked}>Yoda's Gaming Wiki</h1>
 
             </div>
             {toast()}
