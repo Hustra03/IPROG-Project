@@ -47,7 +47,7 @@ function SearchView(props) {
     function platformOptions() {
         return (
             <select onChange={searchPlatformsInput} id="multiple-select" value={props.platform} multiple>
-                    
+                <option value="">None</option>
                 <option value="4">PC</option>
                 <option value="187">PlayStation 5</option>
                 <option value="18">PlayStation 4</option>
