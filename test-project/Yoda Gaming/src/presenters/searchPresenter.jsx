@@ -20,6 +20,7 @@ export default
                 dates={searchParams.dates}
                 platform={searchParams.platforms}
                 SortBy={searchParams.SortBy}
+                allPlatforms={props.model.allPlatformsPromiseState.data}
                 searchResultsData={props.model.searchResultsPromiseState.data}
                 onQueryInputChange={onQueryInputChangeCustomEventHandler}
                 onTagsInputChange={onTagsInputChangeCustomEventHandler}
