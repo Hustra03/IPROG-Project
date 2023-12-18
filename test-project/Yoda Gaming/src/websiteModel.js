@@ -140,7 +140,7 @@ export default {
   setSearchFuzzyDisabled(fuzzy) { this.searchParams.fuzzy = fuzzy },  //
   setSearchExactOnlyDisabled(exact) { this.searchParams.exact = exact },  //
   setDates(dates) { this.searchParams.dates = dates },
-  setPlatform(platform) { this.searchParams.platform = platform },
+  setPlatform(platform) { this.searchParams.platforms = platform },
 
   setAsc(asc) { this.searchParams.asc = asc },
 

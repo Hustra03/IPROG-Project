@@ -47,6 +47,7 @@ function getResultsSearch(searchParams) //Used for Search and retreiving games t
         return respons.json();
     }
 
+    getAllPlatforms();
     function giveOnlyRelevantInfoACB(json){
         //console.log(json); //Uncomment to see the the api response object
         return json.results;
@@ -87,6 +88,25 @@ function getAllGenres(){
     }
     return fetch(GENRES_URL).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
 }
+
+function getAllPlatforms(){
+    const GENRES_URL = BASE_URL + "platforms?key=" + API_KEY;
+
+    function getTheJSON_ACB(respons){
+        if(!respons.ok){
+            throw new Error("Something went wrong with the Game Genres API call.");
+        }
+        return respons.json();
+    }
+
+    function giveOnlyRelevantInfoACB(json){
+        //
+    console.log(json); //Uncomment to see the the api response object
+        return json.results;
+    }
+    return fetch(GENRES_URL).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
+}
+
 /** 
 function yodafyText(text){
     const YODA_SEARCH_URL = YODA_URL + encodeURIComponent(text);
