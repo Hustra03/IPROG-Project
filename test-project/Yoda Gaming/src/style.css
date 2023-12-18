@@ -157,9 +157,52 @@
 
 .savedPagesContainer{
     background-color:#4B7D00;
+    min-height: 100vh;
+
 }
 
+.savedPagesHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6BB300;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding: 2%;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+  }
+  
+.savedPagesIntro {
+    font-size: 24px;
+    text-align: center;
+    flex: 1; /* Allows the intro text to take available space */
+  }
+  
+.savedPagesClear {
+}
 
+.savedPagesGameContainer {
+    margin:2%;
+}
+
+.savedPagesImageAndTitle {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; 
+}
+  
+.savedPagesImage {
+    margin-right: 10px; 
+    cursor:pointer;
+}
+  
+.savedPagesTitle {
+    font-size: larger;
+    cursor:pointer;
+}
 
 .gameDetailsImages{
     margin: 3%;

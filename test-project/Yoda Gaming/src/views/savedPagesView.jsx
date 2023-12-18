@@ -10,15 +10,6 @@ function SavedPagesView(props){
     function clearSavedCB() {props.model.clearSavedPages()}
 
     if (props.loggedIn) {
-        if (props.savedPages == null) {
-            return <div className="noSavedPagesContainer">
-                        <div className="noSavedPages">
-                        <div>No Pages Seem To Have Been Saved Yet {props.savedPages.length}</div>
-                        <CButton onClick={backToMainMenuCB} className="noSavedPagesReturn">Main Menu</CButton>
-                        <CButton onClick={backToSearchCB} className="noSavedPagesReturn">Find A New Favorite</CButton>
-                        </div>
-                    </div>
-        }
 
         if (props.savedPages.length == 0) {
             return <div className="noSavedPagesContainer">
@@ -34,11 +25,15 @@ function SavedPagesView(props){
         if (props.savedPages.length>0){
 
             return <div className="savedPagesContainer">
-                {console.log("savedPages:" + props.savedPages)}
-                {console.log("saved pages is an array? " + Array.isArray(props.savedPages))}
-                amount of saved games: {props.savedPages.length}
-                <button onClick={clearSavedCB}>clear saved pages</button>
-                {props.savedPages.map(savedPagesMapCB)}
+                {/* {console.log("savedPages:" + props.savedPages)}
+                {console.log("saved pages is an array? " + Array.isArray(props.savedPages))} */}
+                <div className="savedPagesHeader">
+                    <div className="savedPagesIntro">Your saved games</div>
+                    <CButton className="savedPagesClear" onClick={clearSavedCB}>clear saved pages</CButton>
+                </div>
+                <div className="savedPagesGameContainer">
+                    {props.savedPages.map(savedPagesMapCB)}
+                </div>
                 
             </div>
         }
@@ -60,12 +55,17 @@ function SavedPagesView(props){
         }
 
         return (
-            <div className="savedPagesImageAndTitle" onClick={onSavedPageClickCB}>
-                <img src={game.image} width="130"></img>
-                <div className="savedPagesTitle">
-                    {game.name}
-                </div>
+            <div className="savedPagesImageAndTitle">
+            <img
+                className="savedPagesImage"
+                src={game.image}
+                width="130"
+                onClick={onSavedPageClickCB}
+            />
+            <div className="savedPagesTitle" onClick={onSavedPageClickCB}>
+                {game.name}
             </div>
+        </div>
         )
     }
 }
