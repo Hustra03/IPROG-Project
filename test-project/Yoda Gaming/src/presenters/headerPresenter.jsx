@@ -30,6 +30,7 @@ export default
             alertBody={props.model.alertBody}
             alertVisability={props.model.alertVisability}
             searchResultsData={props.model.searchResultsPromiseState.data}
+            currentLocation={window.location.hash}
             loginCustomEvent={loginCustomEventHandler}
             signOutCustomEvent={signOutCustomEventHandler}
             yodafyCustomEvent={yodafyCustomEventHandler}

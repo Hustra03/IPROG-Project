@@ -10,7 +10,7 @@ import { CDropdown, CDropdownToggle, CDropdownMenu, CForm, CFormInput, CFormLabe
 // Custom component, https://coreui.io/vue/docs/forms/select.htm
 // Custom component, https://coreui.io/vue/docs/components/alert.html 
 
-import { CAlert } from '@coreui/vue'
+import { CAlert, CBreadcrumb, CBreadcrumbItem } from '@coreui/vue'
 
 function HeaderView(props) {
 
@@ -26,7 +26,7 @@ function HeaderView(props) {
     function savedPagesButtonPressedCB() { window.location.hash = "#/savedPages"; }
 
     function closedAlertCB() { props.closeAlert(); }
-    function toast() {
+    function alert() {
 
         if (props.alertBody) {
             return (
@@ -82,10 +82,13 @@ function HeaderView(props) {
 
     function searchInputCB(evt) { props.onQueryInputChange(evt.target.value); }
 
-    function searchButtonPressedCB() { props.searchCustomEvent(); window.location.hash = "#/searchResult"; }
+    function searchButtonPressedCB() {
+        props.searchCustomEvent();
+        window.location.hash = "#/searchResult";
+    }
 
 
-    function linkToSearchResults(){
+    function linkToSearchResults() {
         if (props.searchResultsData) {
             return <div><a href='#/searchResult'>Old Search Results</a></div>
         }
@@ -104,7 +107,7 @@ function HeaderView(props) {
                     <CButton onClick={searchButtonPressedCB} type="submit" color="success">Search!</CButton>
                     <div><a href='#/search'>Detailed Search</a></div>
                     <div>{linkToSearchResults()}</div>
-                    
+
                 </CForm>
             </CDropdownMenu>
         </CDropdown>
@@ -116,15 +119,78 @@ function HeaderView(props) {
         window.location.hash = "/";
     }
 
+    function breadcrumb() {
+        function breadcrumbContent() {
+            if (props.currentLocation.endsWith("#/")) {
+                return (
+                    <>
+                        <CBreadcrumbItem active>Home</CBreadcrumbItem>
+                    </>
+                    )
+            }
+            if (props.currentLocation.endsWith("#/savedPages")) {
+                return (
+                    <>
+                        <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
+                        <CBreadcrumbItem active>Saved Pages</CBreadcrumbItem>
+                    </>
+
+                )
+            }
+            if (props.currentLocation.endsWith("#/search")) {
+                return (
+                    <>
+                        <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
+                        <CBreadcrumbItem active>Search</CBreadcrumbItem>
+                    </>
+                )
+
+            }
+            if (props.currentLocation.endsWith("#/searchResult")) {
+                return (
+                    <>
+                        <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
+                        <CBreadcrumbItem href="#/search">Search</CBreadcrumbItem>
+                        <CBreadcrumbItem active>Search Results</CBreadcrumbItem>
+                    </>
+                )
+            }
+            if (props.currentLocation.endsWith("#/details")) {
+                return (
+                    <>
+                        <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
+                        <CBreadcrumbItem href="#/search">Search</CBreadcrumbItem>
+                        <CBreadcrumbItem href="#/searchResult">Search Results</CBreadcrumbItem>
+                        <CBreadcrumbItem active>Details</CBreadcrumbItem>
+                    </>
+                )
+            }
+            return(
+                <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
+            )
+        }
+
+        return (
+            <CBreadcrumb style="--cui-breadcrumb-divider: '>'">
+                {breadcrumbContent}
+            </CBreadcrumb>
+        )
+
+
+
+
+
+    }
+
     return (
         <div className="header">
 
 
             <div className="HeaderLeftHalf">
-                <h1 className="HeaderTitle" onClick={headerTitleClicked}>Yodas Gaming Wiki</h1>
-
+                <h1 className="HeaderTitle" onClick={headerTitleClicked}>Yoda's Gaming Wiki</h1>
+                {breadcrumb()}
             </div>
-            {toast()}
+            {alert()}
 
             <div className="HeaderRightHalf">
                 <div className="HeaderUpperButtons">

@@ -3,7 +3,7 @@
 */
 
 import resolvePromise from "./resolvePromise.js";
-import { getResultsSearch, getGameDetails } from "./websiteSource.js";
+import { getResultsSearch, getGameDetails, getGameScreenshots, yodafyText } from "./websiteSource.js";
 
 export default {
   yodafy: false, //Represents if the "standard" text should be yodafied or not
@@ -18,6 +18,12 @@ export default {
   alertVisability: true, // States if notification is to be shown or not
   raceConditionAvoidance:null, //To avoid race conditions for alerts, random value between 0 and 1
   showAllTags: false,
+  currentGameScreenshotsPromiseState: {},
+  currentScreenshotPage: null,
+  yodafiedDescriptionPromiseState: {},
+  currentYodafiedDescription: null,
+  showCoverImage: false,
+  viewHistory: [],
 
 
   //Model is initially just a modified version of dinnerModel, with minor changes when relevant
@@ -93,6 +99,8 @@ export default {
         return;
       if (id) {
         this.currentPage = id;
+        this.currentGameScreenshotsPromiseState.data = null;
+        this.yodafiedDescriptionPromiseState.data = null;
         resolvePromise(getGameDetails(id), this.currentPagePromiseState);
       }
     }
@@ -150,23 +158,55 @@ export default {
   },//TODO Ensure that the search function above can accept each category, and picks the correct function to get results from the API
 
   toggleShowAllTags() {
-    if (this.showAllTags) {
+    if (this.showAllTags)
       this.showAllTags = false;
-    }
-    else {
+    else
       this.showAllTags = true;
-    }
   },
   addGameToSavedPages(){
     if (!Array.isArray(this.savedPages))
       this.savedPages = [];
-
-    this.savedPages.push({
+    const gameToAdd = {
       name: this.currentPagePromiseState.data.name,
       image: this.currentPagePromiseState.data.background_image,
       id: this.currentPage,
-    });
-    //this.savedPages = [...this.savedPages, gameToAddToSavedPages];
+    };
+    this.savedPages = [...this.savedPages, gameToAdd];
     console.log(this.savedPages);
+  },
+  toggleYodafyDescription(){
+    this.toggleYodafyValue();
+    if (this.currentYodafiedDescription === this.currentPage)
+      return;
+    this.currentYodafiedDescription = this.currentPage;
+    resolvePromise(yodafyText(this.currentPagePromiseState.data.description_raw), this.yodafiedDescriptionPromiseState);
+  },
+  toggleShowCoverImage(){
+    if (this.showCoverImage)
+      this.showCoverImage = false;
+    else
+      this.showCoverImage = true;
+  },
+  loadScreenshotsForCurrentGame(){
+    if (this.currentScreenshotPage === this.currentPage){
+      return;
+    }
+    this.currentScreenshotPage = this.currentPage;
+    resolvePromise(getGameScreenshots(this.currentPage), this.currentGameScreenshotsPromiseState);
+  },
+  addCurrentPageToViewHistory(){
+    const pageToAdd = {
+      name: this.currentPagePromiseState.data.name,
+      image: this.currentPagePromiseState.data.background_image,
+      id: this.currentPage,
+    };
+    if (!Array.isArray(this.viewHistory))
+      this.viewHistory = [];
+    function removePageFromViewHistoryCB(page) {
+      return page.id !== pageToAdd.id;
+    }
+    this.viewHistory = this.viewHistory.filter(removePageFromViewHistoryCB);
+    this.viewHistory = [...this.viewHistory, pageToAdd];
+    console.log(this.viewHistory);
   },
 };

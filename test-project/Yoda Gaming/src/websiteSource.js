@@ -65,7 +65,7 @@ function getGameDetails(gameID){
     }
 
     function giveOnlyRelevantInfoACB(json){
-        console.log(json); //Uncomment to see the the api response object
+        //console.log(json); //Uncomment to see the the api response object
         return json;
     }
     return fetch(GAME_DETAILS_URL).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
@@ -87,7 +87,7 @@ function getAllGenres(){
     }
     return fetch(GENRES_URL).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
 }
-
+/** 
 function yodafyText(text){
     const YODA_SEARCH_URL = YODA_URL + encodeURIComponent(text);
 
@@ -100,7 +100,7 @@ function yodafyText(text){
 
     function giveOnlyRelevantInfoACB(json){
         console.log(json); //Uncomment to see the the api response object
-        return json.results;
+        return json;
     }
     return fetch(YODA_SEARCH_URL, {
         "method": "POST",
@@ -110,6 +110,42 @@ function yodafyText(text){
         },
     }).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
 }
+*/
+function yodafyText(text){
+    const trimmedText = text.replace(/\n/g, '');
+    const YODA_SEARCH_URL = "https://api.funtranslations.com/translate/yoda.json?text=" + encodeURIComponent(trimmedText);
+
+    function getTheJSON_ACB(respons){
+        if(!respons.ok){
+            throw new Error("Something went wrong with the Yoda API call.");
+        }
+        return respons.json();
+    }
+
+    function giveOnlyRelevantInfoACB(json){
+        //console.log(json); //Uncomment to see the the api response object
+        return json.contents.translated;
+    }
+    return fetch(YODA_SEARCH_URL).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
+}
 
 
-export { getResultsSearch, getGameDetails, yodafyText, getAllGenres};
+function getGameScreenshots(gameID){
+    const GAME_SCREENSHOTS_URL = BASE_URL + "games/" + gameID + "/screenshots" + "?key=" + API_KEY;
+
+    function getTheJSON_ACB(respons){
+        if(!respons.ok){
+            throw new Error("Something went wrong with the Game Screenshots API call.");
+        }
+        return respons.json();
+    }
+
+    function giveOnlyRelevantInfoACB(json){
+        //console.log(json.results); //Uncomment to see the the api response object
+        return json.results;
+    }
+    return fetch(GAME_SCREENSHOTS_URL).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
+}
+
+
+export { getResultsSearch, getGameDetails, yodafyText, getAllGenres, getGameScreenshots};

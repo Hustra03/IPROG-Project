@@ -25,8 +25,8 @@ function modelToPersistence(model) {
 
     return {
         yodafy: model.yodafy,
-        currentPage:model.currentPage,
-        savedPages:model.savedPages,
+        currentPage: model.currentPage,
+        savedPages: model.savedPages,
     };
 }
 
@@ -34,25 +34,25 @@ function persistenceToModel(data, model) {
     if (!data) {//Sets initial values
         model.setYodafyValue(false);
         model.setPage(null)
-        model.setSavedPages({})
-        //TODO return the promises from any searches
+        model.setSavedPages([])
         return;
     }
     if (data.yodafy) {
         model.setYodafyValue(data.yodafy);
     }
     else { model.setYodafyValue(false); }
+
     if (data.currentPage) {
-        model.setPage(data.currentPage)
+        model.setPage(data.currentPage);
     }
-    else
-    { model.setPage(null)}
+    else { model.setPage(null) }
+
     if (data.savedPages) {
-        model.setSavedPages(data.savedPages)
+        model.setSavedPages(data.savedPages);
     }
-    else
-    { model.setSavedPages({})}
-    return;//TODO return the promises from any searches
+    else { model.setSavedPages([]) }
+
+    return;
 }
 
 function saveToFirebase(model) {
@@ -85,7 +85,7 @@ function readFromFirebase(model) {
 }
 function connectToFirebase(model, watchFunction) {
 
-    model.ready=true;
+    model.ready = true;
     onAuthStateChanged(auth, authChangeACB)
 
     function authChangeACB(user) {
@@ -96,7 +96,7 @@ function connectToFirebase(model, watchFunction) {
         }
     }
     function checkACB() {
-        return [model.yodafy, model.currentPage]
+        return [model.yodafy, model.currentPage, model.savedPages]
     }
     function effectACB() {
         saveToFirebase(model);
@@ -106,3 +106,4 @@ export { auth, provider, signInWithPopup, signOut };
 
 export default connectToFirebase;
 
+//TODO If time create a watch function for each element, to reduce the size of each update
