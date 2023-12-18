@@ -82,9 +82,10 @@ function HeaderView(props) {
 
     function searchInputCB(evt) { props.onQueryInputChange(evt.target.value); }
 
-    function searchButtonPressedCB() { 
-        props.searchCustomEvent(); 
-        window.location.hash = "#/searchResult"; }
+    function searchButtonPressedCB() {
+        props.searchCustomEvent();
+        window.location.hash = "#/searchResult";
+    }
 
 
     function linkToSearchResults() {
@@ -119,49 +120,66 @@ function HeaderView(props) {
     }
 
     function breadcrumb() {
-        if (props.currentLocation.endsWith("#/")) {
+        function breadcrumbContent() {
+            if (props.currentLocation.endsWith("#/")) {
+                return (
+                    <>
+                        <CBreadcrumbItem active>Home</CBreadcrumbItem>
+                    </>
+                    )
+            }
+            if (props.currentLocation.endsWith("#/savedPages")) {
+                return (
+                    <>
+                        <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
+                        <CBreadcrumbItem active>Saved Pages</CBreadcrumbItem>
+                    </>
 
-            return (
-                <CBreadcrumb>
-                    <CBreadcrumbItem active>Home</CBreadcrumbItem>
-                </CBreadcrumb>
+                )
+            }
+            if (props.currentLocation.endsWith("#/search")) {
+                return (
+                    <>
+                        <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
+                        <CBreadcrumbItem active>Search</CBreadcrumbItem>
+                    </>
+                )
+
+            }
+            if (props.currentLocation.endsWith("#/searchResult")) {
+                return (
+                    <>
+                        <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
+                        <CBreadcrumbItem href="#/search">Search</CBreadcrumbItem>
+                        <CBreadcrumbItem active>Search Results</CBreadcrumbItem>
+                    </>
+                )
+            }
+            if (props.currentLocation.endsWith("#/details")) {
+                return (
+                    <>
+                        <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
+                        <CBreadcrumbItem href="#/search">Search</CBreadcrumbItem>
+                        <CBreadcrumbItem href="#/searchResult">Search Results</CBreadcrumbItem>
+                        <CBreadcrumbItem active>Details</CBreadcrumbItem>
+                    </>
+                )
+            }
+            return(
+                <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
             )
         }
-        if (props.currentLocation.endsWith("#/savedPages")) {
-            return (
-                <CBreadcrumb>
-                    <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
-                    <CBreadcrumbItem active>Saved Pages</CBreadcrumbItem>
-                </CBreadcrumb>
-            )
-        }
-        if (props.currentLocation.endsWith("#/search")) {
-            return (
-                <CBreadcrumb>
-                    <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
-                    <CBreadcrumbItem active>Search</CBreadcrumbItem>
-                </CBreadcrumb>
-            )
-        }
-        if (props.currentLocation.endsWith("#/searchResult")) {
-            return (
-                <CBreadcrumb>
-                    <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
-                    <CBreadcrumbItem href="#/search">Search</CBreadcrumbItem>
-                    <CBreadcrumbItem active>Search Results</CBreadcrumbItem>
-                </CBreadcrumb>
-            )
-        }
-        if (props.currentLocation.endsWith("#/details")) {
-            return (
-                <CBreadcrumb>
-                    <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
-                    <CBreadcrumbItem href="#/search">Search</CBreadcrumbItem>
-                    <CBreadcrumbItem href="#/searchResult">Search Results</CBreadcrumbItem>
-                    <CBreadcrumbItem active>Details</CBreadcrumbItem>
-                </CBreadcrumb>
-            )
-        }
+
+        return (
+            <CBreadcrumb style="--cui-breadcrumb-divider: '>'">
+                {breadcrumbContent}
+            </CBreadcrumb>
+        )
+
+
+
+
+
     }
 
     return (
