@@ -10,7 +10,7 @@ import { CDropdown, CDropdownToggle, CDropdownMenu, CForm, CFormInput, CFormLabe
 // Custom component, https://coreui.io/vue/docs/forms/select.htm
 // Custom component, https://coreui.io/vue/docs/components/alert.html 
 
-import { CAlert } from '@coreui/vue'
+import { CAlert, CBreadcrumb, CBreadcrumbItem } from '@coreui/vue'
 
 function HeaderView(props) {
 
@@ -85,7 +85,7 @@ function HeaderView(props) {
     function searchButtonPressedCB() { props.searchCustomEvent(); window.location.hash = "#/searchResult"; }
 
 
-    function linkToSearchResults(){
+    function linkToSearchResults() {
         if (props.searchResultsData) {
             return <div><a href='#/searchResult'>Old Search Results</a></div>
         }
@@ -104,7 +104,7 @@ function HeaderView(props) {
                     <CButton onClick={searchButtonPressedCB} type="submit" color="success">Search!</CButton>
                     <div><a href='#/search'>Detailed Search</a></div>
                     <div>{linkToSearchResults()}</div>
-                    
+
                 </CForm>
             </CDropdownMenu>
         </CDropdown>
@@ -116,13 +116,59 @@ function HeaderView(props) {
         window.location.hash = "/";
     }
 
+    function breadcrumb() {
+        if (props.currentLocation.endsWith("/")) {
+
+            return (
+                <CBreadcrumb>
+                    <CBreadcrumbItem active>Home</CBreadcrumbItem>
+                </CBreadcrumb>
+            )
+        }
+        if (props.currentLocation.endsWith("/savedPages")) {
+            return (
+                <CBreadcrumb>
+                    <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
+                    <CBreadcrumbItem active>Saved Pages</CBreadcrumbItem>
+                </CBreadcrumb>
+            )
+        }
+        if (props.currentLocation.endsWith("/search")) {
+            return (
+                <CBreadcrumb>
+                    <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
+                    <CBreadcrumbItem active>Search</CBreadcrumbItem>
+                </CBreadcrumb>
+            )
+        }
+        if (props.currentLocation.endsWith("/searchResult")) {
+            return (
+                <CBreadcrumb>
+                    <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
+                    <CBreadcrumbItem href="#/search">Search</CBreadcrumbItem>
+                    <CBreadcrumbItem active>Search Results</CBreadcrumbItem>
+                </CBreadcrumb>
+            )
+        }
+        if (props.currentLocation.endsWith("/details")) {
+            return (
+                <CBreadcrumb>
+                    <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
+                    <CBreadcrumbItem href="#/search">Search</CBreadcrumbItem>
+                    <CBreadcrumbItem href="#/searchResult">Search Results</CBreadcrumbItem>
+                    <CBreadcrumbItem active>Details</CBreadcrumbItem>
+                </CBreadcrumb>
+            )
+        }
+    }
+
     return (
         <div className="header">
 
 
             <div className="HeaderLeftHalf">
                 <h1 className="HeaderTitle" onClick={headerTitleClicked}>Yoda's Gaming Wiki</h1>
-
+                {breadcrumb()}
             </div>
             {toast()}
 
