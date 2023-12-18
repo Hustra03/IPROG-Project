@@ -34,6 +34,13 @@ app.mount('#root');
 
 
 // ------ for debug purposes ----------
-reactiveModel.doSearch(false);             // make the model available in the Console
-window.myModel = reactiveModel;
+reactiveModel.doSearch(false);
+reactiveModel.updateAvailablePlatforms();
+window.myModel = reactiveModel; // make the model available in the Console
 connectToFirebase(reactiveModel, watch)
+window.addEventListener("hashchange", updateCurrentLocationACB)
+
+function updateCurrentLocationACB()
+{
+    reactiveModel.setCurrentLocation(window.location.hash);
+}

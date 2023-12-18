@@ -3,7 +3,7 @@
 */
 
 import resolvePromise from "./resolvePromise.js";
-import { getResultsSearch, getGameDetails, getGameScreenshots, yodafyText } from "./websiteSource.js";
+import { getResultsSearch, getGameDetails, getGameScreenshots, yodafyText,getAllPlatforms } from "./websiteSource.js";
 
 export default {
   yodafy: false, //Represents if the "standard" text should be yodafied or not
@@ -24,7 +24,18 @@ export default {
   currentYodafiedDescription: null,
   showCoverImage: false,
   viewHistory: [],
+  currentLocation:"/",
+  allPlatformsPromiseState:{},
 
+  updateAvailablePlatforms()
+  {
+    resolvePromise(getAllPlatforms(), this.allPlatformsPromiseState);
+  },
+
+  setCurrentLocation(newLocation)
+  {
+    this.currentLocation=newLocation;
+  },
 
   //Model is initially just a modified version of dinnerModel, with minor changes when relevant
 

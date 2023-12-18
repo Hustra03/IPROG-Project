@@ -166,4 +166,4 @@ function getGameScreenshots(gameID){
 }
 
 
-export { getResultsSearch, getGameDetails, yodafyText, getAllGenres, getGameScreenshots};
+export { getResultsSearch, getGameDetails, yodafyText, getAllGenres, getGameScreenshots,getAllPlatforms};

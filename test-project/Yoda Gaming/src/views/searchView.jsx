@@ -46,6 +46,11 @@ function SearchView(props) {
 
     function platformOptions() {
         return (
+            //TODO store data in an object, and then render as an array
+            // { “”: “None”, “4”: “PC”, …}
+            // Object.entries(obj)
+            // document.getElementById(id).children, check which are currently selected
+            // document.getElementById("multiple-select").children for-each loop check selected property
             <select onChange={searchPlatformsInput} id="multiple-select" value={props.platform} multiple>
                 <option value="">None</option>
                 <option value="4">PC</option>
