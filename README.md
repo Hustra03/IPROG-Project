@@ -13,3 +13,7 @@ Viktor Fredlund, Git account: MrBregott, Canvas ID: 143155
 William Ma Jönsson, Git account: EroHex, Canvas ID: 143089
 
 [Hosting Link](https://iprog-tw3-53504.web.app/#/ "Yodas Gaming Wiki")
+
+
+Icon link:
+https://www.shareicon.net/yoda-user-71338 
