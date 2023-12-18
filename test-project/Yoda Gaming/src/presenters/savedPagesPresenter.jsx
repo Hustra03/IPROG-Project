@@ -9,13 +9,28 @@ export default
             <SavedPagesView
                 savedPages={props.model.savedPages}
                 loggedIn={props.model.user}
-                model={props.model}
+                alertBody={props.model.alertBody}
+                alertVisability={props.model.alertVisability}
+                clearSavedPages={clearSavedPagesCustomEventHandler}
+                alertBodyChange={onAlertBodyChangeCustomEventHandler}
+                closeAlert={closeAlertCustomEventHandler}
                 chosenGame={chosenGameCustomEventHandler}
             />
         </div>
     );
 
+    function clearSavedPagesCustomEventHandler() {
+        props.model.clearSavedPages();
+    }
+
     function chosenGameCustomEventHandler(game){
         props.model.setPage(game.id)
+    }
+
+    function closeAlertCustomEventHandler() { props.model.setAlertVisability(false); }
+
+    function onAlertBodyChangeCustomEventHandler(alertBody) {
+        props.model.setAlertBody(alertBody);
+        props.model.setAlertVisability(true);
     }
 }
