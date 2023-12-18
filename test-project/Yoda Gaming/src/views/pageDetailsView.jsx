@@ -16,11 +16,11 @@ function PageDetailsView(props) {
     function addGameToSavedPagesCB(){
         props.addGameToSavedPagesCustomEvent();
     }
-    function showScreenshotsCB(){
-        props.showScreenshotsCustomEvent();
+    function toggleShowCoverImageCB(){
+        props.toggleShowCoverImageCustomEvent();
     }
-    function showCoverImageCB(){
-        props.showCoverImageCustomEvent();
+    function loadScreenshotsACB(){
+        props.loadScreenshotsCustomEvent();
     }
     function toggleYodafyDescriptionCB(){
         props.toggleYodafyDescriptionCustomEvent();
@@ -159,11 +159,13 @@ function PageDetailsView(props) {
             return <img src={props.gameDetails.background_image} class="detailsImages"/>
         }
     function imageButtonToShow(){
-        if (!props.gameScreenshots || props.showCoverImage){
-            return <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={showScreenshotsCB} >Show Screenshots</CButton>
+        if (!props.gameScreenshots){
+            return <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={loadScreenshotsACB} >Show Screenshots</CButton>
         }
+        if(props.showCoverImage)
+            return <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={toggleShowCoverImageCB} >Show Screenshots</CButton>
         else
-            return <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={showCoverImageCB} >Show Cover Image</CButton>
+            return <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={toggleShowCoverImageCB} >Show Cover Image</CButton>
 
     }
     function descriptionButtonToShow(){

@@ -22,7 +22,7 @@ export default {
   currentScreenshotPage: null,
   yodafiedDescriptionPromiseState: {},
   currentYodafiedDescription: null,
-  showCoverImage: true,
+  showCoverImage: false,
   viewHistory: [],
 
 
@@ -174,14 +174,6 @@ export default {
     this.savedPages = [...this.savedPages, gameToAdd];
     console.log(this.savedPages);
   },
-  showScreenshotsForCurrentGame(){
-    this.showCoverImage = false;
-    if (this.currentScreenshotPage === this.currentPage){
-      return;
-    }
-    this.currentScreenshotPage = this.currentPage;
-    resolvePromise(getGameScreenshots(this.currentPage), this.currentGameScreenshotsPromiseState);
-  },
   toggleYodafyDescription(){
     this.toggleYodafyValue();
     if (this.currentYodafiedDescription === this.currentPage)
@@ -195,7 +187,13 @@ export default {
     else
       this.showCoverImage = true;
   },
-
+  loadScreenshotsForCurrentGame(){
+    if (this.currentScreenshotPage === this.currentPage){
+      return;
+    }
+    this.currentScreenshotPage = this.currentPage;
+    resolvePromise(getGameScreenshots(this.currentPage), this.currentGameScreenshotsPromiseState);
+  },
   addCurrentPageToViewHistory(){
     const pageToAdd = {
       name: this.currentPagePromiseState.data.name,

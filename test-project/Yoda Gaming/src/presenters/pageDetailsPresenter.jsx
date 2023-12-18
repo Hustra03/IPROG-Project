@@ -36,14 +36,14 @@ function Details(props) {
     function addGameToSavedPagesCustomEventHandler(){
         props.model.addGameToSavedPages();
     }
-    function showScreenshotsCustomEventHandler(){
-        props.model.showScreenshotsForCurrentGame();
-    }
     function toggleYodafyDescriptionCutomEventHandler(){
         props.model.toggleYodafyDescription();
     }
-    function showCoverImageCustomEventHandler(){
+    function toggleShowCoverImageCustomEventHandler(){
         props.model.toggleShowCoverImage();
+    }
+    function loadScreenshotsCustomEventHandler(){
+        props.model.loadScreenshotsForCurrentGame();
     }
     return (
         <div>
@@ -58,8 +58,8 @@ function Details(props) {
             showAllTagsCustomEvent={showAllTagsCustomEventHandler} 
             addGameToSavedPagesCustomEvent={addGameToSavedPagesCustomEventHandler}
             loggedIn={props.model.user}
-            showScreenshotsCustomEvent={showScreenshotsCustomEventHandler}
-            showCoverImageCustomEvent={showCoverImageCustomEventHandler}
+            loadScreenshotsCustomEvent={loadScreenshotsCustomEventHandler}
+            toggleShowCoverImageCustomEvent={toggleShowCoverImageCustomEventHandler}
             toggleYodafyDescriptionCustomEvent={toggleYodafyDescriptionCutomEventHandler}
             />
         </div>
