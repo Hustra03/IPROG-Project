@@ -26,6 +26,8 @@ export default {
   viewHistory: [],
   currentLocation:"/",
   allPlatformsPromiseState:{},
+  allUpvotes: [],
+  userUpvotes: [],
 
   updateAvailablePlatforms()
   {
@@ -38,7 +40,6 @@ export default {
   },
 
   //Model is initially just a modified version of dinnerModel, with minor changes when relevant
-
   addToSavedPage(pageToAdd, initialCategory) {
     const savedPage = { actualPage: pageToAdd, category: initialCategory };
     this.savedPages = [...this.savedPages, (savedPage)];
@@ -219,5 +220,33 @@ export default {
     this.viewHistory = this.viewHistory.filter(removePageFromViewHistoryCB);
     this.viewHistory = [...this.viewHistory, pageToAdd];
     console.log(this.viewHistory);
+  },
+  toggleUserUpvote(id){
+    if (this.userUpvotes.includes(id)){
+      this.userUpvotes = this.userUpvotes.filter(gameID => gameID !== id);
+      this.updateAllUpvotes(id, false);
+    }
+    else{
+      this.userUpvotes = [...this.userUpvotes, id];
+      this.updateAllUpvotes(id, true);
+    }
+  },
+  updateAllUpvotes(id, boolean){
+    if (!(this.allUpvotes.some(game => game.id === id))){
+      const upvoteToAdd = {gameID: id, upvotes: 1};
+      this.allUpvotes = [...this.allUpvotes, upvoteToAdd];
+    }
+    else{
+      this.allUpvotes = this.allUpvotes.map(changeValueOfUpvoteCB);
+      function changeValueOfUpvoteCB(game){
+        if (game.id === id){
+          if (boolean)
+            game.upvotes++;
+          else
+            game.upvotes--;
+        }
+        return game;
+      }
+    } 
   },
 };
