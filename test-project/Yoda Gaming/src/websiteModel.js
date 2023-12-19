@@ -243,8 +243,6 @@ export default {
       this.allUpvotes = this.allUpvotes.map(changeValueOfUpvoteCB);
       function changeValueOfUpvoteCB(game){
         if (game.gameID === idOfGame){
-          if(!game.upvotes)
-            game.upvotes = [];
           const userHasAlreadyUpvoted = game.upvotes.includes(currentUserID);
           if (userHasAlreadyUpvoted)
             return {
