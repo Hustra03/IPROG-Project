@@ -39,8 +39,8 @@ function PageDetailsView(props) {
             <h2 className="detailsPageName detailsText">Details Page</h2>
             <div className="detailsTopInfo">
                 <div className="leftInfo">
-                    {props.gameDetails.publishers ? <h4 className="gameDetailsPublisher">Publisher: {props.gameDetails.publishers[0].name}</h4> : null}
-                    {props.gameDetails.developers ? <h4 className="gameDetailsDeveloper">Developer: {props.gameDetails.developers[0].name}</h4> : null}
+                    {props.gameDetails.publishers[0] ? <h4 className="gameDetailsPublisher">Publisher: {props.gameDetails.publishers[0].name}</h4> : null}
+                    {props.gameDetails.developers[0] ? <h4 className="gameDetailsDeveloper">Developer: {props.gameDetails.developers[0].name}</h4> : null}
                 </div>
                 <div className="middleInfo">
                     {props.gameDetails.released ? <h4 className="gameDetailsReleased">Released: {props.gameDetails.released}</h4> : null}
@@ -53,7 +53,7 @@ function PageDetailsView(props) {
                 </div>
             </div>
            
-            <h1 className="gameDetailsTitle detailsText">{props.gameDetails.name}</h1>
+            <h1 className="gameDetailsTitle detailsText">{props.gameDetails.name ? props.gameDetails.name : "Game name missing"}</h1>
             <div className="belowTopInfo">
                 <div className="gameDetailsImages">
                 

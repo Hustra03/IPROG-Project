@@ -53,6 +53,7 @@ function HeaderView(props) {
         }
         return (
             <div className="LoggedIn">
+                <CButton onClick={savedPagesButtonPressedCB} type="submit" color="success">Saved Pages</CButton>
                 <CButton onClick={signOutButtonPressedCB} type="submit" color="success">Sign Out</CButton>
                 <img className="userIcon" src={props.loggedIn.photoURL} alt="user icon" />
             </div>
@@ -63,7 +64,6 @@ function HeaderView(props) {
         if (props.loggedIn) {
             return (
                 <div>
-                    <CButton onClick={savedPagesButtonPressedCB} type="submit" color="success">Saved Pages</CButton>
                     {searchButton()}
                     {yodafyButton()}
                 </div>)
@@ -87,37 +87,23 @@ function HeaderView(props) {
         window.location.hash = "#/searchResult";
     }
 
-
-    function linkToSearchResults() {
-        if (props.searchResultsData) {
-            return <div><a href='#/searchResult'>Old Search Results</a></div>
-        }
-    }
-
     function searchButton() {
-        return (<CDropdown auto-close="outside">
-            <CDropdownToggle color="success">Search</CDropdownToggle>
-            <CDropdownMenu>
-                <CForm className="px-4 py-4">
-                    <div className="mb-3">
-                        <CFormLabel for="queryForm">Search Query</CFormLabel>
-                        <CFormInput type="text" value={props.query} onChange={searchInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
-                    </div>
+        return (<>
+            <CFormInput type="text" value={props.query} onChange={searchInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
+            <CButton  onClick={searchButtonPressedCB} type="submit" color="success">Search!</CButton>
+            <CButton onClick={headerDetailedSearchClickedHandler} type="submit" color="success">Go To Detailed Search</CButton>
 
-                    <CButton onClick={searchButtonPressedCB} type="submit" color="success">Search!</CButton>
-                    <div><a href='#/search'>Detailed Search</a></div>
-                    <div>{linkToSearchResults()}</div>
-
-                </CForm>
-            </CDropdownMenu>
-        </CDropdown>
-            //TODO implement all search parameters correctly when API implemented for testing
+        </>//TODO implement all search parameters correctly when API implemented for testing
         )
     }
 
     function headerTitleClickedHandler() {
         props.headerTitleClicked();
         window.location.hash = "/";
+    }
+
+    function headerDetailedSearchClickedHandler() {
+        window.location.hash = "#/search";
     }
 
     function breadcrumb() {
@@ -127,7 +113,7 @@ function HeaderView(props) {
                     <>
                         <CBreadcrumbItem active>Home</CBreadcrumbItem>
                     </>
-                    )
+                )
             }
             if (props.currentLocation.endsWith("#/savedPages")) {
                 return (
@@ -166,7 +152,7 @@ function HeaderView(props) {
                     </>
                 )
             }
-            return(
+            return (
                 <CBreadcrumbItem href="#">Home</CBreadcrumbItem>
             )
         }
