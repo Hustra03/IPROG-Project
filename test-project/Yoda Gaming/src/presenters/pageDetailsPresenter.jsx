@@ -5,31 +5,57 @@ import {getCurrentGameUpvotes} from '../utilities.js';
 export default
 function Details(props) {
     
+    function showDetailsViewOrNot(currentPagePromiseState){
+        if(!currentPagePromiseState.promise){
+            console.log("no data")
+            return(
+                <div>
+                <p>no data</p>
+                </div>
+            )
+        }
+        if(!currentPagePromiseState.data && !currentPagePromiseState.error){
+            console.log("loading")
+            return(
+                <div>
+                    <img src="https://brfenergi.se/iprog/loading.gif"></img>
+                </div>
+            )
+        }
+        if(!currentPagePromiseState.data && currentPagePromiseState.error){
+            console.log("oopsie")
+            return(
+                <div>
+                    <p>{props.model.currentPagePromiseState.error}</p>
+                </div>
+            )
+        }
+        if(currentPagePromiseState.data && !currentPagePromiseState.error){
+            return (
+                <div>
+                    <PageDetailsView 
+                    gameDetails={props.model.currentPagePromiseState.data} 
+                    gameScreenshots={props.model.currentGameScreenshotsPromiseState.data}
+                    yodafiedDescriptionText={props.model.yodafiedDescriptionPromiseState.data}
+                    yodafy={props.model.yodafy}
+                    showAllTags={props.model.showAllTags} 
+                    savedPages={props.model.savedPages}
+                    showCoverImage={props.model.showCoverImage}
+                    showAllTagsCustomEvent={showAllTagsCustomEventHandler} 
+                    addGameToSavedPagesCustomEvent={addGameToSavedPagesCustomEventHandler}
+                    loggedIn={props.model.user}
+                    loadScreenshotsCustomEvent={loadScreenshotsCustomEventHandler}
+                    toggleShowCoverImageCustomEvent={toggleShowCoverImageCustomEventHandler}
+                    toggleYodafyDescriptionCustomEvent={toggleYodafyDescriptionCutomEventHandler}
+                    toggleUpvoteGameCustomEvent={toggleUpvoteGameCustomEventHandler}
+                    totalUpvotesForCurrentGame={getCurrentGameUpvotes(props.model.allUpvotes, props.model.currentPagePromiseState.data.id)}
+                    hasUserUpvotedGameCustomEvent={hasUserUpvotedGameCustomEventHandler}
+                    />
+                </div>
+            );
+        }
+    }
     
-    if(!props.model.currentPagePromiseState.promise){
-        console.log("no data")
-        return(
-            <div>
-            <p>no data</p>
-            </div>
-        )
-    }
-    if(!props.model.currentPagePromiseState.data && !props.model.currentPagePromiseState.error){
-        console.log("loading")
-        return(
-            <div>
-                <img src="https://brfenergi.se/iprog/loading.gif"></img>
-            </div>
-        )
-    }
-    if(!props.model.currentPagePromiseState.data && props.model.currentPagePromiseState.error){
-        console.log("oopsie")
-        return(
-            <div>
-                <p>{props.model.currentPagePromiseState.error}</p>
-            </div>
-        )
-    }
     function showAllTagsCustomEventHandler(){
         props.model.toggleShowAllTags();
     }
@@ -53,24 +79,7 @@ function Details(props) {
     }
     return (
         <div>
-            <PageDetailsView 
-            gameDetails={props.model.currentPagePromiseState.data} 
-            gameScreenshots={props.model.currentGameScreenshotsPromiseState.data}
-            yodafiedDescriptionText={props.model.yodafiedDescriptionPromiseState.data}
-            yodafy={props.model.yodafy}
-            showAllTags={props.model.showAllTags} 
-            savedPages={props.model.savedPages}
-            showCoverImage={props.model.showCoverImage}
-            showAllTagsCustomEvent={showAllTagsCustomEventHandler} 
-            addGameToSavedPagesCustomEvent={addGameToSavedPagesCustomEventHandler}
-            loggedIn={props.model.user}
-            loadScreenshotsCustomEvent={loadScreenshotsCustomEventHandler}
-            toggleShowCoverImageCustomEvent={toggleShowCoverImageCustomEventHandler}
-            toggleYodafyDescriptionCustomEvent={toggleYodafyDescriptionCutomEventHandler}
-            toggleUpvoteGameCustomEvent={toggleUpvoteGameCustomEventHandler}
-            totalUpvotesForCurrentGame={getCurrentGameUpvotes(props.model.allUpvotes, props.model.currentPagePromiseState.data.id)}
-            hasUserUpvotedGameCustomEvent={hasUserUpvotedGameCustomEventHandler}
-            />
+            {showDetailsViewOrNot(props.model.currentPagePromiseState)}
         </div>
     );
     
