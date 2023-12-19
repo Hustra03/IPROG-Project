@@ -157,8 +157,6 @@
 
 .savedPagesContainer{
     background-color:#4B7D00;
-    min-height: 100vh;
-
 }
 
 .savedPagesHeader {
@@ -185,36 +183,50 @@
 }
 
 .savedPagesGameContainer {
-    margin:2%;
+    margin:3%;
+    width:100%;
+    flex-direction:row;
+    align-items: center;
+    min-width: fit-content;
+    max-width: fit-content;
 }
 
 .savedPagesImageAndTitle {
-    display: flex;
+    background-color: #828884;
+    max-width: 200px;
+    min-width: 200px;
+    max-height: 200px;
+    min-height: 200px;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    margin:2%;
+    display: inline-block;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 10px; 
+    text-align: center; 
 }
-  
+
 .savedPagesImage {
-    margin-right: 10px; 
-    cursor:pointer;
+    margin-bottom: 10px; /* Space between image and title */
+    padding:2%;
+    cursor: pointer;
 }
-  
+
 .savedPagesTitle {
-    font-size: larger;
-    cursor:pointer;
-    margin-right:10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    width:100%;
 }
 
 .savedPagesRemoveButton {
-
+    /* Add styles for the button as needed */
 }
 
 .gameDetailsImages{
     margin: 3%;
     flex-direction: row;
-    width: 60%;
-    height: auto;
-    
 }
 
 
