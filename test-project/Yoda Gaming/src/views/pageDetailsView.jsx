@@ -37,6 +37,7 @@ function PageDetailsView(props) {
 
             <CButton onClick={backToSearchResultPageCB} component="a" color="success" size="lg">Back to search results</CButton>
             <h2 className="detailsPageName detailsText">Details Page</h2>
+            <h1 className="gameDetailsTitle detailsText">{props.gameDetails.name ? props.gameDetails.name : "Game name missing"}</h1>
             <div className="detailsTopInfo">
                 <div className="leftInfo">
                     {props.gameDetails.publishers[0] ? <h4 className="gameDetailsPublisher">Publisher: {props.gameDetails.publishers[0].name}</h4> : null}
@@ -53,27 +54,21 @@ function PageDetailsView(props) {
                 </div>
             </div>
            
-            <h1 className="gameDetailsTitle detailsText">{props.gameDetails.name ? props.gameDetails.name : "Game name missing"}</h1>
             <div className="belowTopInfo">
                 <div className="gameDetailsImages">
-                
-                
-                {imageToDisplay()}
-                {imageButtonToShow()}
-                {showAddToSavedPagesButton()}
-                {showUpvoteGameButton()}
-                {descriptionButtonToShow()}
-                <h4 className="gameDetailsTotalUpvotes">Total upvotes: {props.totalUpvotesForCurrentGame}</h4>
+                    {imageToDisplay()}
                 </div>
-                <div className="infoBesideImage">
-                    <tbody className="tags detailsInfoBoxes">
-                        <h3 className="infoBoxTitle">Tags</h3>
-                        {tagsToShow()}
-                    </tbody>
-                    <tbody className="genres detailsInfoBoxes">
-                        <h3 className="infoBoxTitle">Genres</h3>
-                        {(props.gameDetails.genres).map(displayGenresCB)}
-                    </tbody>
+                <div className="buttonsBesideDescription">
+                    <h4 className="gameDetailsTotalUpvotes">Total upvotes: {props.totalUpvotesForCurrentGame}</h4>
+
+                    <div className="detailsButtonPair">
+                        {showAddToSavedPagesButton()}
+                        {imageButtonToShow()}
+                    </div>
+                    <div className="detailsButtonPair">
+                        {descriptionButtonToShow()}
+                        {showUpvoteGameButton()}
+                    </div>
                 </div>
             </div>
             <div className="detailsBottomInfo">
@@ -82,11 +77,21 @@ function PageDetailsView(props) {
                     {descriptionTextToShow()}
                 </div>
                 <div className="infoBesideDescription">
-                    <tbody className="platforms detailsInfoBoxes">
+                    <tbody className="detailsInfoBoxes">
+                        <h3 className="infoBoxTitle">Tags</h3>
+                        {tagsToShow()}
+                    </tbody>
+                    <tbody className="detailsInfoBoxes">
+                        <h3 className="infoBoxTitle">Genres</h3>
+                        {(props.gameDetails.genres).map(displayGenresCB)}
+                    </tbody>
+                </div>
+                <div className="infoBesideDescription">
+                    <tbody className="detailsInfoBoxes">
                         <h3 className="infoBoxTitle">Platforms</h3>
                         {(props.gameDetails.platforms).map(displayPlatformsCB)}
                     </tbody>
-                    <tbody className="stores detailsInfoBoxes">
+                    <tbody className="detailsInfoBoxes">
                         <h3 className="infoBoxTitle">Stores</h3>
                         {(props.gameDetails.stores).map(displayStoresCB)}
                     </tbody>
@@ -165,7 +170,7 @@ function PageDetailsView(props) {
         console.log(props.showCoverImage)
         if (props.gameScreenshots && !props.showCoverImage){
             return (
-            <CCarousel controls indicators>
+            <CCarousel controls indicators class="detailsImages">
                 {(props.gameScreenshots).map(displayScreenshotsCB)}
             </CCarousel>
             )
@@ -178,7 +183,7 @@ function PageDetailsView(props) {
             return <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={loadScreenshotsACB} >Show Screenshots</CButton>
         }
         if(props.showCoverImage)
-            return <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={toggleShowCoverImageCB} >Show Screenshots</CButton>
+            return <CButton type="submit" color="success"  style={{ margin: '10px' }} onClick={toggleShowCoverImageCB} >Show Screenshots</CButton>
         else
             return <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={toggleShowCoverImageCB} >Show Cover Image</CButton>
 

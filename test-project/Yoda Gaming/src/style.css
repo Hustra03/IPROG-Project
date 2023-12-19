@@ -229,19 +229,38 @@
 }
 
 .gameDetailsImages{
+    border-radius: 10px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
     margin: 3%;
-    flex-direction: row;
+    overflow: hidden;
+    width: 70%;
+    height: 100%;
+    background-color: black;
 }
 
-
-
+.buttonsBesideDescription{
+    margin: 5%;
+    margin-top: 0;
+    margin-bottom: 0;
+    }
+.detailsButtonPair{
+    display: flex;
+}
+.infoBesideDescription{
+    display: flex;
+    
+    width: 10vw;
+    min-width: 30%; 
+}
 
 .genres{
     
 }
 .belowTopInfo{
     width: 100%;
-    display:flex;
+    
 }
 .infoBesideImage{
     display: flex;
@@ -249,16 +268,14 @@
     margin-right: 5%;
     margin-left: 5%;
 }
-.infoBesideDescription{
-    display: flex;
-    margin-right: 10%;
-    margin-left: 5%;
-}
+
+
 @media (max-width:1500px) {
     
     
     .gameDetailsImages{
         width: 94%;
+        height: auto;
     }
     
     .belowTopInfo{
@@ -280,14 +297,11 @@
         margin-right: 30%;
     }
 }
-.platforms{
-    
-}
-.tags::-webkit-scrollbar {
+.detailsInfoBoxes::-webkit-scrollbar, .gameDetailsDescription::-webkit-scrollbar{
     width: 10px;
 }
 
-.tags::-webkit-scrollbar-thumb {
+.detailsInfoBoxes::-webkit-scrollbar-thumb,  .gameDetailsDescription::-webkit-scrollbar-thumb{
     background: hsl(0, 4%, 22%); 
 }
 
@@ -299,29 +313,31 @@
     padding: 10px;
     margin-top: 20%;
     margin-bottom: 5%;
-    width: 60%;
-    height: 50%;
-    min-width: 150px;
-    min-height: 280px;
+    
+    width: 50%;
     max-height: 280px;
     overflow: auto;
     border-width: 2px;
     border-color: black;
     border-style:solid;
 }
-.tags{
-    
-    
-}
 
 .gameDetailsDescriptionTitle{
-    margin-left: 40px;
+    margin-left: 20px;
     color: #05471a;
 }
+.desciptionBox{
+    margin: 0;
+    color: #05471a;
+    
+
+}
 .gameDetailsDescription{
-    max-width: 50%;
-    margin:40px;
+    max-width:100%;
+    max-height: 400px;
     margin-top: 0px;
+    overflow: auto;
+    
     flex-direction: row;
     border-radius: 15px;
     border-color: black;
@@ -338,14 +354,6 @@
     background-color: #6bb300;
     display: flex;
     justify-content: space-between;
-}
-.gameDetailsReleased{
-    
-}
-.gameDetailsMetacritic{
-}
-.gameDetailsRating{
-
 }
 
 .leftInfo, .middleInfo, .rightInfo{
@@ -382,8 +390,9 @@
     color: #007324;
 }
 .detailsImages{
-    max-width: 100%;
+    width: 100%;
     height: auto;
+    object-fit: cover;
 }
 
 .homepageButton{
