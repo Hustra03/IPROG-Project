@@ -72,7 +72,8 @@ function SavedPagesView(props){
                 <img
                     className="savedPagesImage"
                     src={game.image}
-                    width="130"
+                    width="195"
+                    height="130"
                     onClick={onSavedPageClickCB}
                 />
                 <div className="savedPagesTitle" onClick={onSavedPageClickCB}>
