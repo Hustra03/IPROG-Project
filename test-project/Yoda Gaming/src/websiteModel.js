@@ -228,6 +228,10 @@ export default {
     this.viewHistory = [...this.viewHistory, pageToAdd];
     console.log(this.viewHistory);
   },
+
+  setAllUpvotes(persistedAllUpvotes)
+  {this.allUpvotes=persistedAllUpvotes},//For persistence
+
   updateAllUpvotes(idOfGame){
     const currentUserID = this.user.uid;
     if (!(this.allUpvotes.some(game => game.gameID === idOfGame))){
