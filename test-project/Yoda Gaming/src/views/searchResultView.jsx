@@ -6,12 +6,13 @@ import { CForm, CFormInput, CButton, CFormSelect, CFormCheck } from '@coreui/vue
 function SearchResultView(props) {
 
     function backToMainMenuCB() {window.location.hash = "#/"; }
+    function loadMoreGamesCB() {props.loadMoreGames();}
     return(
     <div className="searchResultsContainer">
         <span>{props.searchResult}</span>
         <CButton onClick={backToMainMenuCB} className="searchResultInitial">Main Menu</CButton>
         {props.searchResults.map(searchResultsMapCB)}
-        <CButton onClick={backToMainMenuCB} className="searchResultInitial">Main Menu</CButton>
+        <CButton onClick={loadMoreGamesCB} className="searchResultInitial">Load more games</CButton>
         <div className="hiddenText">hi</div>
     </div>
     )

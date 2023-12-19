@@ -186,7 +186,6 @@ export default {
     console.log(this.savedPages);
   },
   removeGameFromSavedPages(gameToRemove){
-    
     function removeGameFromSavedPagesCB(game) {
       return game.id != gameToRemove.id;
     }

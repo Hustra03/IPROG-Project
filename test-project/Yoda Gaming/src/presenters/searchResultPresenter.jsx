@@ -17,7 +17,11 @@ export default
         }
         if (props.model.searchResultsPromiseState.data) {
             console.log(props.model.searchResultsPromiseState.data)
-            return <SearchResultView searchResults={props.model.searchResultsPromiseState.data} chosenGame={chosenGameCustomEventHandler}/>
+            return <SearchResultView 
+                searchResults={props.model.searchResultsPromiseState.data} 
+                chosenGame={chosenGameCustomEventHandler}
+                loadMoreGames={loadMoreGamesCustomEventHandler}
+            />
         }
 
         if (!props.model.searchResultsPromiseState.error){
@@ -29,6 +33,12 @@ export default
 
     function chosenGameCustomEventHandler(game){
         props.model.setPage(game.id)
+    }
+
+    function loadMoreGamesCustomEventHandler(){
+        const numOfPages = props.model.searchParams.page_size;
+        props.model.setSearchPageLimit(numOfPages + 10);
+        props.model.doSearch(true);
     }
 }
 
