@@ -92,7 +92,7 @@ function getAllPlatforms(){
 
     function getTheJSON_ACB(respons){
         if(!respons.ok){
-            throw new Error("Something went wrong with the Game Genres API call.");
+            throw new Error("Something went wrong with the Platform API call.");
         }
         return respons.json();
     }
