@@ -257,6 +257,7 @@ export default {
         }
         return game;
       }
+      this.allUpvotes = this.allUpvotes.filter(game => game.upvotes.length > 0)
     } 
     console.log(this.allUpvotes);
   },
