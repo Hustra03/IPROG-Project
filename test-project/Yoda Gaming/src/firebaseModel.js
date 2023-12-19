@@ -21,7 +21,7 @@ const auth = getAuth(app);
 
 const provider = new GoogleAuthProvider();
 
-function modelToPersistence(model) {
+function modelToPersistenceUserData(model) {
 
     return {
         yodafy: model.yodafy,
@@ -30,7 +30,7 @@ function modelToPersistence(model) {
     };
 }
 
-function persistenceToModel(data, model) {
+function persistenceToModelUserData(data, model) {
     if (!data) {//Sets initial values
         model.setYodafyValue(false);
         model.setPage(null)
@@ -51,24 +51,22 @@ function persistenceToModel(data, model) {
         model.setSavedPages(data.savedPages);
     }
     else { model.setSavedPages([]) }
-
-    return;
 }
 
-function saveToFirebase(model) {
-    if (model.user && model.ready) {
 
-        set(ref(db, PATH + "/" + model.user.uid), modelToPersistence(model));
+function saveUserDataToFirebase(model) {
+    if (model.ready && model.user) {
+
+        set(ref(db, PATH + "/" + model.user.uid), modelToPersistenceUserData(model));
     }
 }
-function readFromFirebase(model) {
+function readUserDataFromFirebase(model) {
 
-    if (model.user && model.ready) {
-
+    if (model.ready && model.user) {
 
         onValue(ref(db, PATH + "/" + model.user.uid), (snapshot) => {
             const data = snapshot.val();
-            persistenceToModel(data, model);
+            persistenceToModelUserData(data, model);
         });
 
         model.ready = false;
@@ -77,12 +75,59 @@ function readFromFirebase(model) {
 
     function getFromDatabaseACB() { return get(ref(db, PATH + "/" + model.user.uid)) }
     function persistenceToModelACB(snapshot) {
-        return persistenceToModel(snapshot.val(), model);
+        return persistenceToModelUserData(snapshot.val(), model);
     }
     function modelReadyCB() {
         model.ready = true;
     }
 }
+
+function modelToPersistenceGlobalData(model) {
+
+    return {
+        allUpvotes:model.allUpvotes,
+    };
+}
+
+function persistenceToModelGlobalData(data, model) {
+    if (!data) {//Sets initial values
+        model.setAllUpvotes([]);
+        return;
+    }
+    if (data.allUpvotes) {
+        model.setAllUpvotes(data.allUpvotes);
+    }
+    else { model.setAllUpvotes([]); }
+}
+
+function saveGlobalDataToFirebase(model) {
+    if (model.ready && model.user) {
+
+        set(ref(db, PATH + "/" + "upvotes"), modelToPersistenceGlobalData(model));
+    }
+}
+function readGlobalDataFromFirebase(model) {
+
+    if (model.ready && model.user) {
+
+        onValue(ref(db, PATH + "/" + "upvotes"), (snapshot) => {
+            const data = snapshot.val();
+            persistenceToModelGlobalData(data, model);
+        });
+
+        model.ready = false;
+        return getFromDatabaseACB().then(persistenceToModelGlobalACB).then(modelReadyCB);
+    }
+
+    function getFromDatabaseACB() { return get(ref(db, PATH + "/" + "upvotes")) }
+    function persistenceToModelGlobalACB(snapshot) {
+        return persistenceToModelGlobalData(snapshot.val(), model);
+    }
+    function modelReadyCB() {
+        model.ready = true;
+    }
+}
+
 function connectToFirebase(model, watchFunction) {
 
     model.ready = true;
@@ -91,15 +136,30 @@ function connectToFirebase(model, watchFunction) {
     function authChangeACB(user) {
         if (user) {
             model.setCurrentUser(user);
-            readFromFirebase(model);
-            watchFunction(checkACB, effectACB);
+
+            readUserDataFromFirebase(model);
+
+            readGlobalDataFromFirebase(model);//TODO check if it should be possible to read number of upvotes if not signed in, yes no?
+
+            watchFunction(checkUserACB, effectUserACB);//Handles updates to user data, ex saved pages or current page
+            
+            watchFunction(checkGlobalACB, effectGlobalACB);//Handles updates to global data, ex upvotes
         }
     }
-    function checkACB() {
-        return [model.yodafy, model.currentPage, model.savedPages]
+
+    function checkUserACB() {
+        return [model.yodafy, model.currentPage, model.savedPages,model.allUpvotes]
     }
-    function effectACB() {
-        saveToFirebase(model);
+    function effectUserACB() {
+        saveUserDataToFirebase(model);
+        saveGlobalDataToFirebase(model);
+    }
+
+    function checkGlobalACB() {
+        return [model.allUpvotes]
+    }
+    function effectGlobalACB() {
+        saveGlobalDataToFirebase(model);
     }
 }
 export { auth, provider, signInWithPopup, signOut };

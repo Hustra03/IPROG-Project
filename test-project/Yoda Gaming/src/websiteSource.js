@@ -98,8 +98,7 @@ function getAllPlatforms(){
     }
 
     function giveOnlyRelevantInfoACB(json){
-        //
-    console.log(json); //Uncomment to see the the api response object
+        //console.log(json); //Uncomment to see the the api response object
         return json.results;
     }
     return fetch(GENRES_URL).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
