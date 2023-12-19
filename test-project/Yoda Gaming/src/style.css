@@ -57,8 +57,10 @@
 }
 
 .HeaderLowerButtons {
+    height: 0%;
     align-self: flex-end;
     flex: 0.1;
+    display: flex;
 }
 
 .detailedSearch {
