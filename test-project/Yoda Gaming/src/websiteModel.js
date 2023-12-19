@@ -27,6 +27,8 @@ export default {
   currentLocation:"/",
   allPlatformsPromiseState:{},
   allUpvotes: [],
+  showAbout: false, //for conditional rendering logic for about section on homepage
+  currentCat:0, //current category used for homepage button disable functionality
 
   updateAvailablePlatforms()
   {
@@ -265,5 +267,13 @@ export default {
     if (!game)
       return false;
     return game.upvotes.includes(this.user.uid);
+  },
+
+  setShowAbout(val){
+    this.showAbout=val;
+  },
+
+  setCurrentCat(num){
+    this.currentCat=num;
   }
 };

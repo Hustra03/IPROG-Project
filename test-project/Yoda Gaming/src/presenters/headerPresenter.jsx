@@ -43,6 +43,8 @@ export default
             onQueryInputChange={onQueryInputChangeCustomEventHandler}
             alertBodyChange={onAlertBodyChangeCustomEventHandler}
             closeAlert={closeAlertCustomEventHandler}
+            headerTitleClicked={headerTitleClickedCustomEventHandler}
+            currentCat={props.model.currentCat} //current category used for homepage button disable functionality
         />
 
     );
@@ -57,6 +59,17 @@ export default
         props.model.setSearchQuery(query);
     }
     function onSearchButtonPressCustomEventHandler() {
+        props.model.setCurrentCat(null); //so that you can return home after searching and seeing search results
         props.model.doSearch(true);
+    }
+
+    function headerTitleClickedCustomEventHandler(){
+        props.model.setCurrentCat(0);//to disable title click to prevent unnecessary searches
+        props.model.setSearchQuery(null); //reset previous search params
+        props.model.setSearchMinMetacritic(50);
+        props.model.setSearchMaxMetacritic(100);
+        props.model.setDates("2015-01-01,2023-12-31");
+        props.model.doSearch(false); //refresh searchResults from previous searches
+        props.model.setShowAbout(false); //functionality to not render about page
     }
 }
