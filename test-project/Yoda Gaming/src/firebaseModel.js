@@ -28,7 +28,7 @@ function modelToPersistenceUserData(model) {
         currentPage: model.currentPage,
         savedPages: model.savedPages,
     };
-}
+}//Converts model to user persistence format
 
 function persistenceToModelUserData(data, model) {
     if (!data) {//Sets initial values
@@ -51,7 +51,8 @@ function persistenceToModelUserData(data, model) {
         model.setSavedPages(data.savedPages);
     }
     else { model.setSavedPages([]) }
-}
+}//Converts user persistence to model format
+
 
 
 function saveUserDataToFirebase(model) {
@@ -60,27 +61,41 @@ function saveUserDataToFirebase(model) {
         set(ref(db, PATH + "/" + model.user.uid), modelToPersistenceUserData(model));
     }
 }
-function readUserDataFromFirebase(model) {
+//Saves user data, such as savedPages, to database
+
+function readDataFromFirebase(model) {
 
     if (model.ready && model.user) {
 
         onValue(ref(db, PATH + "/" + model.user.uid), (snapshot) => {
             const data = snapshot.val();
             persistenceToModelUserData(data, model);
+        });        
+        onValue(ref(db, PATH + "/" + "upvotes"), (snapshot) => {
+            const data = snapshot.val();
+            persistenceToModelGlobalData(data, model);
         });
 
+
         model.ready = false;
-        return getFromDatabaseACB().then(persistenceToModelACB).then(modelReadyCB);
+        return getUserFromDatabaseACB().then(persistenceToModelACB).then(getGlobalFromDatabaseACB).then(persistenceToModelGlobalACB).then(modelReadyCB);
     }
 
-    function getFromDatabaseACB() { return get(ref(db, PATH + "/" + model.user.uid)) }
+    function getUserFromDatabaseACB() { return get(ref(db, PATH + "/" + model.user.uid)) }
     function persistenceToModelACB(snapshot) {
         return persistenceToModelUserData(snapshot.val(), model);
     }
+    
+    function getGlobalFromDatabaseACB() { return get(ref(db, PATH + "/" + "upvotes")) }
+    function persistenceToModelGlobalACB(snapshot) {
+        return persistenceToModelGlobalData(snapshot.val(), model);
+    }
+
     function modelReadyCB() {
         model.ready = true;
     }
 }
+//Handles reading from database, creates onValue for user + global data, and reads initial data from database
 
 function modelToPersistenceGlobalData(model) {
 
@@ -88,6 +103,7 @@ function modelToPersistenceGlobalData(model) {
         allUpvotes:model.allUpvotes,
     };
 }
+//Converts model to global persistence format
 
 function persistenceToModelGlobalData(data, model) {
     if (!data) {//Sets initial values
@@ -99,6 +115,7 @@ function persistenceToModelGlobalData(data, model) {
     }
     else { model.setAllUpvotes([]); }
 }
+//Converts global persistence to model format
 
 function saveGlobalDataToFirebase(model) {
     if (model.ready && model.user) {
@@ -106,27 +123,7 @@ function saveGlobalDataToFirebase(model) {
         set(ref(db, PATH + "/" + "upvotes"), modelToPersistenceGlobalData(model));
     }
 }
-function readGlobalDataFromFirebase(model) {
-
-    if (model.ready && model.user) {
-
-        onValue(ref(db, PATH + "/" + "upvotes"), (snapshot) => {
-            const data = snapshot.val();
-            persistenceToModelGlobalData(data, model);
-        });
-
-        model.ready = false;
-        return getFromDatabaseACB().then(persistenceToModelGlobalACB).then(modelReadyCB);
-    }
-
-    function getFromDatabaseACB() { return get(ref(db, PATH + "/" + "upvotes")) }
-    function persistenceToModelGlobalACB(snapshot) {
-        return persistenceToModelGlobalData(snapshot.val(), model);
-    }
-    function modelReadyCB() {
-        model.ready = true;
-    }
-}
+//Saves global data changes to database
 
 function connectToFirebase(model, watchFunction) {
 
@@ -137,13 +134,12 @@ function connectToFirebase(model, watchFunction) {
         if (user) {
             model.setCurrentUser(user);
 
-            readUserDataFromFirebase(model);
-
-            readGlobalDataFromFirebase(model);//TODO check if it should be possible to read number of upvotes if not signed in, yes no?
 
             watchFunction(checkUserACB, effectUserACB);//Handles updates to user data, ex saved pages or current page
             
             watchFunction(checkGlobalACB, effectGlobalACB);//Handles updates to global data, ex upvotes
+            
+            readDataFromFirebase(model);
         }
     }
 
@@ -162,6 +158,8 @@ function connectToFirebase(model, watchFunction) {
         saveGlobalDataToFirebase(model);
     }
 }
+//Connects to database, and initialises watch functions and reads data if the user signs in
+
 export { auth, provider, signInWithPopup, signOut };
 
 export default connectToFirebase;
