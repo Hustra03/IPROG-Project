@@ -205,6 +205,10 @@
     margin-right:10px;
 }
 
+.savedPagesRemoveButton {
+
+}
+
 .gameDetailsImages{
     margin: 3%;
     flex-direction: row;

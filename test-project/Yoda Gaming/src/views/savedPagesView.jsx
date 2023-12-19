@@ -78,7 +78,7 @@ function SavedPagesView(props){
                 <div className="savedPagesTitle" onClick={onSavedPageClickCB}>
                     {game.name}
                 </div>
-                <button className="savedPagesRemove" onClick={onRemoveGameClickCB}>Remove</button>
+                <CButton className="savedPagesRemoveButton" onClick={onRemoveGameClickCB}>Remove</CButton>
             </div>
         )
     }
