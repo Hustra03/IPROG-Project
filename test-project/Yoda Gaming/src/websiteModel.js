@@ -185,6 +185,14 @@ export default {
     this.savedPages = [...this.savedPages, gameToAdd];
     console.log(this.savedPages);
   },
+  removeGameFromSavedPages(gameToRemove){
+    
+    function removeGameFromSavedPagesCB(game) {
+      return game.id != gameToRemove.id;
+    }
+    const newPage = this.savedPages.filter(removeGameFromSavedPagesCB);
+    this.savedPages = newPage;
+  },
   toggleYodafyDescription(){
     this.toggleYodafyValue();
     if (this.currentYodafiedDescription === this.currentPage)

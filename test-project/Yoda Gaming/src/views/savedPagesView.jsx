@@ -38,7 +38,7 @@ function SavedPagesView(props){
                     {console.log("saved pages is an array? " + Array.isArray(props.savedPages))} */}
                     <div className="savedPagesHeader">
                         <div className="savedPagesIntro">Your saved games</div>
-                        <CButton className="savedPagesClear" onClick={clearSavedCB}>clear saved pages</CButton>
+                        <CButton className="savedPagesClear" onClick={clearSavedCB}>Clear saved pages</CButton>
                     </div>
                     <div className="savedPagesGameContainer">
                         {props.savedPages.map(savedPagesMapCB)}
@@ -63,6 +63,10 @@ function SavedPagesView(props){
             window.location.hash = "#/details"
         }
 
+        function onRemoveGameClickCB() {
+            props.removeGame(game);
+        }
+
         return (
             <div className="savedPagesImageAndTitle">
                 <img
@@ -74,6 +78,7 @@ function SavedPagesView(props){
                 <div className="savedPagesTitle" onClick={onSavedPageClickCB}>
                     {game.name}
                 </div>
+                <button className="savedPagesRemove" onClick={onRemoveGameClickCB}>Remove</button>
             </div>
         )
     }

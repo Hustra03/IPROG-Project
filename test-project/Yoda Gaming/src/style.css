@@ -202,6 +202,7 @@
 .savedPagesTitle {
     font-size: larger;
     cursor:pointer;
+    margin-right:10px;
 }
 
 .gameDetailsImages{

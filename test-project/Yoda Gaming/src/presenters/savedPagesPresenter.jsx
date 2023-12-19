@@ -15,11 +15,13 @@ export default
                 alertBodyChange={onAlertBodyChangeCustomEventHandler}
                 closeAlert={closeAlertCustomEventHandler}
                 chosenGame={chosenGameCustomEventHandler}
+                removeGame={removeGameCustomEventHandler}
             />
         </div>
     );
 
     function clearSavedPagesCustomEventHandler() {
+
         props.model.clearSavedPages();
     }
 
@@ -27,7 +29,13 @@ export default
         props.model.setPage(game.id)
     }
 
-    function closeAlertCustomEventHandler() { props.model.setAlertVisability(false); }
+    function removeGameCustomEventHandler(game){
+        props.model.removeGameFromSavedPages(game);
+    }
+
+    function closeAlertCustomEventHandler() {
+        props.model.setAlertVisability(false); 
+    }
 
     function onAlertBodyChangeCustomEventHandler(alertBody) {
         props.model.setAlertBody(alertBody);
