@@ -428,3 +428,10 @@
     font-size:large;
     padding-top:5%;
 }
+
+.homepageError{
+    text-align:center;
+    font-size:x-large;
+    font-weight: 600;
+    padding:10%;
+}

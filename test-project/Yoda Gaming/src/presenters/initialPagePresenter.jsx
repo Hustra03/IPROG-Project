@@ -77,7 +77,7 @@ export default
             if(!props.model.searchResultsPromiseState.error){
                 return(
                     <div>
-                        
+
                         <div>Loading...</div>
                     </div>
                 )
@@ -85,7 +85,11 @@ export default
 
             console.log(props.model.searchResultsPromiseState.error)
             return(
-                <div>{props.model.searchResultsPromiseState.error}</div>
+                <div className='homepageError'>
+                    <div>Error!</div>
+                    <div>{props.model.searchResultsPromiseState.error}</div>
+                </div>
+                
             )
             
             
