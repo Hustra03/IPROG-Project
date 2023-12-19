@@ -259,4 +259,11 @@ export default {
     } 
     console.log(this.allUpvotes);
   },
+
+  hasUserUpvotedGame(idOfGame){
+    const game = this.allUpvotes.find(game => game.gameID === idOfGame);
+    if (!game)
+      return false;
+    return game.upvotes.includes(this.user.uid);
+  }
 };

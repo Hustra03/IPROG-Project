@@ -48,6 +48,9 @@ function Details(props) {
     function toggleUpvoteGameCustomEventHandler(id){
         props.model.updateAllUpvotes(id);
     }
+    function hasUserUpvotedGameCustomEventHandler(id){
+        return props.model.hasUserUpvotedGame(id);
+    }
     return (
         <div>
             <PageDetailsView 
@@ -66,6 +69,7 @@ function Details(props) {
             toggleYodafyDescriptionCustomEvent={toggleYodafyDescriptionCutomEventHandler}
             toggleUpvoteGameCustomEvent={toggleUpvoteGameCustomEventHandler}
             totalUpvotesForCurrentGame={getCurrentGameUpvotes(props.model.allUpvotes, props.model.currentPagePromiseState.data.id)}
+            hasUserUpvotedGameCustomEvent={hasUserUpvotedGameCustomEventHandler}
             />
         </div>
     );

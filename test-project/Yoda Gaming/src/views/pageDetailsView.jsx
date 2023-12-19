@@ -28,6 +28,9 @@ function PageDetailsView(props) {
     function toggleUpvoteGameCB(){
         props.toggleUpvoteGameCustomEvent(props.gameDetails.id);
     }
+    function hasUserUpvotedGameCB(){
+        return props.hasUserUpvotedGameCustomEvent(props.gameDetails.id)
+    }
     
     return (
         <div className="gameDetails">
@@ -127,7 +130,7 @@ function PageDetailsView(props) {
     function showUpvoteGameButton(){
         if(props.loggedIn){
             return(
-                <CButton onClick={toggleUpvoteGameCB} type="submit" color="success" style={{ margin: '10px' }} >Upvote this game</CButton>
+                <CButton onClick={toggleUpvoteGameCB} type="submit" color="success" style={{ margin: '10px' }} >{hasUserUpvotedGameCB() ? "Remove upvote" :  "Upvote game"}</CButton>
             )
         }
     }
