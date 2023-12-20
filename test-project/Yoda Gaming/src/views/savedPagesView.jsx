@@ -59,15 +59,26 @@ function SavedPagesView(props){
 
     return <div>You must be logged in to save pages</div>
 
-    function removeAllGamesButton(){
-        if (props.deleteState == false){
-            return
+    function removeAllGamesButton() {
+        function handleRemoveAll() {
+            
+            const confirmed = window.confirm("Are you sure you want to remove all saved games? This cannot be undone.");
+            if (confirmed) {
+                clearSavedCB();
+            }
         }
-        return <CButton onClick={clearSavedCB} className="savedPagesRemoveAllButton">Remove all</CButton>
+    
+        if (props.deleteState === false) {
+            return;
+        }
+        return (
+            <CButton onClick={handleRemoveAll} className="savedPagesRemoveAllButton">Remove all</CButton>
+        
+        );
     }
 
     function editButton(){
-        if (props.deleteState == false){
+        if (props.deleteState === false){
             return <CButton onClick={editSavedGamesCB} className="savedPagesEditButton">Edit</CButton>
         }
         return <CButton onClick={editSavedGamesCB} className="savedPagesEditButton">Done</CButton>
