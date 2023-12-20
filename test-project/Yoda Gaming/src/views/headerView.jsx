@@ -170,7 +170,7 @@ function HeaderView(props) {
 
 
             <div className="HeaderLeftHalf">
-                <h1 className="HeaderTitle" disabled={props.currentCat === 0} onClick={headerTitleClickedHandler}>Yoda's Gaming Wiki</h1>
+                <h1 className="HeaderTitle" disabled={props.currentCat == 0} onClick={headerTitleClickedHandler}>Yoda's Gaming Wiki</h1>
                 {breadcrumb()}
             </div>
             {alert()}

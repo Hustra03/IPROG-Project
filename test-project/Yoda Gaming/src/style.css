@@ -25,6 +25,7 @@
 }
 
 .HeaderTitle {
+    cursor:pointer;
 
     font-family: Georgia, serif;
     color: #007324;

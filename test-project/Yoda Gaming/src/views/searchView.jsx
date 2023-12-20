@@ -85,59 +85,7 @@ function SearchView(props) {
             // Object.entries(obj)
             // document.getElementById(id).children, check which are currently selected
             // document.getElementById("multiple-select").children for-each loop check selected property
-            <select onChange={searchPlatformsInput} id="multiple-select" value={props.platform} multiple>
-                <option value="">None</option>
-                <option value="4">PC</option>
-                <option value="187">PlayStation 5</option>
-                <option value="18">PlayStation 4</option>
-                <option value="1">Xbox One</option>
-                <option value="186">Xbox Series S/X</option>
-                <option value="7">Nintendo Switch</option>
-                <option value="3">iOS</option>
-                <option value="21">Android</option>
-                <option value="8">Nintendo 3DS</option>
-                <option value="9">Nintendo DS</option>
-                <option value="13">Nintendo DSi</option>
-                <option value="5">macOS</option>
-                <option value="6">Linux</option>
-                <option value="14">Xbox 360</option>
-                <option value="80">Xbox</option>
-                <option value="16">PlayStation 3</option>
-                <option value="15">PlayStation 2</option>
-                <option value="27">PlayStation</option>
-                <option value="19">PS Vita</option>
-                <option value="17">PSP</option>
-                <option value="10">Wii U</option>
-                <option value="11">Wii</option>
-                <option value="105">GameCube</option>
-                <option value="83">Nintendo 64</option>
-                <option value="24">Game Boy Advance</option>
-                <option value="43">Game Boy Color</option>
-                <option value="26">Game Boy</option>
-                <option value="79">SNES</option>
-                <option value="49">NES</option>
-                <option value="55">Classic Macintosh</option>
-                <option value="41">Apple II</option>
-                <option value="166">Commodore / Amiga</option>
-                <option value="28">Atari 7800</option>
-                <option value="31">Atari 5200</option>
-                <option value="23">Atari 2600</option>
-                <option value="22">Atari Flashback</option>
-                <option value="25">Atari 8-bit</option>
-                <option value="34">Atari ST</option>
-                <option value="46">Atari Lynx</option>
-                <option value="50">Atari XEGS</option>
-                <option value="167">Genesis</option>
-                <option value="107">SEGA Saturn</option>
-                <option value="119">SEGA CD</option>
-                <option value="117">SEGA 32X</option>
-                <option value="74">SEGA Master System</option>
-                <option value="106">Dreamcast</option>
-                <option value="111">3DO</option>
-                <option value="112">Jaguar</option>
-                <option value="77">Game Gear</option>
-                <option value="12">Neo Geo</option>
-            </select>
+            <div>This should not occur, please reload the page, and if the problem persists check if the API is currently down for maintenance.</div>
         )
     }
 
@@ -209,7 +157,6 @@ function SearchView(props) {
                 </CListGroup>
                 <CCardBody color="success">
                     <CButton onClick={searchButtonPressedCB} type="submit" color="primary">Search!</CButton>
-                    <CCardLink href="#">Previous Search Results</CCardLink>
                 </CCardBody>
             </CCard>
         </div>
