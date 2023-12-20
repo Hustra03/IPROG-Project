@@ -188,9 +188,9 @@ function PageDetailsView(props) {
     }
     function descriptionButtonToShow(){
         if(!props.yodafy || !props.yodafiedDescriptionText)
-            return  <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={toggleYodafyDescriptionCB} >Yodafy description text</CButton>
+            return  <CButton type="submit" color="success" style={{ marginLeft: 'auto' }} onClick={toggleYodafyDescriptionCB} >Yodafy description text</CButton>
         else
-            return  <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={toggleYodafyDescriptionCB} >Unyodafy description text</CButton>
+            return  <CButton type="submit" color="success" style={{ marginLeft: 'auto' }} onClick={toggleYodafyDescriptionCB} >Unyodafy description text</CButton>
     }
     function descriptionTextToShow(){
         if(!props.yodafy || !props.yodafiedDescriptionText)
