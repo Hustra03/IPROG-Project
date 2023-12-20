@@ -1,0 +1,24 @@
+Summative user evaluation notes:
+
+1. Yodafied description does not include spaces following punctuation.
+2. Color palette for the site not great, try to implement one, grey on details view not a good choice.
+3. Tags + similar in detailed view should not include scroller.
+4. Margin left in search results, for game title and similar information.
+5. Have a visual rating system, in addition to current numerical, for the rating 1-5, with yoda heads (use icon), either full or half, similar to 5 star ratings on food websites.
+6. User likely to try to use enter to search, which has no effect. 
+7. Center the detail view image, and move the show screenshot button to either directly below or slightly to the left of the image.
+8. Add spinner for detail view API calls, to improve system understandability for user.
+9. Clarify playtime, to something like estimated or main story playtime
+10. Use specific fonts + bold/italics to seperate different text, such as titles or descriptions
+11. Place image directly after title in detail view.
+12. Move upvote + total upvotes buttons to either top rigth or bottom rigth of page, since not relevant for the game but rather for the page.
+13. Allow non-users to access total upvote numbers, even if they can not make new votes.
+14. Style buttons everywhere, currently not done on for example home page or saved pages.
+15. Add margin for detailed page to header + view history.
+16. Implement view history, as a collapsable component, use differnt color than light blue.
+17. Place a version of the icon on the header, left or right of the title, add more margin for buttons in header.
+18. Reorder texts in detailed view, such that rating is located alone in the center of the last row. 
+
+2. Use page to find color palette which is readable but also fits page.
+3. Make them row-based, or increase size of boxes a bit.
+6. Add keyboard listener for enter to search, always active (?)
