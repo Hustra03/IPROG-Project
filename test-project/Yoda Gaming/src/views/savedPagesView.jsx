@@ -98,7 +98,7 @@ function SavedPagesView(props){
             if (props.deleteState == false){
                 return
             }
-            return <div><CButton className="savedPagesRemoveButton" onClick={onRemoveGameClickCB}>Remove</CButton></div>
+            return <div><CButton className="savedPagesRemoveButton" onClick={onRemoveGameClickCB}>X</CButton></div>
         }
 
         return (
@@ -110,12 +110,10 @@ function SavedPagesView(props){
                         onClick={onSavedPageClickCB}
                     />
                 </div>
-                <div>
+                {removeButton()}
                     <div className="savedPagesTitleContainer">
                             <t onClick={onSavedPageClickCB} className="savedPagesGameTitle">{game.name}</t>
                     </div>
-                    {removeButton()}
-                </div>
             </div>
         )
     }

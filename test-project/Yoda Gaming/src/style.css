@@ -96,6 +96,10 @@
     border-width: 1cap;
 }
 
+.viewHistory {
+    flex:0.1;
+}
+
 .mainPage {
     flex: 0.8;
 }
@@ -226,84 +230,82 @@
 }
 
 .savedPagesImageAndTitleContainer {
+    width: 200px; /* Adjust as needed */
+    height: 250px; /* Adjust as needed */
+    border: 2px solid #000000;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    margin: 20px;
     background-color: #d5cfb6;
-    max-width: 200px;
-    min-width: 200px;
-    max-height: 230px;
-    min-height: 230px;
-    border-color: black;
-    border-width: 2px;
-    border-style: solid;
-    margin: 2%;
-    display: inline-block;
-    text-align: center; 
-    border-radius: 10px;
 }
-
+  
+  /* Styles for the game image */
 .savedPagesImageContainer {
-    max-width: 100%;
-    min-width: 100%;
-    max-height: 130px;
-    min-height: 130px;
-    border-width: 2px;
+    width: 100%;
+    height: 60%;
+    overflow: hidden;
 }
-
+  
 .savedPagesImage {
-    max-width: 100%;
-    min-width: 100%;
-    max-height: 130px;
-    min-height: 130px;
-    padding:2%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio */
     cursor: pointer;
-    border-radius: 10px;
 }
-
+  
+  /* Styles for the title container */
 .savedPagesTitleContainer {
-    max-width: 100%;
-    min-width: 100%;
-    max-height: 100px;
-    min-height: 100px;
-    border-width: 2px;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 1%;
-    padding-right: 1%;
-}
-
-
-
-.savedPagesGameTitle {
-    font-weight: bold;
-    margin: 0 auto;
+    padding: 10px;
     text-align: center;
-    cursor: pointer;
+    height: 40%;
+    display: flex;
+    align-items: center;
+}
+  
+.savedPagesGameTitle {
+    font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  /* Optional: Add max-width for long titles */
+  max-width: 90%; /* Adjust as needed */
+  margin: 0 auto; 
 }
 
 .savedPagesGameTitle:hover {
-    text-decoration: underline; /* Underline on hover */
+    text-decoration: underline;
 }
-
-.savedPagesRemoveButton {
-    /* Add styles for the button as needed */
+  
+  /* Styles for the remove button */
+  .savedPagesRemoveButton {
+    position: absolute;
+    top:5px;
+    right:5px;
+    background-color: #ff4d4f;
+    color: #fff;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+.savedPagesRemoveButton:hover {
+    background-color: #ff3333;
 }
 
 .gameDetailsImages {
-    
-    margin: auto;
-    margin-top: 2%;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    margin: 3%;
     overflow: hidden;
-    width: 75%;
+    width: 70%;
     height: 100%;
+    background-color: black;
 }
-.gameDetailsHeader{
-    display: flex;
-    background-color: #6BB300;
-    
-    
 
-}
 .buttonsBesideDescription {
     margin: 5%;
     margin-top: 0;
@@ -311,9 +313,7 @@
 }
 
 .detailsButtonPair {
-    margin-left: auto;
-    margin-right: 5%;
-    margin-top: auto;
+    display: flex;
 }
 
 .infoBesideDescription {
@@ -350,8 +350,10 @@
         display: inline-block;
     }
 
-    .gameDetailsHeader {
-        flex-direction: column;
+    .tags,
+    .genres {
+        max-width: 30%;
+        max-height: 280px;
     }
 
     .gameDetailsDescription {
@@ -384,13 +386,13 @@
     /*All the tbody elements in pageDetailsView*/
     margin: 5%;
     border-radius: 10px;
-    background-color: #6bb300;
+    background-color: #828884;
     padding: 10px;
     margin-top: 20%;
     margin-bottom: 5%;
 
-    min-width: 115px;
-    max-height: 350px;
+    width: 50%;
+    max-height: 280px;
     overflow: auto;
     border-width: 2px;
     border-color: black;
@@ -408,9 +410,7 @@
 
 
 }
-.gameDetailsDescriptionHeader{
-    display: flex;
-}
+
 .gameDetailsDescription {
     max-width: 100%;
     max-height: 400px;
