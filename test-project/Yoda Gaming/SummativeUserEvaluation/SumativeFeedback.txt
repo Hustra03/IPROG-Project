@@ -30,8 +30,9 @@ Search Results:
 Header/Search:
 
 1. Add keyboard listener on enter for search, since user likely to try to search using that.
+Implemented.
 2. Place a version of the icon on the header, left or right of the title, add more margin for buttons in header.
-
+Implemented.
 
 View History:
 

@@ -39,8 +39,18 @@ reactiveModel.updateAvailablePlatforms();
 window.myModel = reactiveModel; // make the model available in the Console
 connectToFirebase(reactiveModel, watch)
 window.addEventListener("hashchange", updateCurrentLocationACB)
+window.addEventListener("keydown", keydownEvent); 
 
 function updateCurrentLocationACB()
 {
     reactiveModel.setCurrentLocation(window.location.hash);
+}
+
+function keydownEvent(event)
+{
+    if (event.code == "Enter" && !event.repeat) {
+        reactiveModel.doSearch(true);
+        window.location.hash = "#/searchResult";
+    }
+    
 }

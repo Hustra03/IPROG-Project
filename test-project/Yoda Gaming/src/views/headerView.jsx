@@ -88,7 +88,10 @@ function HeaderView(props) {
 
     function searchButton() {
         return (<div>
-            <CFormInput type="text" value={props.query} onChange={searchInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
+
+            <div className="HeaderSearchInput">
+                <CFormInput type="text" value={props.query} onChange={searchInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
+            </div>
             <CButton onClick={searchButtonPressedCB} type="submit" color="success">Search!</CButton>
             <CButton onClick={headerDetailedSearchClickedHandler} type="submit" color="success">Go To Detailed Search</CButton>
 
@@ -170,8 +173,14 @@ function HeaderView(props) {
 
 
             <div className="HeaderLeftHalf">
-                <h1 className="HeaderTitle" disabled={props.currentCat == 0} onClick={headerTitleClickedHandler}>Yoda's Gaming Wiki</h1>
-                {breadcrumb()}
+                <div className="HeaderTitleSection">
+                    <img onClick={headerTitleClickedHandler} src="https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png" alt="" />
+                    <h1 className="HeaderTitle" disabled={props.currentCat == 0} onClick={headerTitleClickedHandler}>Yoda's Gaming Wiki</h1>
+                </div>
+
+                <div className="HeaderBreadcrumbsSection">
+                    {breadcrumb()}
+                </div>
             </div>
             {alert()}
 

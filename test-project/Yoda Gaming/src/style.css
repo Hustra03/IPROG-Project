@@ -24,18 +24,38 @@
     min-height: 50%;
 }
 
-.HeaderTitle {
-    cursor:pointer;
+.HeaderBreadcrumbsSection {
+    margin-top: auto;
+    margin-bottom: 0;
+}
 
+.HeaderTitleSection {
+
+    cursor: pointer;
+    width: 100%;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    flex: 0.7;
+}
+
+.HeaderTitle {
+    width: 100%;
     font-family: Georgia, serif;
     color: #007324;
     font-weight: 700;
 }
 
+.HeaderSearchInput {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
 
 .HeaderLeftHalf {
-    width: 100%;
+    width: 80%;
     flex: 0.5;
+    display: flex;
+    flex-direction: column;
 }
 
 .LoggedIn {
@@ -70,98 +90,96 @@
     margin: 2%;
 }
 
-.ViewingHistory
-{   
-    border-style:solid;
-    border-color:cyan;
-    border-width:1cap;
+.ViewingHistory {
+    border-style: solid;
+    border-color: cyan;
+    border-width: 1cap;
 }
 
-.mainPage
-{ flex:0.8;}
+.mainPage {
+    flex: 0.8;
+}
 
-.searchResultsContainer{
+.searchResultsContainer {
     max-width: 100%;
-    margin:40px;
+    margin: 40px;
     background-color: #007324;
 }
 
 .searchResultInitial {
-    margin-top:20px;
-    margin-left:20px;
+    margin-top: 20px;
+    margin-left: 20px;
     background-color: lightgreen;
 }
 
 .searchResult {
     background-color: lightgreen;
-    margin-top:20px;
-    margin-left:20px;
-    margin-right:20px;
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.searchResultTitleAndInfo {
-    
-}
+.searchResultTitleAndInfo {}
 
 .searchResultTitle {
     font-size: larger;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.searchResultRating{
-    font-size:smaller;
+.searchResultRating {
+    font-size: smaller;
 }
 
 .searchResultInfo {
     font-size: smaller;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .searchResultImage {
-    max-width:200px; 
-    max-height: 100%; 
-    width: auto; 
+    max-width: 200px;
+    max-height: 100%;
+    width: auto;
     height: auto;
-    margin-right:10px;
-    margin-left:10px; 
-    margin-top:10px;
-    margin-bottom:10px;
-    cursor:pointer;   
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
 
-.hiddenText{
-    color:#007324;
+.hiddenText {
+    color: #007324;
 }
 
-.searchResultLoading{
-    margin-top:30px;
-    margin-left:50px;
-    font-size:larger;
+.searchResultLoading {
+    margin-top: 30px;
+    margin-left: 50px;
+    font-size: larger;
 }
 
-.noSavedPagesContainer{
+.noSavedPagesContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 60vh;
-  }
-  
-.noSavedPages{
+}
+
+.noSavedPages {
     text-align: center;
-    font-size:larger;
+    font-size: larger;
 }
 
-.noSavedPagesReturn{
-   margin:10px;
-   margin-right:20px;
-   margin-left:20px;
+.noSavedPagesReturn {
+    margin: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 
-.savedPagesContainer{
-    background-color:#4B7D00;
+.savedPagesContainer {
+    background-color: #4B7D00;
 }
 
 .savedPagesHeader {
@@ -176,21 +194,21 @@
     border-style: solid;
     border-color: black;
     border-width: 2px;
-  }
-  
+}
+
 .savedPagesIntro {
     font-size: 24px;
     text-align: center;
-    flex: 1; /* Allows the intro text to take available space */
-  }
-  
-.savedPagesClear {
+    flex: 1;
+    /* Allows the intro text to take available space */
 }
 
+.savedPagesClear {}
+
 .savedPagesGameContainer {
-    margin:3%;
-    width:100%;
-    flex-direction:row;
+    margin: 3%;
+    width: 100%;
+    flex-direction: row;
     align-items: center;
     min-width: fit-content;
     max-width: fit-content;
@@ -206,30 +224,31 @@
     border-color: black;
     border-width: 2px;
     border-style: solid;
-    margin:2%;
+    margin: 2%;
     display: inline-block;
     flex-direction: column;
     align-items: center;
-    text-align: center; 
+    text-align: center;
 }
 
 .savedPagesImage {
-    margin-bottom: 10px; /* Space between image and title */
-    padding:2%;
+    margin-bottom: 10px;
+    /* Space between image and title */
+    padding: 2%;
     cursor: pointer;
 }
 
 .savedPagesTitle {
     cursor: pointer;
     margin-bottom: 10px;
-    width:100%;
+    width: 100%;
 }
 
 .savedPagesRemoveButton {
     /* Add styles for the button as needed */
 }
 
-.gameDetailsImages{
+.gameDetailsImages {
     border-radius: 10px;
     border-color: black;
     border-width: 2px;
@@ -241,209 +260,233 @@
     background-color: black;
 }
 
-.buttonsBesideDescription{
+.buttonsBesideDescription {
     margin: 5%;
     margin-top: 0;
     margin-bottom: 0;
-    }
-.detailsButtonPair{
-    display: flex;
-}
-.infoBesideDescription{
-    display: flex;
-    
-    width: 10vw;
-    min-width: 30%; 
 }
 
-.genres{
-    
-}
-.belowTopInfo{
-    width: 100%;
-    
-}
-.infoBesideImage{
+.detailsButtonPair {
     display: flex;
-    
+}
+
+.infoBesideDescription {
+    display: flex;
+
+    width: 10vw;
+    min-width: 30%;
+}
+
+.genres {}
+
+.belowTopInfo {
+    width: 100%;
+
+}
+
+.infoBesideImage {
+    display: flex;
+
     margin-right: 5%;
     margin-left: 5%;
 }
 
 
 @media (max-width:1500px) {
-    
-    
-    .gameDetailsImages{
+
+
+    .gameDetailsImages {
         width: 94%;
         height: auto;
     }
-    
-    .belowTopInfo{
+
+    .belowTopInfo {
         display: inline-block;
     }
-    .tags, .genres{
+
+    .tags,
+    .genres {
         max-width: 30%;
         max-height: 280px;
     }
-    .gameDetailsDescription{
+
+    .gameDetailsDescription {
         max-height: 500px;
         min-width: 70%;
         overflow: auto;
     }
-    .detailsBottomInfo{
+
+    .detailsBottomInfo {
         flex-direction: column;
     }
-    .infoBesideDescription{
+
+    .infoBesideDescription {
         margin-right: 30%;
     }
 }
-.detailsInfoBoxes::-webkit-scrollbar, .gameDetailsDescription::-webkit-scrollbar{
+
+.detailsInfoBoxes::-webkit-scrollbar,
+.gameDetailsDescription::-webkit-scrollbar {
     width: 10px;
 }
 
-.detailsInfoBoxes::-webkit-scrollbar-thumb,  .gameDetailsDescription::-webkit-scrollbar-thumb{
-    background: hsl(0, 4%, 22%); 
+.detailsInfoBoxes::-webkit-scrollbar-thumb,
+.gameDetailsDescription::-webkit-scrollbar-thumb {
+    background: hsl(0, 4%, 22%);
 }
 
 
-.detailsInfoBoxes{ /*All the tbody elements in pageDetailsView*/
+.detailsInfoBoxes {
+    /*All the tbody elements in pageDetailsView*/
     margin: 5%;
     border-radius: 10px;
     background-color: #828884;
     padding: 10px;
     margin-top: 20%;
     margin-bottom: 5%;
-    
+
     width: 50%;
     max-height: 280px;
     overflow: auto;
     border-width: 2px;
     border-color: black;
-    border-style:solid;
+    border-style: solid;
 }
 
-.gameDetailsDescriptionTitle{
+.gameDetailsDescriptionTitle {
     margin-left: 20px;
     color: #05471a;
 }
-.desciptionBox{
+
+.desciptionBox {
     margin: 0;
     color: #05471a;
-    
+
 
 }
-.gameDetailsDescription{
-    max-width:100%;
+
+.gameDetailsDescription {
+    max-width: 100%;
     max-height: 400px;
     margin-top: 0px;
     overflow: auto;
-    
+
     flex-direction: row;
     border-radius: 15px;
     border-color: black;
-    border-style:solid;
+    border-style: solid;
     background-color: #6bb300;
     padding: 10px;
 }
-.detailsTopInfo{
+
+.detailsTopInfo {
     padding: 10px;
-    margin:40px;
+    margin: 40px;
     border-radius: 15px;
     border-color: black;
-    border-style:solid;
+    border-style: solid;
     background-color: #6bb300;
     display: flex;
     justify-content: space-between;
 }
 
-.leftInfo, .middleInfo, .rightInfo{
+.leftInfo,
+.middleInfo,
+.rightInfo {
     flex-direction: column;
 }
-.gameDetails{
+
+.gameDetails {
     background-color: #4b7d00;
     flex-direction: row;
 }
-.detailsButton{
+
+.detailsButton {
     margin: 15px;
 }
-.detailsBottomInfo{
-    
+
+.detailsBottomInfo {
+
     width: auto;
     display: flex;
-    
+
     margin-right: 5%;
     margin-left: 5%;
-        
+
 }
 
-.detailsText{
+.detailsText {
     color: #05471a;
-    margin-left:30px;
+    margin-left: 30px;
 }
-.infoBoxTitle{
+
+.infoBoxTitle {
     color: #05471a;
 }
-.detailsPageName{
+
+.detailsPageName {
     margin-top: 10px;
     margin-bottom: 20px;
     margin-left: 20px;
     color: #007324;
 }
-.detailsImages{
+
+.detailsImages {
     width: 100%;
     height: auto;
     object-fit: cover;
 }
 
-.homepageButton{
-    background-color:lightgreen;
-    color:#007324;
+.homepageButton {
+    background-color: lightgreen;
+    color: #007324;
     padding: 10px 20px;
     font-size: 30px;
     font-family: Georgia, serif;
     font-weight: 600;
 }
-.homepageScroller{
-    display:flex;
+
+.homepageScroller {
+    display: flex;
     border: 1px solid #000000;
     background-color: lightgreen;
     overflow-y: hidden;
-    overflow-x:hidden;
+    overflow-x: hidden;
 }
+
 /*display:flex;
     border:10px solid #007324;
     max-height: 500px;
     overflow-x: auto;
     white-space: nowrap;*/
 
-.homepageGame{
-    min-width:601px;
-    height:450px;
+.homepageGame {
+    min-width: 601px;
+    height: 450px;
     text-align: center;
     font-size: xx-large;
-    color:#007324;
+    color: #007324;
     padding-top: 50px;
-    padding-bottom:500px;
+    padding-bottom: 500px;
     padding-left: 50px;
     font-family: Georgia, serif;
     font-weight: 600;
 }
 
-.homepageImage{
-    border:3px solid #000000;
+.homepageImage {
+    border: 3px solid #000000;
 }
 
-.homepageAbout{
+.homepageAbout {
     font-family: Georgia, serif;
-    text-align: center; 
-    font-size:large;
-    padding-top:5%;
+    text-align: center;
+    font-size: large;
+    padding-top: 5%;
 }
 
-.homepageError{
-    text-align:center;
-    font-size:x-large;
+.homepageError {
+    text-align: center;
+    font-size: x-large;
     font-weight: 600;
-    padding:10%;
+    padding: 10%;
 }
