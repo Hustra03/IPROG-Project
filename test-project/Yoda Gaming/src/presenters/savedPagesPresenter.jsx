@@ -16,6 +16,8 @@ export default
                 closeAlert={closeAlertCustomEventHandler}
                 chosenGame={chosenGameCustomEventHandler}
                 removeGame={removeGameCustomEventHandler}
+                deleteState={props.model.deleteState}
+                toggleDeleteState={toggleDeleteStateCustomEventHandler}
             />
         </div>
     );
@@ -27,6 +29,10 @@ export default
 
     function chosenGameCustomEventHandler(game){
         props.model.setPage(game.id)
+    }
+
+    function toggleDeleteStateCustomEventHandler(){
+        props.model.toggleDeleteState();
     }
 
     function removeGameCustomEventHandler(game){

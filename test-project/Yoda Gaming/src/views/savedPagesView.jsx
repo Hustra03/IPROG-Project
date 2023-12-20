@@ -8,6 +8,7 @@ function SavedPagesView(props){
     function backToMainMenuCB() {window.location.hash = "#/"; }
     function backToSearchCB() {window.location.hash = "#/search"; }
     function clearSavedCB() {props.clearSavedPages();}
+    function editSavedGamesCB() {props.toggleDeleteState();}
     function closedAlertCB() { props.closeAlert(); }
     function alert() {
 
@@ -38,7 +39,8 @@ function SavedPagesView(props){
                     {console.log("saved pages is an array? " + Array.isArray(props.savedPages))} */}
                     <div className="savedPagesHeader">
                         <div className="savedPagesIntro">Your saved games</div>
-                        <CButton className="savedPagesClear" onClick={clearSavedCB}>Clear saved pages</CButton>
+                        {editButton()}
+                        {removeAllGamesButton()}
                     </div>
                     <div className="savedPagesGameContainer">
                         {props.savedPages.map(savedPagesMapCB)}
@@ -57,6 +59,20 @@ function SavedPagesView(props){
 
     return <div>You must be logged in to save pages</div>
 
+    function removeAllGamesButton(){
+        if (props.deleteState == false){
+            return
+        }
+        return <CButton onClick={clearSavedCB} className="savedPagesRemoveAllButton">Remove all</CButton>
+    }
+
+    function editButton(){
+        if (props.deleteState == false){
+            return <CButton onClick={editSavedGamesCB} className="savedPagesEditButton">Edit</CButton>
+        }
+        return <CButton onClick={editSavedGamesCB} className="savedPagesEditButton">Done</CButton>
+    }
+
     function savedPagesMapCB(game){
         function onSavedPageClickCB(){
             props.chosenGame(game);
@@ -65,6 +81,13 @@ function SavedPagesView(props){
 
         function onRemoveGameClickCB() {
             props.removeGame(game);
+        }
+
+        function removeButton(){
+            if (props.deleteState == false){
+                return
+            }
+            return <CButton className="savedPagesRemoveButton" onClick={onRemoveGameClickCB}>Remove</CButton>
         }
 
         return (
@@ -79,7 +102,7 @@ function SavedPagesView(props){
                 <div className="savedPagesTitle" onClick={onSavedPageClickCB}>
                     {game.name}
                 </div>
-                <CButton className="savedPagesRemoveButton" onClick={onRemoveGameClickCB}>Remove</CButton>
+                {removeButton()}
             </div>
         )
     }

@@ -29,6 +29,7 @@ export default {
   allUpvotes: [],
   showAbout: false, //for conditional rendering logic for about section on homepage
   currentCat:0, //current category used for homepage button disable functionality
+  deleteState: false, //used in delete button functionality in saved pages
 
   updateAvailablePlatforms()
   {
@@ -275,5 +276,12 @@ export default {
 
   setCurrentCat(num){
     this.currentCat=num;
-  }
+  },
+
+  toggleDeleteState(){
+    if (this.deleteState)
+      this.deleteState = false;
+    else
+      this.deleteState = true;
+  },
 };
