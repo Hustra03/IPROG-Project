@@ -65,7 +65,6 @@ function HeaderView(props) {
             return (
                 <div>
                     {searchButton()}
-                    {yodafyButton()}
                 </div>)
 
         }
@@ -93,6 +92,7 @@ function HeaderView(props) {
             <CButton onClick={searchButtonPressedCB} type="submit" color="success">Search!</CButton>
             <CButton onClick={headerDetailedSearchClickedHandler} type="submit" color="success">Go To Detailed Search</CButton>
 
+            {yodafyButton()}
         </div>//TODO implement all search parameters correctly when API implemented for testing
         )
     }
