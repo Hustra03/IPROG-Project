@@ -295,15 +295,15 @@
 }
 
 .gameDetailsImages {
-    border-radius: 10px;
-    border-color: black;
-    border-width: 2px;
-    border-style: solid;
-    margin: 3%;
+    margin: auto;
+    margin-top: 2%;
     overflow: hidden;
-    width: 70%;
+    width: 75%;
     height: 100%;
-    background-color: black;
+}
+.gameDetailsHeader{
+    display: flex;
+    background-color: #6BB300;
 }
 
 .buttonsBesideDescription {
@@ -313,7 +313,9 @@
 }
 
 .detailsButtonPair {
-    display: flex;
+    margin-left: auto;
+    margin-right: 5%;
+    margin-top: auto;
 }
 
 .infoBesideDescription {
@@ -350,10 +352,8 @@
         display: inline-block;
     }
 
-    .tags,
-    .genres {
-        max-width: 30%;
-        max-height: 280px;
+    .gameDetailsHeader {
+        flex-direction: column;
     }
 
     .gameDetailsDescription {
@@ -386,13 +386,13 @@
     /*All the tbody elements in pageDetailsView*/
     margin: 5%;
     border-radius: 10px;
-    background-color: #828884;
+    background-color: #6bb300;
     padding: 10px;
     margin-top: 20%;
     margin-bottom: 5%;
 
-    width: 50%;
-    max-height: 280px;
+    min-width: 115px;
+    max-height: 350px;
     overflow: auto;
     border-width: 2px;
     border-color: black;
@@ -410,7 +410,9 @@
 
 
 }
-
+.gameDetailsDescriptionHeader{
+    display: flex;
+}
 .gameDetailsDescription {
     max-width: 100%;
     max-height: 400px;
