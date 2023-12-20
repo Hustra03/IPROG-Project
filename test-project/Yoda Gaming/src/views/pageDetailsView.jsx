@@ -8,8 +8,8 @@ function PageDetailsView(props) {
     function backToSearchResultPageCB() {
         window.location.hash = "#/searchResult";
     }
-    const firstFiveTags = props.gameDetails.tags.slice(0, 5);
-    const moreTags = props.gameDetails.tags.length > 5;
+    const firstFiveTags = props.gameDetails.tags.slice(0, 9);
+    const moreTags = props.gameDetails.tags.length > 9;
     function changeTagsToDisplayCB() {
         props.showAllTagsCustomEvent();
     }
@@ -35,9 +35,22 @@ function PageDetailsView(props) {
     return (
         <div className="gameDetails">
 
-            <CButton onClick={backToSearchResultPageCB} component="a" color="success" size="lg">Back to search results</CButton>
-            <h2 className="detailsPageName detailsText">Details Page</h2>
-            <h1 className="gameDetailsTitle detailsText">{props.gameDetails.name ? props.gameDetails.name : "Game name missing"}</h1>
+            <div className="gameDetailsHeader">
+                <div className="gameDetailsHeaderTitle">
+                    <CButton onClick={backToSearchResultPageCB} component="a" color="success" size="lg">Back to search results</CButton>
+                    <h2 className="detailsPageName detailsText">Details Page</h2>
+                    <h1 className="gameDetailsTitle detailsText">{props.gameDetails.name ? props.gameDetails.name : "Game name missing"}</h1>
+                </div>
+                <div className="detailsButtonPair">
+                    <h4 className="gameDetailsTotalUpvotes">Total upvotes: {props.totalUpvotesForCurrentGame}</h4>
+                    {showUpvoteGameButton()}
+                    {showAddToSavedPagesButton()}
+                </div>
+            </div>
+            <div className="gameDetailsImages">
+                {imageToDisplay()}
+                {imageButtonToShow()}
+            </div>
             <div className="detailsTopInfo">
                 <div className="leftInfo">
                     {props.gameDetails.publishers[0] ? <h4 className="gameDetailsPublisher">Publisher: {props.gameDetails.publishers[0].name}</h4> : null}
@@ -53,27 +66,12 @@ function PageDetailsView(props) {
                     {props.gameDetails.esrb_rating ? <h4 className="gameDetailsMatureRating">Age Rating: {props.gameDetails.esrb_rating.name}</h4> : null}
                 </div>
             </div>
-           
-            <div className="belowTopInfo">
-                <div className="gameDetailsImages">
-                    {imageToDisplay()}
-                </div>
-                <div className="buttonsBesideDescription">
-                    <h4 className="gameDetailsTotalUpvotes">Total upvotes: {props.totalUpvotesForCurrentGame}</h4>
-
-                    <div className="detailsButtonPair">
-                        {showAddToSavedPagesButton()}
-                        {imageButtonToShow()}
-                    </div>
-                    <div className="detailsButtonPair">
-                        {descriptionButtonToShow()}
-                        {showUpvoteGameButton()}
-                    </div>
-                </div>
-            </div>
             <div className="detailsBottomInfo">
                 <div className="desciptionBox">
-                    <h2 className="gameDetailsDescriptionTitle">Description</h2>
+                    <div className="gameDetailsDescriptionHeader">
+                        <h2 className="gameDetailsDescriptionTitle">Description</h2>
+                        {descriptionButtonToShow()}
+                    </div>
                     {descriptionTextToShow()}
                 </div>
                 <div className="infoBesideDescription">
