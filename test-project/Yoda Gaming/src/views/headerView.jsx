@@ -12,6 +12,8 @@ import { CDropdown, CDropdownToggle, CDropdownMenu, CForm, CFormInput, CFormLabe
 
 import { CAlert, CBreadcrumb, CBreadcrumbItem } from '@coreui/vue'
 
+import { RatingView } from './ratingView';
+
 function HeaderView(props) {
 
     function loginButtonPressedCB() {
@@ -184,6 +186,8 @@ function HeaderView(props) {
             </div>
             {alert()}
 
+
+            <RatingView/>
             <div className="HeaderRightHalf">
                 <div className="HeaderUpperButtons">
                     {UpperHalfButtons()}
@@ -192,7 +196,6 @@ function HeaderView(props) {
                     {HeaderLowerButtons()}
                 </div>
             </div>
-
         </div >
     )
 
