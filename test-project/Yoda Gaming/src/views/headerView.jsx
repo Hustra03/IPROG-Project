@@ -43,21 +43,21 @@ function HeaderView(props) {
             }
         }
 
-        if (!props.loggedIn) {
+        if (props.loggedIn) {
             return (
                 <div className="LoggedIn">
-                    <CButton onClick={loginButtonPressedCB} type="submit" color="success">Login</CButton>
-                    {currentlyLoggingInFuction()}
+                    <CButton onClick={savedPagesButtonPressedCB} type="submit" color="success">Saved Pages</CButton>
+                    <CButton onClick={signOutButtonPressedCB} type="submit" color="success">Sign Out</CButton>
+                    <img className="userIcon" src={props.loggedIn.photoURL} alt="user icon" />
                 </div>
             )
-        }
-        return (
+        } return (
             <div className="LoggedIn">
-                <CButton onClick={savedPagesButtonPressedCB} type="submit" color="success">Saved Pages</CButton>
-                <CButton onClick={signOutButtonPressedCB} type="submit" color="success">Sign Out</CButton>
-                <img className="userIcon" src={props.loggedIn.photoURL} alt="user icon" />
+                <CButton onClick={loginButtonPressedCB} type="submit" color="success">Login</CButton>
+                {currentlyLoggingInFuction()}
             </div>
         )
+
     }
 
     function HeaderLowerButtons() {
@@ -90,7 +90,7 @@ function HeaderView(props) {
     function searchButton() {
         return (<>
             <CFormInput type="text" value={props.query} onChange={searchInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
-            <CButton  onClick={searchButtonPressedCB} type="submit" color="success">Search!</CButton>
+            <CButton onClick={searchButtonPressedCB} type="submit" color="success">Search!</CButton>
             <CButton onClick={headerDetailedSearchClickedHandler} type="submit" color="success">Go To Detailed Search</CButton>
 
         </>//TODO implement all search parameters correctly when API implemented for testing
@@ -163,10 +163,6 @@ function HeaderView(props) {
             </CBreadcrumb>
         )
 
-
-
-
-
     }
 
     return (
@@ -174,7 +170,7 @@ function HeaderView(props) {
 
 
             <div className="HeaderLeftHalf">
-                <h1 className="HeaderTitle" disabled={props.currentCat===0} onClick={headerTitleClickedHandler}>Yoda's Gaming Wiki</h1>
+                <h1 className="HeaderTitle" disabled={props.currentCat === 0} onClick={headerTitleClickedHandler}>Yoda's Gaming Wiki</h1>
                 {breadcrumb()}
             </div>
             {alert()}

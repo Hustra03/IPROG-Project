@@ -9,7 +9,7 @@ export default
     function loginCustomEventHandler() {
         if (!auth.currentUser) {
             props.model.setLoggingIn(true);
-            signInWithPopup(auth, provider).then(props.model.setCurrentUser(auth.currentUser));
+            signInWithPopup(auth, provider);
         }
     }
 

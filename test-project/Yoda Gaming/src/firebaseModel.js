@@ -144,11 +144,10 @@ function connectToFirebase(model, watchFunction) {
     }
 
     function checkUserACB() {
-        return [model.yodafy, model.currentPage, model.savedPages,model.allUpvotes]
+        return [model.yodafy, model.currentPage, model.savedPages]
     }
     function effectUserACB() {
         saveUserDataToFirebase(model);
-        saveGlobalDataToFirebase(model);
     }
 
     function checkGlobalACB() {
