@@ -7,11 +7,13 @@ function SearchResultView(props) {
 
     function loadMoreGamesCB() {props.loadMoreGames();}
     return(
-    <div className="searchResultsContainer">
+    <div className="searchResultsOuterContainer">
+        <div className="searchResultsContainer">
         <div className="searchResultsHeader">Search Results for "{}"</div>
         <span>{props.searchResult}</span>
         {props.searchResults.map(searchResultsMapCB)}
         <CButton onClick={loadMoreGamesCB} className="searchResultLoadMoreButton">Load more games</CButton>
+        </div>
     </div>
     )
 
