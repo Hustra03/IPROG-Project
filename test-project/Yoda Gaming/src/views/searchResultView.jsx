@@ -5,15 +5,13 @@ import { CForm, CFormInput, CButton, CFormSelect, CFormCheck } from '@coreui/vue
 
 function SearchResultView(props) {
 
-    function backToMainMenuCB() {window.location.hash = "#/"; }
     function loadMoreGamesCB() {props.loadMoreGames();}
     return(
     <div className="searchResultsContainer">
+        <div className="searchResultsHeader">Search Results for "{}"</div>
         <span>{props.searchResult}</span>
-        <CButton onClick={backToMainMenuCB} className="searchResultInitial">Main Menu</CButton>
         {props.searchResults.map(searchResultsMapCB)}
-        <CButton onClick={loadMoreGamesCB} className="searchResultInitial">Load more games</CButton>
-        <div className="hiddenText">hi</div>
+        <CButton onClick={loadMoreGamesCB} className="searchResultLoadMoreButton">Load more games</CButton>
     </div>
     )
 
@@ -24,17 +22,19 @@ function SearchResultView(props) {
         }
 
         return (
-            <div onClick={onSearchResultClickCB} className="searchResult">
+            <div className="searchResult">
+                <img
+                    onClick={onSearchResultClickCB}
+                    className="searchResultImage" 
+                    src={game.background_image} 
+                    >
+                </img>
                 <div class="SearchResultTitleAndInfo">
-                    <div className="searchResultTitle">{game.name}</div>
+                    <div onClick={onSearchResultClickCB} className="searchResultTitle">{game.name}</div>
                     <div className="searchResultRating">Rating: {game.rating}</div>
                     <span className="searchResultInfo">Released: {game.released}</span>
                 </div>
-                <img
-                    className="searchResultImage" 
-                    src={game.background_image} 
-                    width="225" 
-                    height="150"></img>
+                
             </div>
         )
     }

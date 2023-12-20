@@ -100,58 +100,64 @@
     flex: 0.8;
 }
 
-.searchResultsContainer {
-    max-width: 100%;
-    margin: 40px;
-    background-color: #007324;
-}
-
-.searchResultInitial {
-    margin-top: 20px;
-    margin-left: 20px;
-    background-color: lightgreen;
-}
-
-.searchResult {
-    background-color: lightgreen;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+.searchResultsHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #6BB300;
+    padding: 2%;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    margin-bottom:10px;
+    font-weight:bold;
+    font-size:larger;
+  }
+
+.searchResultLoadMoreButton {
+    background-color: #6BB300;
 }
 
-.searchResultTitleAndInfo {}
-
-.searchResultTitle {
-    font-size: larger;
-    cursor: pointer;
-}
-
-.searchResultRating {
-    font-size: smaller;
-}
-
-.searchResultInfo {
-    font-size: smaller;
-    cursor: pointer;
-}
-
-.searchResultImage {
-    max-width: 200px;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-top: 10px;
+.searchResult {
+    display: flex;
+    align-items: center;
+    padding: 10px;
     margin-bottom: 10px;
+    border: 1px solid #ddd;
+    background-color: #d5cfb6;
+}
+  
+.searchResultsContainer {
+    margin:2%
+}
+  
+.searchResultImage {
+    max-width: 150px;
+    min-width: 150px;
+    max-height: 100px;
+    min-height: 100px;
+    margin-right: 10px;
     cursor: pointer;
 }
-
+  
+.searchResultTitle {
+    font-weight: bold;
+    cursor: pointer;
+}
+  
+.searchResultRating {
+    color: #888;
+}
+  
+.searchResultInfo {
+    font-style: italic;
+    color: #555;
+}
+  
 .hiddenText {
-    color: #007324;
+    display: none;
+    /* Add styles for hidden text if needed */
 }
 
 .searchResultLoading {
@@ -206,42 +212,73 @@
 .savedPagesClear {}
 
 .savedPagesGameContainer {
-    margin: 3%;
-    width: 100%;
-    flex-direction: row;
-    align-items: center;
+    margin:3%;
+    width:100%;
     min-width: fit-content;
     max-width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.savedPagesImageAndTitle {
-    background-color: #828884;
+.savedPagesImageAndTitleContainer {
+    background-color: #d5cfb6;
     max-width: 200px;
     min-width: 200px;
-    max-height: 200px;
-    min-height: 200px;
-    border-radius: 10px;
+    max-height: 230px;
+    min-height: 230px;
     border-color: black;
     border-width: 2px;
     border-style: solid;
     margin: 2%;
     display: inline-block;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    text-align: center; 
+    border-radius: 10px;
+}
+
+.savedPagesImageContainer {
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 130px;
+    min-height: 130px;
+    border-width: 2px;
 }
 
 .savedPagesImage {
-    margin-bottom: 10px;
-    /* Space between image and title */
-    padding: 2%;
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 130px;
+    min-height: 130px;
+    margin-bottom: 10px; /* Space between image and title */
+    padding:2%;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.savedPagesTitleContainer {
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 100px;
+    min-height: 100px;
+    border-width: 2px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+
+
+.savedPagesGameTitle {
+    font-weight: bold;
+    margin: 0 auto;
+    text-align: center;
     cursor: pointer;
 }
 
-.savedPagesTitle {
-    cursor: pointer;
-    margin-bottom: 10px;
-    width: 100%;
+.savedPagesGameTitle:hover {
+    text-decoration: underline; /* Underline on hover */
 }
 
 .savedPagesRemoveButton {
