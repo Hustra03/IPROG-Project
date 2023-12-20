@@ -88,12 +88,12 @@ function HeaderView(props) {
     }
 
     function searchButton() {
-        return (<>
+        return (<div>
             <CFormInput type="text" value={props.query} onChange={searchInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
             <CButton onClick={searchButtonPressedCB} type="submit" color="success">Search!</CButton>
             <CButton onClick={headerDetailedSearchClickedHandler} type="submit" color="success">Go To Detailed Search</CButton>
 
-        </>//TODO implement all search parameters correctly when API implemented for testing
+        </div>//TODO implement all search parameters correctly when API implemented for testing
         )
     }
 
