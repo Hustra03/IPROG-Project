@@ -29,6 +29,7 @@ function SearchResultView(props) {
                     onClick={onSearchResultClickCB}
                     className="searchResultImage" 
                     src={game.background_image} 
+                    alt="game image"
                     >
                 </img>
                 <div class="SearchResultTitleAndInfo">

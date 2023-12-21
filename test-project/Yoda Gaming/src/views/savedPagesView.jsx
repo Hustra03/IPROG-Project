@@ -101,6 +101,7 @@ function SavedPagesView(props){
                         className="savedPagesImage"
                         src={game.image}
                         onClick={onSavedPageClickCB}
+                        alt="game image"
                     />
                 </div>
                 {removeButton()}
