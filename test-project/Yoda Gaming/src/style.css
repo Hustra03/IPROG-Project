@@ -458,7 +458,7 @@
     margin-left:auto;
     margin-right:auto;
     border-radius: 15px;
-    border-color: black;
+    border-color: rgb(0, 0, 0);
     border-style: solid;
     background-color: #6bb300;
     display: flex;
@@ -484,43 +484,10 @@
     border-color: rgb(0, 0, 0);
     border-style: solid;
     min-width: 30%;
-    max-height: 400px;
+    max-height: 350px;
     overflow: auto;
 }
-@media (max-width:1500px) {
 
-
-    .gameDetailsImages {
-        width: 94%;
-        height: auto;
-    }
-
-    .belowTopInfo {
-        display: inline-block;
-    }
-
-    .gameDetailsHeader {
-        flex-direction: column;
-    }
-
-    .gameDetailsDescription {
-        max-height: 500px;
-        min-width: 70%;
-        overflow: auto;
-    }
-
-    .detailsBottomInfo {
-        flex-direction: column;
-        align-items: center;
-
-    }
-
-    
-    .detailsInfoBox{
-        display: inline-block;
-        max-width: 30vw;
-    }
-}
 
 .detailsInfoBoxes::-webkit-scrollbar,
 .gameDetailsDescription::-webkit-scrollbar { /*Width of the scrollbars in pageDetailsView*/
@@ -562,11 +529,7 @@
     padding: 10px;
 }
 
-.leftInfo,
-.middleInfo,
-.rightInfo { /*The three columns inside detailsInfoBox with 2-3 rows each in pageDetailsView*/
-    flex-direction: column;
-}
+
 
 .gameDetails { /*The whole pageDetailsView*/
     background-color: #4b7d00;
@@ -594,7 +557,41 @@
     width: 100%;
     height: auto;
 }
+@media (max-width:1500px) {
 
+
+    .gameDetailsImages {
+        width: 94%;
+        height: auto;
+    }
+
+    .belowTopInfo {
+        display: inline-block;
+    }
+
+    .gameDetailsHeader {
+        flex-direction: column;
+    }
+
+    .gameDetailsDescription {
+        max-height: 500px;
+        min-width: 70%;
+        overflow: auto;
+    }
+
+    .detailsBottomInfo {
+        flex-direction: column;
+        align-items: center;
+
+    }
+    .desciptionBox{
+        max-width: 80%;
+    }
+    .detailsInfoBox{
+        flex-direction: column;
+    }
+
+}
 .homepageButton {
     background-color: lightgreen;
     color: #007324;

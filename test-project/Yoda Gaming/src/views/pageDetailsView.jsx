@@ -5,9 +5,7 @@ import "/src/style.css"
     //
 
 function PageDetailsView(props) {
-    function backToSearchResultPageCB() {
-        window.location.hash = "#/searchResult";
-    }
+
     const firstFiveTags = props.gameDetails.tags.slice(0, 9);
     const moreTags = props.gameDetails.tags.length > 9;
     function changeTagsToDisplayCB() {
@@ -39,7 +37,6 @@ function PageDetailsView(props) {
 
             <div className="gameDetailsHeader">
                 <div className="gameDetailsHeaderTitle">
-                    <CButton onClick={backToSearchResultPageCB} component="a" color="success" size="lg">Back to search results</CButton>
                     <h2 className="detailsPageName">Details Page</h2>
                     <h1 className="detailsGameTitle">{props.gameDetails.name ? props.gameDetails.name : "Game name missing"}</h1>
                 </div>
@@ -54,17 +51,17 @@ function PageDetailsView(props) {
             </div>
             <div className="detailsInfoBox">
                 <div className="leftInfo">
-                    {props.gameDetails.publishers[0] ? <h4 className="infoBoxTitles">Publisher: {props.gameDetails.publishers[0].name}</h4> : null}
-                    {props.gameDetails.developers[0] ? <h4 className="infoBoxTitles">Developer: {props.gameDetails.developers[0].name}</h4> : null}
+                    {props.gameDetails.publishers[0] ? <h4 className="infoBoxTitles"><strong>Publisher: </strong>{props.gameDetails.publishers[0].name}</h4> : null}
+                    {props.gameDetails.developers[0] ? <h4 className="infoBoxTitles"><strong>Developer: </strong>{props.gameDetails.developers[0].name}</h4> : null}
                 </div>
                 <div className="middleInfo">
-                    {props.gameDetails.released ? <h4 className="infoBoxTitles">Released: {props.gameDetails.released}</h4> : null}
-                    {props.gameDetails.playtime ? <h4 className="infoBoxTitles">Playtime: {props.gameDetails.playtime} hours</h4> : null}
-                    {props.gameDetails.rating ? <h4 className="infoBoxTitles">Rating: {ratingToYodas(props.gameDetails.rating)} /5</h4> : null}
+                    {props.gameDetails.released ? <h4 className="infoBoxTitles"><strong>Released: </strong>{props.gameDetails.released}</h4> : null}
+                    {props.gameDetails.playtime ? <h4 className="infoBoxTitles"><strong>Estimated Playtime: </strong>{props.gameDetails.playtime} hours</h4> : null}
+                    {props.gameDetails.rating ? <h4 className="infoBoxTitles"><strong>Rating: </strong>{ratingToYodas(props.gameDetails.rating)} /5</h4> : null}
                 </div>
                 <div className="rightInfo">
-                    {props.gameDetails.metacritic ? <h4 className="infoBoxTitles"> Metacritic Score: {props.gameDetails.metacritic}/100</h4> : null}
-                    {props.gameDetails.esrb_rating ? <h4 className="infoBoxTitles">Age Rating: {props.gameDetails.esrb_rating.name}</h4> : null}
+                    {props.gameDetails.metacritic ? <h4 className="infoBoxTitles"><strong>Metacritic Score: </strong>{props.gameDetails.metacritic}/100</h4> : null}
+                    {props.gameDetails.esrb_rating ? <h4 className="infoBoxTitles"><strong>Age Rating: </strong>{props.gameDetails.esrb_rating.name}</h4> : null}
                 </div>
             </div>
             <div className="detailsBottomInfo">
