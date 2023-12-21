@@ -196,13 +196,16 @@
 
 .savedPagesContainer {
     background-color: #4B7D00;
+    padding-top: 1px;
+    padding-bottom: 1px;
 }
 
 .savedPagesHeader {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     background-color: #6BB300;
+    margin-top: 2%;
     margin-left: 2%;
     margin-right: 2%;
     padding: 2%;
@@ -210,15 +213,22 @@
     border-style: solid;
     border-color: black;
     border-width: 2px;
+    position: relative;
 }
 
 .savedPagesIntro {
-    font-size: 24px;
-    text-align: center;
-    flex: 1;
+    text-align: left; /* Align the intro text to the right */
+    font-size: larger;
+    font-weight: bold;
+    flex-grow: 1; /* Allow the intro to take available space */
 }
 
-.savedPagesClear {}
+.savedPagesHeaderButtons {
+    display: flex;
+    gap: 10px;
+}
+
+
 
 .savedPagesGameContainer {
     margin:3%;

@@ -38,9 +38,11 @@ function SavedPagesView(props){
                     {/* {console.log("savedPages:" + props.savedPages)}
                     {console.log("saved pages is an array? " + Array.isArray(props.savedPages))} */}
                     <div className="savedPagesHeader">
-                        <div className="savedPagesIntro">Your saved games</div>
-                        {editButton()}
-                        {removeAllGamesButton()}
+                        <div className="savedPagesIntro">Your Saved Games</div>
+                        <div className="savedPagesHeaderButtons">
+                            {editButton()}
+                            {removeAllGamesButton()}
+                        </div>
                     </div>
                     <div className="savedPagesGameContainer">
                         {props.savedPages.map(savedPagesMapCB)}
