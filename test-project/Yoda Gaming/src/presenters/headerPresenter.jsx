@@ -17,7 +17,6 @@ export default
         if (auth.currentUser) {
             props.model.signOut();
             signOut(auth);
-            props.model.setLoggingIn(false);
         }
     }
 

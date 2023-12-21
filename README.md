@@ -17,3 +17,5 @@ William Ma Jönsson, Git account: EroHex, Canvas ID: 143089
 
 Icon link:
 https://www.shareicon.net/yoda-user-71338 
+
+Note that if the program is run locally, multiple windows may cause some issues, specifically with authentication since when one window signs out the auth token will be set to null, but the other windows user located in the model will not be updated, which may cause issues such as not having the permissions to perform writes. This is not an issue for the hosted version, only the localy hosted one since each window uses the same application state. 

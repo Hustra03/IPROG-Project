@@ -1,15 +1,13 @@
 import '@coreui/coreui/dist/css/coreui.min.css'
 import "/src/style.css"
 
-import { CForm, CFormInput, CButton, CFormSelect, CFormCheck, CCard, CCardBody, CCardTitle, CCardText, CListGroup, CListGroupItem, CCardLink } from '@coreui/vue';
+import {CFormInput, CButton, CFormSelect, CFormCheck, CCard, CCardBody, CCardTitle, CListGroup, CListGroupItem, CFormText } from '@coreui/vue';
 
 //File mainly worked on by Erik Paulinder
 
 // Custom component, https://coreui.io/vue/docs/forms/form-control.html 
 
 function SearchView(props) {
-
-
 
     function searchQueryInputCB(evt) { props.onQueryInputChange(evt.target.value); }
 
@@ -80,11 +78,6 @@ function SearchView(props) {
         }
 
         return (
-            //TODO store data in an object, and then render as an array
-            // { “”: “None”, “4”: “PC”, …}
-            // Object.entries(obj)
-            // document.getElementById(id).children, check which are currently selected
-            // document.getElementById("multiple-select").children for-each loop check selected property
             <div>This should not occur, please reload the page, and if the problem persists check if the API is currently down for maintenance.</div>
         )
     }
@@ -142,15 +135,11 @@ function SearchView(props) {
                         <CFormInput label="Dates" text="Specify release date range, for example 2020-10-14, 2023-10-14" type="text" value={props.dates} onChange={searchDatesInput} id="queryForm" placeholder={props.dates} />
                     </CListGroupItem>
 
-
-
                     <CListGroupItem color="success">
-                        {platformOptions}
+                        {platformOptions()}
+                        <CFormText>Specify one or more platforms for which results should exclusivly be shown, for example PC would only show games available on PC, while PC and iOS would be games available on one or more of the selected options</CFormText>
                     </CListGroupItem>
 
-                    <CListGroupItem color="success">
-                        <CFormInput label="Platforms" text="Specify plat, for example 2020-10-14, 2023-10-14" type="text" onChange={searchPlatformsInput} id="queryForm" placeholder={props.platform} />
-                    </CListGroupItem>
                     <CListGroupItem color="success">
                         {sortOrder()}
                     </CListGroupItem>
@@ -161,56 +150,6 @@ function SearchView(props) {
             </CCard>
         </div>
     )
-
-    /* return (
-         <div>
-             <div className='detailedSearch'>
-                 <CForm>
-                     <CFormInput label="Search Query" type="text" value={props.query} onChange={searchQueryInputCB} id="queryForm" placeholder="Star Wars, The Force Awakens" />
- 
-                     <CFormInput label="tags" type="text" value={props.tags} onChange={searchTagsInputCB} id="queryForm" placeholder="Single Player" />
- 
-                     <CFormInput label="genres" type="text" value={props.tags} onChange={searchGenreInputCB} id="queryForm" placeholder="RPG" />
- 
-                     <label>MinMetacritic:</label><br />
-                     <div>
-                         <input type="range" value={props.minMetacritic} onChange={minMetacriticInputCB} className="range" min="0" max={props.maxMetacritic} />
-                         {props.minMetacritic}
-                     </div>
-                     <label>Max Metacritic:</label><br />
-                     <div>
-                         <input type="range" value={props.maxMetacritic} onChange={maxMetacriticInputCB} className="range" min={props.minMetacritic} max="100" />
-                         {props.maxMetacritic}
-                     </div>
-                     <label>Number Of Pages In Result:</label><br />
-                     <div>
-                         <input type="range" value={props.page_size} onChange={pageSizeInputCB} className="range" min="5" max="20" />
-                         {props.page_size}
-                     </div>
- 
-                     <CFormCheck value={props.exact} onChange={exactChangeCB} label="Search only for exact matches" id="formSwitchCheckDefault" />
-                     <CFormCheck value={props.fuzzy} onChange={fuzzyChangeCB} label="Exclude fuzzy matches from results" id="formSwitchCheckDefault" />
- 
-                     <CFormSelect label="Sort Results By" onChange={sortByInputCB} class="mb-3" aria-label="Default select example">
-                         <option value="name">Name</option>
-                         <option value="released">Release Date</option>
-                         <option value="added">Date Added To API</option>
-                         <option value="created">Date Created In API</option>
-                         <option value="updated">Date Updated In API</option>
-                         <option value="rating">Rating</option>
-                         <option value="metacritic">Metacritic Score</option>
-                     </CFormSelect>
- 
-                     <CFormInput label="Dates" type="text" value={props.dates} onChange={searchDatesInput} id="queryForm" placeholder="2023-11-24" />
-                     <CFormInput label="Platforms" type="text" value={props.platforms} onChange={searchPlatformsInput} id="queryForm" placeholder="PlayStation 4" />
-                     <CButton onClick={searchButtonPressedCB} type="submit" color="success">Search!</CButton>
-                     {sortOrder()}
-                     {linkToSearchResults()}
-                 </CForm>
-             </div>
-         </div>
-     )*/
-
 }
 
 

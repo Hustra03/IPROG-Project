@@ -3,16 +3,13 @@ import "/src/style.css"
 
 //File mainly worked on by Erik Paulinder
 
-
-import { CDropdown, CDropdownToggle, CDropdownMenu, CForm, CFormInput, CFormLabel, CFormSelect, CButton, CSpinner, } from '@coreui/vue';
+import {CFormInput, CButton, CSpinner, } from '@coreui/vue';
 // Custom component, https://coreui.io/vue/docs/components/dropdown.html
 // Custom component, https://coreui.io/vue/docs/getting-started/introduction.html
 // Custom component, https://coreui.io/vue/docs/forms/select.htm
 // Custom component, https://coreui.io/vue/docs/components/alert.html 
 
 import { CAlert, CBreadcrumb, CBreadcrumbItem } from '@coreui/vue'
-
-import { RatingView } from './ratingView';
 
 function HeaderView(props) {
 
@@ -63,14 +60,7 @@ function HeaderView(props) {
     }
 
     function HeaderLowerButtons() {
-        if (props.loggedIn) {
-            return (
-                <div>
-                    {searchButton()}
-                </div>)
-
-        }
-        return (<div>{searchButton()} {yodafyButton()}</div>)
+        return (<div>{searchButton()}</div>)
     }
 
     function yodafyButton() {
