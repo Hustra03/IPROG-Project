@@ -143,7 +143,7 @@
 }
 
 .searchResultLoadMoreButton:hover {
-    background-color: rgb(100, 166, 0)
+    background-color: rgb(131, 218, 0);
 }
 
 .searchResult {
@@ -151,7 +151,6 @@
     align-items: center;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ddd;
     background-color: #d0c494;
     cursor:pointer;
 }
@@ -250,6 +249,10 @@
     min-width: 170px;
 }
 
+.noSavedPagesReturn:hover {
+    background-color: rgb(131, 218, 0);
+}
+
 .savedPagesContainer {
     background-color: #4B7D00;
     padding-top: 1px;
@@ -291,11 +294,19 @@
     font-size: 14px;
 }
 
+.savedPagesEditButton:hover {
+    background-color: #eee7cd;
+}
+
 .savedPagesRemoveAllButton {
     background-color: #d5cfb6;
     padding: 6px 12px;
     border-radius: 4px;
     font-size: 14px;
+}
+
+.savedPagesRemoveAllButton:hover {
+    background-color: #eee7cd;
 }
 
 .savedPagesGameContainer {
