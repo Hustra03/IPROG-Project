@@ -18,6 +18,7 @@ export default
         if (props.model.searchResultsPromiseState.data) {
             console.log(props.model.searchResultsPromiseState.data)
             return <SearchResultView 
+                search={props.model.search}
                 searchResults={props.model.searchResultsPromiseState.data} 
                 chosenGame={chosenGameCustomEventHandler}
                 loadMoreGames={loadMoreGamesCustomEventHandler}

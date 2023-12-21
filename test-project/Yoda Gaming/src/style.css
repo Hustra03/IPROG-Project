@@ -216,10 +216,10 @@
 }
 
 .savedPagesIntro {
-    text-align: left; /* Align the intro text to the right */
+    text-align: left; 
     font-size: larger;
     font-weight: bold;
-    flex-grow: 1; /* Allow the intro to take available space */
+    flex-grow: 1; 
 }
 
 .savedPagesHeaderButtons {
@@ -232,36 +232,36 @@
     height: auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Align items to the center horizontally */
+    justify-content: center;
 }
 
 .savedPagesImageAndTitleContainer {
-    position: relative; /* Ensure relative positioning for absolute children */
-    width: 33%; /* Adjust this percentage based on your layout */
-    max-width: 300px; /* Add a maximum width for larger screens */
-    height: auto; /* Let the height adjust based on content */
+    position: relative;
+    width: 33%; 
+    max-width: 300px; 
+    height: auto; 
     border: 2px solid #000000;
     border-radius: 8px;
     overflow: hidden;
-    margin: 2%; /* Adjust margin for spacing between containers */
+    margin: 2%; 
     background-color: #d5cfb6;
-    box-sizing: border-box; /* Include padding and border in width */
+    box-sizing: border-box; 
 }
 
 @media (max-width: 900px) {
     .savedPagesImageAndTitleContainer {
-        width: 45%; /* Adjust the percentage for smaller screens */
-        max-width: none; /* Remove maximum width for smaller screens */
-        margin: 2%; /* Adjust margin for spacing between containers */
+        width: 45%;
+        max-width: none; 
+        margin: 2%;
     }
 }
 
 @media (max-width: 700px) {
     .savedPagesImageAndTitleContainer {
-        width: 70%; /* Adjust the percentage for smaller screens */
-        max-width: none; /* Remove maximum width for smaller screens */
+        width: 70%; 
+        max-width: none; 
         height: 400px;
-        margin: 2%; /* Adjust margin for spacing between containers */
+        margin: 2%; 
     }
 }
 
@@ -273,8 +273,8 @@
 }
 
 .savedPagesImage {
-    width: 100%; /* Ensure the image fills the container */
-    height: 100%; /* Maintain the fixed aspect ratio */
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     cursor: pointer;
 }
@@ -285,7 +285,7 @@
     right: 5px;
     background-color: #ff4d4f;
     color: #fff;
-    padding: 4px 8px;
+    padding: 6px 12px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -307,10 +307,10 @@
   
 .savedPagesGameTitle {
     font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  max-width: 90%; 
-  margin: 0 auto; 
+    font-weight: bold;
+    cursor: pointer;
+    max-width: 90%; 
+    margin: 0 auto; 
 }
 
 .savedPagesGameTitle:hover {

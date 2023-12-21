@@ -9,7 +9,7 @@ function SearchResultView(props) {
     return(
     <div className="searchResultsOuterContainer">
         <div className="searchResultsContainer">
-        <div className="searchResultsHeader">Search Results for "{}"</div>
+        <div className="searchResultsHeader">Search Results for "{props.search}"</div>
         <span>{props.searchResult}</span>
         {props.searchResults.map(searchResultsMapCB)}
         <CButton onClick={loadMoreGamesCB} className="searchResultLoadMoreButton">Load more games</CButton>

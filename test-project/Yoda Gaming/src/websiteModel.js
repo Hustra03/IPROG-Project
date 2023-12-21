@@ -11,6 +11,7 @@ export default {
   currentPage: null,
   currentPagePromiseState: {},
   searchParams: { minMetacritic: 0, maxMetacritic: 100, page_size: 10, asc: false},
+  search: null, //Represents the current search, ex "Zelda" or "Nintendo", meaning depends on category
   searchResultsPromiseState: {},
   user: null, // Represents the current user
   loggingIn: null, // Represents if the user is currently logging in or not
@@ -133,6 +134,10 @@ export default {
     }
   },
 
+  setSearch(query) {
+    this.search = query;
+  },
+
   toggleYodafyValue() {
     if (this.yodafy) {
 
@@ -163,6 +168,7 @@ export default {
 
   //First parameter boolean determines if alert is to be updated, false for initial search
   doSearch(alert) {
+    this.setSearch(this.searchParams.search)//used for searchResults header, showing the user what they searched for
     if (alert) {
       this.setAlertBody("Searching");
       this.setAlertVisability(true);//Updates alert and shows it again
