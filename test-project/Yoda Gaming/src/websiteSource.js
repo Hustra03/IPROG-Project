@@ -1,4 +1,4 @@
-import { API_KEY, BASE_URL, YODA_URL, YODA_API_KEY } from "./apiConfig";
+import { API_KEY, BASE_URL} from "./apiConfig";
 
     //file mainly worked on by Viktor Fredlund
 
@@ -103,31 +103,6 @@ function getAllPlatforms(){
     }
     return fetch(GENRES_URL).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
 }
-
-/** 
-function yodafyText(text){
-    const YODA_SEARCH_URL = YODA_URL + encodeURIComponent(text);
-
-    function getTheJSON_ACB(respons){
-        if(!respons.ok){
-            throw new Error("Something went wrong with the Yoda API call.");
-        }
-        return respons.json();
-    }
-
-    function giveOnlyRelevantInfoACB(json){
-        console.log(json); //Uncomment to see the the api response object
-        return json;
-    }
-    return fetch(YODA_SEARCH_URL, {
-        "method": "POST",
-        "headers": {
-            "x-RapidAPI-Key": YODA_API_KEY,
-            "x-RapidAPI-Host": "yodish.p.rapidapi.com"
-        },
-    }).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
-}
-*/
 function yodafyText(text){
     const trimmedText = text.replace(/\n/g, '');
     const YODA_SEARCH_URL = "https://api.funtranslations.com/translate/yoda.json?text=" + encodeURIComponent(trimmedText);
