@@ -77,11 +77,11 @@ function PageDetailsView(props) {
                 </div>
                 <div className="infoBesideDescription">
                     <tbody className="detailsInfoBoxes">
-                        <h3 className="infoBoxTitle tags">Tags</h3>
+                        <h3 className="infoBoxTitle">Tags</h3>
                         {tagsToShow()}
                     </tbody>
                     <tbody className="detailsInfoBoxes">
-                        <h3 className="infoBoxTitle genres">Genres</h3>
+                        <h3 className="infoBoxTitle">Genres</h3>
                         {(props.gameDetails.genres).map(displayGenresCB)}
                     </tbody>
                 </div>
