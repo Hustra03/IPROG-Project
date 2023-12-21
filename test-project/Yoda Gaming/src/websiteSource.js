@@ -104,7 +104,7 @@ function getAllPlatforms(){
     return fetch(GENRES_URL).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
 }
 function yodafyText(text){
-    const trimmedText = text.replace(/\n/g, '');
+    const trimmedText = text.replace(/\n/g, ''); //Removes all new lines (breaks API call)
     const YODA_SEARCH_URL = "https://api.funtranslations.com/translate/yoda.json?text=" + encodeURIComponent(trimmedText);
 
     function getTheJSON_ACB(respons){
@@ -116,7 +116,7 @@ function yodafyText(text){
 
     function giveOnlyRelevantInfoACB(json){
         //console.log(json); //Uncomment to see the the api response object
-        return json.contents.translated;
+        return json.contents.translated.replace(/([,.!?])(?=\S)/g, '$1 '); //Adds whitespace after every ,.!? which doesnt have a whitespace after it already because API removes them 
     }
     return fetch(YODA_SEARCH_URL).then(getTheJSON_ACB).then(giveOnlyRelevantInfoACB)
 }
