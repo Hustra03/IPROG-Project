@@ -205,18 +205,37 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh;
+    height: 82.2vh;
+    background-color: #4B7D00;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+@media (max-width: 500px) {
+    .noSavedPagesContainer {
+        height: 100vh;
+    }
 }
 
 .noSavedPages {
+    display:flex;
+    flex-direction: column;
+    height: 80%;
+    width: 80%;
     text-align: center;
-    font-size: larger;
+    font-size: x-large;
+    background-color: #d5cfb6;
+    justify-content: center;
+    align-items: center;
+    padding:2%;
 }
 
 .noSavedPagesReturn {
-    margin: 10px;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin: 20px;
+    background-color: #6BB300;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 20px;
 }
 
 .savedPagesContainer {
@@ -257,7 +276,6 @@
     background-color: #d5cfb6;
     padding: 6px 12px;
     border-radius: 4px;
-    cursor: pointer;
     font-size: 14px;
 }
 
@@ -265,7 +283,6 @@
     background-color: #d5cfb6;
     padding: 6px 12px;
     border-radius: 4px;
-    cursor: pointer;
     font-size: 14px;
 }
 

@@ -15,10 +15,10 @@ function SavedPagesView(props){
         if (props.savedPages.length == 0) {
             return <div className="noSavedPagesContainer">
                         <div className="noSavedPages">
-                        <div>No Pages Seem To Have Been Saved Yet</div>
-                        {console.log(props.savedPages)}
-                        <CButton onClick={backToMainMenuCB} className="noSavedPagesReturn">Main Menu</CButton>
-                        <CButton onClick={backToSearchCB} className="noSavedPagesReturn">Find A New Favorite</CButton>
+                            <div>Huh, It Seems That You Don't Have Any Games Saved Yet</div>
+                            <CButton onClick={backToMainMenuCB} className="noSavedPagesReturn">Find One In The Main Menu</CButton>
+                            <div>Or</div>
+                            <CButton onClick={backToSearchCB} className="noSavedPagesReturn">Search For One To Save</CButton>
                         </div>
                     </div>
         }
