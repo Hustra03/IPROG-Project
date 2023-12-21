@@ -45,7 +45,6 @@ function PageDetailsView(props) {
                     <h1 className="detailsGameTitle">{props.gameDetails.name ? props.gameDetails.name : "Game name missing"}</h1>
                 </div>
                 <div className="detailsButtonPair">
-                    <h4 className="gameDetailsTotalUpvotes">Total upvotes: {props.totalUpvotesForCurrentGame}</h4>
                     {showUpvoteGameButton()}
                     {showAddToSavedPagesButton()}
                 </div>
@@ -136,7 +135,7 @@ function PageDetailsView(props) {
     function showUpvoteGameButton(){
         if(props.loggedIn){
             return(
-                <CButton onClick={toggleUpvoteGameCB} type="submit" color="success" style={{ margin: '10px' }} >{hasUserUpvotedGameCB() ? "Remove upvote" :  "Upvote game"}</CButton>
+                <CButton onClick={toggleUpvoteGameCB} type="submit" color="success" style={{ margin: '10px' }} >{hasUserUpvotedGameCB() ? "Remove upvote: " + props.totalUpvotesForCurrentGame :  "Upvote game: " + props.totalUpvotesForCurrentGame}</CButton>
             )
         }
     }
