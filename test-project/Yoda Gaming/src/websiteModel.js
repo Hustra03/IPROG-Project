@@ -11,7 +11,7 @@ export default {
   currentPage: null,
   currentPagePromiseState: {},
   searchParams: { minMetacritic: 0, maxMetacritic: 100, page_size: 10, asc: false},
-  search: null, //Represents the current search, ex "Zelda" or "Nintendo", meaning depends on category
+  search: null, //Represents the current search, ex "Zelda" or "Nintendo", used in searchResults header
   searchResultsPromiseState: {},
   user: null, // Represents the current user
   loggingIn: null, // Represents if the user is currently logging in or not
@@ -31,6 +31,7 @@ export default {
   showAbout: false, //for conditional rendering logic for about section on homepage
   currentCat:0, //current category used for homepage button disable functionality
   deleteState: false, //used in delete button functionality in saved pages
+  inSearchResult: false, //used to determine if the user is in search, used for load more button functionality 
 
   updateAvailablePlatforms()
   {
@@ -292,5 +293,13 @@ export default {
       this.deleteState = false;
     else
       this.deleteState = true;
+  },
+
+  setInSearchResultTrue(){
+    this.inSearchResult = true;
+  },
+
+  setInSearchResultFalse(){
+    this.inSearchResult = false;
   },
 };

@@ -38,7 +38,6 @@ function SavedPagesView(props){
                     <div className="savedPagesGameContainer">
                         {props.savedPages.map(savedPagesMapCB)}
                     </div>
-                    
                 </div>
             }
 

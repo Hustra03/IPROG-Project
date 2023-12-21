@@ -13,11 +13,18 @@ function SearchResultView(props) {
             <span>{props.searchResult}</span>
             {props.searchResults.map(searchResultsMapCB)}
             <div className="searchResultsFooter">
-                <CButton onClick={loadMoreGamesCB} className="searchResultLoadMoreButton">Load more games</CButton>
+                {loadMore()}
             </div>
         </div>
     </div>
     )
+
+    function loadMore(){
+        if (props.pages < 40){
+            return <CButton onClick={loadMoreGamesCB} className="searchResultLoadMoreButton">Load More</CButton>
+        }
+        return <div className="searchResultLoadMoreButtonDeactive">No More Games To Load, Search With More Detail If You Did Not Find What You Were Looking For.</div>
+    }
 
     function searchResultsMapCB(game){
         function onSearchResultClickCB(){
