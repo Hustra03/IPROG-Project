@@ -16,6 +16,9 @@ export default
         }
 
         if (props.model.searchResultsPromiseState.data) {
+            if (props.model.searchResultsPromiseState.data.length == 0){
+                return <div className="searchResultNoGameFound">No Games Matching Your Search Could Be Found, Maybe Try Extending The Release Period?</div>
+            }
             console.log(props.model.searchResultsPromiseState.data)
             return <SearchResultView 
                 pages = {props.model.searchParams.page_size}
