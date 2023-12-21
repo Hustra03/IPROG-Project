@@ -20,15 +20,10 @@ export default
         }
     }
 
-    function yodafyCustomEventHandler() {
-        props.model.toggleYodafyValue();
-    }
-
     return (
 
         <HeaderView
             query={props.model.searchParams.query}
-            yodafy={props.model.yodafy}
             loggedIn={props.model.user}
             loggingIn={props.model.loggingIn}
             alertBody={props.model.alertBody}
@@ -37,7 +32,6 @@ export default
             currentLocation={props.model.currentLocation}
             loginCustomEvent={loginCustomEventHandler}
             signOutCustomEvent={signOutCustomEventHandler}
-            yodafyCustomEvent={yodafyCustomEventHandler}
             searchCustomEvent={onSearchButtonPressCustomEventHandler}
             onQueryInputChange={onQueryInputChangeCustomEventHandler}
             alertBodyChange={onAlertBodyChangeCustomEventHandler}

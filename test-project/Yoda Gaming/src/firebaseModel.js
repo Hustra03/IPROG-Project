@@ -24,7 +24,6 @@ const provider = new GoogleAuthProvider();
 function modelToPersistenceUserData(model) {
 
     return {
-        yodafy: model.yodafy,
         currentPage: model.currentPage,
         savedPages: model.savedPages,
     };
@@ -32,15 +31,10 @@ function modelToPersistenceUserData(model) {
 
 function persistenceToModelUserData(data, model) {
     if (!data) {//Sets initial values
-        model.setYodafyValue(false);
         model.setPage(null)
         model.setSavedPages([])
         return;
     }
-    if (data.yodafy) {
-        model.setYodafyValue(data.yodafy);
-    }
-    else { model.setYodafyValue(false); }
 
     if (data.currentPage) {
         model.setPage(data.currentPage);
@@ -149,7 +143,7 @@ function connectToFirebase(model, watchFunction) {
     }
 
     function checkUserACB() {
-        return [model.yodafy, model.currentPage, model.savedPages]
+        return [model.currentPage, model.savedPages]
     }
     function effectUserACB() {
         saveUserDataToFirebase(model);

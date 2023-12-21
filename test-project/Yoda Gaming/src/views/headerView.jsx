@@ -21,7 +21,6 @@ function HeaderView(props) {
         props.signOutCustomEvent();
     }
 
-    function yodafyButtonPressedCB() { console.log("Yodafy button pressed"); props.yodafyCustomEvent(); }
     function savedPagesButtonPressedCB() { props.setDeleteStateFalse(); window.location.hash = "#/savedPages"; }
 
     function closedAlertCB() { props.closeAlert(); }
@@ -63,14 +62,6 @@ function HeaderView(props) {
         return (<div>{searchButton()}</div>)
     }
 
-    function yodafyButton() {
-        if (!props.yodafy) {
-            return <CButton onClick={yodafyButtonPressedCB} type="submit" color="success">Yodafy</CButton>
-        }
-        return <CButton onClick={yodafyButtonPressedCB} type="submit" color="success">De-Yodafy</CButton>
-    }
-
-
     function searchInputCB(evt) { props.onQueryInputChange(evt.target.value); }
 
     function searchButtonPressedCB() {
@@ -86,8 +77,6 @@ function HeaderView(props) {
             </div>
             <CButton onClick={searchButtonPressedCB} type="submit" color="success">Search!</CButton>
             <CButton onClick={headerDetailedSearchClickedHandler} type="submit" color="success">Go To Detailed Search</CButton>
-
-            {yodafyButton()}
         </div>//TODO implement all search parameters correctly when API implemented for testing
         )
     }
