@@ -142,16 +142,23 @@
     border-radius: 4px;
 }
 
+.searchResultLoadMoreButton:hover {
+    background-color: rgb(100, 166, 0)
+}
+
 .searchResult {
     display: flex;
     align-items: center;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
-    background-color: #d5cfb6;
+    background-color: #d0c494;
+    cursor:pointer;
 }
 
-  
+.searchResult:hover {
+    background-color: #e3e2ac;
+}
 .searchResultImage {
     max-width: 150px;
     min-width: 150px;

@@ -26,7 +26,7 @@ function SearchResultView(props) {
         }
 
         return (
-            <div className="searchResult">
+            <div onClick={onSearchResultClickCB} className="searchResult">
                 <img
                     onClick={onSearchResultClickCB}
                     className="searchResultImage" 
