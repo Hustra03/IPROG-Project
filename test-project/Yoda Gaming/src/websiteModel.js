@@ -195,8 +195,7 @@ export default {
     const newPage = this.savedPages.filter(removeGameFromSavedPagesCB);
     this.savedPages = newPage;
   },
-  toggleYodafyDescription(){
-    this.toggleYodafyValue();
+  loadYodafyDescription(){
     if (this.currentYodafiedDescription === this.currentPage)
       return;
     this.currentYodafiedDescription = this.currentPage;

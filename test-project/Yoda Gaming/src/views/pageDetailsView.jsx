@@ -31,6 +31,9 @@ function PageDetailsView(props) {
     function hasUserUpvotedGameCB(){
         return props.hasUserUpvotedGameCustomEvent(props.gameDetails.id)
     }
+    function loadYodafyDescriptionACB(){
+        props.loadYodafyDescriptionCustomEvent();
+    }
     
     return (
         <div className="gameDetails">
@@ -51,7 +54,7 @@ function PageDetailsView(props) {
                 {imageToDisplay()}
                 {imageButtonToShow()}
             </div>
-            <div className="detailsTopInfo">
+            <div className="detailsInfoBox">
                 <div className="leftInfo">
                     {props.gameDetails.publishers[0] ? <h4 className="gameDetailsPublisher">Publisher: {props.gameDetails.publishers[0].name}</h4> : null}
                     {props.gameDetails.developers[0] ? <h4 className="gameDetailsDeveloper">Developer: {props.gameDetails.developers[0].name}</h4> : null}
@@ -160,7 +163,7 @@ function PageDetailsView(props) {
     function displayScreenshotsCB(gameScreenshots){
         return (
                 <CCarouselItem>
-                    <img src={gameScreenshots.image} class="detailsImages"/>
+                    <img src={gameScreenshots.image} className="detailsImages"/>
                 </CCarouselItem>
         )
     }
@@ -168,17 +171,17 @@ function PageDetailsView(props) {
         console.log(props.showCoverImage)
         if (props.gameScreenshots && !props.showCoverImage){
             return (
-            <CCarousel controls indicators class="detailsImages">
+            <CCarousel controls indicators>
                 {(props.gameScreenshots).map(displayScreenshotsCB)}
             </CCarousel>
             )
         }
         else
-            return <img src={props.gameDetails.background_image} class="detailsImages"/>
+            return <img src={props.gameDetails.background_image} className="detailsImages"/>
         }
     function imageButtonToShow(){
         if (!props.gameScreenshots){
-            return <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={loadScreenshotsACB} >Show Screenshots</CButton>
+            return <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={loadScreenshotsACB} >Load and Show Screenshots</CButton>
         }
         if(props.showCoverImage)
             return <CButton type="submit" color="success"  style={{ margin: '10px' }} onClick={toggleShowCoverImageCB} >Show Screenshots</CButton>
@@ -187,10 +190,12 @@ function PageDetailsView(props) {
 
     }
     function descriptionButtonToShow(){
-        if(!props.yodafy || !props.yodafiedDescriptionText)
-            return  <CButton type="submit" color="success" style={{ marginLeft: 'auto' }} onClick={toggleYodafyDescriptionCB} >Yodafy description text</CButton>
+        if(!props.yodafiedDescriptionText)
+            return  <CButton type="submit" color="success" style={{ marginLeft: 'auto' }} onClick={loadYodafyDescriptionACB} >Yodafy translate description text</CButton>
+        if(props.yodafy)
+            return  <CButton type="submit" color="success" style={{ marginLeft: 'auto' }} onClick={toggleYodafyDescriptionCB} >Show original description text</CButton>
         else
-            return  <CButton type="submit" color="success" style={{ marginLeft: 'auto' }} onClick={toggleYodafyDescriptionCB} >Unyodafy description text</CButton>
+            return  <CButton type="submit" color="success" style={{ marginLeft: 'auto' }} onClick={toggleYodafyDescriptionCB} >Show Yodafied description text</CButton>
     }
     function descriptionTextToShow(){
         if(!props.yodafy || !props.yodafiedDescriptionText)

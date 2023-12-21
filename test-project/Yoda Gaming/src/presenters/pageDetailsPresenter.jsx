@@ -50,6 +50,7 @@ function Details(props) {
                     toggleUpvoteGameCustomEvent={toggleUpvoteGameCustomEventHandler}
                     totalUpvotesForCurrentGame={getCurrentGameUpvotes(props.model.allUpvotes, props.model.currentPagePromiseState.data.id)}
                     hasUserUpvotedGameCustomEvent={hasUserUpvotedGameCustomEventHandler}
+                    loadYodafyDescriptionCustomEvent={loadYodafyDescriptionCustomEventHandler}
                     />
                 </div>
             );
@@ -63,7 +64,7 @@ function Details(props) {
         props.model.addGameToSavedPages();
     }
     function toggleYodafyDescriptionCutomEventHandler(){
-        props.model.toggleYodafyDescription();
+        props.model.toggleYodafyValue();
     }
     function toggleShowCoverImageCustomEventHandler(){
         props.model.toggleShowCoverImage();
@@ -76,6 +77,9 @@ function Details(props) {
     }
     function hasUserUpvotedGameCustomEventHandler(id){
         return props.model.hasUserUpvotedGame(id);
+    }
+    function loadYodafyDescriptionCustomEventHandler(){
+        props.model.loadYodafyDescription();
     }
     return (
         <div>

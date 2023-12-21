@@ -289,49 +289,29 @@
     background-color: #ff3333;
 }
 
-.gameDetailsImages {
+.gameDetailsImages { /*Div containing the image and imageButton*/
     margin: auto;
     margin-top: 2%;
     overflow: hidden;
     width: 75%;
     height: 100%;
+    
 }
-.gameDetailsHeader{
+.gameDetailsHeader{ /*Top of the pageDetailsView*/
     display: flex;
     background-color: #6BB300;
 }
 
-.buttonsBesideDescription {
-    margin: 5%;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.detailsButtonPair {
+.detailsButtonPair { /*Div containing upvote and savePage buttons in pageDetailsView*/
     margin-left: auto;
     margin-right: 5%;
     margin-top: auto;
 }
 
-.infoBesideDescription {
+.infoBesideDescription { /*The two div element beside the description, containig two infoBoxes each in pageDetailsView*/ /*TODO: Fix margin between infoboxes to scale well with screen size*/ 
     display: flex;
-
     width: 10vw;
-    min-width: 30%;
-}
-
-.genres {}
-
-.belowTopInfo {
-    width: 100%;
-
-}
-
-.infoBesideImage {
-    display: flex;
-
-    margin-right: 5%;
-    margin-left: 5%;
+    min-width: 30%; 
 }
 
 
@@ -367,18 +347,17 @@
 }
 
 .detailsInfoBoxes::-webkit-scrollbar,
-.gameDetailsDescription::-webkit-scrollbar {
+.gameDetailsDescription::-webkit-scrollbar { /*Width of the scrollbars in pageDetailsView*/
     width: 10px;
 }
 
 .detailsInfoBoxes::-webkit-scrollbar-thumb,
-.gameDetailsDescription::-webkit-scrollbar-thumb {
+.gameDetailsDescription::-webkit-scrollbar-thumb { /*Color of the scrollbars in pageDetailsView*/
     background: hsl(0, 4%, 22%);
 }
 
 
-.detailsInfoBoxes {
-    /*All the tbody elements in pageDetailsView*/
+.detailsInfoBoxes { /*The four info boxes beside the description in pageDetailsView*/
     margin: 5%;
     border-radius: 10px;
     background-color: #6bb300;
@@ -394,21 +373,16 @@
     border-style: solid;
 }
 
-.gameDetailsDescriptionTitle {
+.gameDetailsDescriptionTitle { /*The title of the description box in pageDetailsView*/
     margin-left: 20px;
     color: #05471a;
 }
 
-.desciptionBox {
-    margin: 0;
-    color: #05471a;
 
-
-}
-.gameDetailsDescriptionHeader{
+.gameDetailsDescriptionHeader{ /*The header of the description box in pageDetailsView, contains title of description box and yodafy button*/
     display: flex;
 }
-.gameDetailsDescription {
+.gameDetailsDescription { /*The description box in pageDetailsView*/
     max-width: 100%;
     max-height: 400px;
     margin-top: 0px;
@@ -422,7 +396,7 @@
     padding: 10px;
 }
 
-.detailsTopInfo {
+.detailsInfoBox { /*The big div element below the image and above description in pageDetailsView*/
     padding: 10px;
     margin: 40px;
     border-radius: 15px;
@@ -435,20 +409,17 @@
 
 .leftInfo,
 .middleInfo,
-.rightInfo {
+.rightInfo { /*The three columns inside detailsInfoBox with 2-3 rows each in pageDetailsView*/
     flex-direction: column;
 }
 
-.gameDetails {
+.gameDetails { /*The whole pageDetailsView*/
     background-color: #4b7d00;
     flex-direction: row;
 }
 
-.detailsButton {
-    margin: 15px;
-}
 
-.detailsBottomInfo {
+.detailsBottomInfo { /*The bottom info in pageDetailsView, everything below the image and image button*/
 
     width: auto;
     display: flex;
@@ -458,26 +429,25 @@
 
 }
 
-.detailsText {
+.detailsGameTitle { /*The title of the game in pageDetailsView*/
     color: #05471a;
     margin-left: 30px;
 }
 
-.infoBoxTitle {
+.infoBoxTitle { /*All the titles inside boxes (tags, genres, platforms and stores) pageDetailsView*/
     color: #05471a;
 }
 
-.detailsPageName {
+.detailsPageName { /*The name of the page in pageDetailsView*/
     margin-top: 10px;
     margin-bottom: 20px;
     margin-left: 20px;
     color: #007324;
 }
 
-.detailsImages {
+.detailsImages { /*All the images in carousel component*/
     width: 100%;
     height: auto;
-    object-fit: cover;
 }
 
 .homepageButton {
