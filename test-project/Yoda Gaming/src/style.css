@@ -420,10 +420,14 @@
     margin-top: auto;
 }
 
-.infoBesideDescription { /*The two div element beside the description, containig two infoBoxes each in pageDetailsView*/ /*TODO: Fix margin between infoboxes to scale well with screen size*/ 
-    display: flex;
-    width: 10vw;
-    min-width: 30%; 
+.infoBesideDescription { /*The two div element beside the description, containig two infoBoxes each in pageDetailsView*/
+    display: flex; 
+    width: 30vw;
+    justify-content: space-between;
+
+}
+.desciptionBox{
+    max-width: 45%;
 }
 .detailsInfoBox { /*The big div element below the image and above description in pageDetailsView*/
     padding: 10px;
@@ -463,13 +467,13 @@
 
     .detailsBottomInfo {
         flex-direction: column;
+
     }
 
-    .infoBesideDescription {
-        margin-right: 30%;
-    }
+    
     .detailsInfoBox{
         display: inline-block;
+        max-width: 30vw;
     }
 }
 
@@ -485,19 +489,22 @@
 
 
 .detailsInfoBoxes { /*The four info boxes beside the description in pageDetailsView*/
-    margin: 5%;
+    margin: 1vw;
     border-radius: 10px;
     background-color: #6bb300;
     padding: 10px;
-    margin-top: 20%;
-    margin-bottom: 5%;
-
-    min-width: 115px;
-    max-height: 350px;
+    margin-top: 11%;
     overflow: auto;
     border-width: 2px;
-    border-color: black;
+    border-color: rgb(0, 0, 0);
     border-style: solid;
+    width: 40%;
+}
+.tags{
+    width: 60%;
+}
+.genres{
+    width: 40%;
 }
 
 .gameDetailsDescriptionTitle { /*The title of the description box in pageDetailsView*/
