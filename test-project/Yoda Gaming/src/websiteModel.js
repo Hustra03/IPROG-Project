@@ -199,6 +199,7 @@ export default {
     if (this.currentYodafiedDescription === this.currentPage)
       return;
     this.currentYodafiedDescription = this.currentPage;
+    this.setYodafyValue(true);
     resolvePromise(yodafyText(this.currentPagePromiseState.data.description_raw), this.yodafiedDescriptionPromiseState);
   },
   toggleShowCoverImage(){
