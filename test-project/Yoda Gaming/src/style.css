@@ -169,6 +169,26 @@
     display: none;
 }
 
+@media screen and (max-width: 600px) {
+    .searchResult {
+      flex-direction: column; 
+      align-items: flex-start; 
+    }
+  
+    .searchResultImage {
+      margin-bottom: 10px; 
+    }
+  
+    .SearchResultTitleAndInfo {
+      flex-direction: column; 
+      align-items: flex-start;
+    }
+  
+    .searchResultTitle {
+      margin-bottom: 5px; 
+    }
+  }
+
 .searchResultLoading {
     margin-top: 30px;
     margin-left: 50px;
