@@ -106,6 +106,8 @@
 
 .searchResultsOuterContainer {
     background-color: #4B7D00;
+    padding-top:1px;
+    padding-bottom:1px;
 }
 
 .searchResultsContainer {
