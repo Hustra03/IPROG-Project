@@ -186,8 +186,6 @@ function HeaderView(props) {
             </div>
             {alert()}
 
-
-            <RatingView/>
             <div className="HeaderRightHalf">
                 <div className="HeaderUpperButtons">
                     {UpperHalfButtons()}

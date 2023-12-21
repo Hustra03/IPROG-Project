@@ -65,27 +65,32 @@ function saveUserDataToFirebase(model) {
 
 function readDataFromFirebase(model) {
 
-    if (model.ready && model.user) {
-
-        onValue(ref(db, PATH + "/" + model.user.uid), (snapshot) => {
-            const data = snapshot.val();
-            persistenceToModelUserData(data, model);
-        });        
+    if (model.ready) {
         onValue(ref(db, PATH + "/" + "upvotes"), (snapshot) => {
             const data = snapshot.val();
             persistenceToModelGlobalData(data, model);
         });
 
+        if (model.user) {
 
-        model.ready = false;
-        return getUserFromDatabaseACB().then(persistenceToModelACB).then(getGlobalFromDatabaseACB).then(persistenceToModelGlobalACB).then(modelReadyCB);
+            onValue(ref(db, PATH + "/" + model.user.uid), (snapshot) => {
+                const data = snapshot.val();
+                persistenceToModelUserData(data, model);
+            });
+
+
+
+            model.ready = false;
+            return getUserFromDatabaseACB().then(persistenceToModelACB).then(getGlobalFromDatabaseACB).then(persistenceToModelGlobalACB).then(modelReadyCB);
+        }
+        return getGlobalFromDatabaseACB.then(persistenceToModelGlobalACB).then(modelReadyCB);
     }
 
     function getUserFromDatabaseACB() { return get(ref(db, PATH + "/" + model.user.uid)) }
     function persistenceToModelACB(snapshot) {
         return persistenceToModelUserData(snapshot.val(), model);
     }
-    
+
     function getGlobalFromDatabaseACB() { return get(ref(db, PATH + "/" + "upvotes")) }
     function persistenceToModelGlobalACB(snapshot) {
         return persistenceToModelGlobalData(snapshot.val(), model);
@@ -100,7 +105,7 @@ function readDataFromFirebase(model) {
 function modelToPersistenceGlobalData(model) {
 
     return {
-        allUpvotes:model.allUpvotes,
+        allUpvotes: model.allUpvotes,
     };
 }
 //Converts model to global persistence format
@@ -136,9 +141,9 @@ function connectToFirebase(model, watchFunction) {
 
 
             watchFunction(checkUserACB, effectUserACB);//Handles updates to user data, ex saved pages or current page
-            
+
             watchFunction(checkGlobalACB, effectGlobalACB);//Handles updates to global data, ex upvotes
-            
+
             readDataFromFirebase(model);
         }
     }
