@@ -41,8 +41,8 @@ function PageDetailsView(props) {
             <div className="gameDetailsHeader">
                 <div className="gameDetailsHeaderTitle">
                     <CButton onClick={backToSearchResultPageCB} component="a" color="success" size="lg">Back to search results</CButton>
-                    <h2 className="detailsPageName detailsText">Details Page</h2>
-                    <h1 className="gameDetailsTitle detailsText">{props.gameDetails.name ? props.gameDetails.name : "Game name missing"}</h1>
+                    <h2 className="detailsPageName">Details Page</h2>
+                    <h1 className="detailsGameTitle">{props.gameDetails.name ? props.gameDetails.name : "Game name missing"}</h1>
                 </div>
                 <div className="detailsButtonPair">
                     <h4 className="gameDetailsTotalUpvotes">Total upvotes: {props.totalUpvotesForCurrentGame}</h4>
@@ -56,17 +56,17 @@ function PageDetailsView(props) {
             </div>
             <div className="detailsInfoBox">
                 <div className="leftInfo">
-                    {props.gameDetails.publishers[0] ? <h4 className="gameDetailsPublisher">Publisher: {props.gameDetails.publishers[0].name}</h4> : null}
-                    {props.gameDetails.developers[0] ? <h4 className="gameDetailsDeveloper">Developer: {props.gameDetails.developers[0].name}</h4> : null}
+                    {props.gameDetails.publishers[0] ? <h4 className="infoBoxTitles">Publisher: {props.gameDetails.publishers[0].name}</h4> : null}
+                    {props.gameDetails.developers[0] ? <h4 className="infoBoxTitles">Developer: {props.gameDetails.developers[0].name}</h4> : null}
                 </div>
                 <div className="middleInfo">
-                    {props.gameDetails.released ? <h4 className="gameDetailsReleased">Released: {props.gameDetails.released}</h4> : null}
-                    {props.gameDetails.playtime ? <h4 className="gameDetailsPlaytime">Playtime: {props.gameDetails.playtime} hours</h4> : null}
+                    {props.gameDetails.released ? <h4 className="infoBoxTitles">Released: {props.gameDetails.released}</h4> : null}
+                    {props.gameDetails.playtime ? <h4 className="infoBoxTitles">Playtime: {props.gameDetails.playtime} hours</h4> : null}
                 </div>
                 <div className="rightInfo">
-                    {props.gameDetails.metacritic ? <h4 className="gameDetailsMetacritic"> Metacritic Score: {props.gameDetails.metacritic}/100</h4> : null}
-                    {props.gameDetails.rating ? <h4 className="gameDetailsRating">Rating: {props.gameDetails.rating}/5</h4> : null}
-                    {props.gameDetails.esrb_rating ? <h4 className="gameDetailsMatureRating">Age Rating: {props.gameDetails.esrb_rating.name}</h4> : null}
+                    {props.gameDetails.metacritic ? <h4 className="infoBoxTitles"> Metacritic Score: {props.gameDetails.metacritic}/100</h4> : null}
+                    {props.gameDetails.rating ? <h4 className="infoBoxTitles">Rating: {props.gameDetails.rating}/5</h4> : null}
+                    {props.gameDetails.esrb_rating ? <h4 className="infoBoxTitles">Age Rating: {props.gameDetails.esrb_rating.name}</h4> : null}
                 </div>
             </div>
             <div className="detailsBottomInfo">
