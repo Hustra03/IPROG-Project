@@ -174,12 +174,8 @@
     font-style: italic;
     color: #555;
 }
-  
-.hiddenText {
-    display: none;
-}
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
     .searchResult {
       flex-direction: column; 
       align-items: flex-start; 
@@ -255,6 +251,22 @@
 .savedPagesHeaderButtons {
     display: flex;
     gap: 10px;
+}
+
+.savedPagesEditButton{
+    background-color: #d5cfb6;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.savedPagesRemoveAllButton {
+    background-color: #d5cfb6;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
 .savedPagesGameContainer {

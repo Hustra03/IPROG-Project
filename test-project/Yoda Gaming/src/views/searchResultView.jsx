@@ -39,7 +39,6 @@ function SearchResultView(props) {
                     <div className="searchResultRating">Rating: {game.rating}</div>
                     <span className="searchResultInfo">Released: {game.released}</span>
                 </div>
-                
             </div>
         )
     }
