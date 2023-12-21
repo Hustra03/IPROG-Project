@@ -70,7 +70,7 @@ function SearchView(props) {
             }
 
             return (
-                <select onChange={searchPlatformsInput} id="multiple-select" value={props.platform} multiple>
+                <select onChange={searchPlatformsInput} id="multiple-select" multiple>
 
                     {props.allPlatforms.map(platformMapCB)}
 
