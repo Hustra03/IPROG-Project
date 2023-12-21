@@ -83,7 +83,7 @@ function readDataFromFirebase(model) {
             model.ready = false;
             return getUserFromDatabaseACB().then(persistenceToModelACB).then(getGlobalFromDatabaseACB).then(persistenceToModelGlobalACB).then(modelReadyCB);
         }
-        return getGlobalFromDatabaseACB.then(persistenceToModelGlobalACB).then(modelReadyCB);
+        return getGlobalFromDatabaseACB().then(persistenceToModelGlobalACB).then(modelReadyCB);
     }
 
     function getUserFromDatabaseACB() { return get(ref(db, PATH + "/" + model.user.uid)) }
@@ -101,6 +101,7 @@ function readDataFromFirebase(model) {
     }
 }
 //Handles reading from database, creates onValue for user + global data, and reads initial data from database
+//If no users only reads global data, since even if user data is accessable it is not possible to determine who to read from without a signed in user
 
 function modelToPersistenceGlobalData(model) {
 
@@ -143,7 +144,6 @@ function connectToFirebase(model, watchFunction) {
             watchFunction(checkUserACB, effectUserACB);//Handles updates to user data, ex saved pages or current page
 
             watchFunction(checkGlobalACB, effectGlobalACB);//Handles updates to global data, ex upvotes
-
             readDataFromFirebase(model);
         }
     }
