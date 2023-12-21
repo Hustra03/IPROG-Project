@@ -130,13 +130,13 @@
 
 .searchResultsFooter {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     justify-content: center;
 }
 
 .searchResultLoadMoreButton {
     background-color: #6BB300;
+    min-width:100px;
+    width: 30%;
     padding: 6px 12px;
     border: none;
     border-radius: 4px;
