@@ -23,6 +23,15 @@ Make them row-based, or increase size of boxes a bit.
 9. Add margin between detailed page and header + view history. Remove back to search result button?
 10. Reorder texts in detailed view, such that rating is located alone in the center of the last row, for visual rating system. 
 
+How Detailed View feedback was acted upon: (Viktor Frelund)
+1. Added functionality in the API call function to add white space after . or, or ! or ?
+2. Increased size to make it look cleaner, but a scroller is necessary for tags because it can list tens of rows
+3. Changed color to match the rest of the view
+4. Image is now centered with the image button to the bottom left of it
+7. Moved the info box that was above the image to below it, so the image is directly after the game name
+8. upvote button and "total upvotes: x" combined into just the button so button also diplays total upvotes, moved the button to top right of page above the image together with the favorites button
+10. Rating is not on the third row in the info box on, on its own row
+
 Search Results:
 
 1. Add margin left to the content of search results.
