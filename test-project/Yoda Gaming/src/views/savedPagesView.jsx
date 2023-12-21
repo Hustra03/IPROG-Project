@@ -1,5 +1,5 @@
 import "/src/style.css"
-import { CForm, CFormInput, CButton, CFormSelect, CFormCheck, CAlert } from '@coreui/vue';
+import { CButton, } from '@coreui/vue';
 
 //file mainly worked on by Eliaz Biderstrand
 
@@ -9,15 +9,6 @@ function SavedPagesView(props){
     function backToSearchCB() {window.location.hash = "#/search"; }
     function clearSavedCB() {props.clearSavedPages();}
     function editSavedGamesCB() {props.toggleDeleteState();}
-    function closedAlertCB() { props.closeAlert(); }
-    function alert() {
-
-        if (props.alertBody) {
-            return (
-                <CAlert color="success" visible={props.alertVisability}>{props.alertBody} <CButton onClick={closedAlertCB}>X</CButton></CAlert>
-            )
-        }
-    }
 
     if (props.loggedIn) {
 
