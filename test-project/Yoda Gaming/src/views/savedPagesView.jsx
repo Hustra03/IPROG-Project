@@ -15,7 +15,7 @@ function SavedPagesView(props){
         if (props.savedPages.length == 0) {
             return <div className="noSavedPagesContainer">
                         <div className="noSavedPages">
-                            <div>Huh, It Seems That You Don't Have Any Games Saved Yet</div>
+                            <div>Huh, It Seems That You Don't Have Any Games Saved Yet.</div>
                             <CButton onClick={backToMainMenuCB} className="noSavedPagesReturn">Find One In The Main Menu</CButton>
                             <div>Or</div>
                             <CButton onClick={backToSearchCB} className="noSavedPagesReturn">Search For One To Save</CButton>
@@ -50,7 +50,11 @@ function SavedPagesView(props){
         }
     }
 
-    return <div>You must be logged in to save pages</div>
+    return <div className="noSavedPagesContainer">
+                <div className="noSavedPages">
+                    <div>Please Login In Order To See Your Saved Games.</div>
+                </div>
+            </div>
 
     function removeAllGamesButton() {
         function handleRemoveAll() {
