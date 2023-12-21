@@ -278,6 +278,10 @@ export default {
     this.currentCat=num;
   },
 
+  setDeleteStateFalse(){
+    this.deleteState=false;
+  },
+
   toggleDeleteState(){
     if (this.deleteState)
       this.deleteState = false;

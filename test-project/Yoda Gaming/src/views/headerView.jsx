@@ -22,7 +22,7 @@ function HeaderView(props) {
     }
 
     function yodafyButtonPressedCB() { console.log("Yodafy button pressed"); props.yodafyCustomEvent(); }
-    function savedPagesButtonPressedCB() { window.location.hash = "#/savedPages"; }
+    function savedPagesButtonPressedCB() { props.setDeleteStateFalse(); window.location.hash = "#/savedPages"; }
 
     function closedAlertCB() { props.closeAlert(); }
     function alert() {

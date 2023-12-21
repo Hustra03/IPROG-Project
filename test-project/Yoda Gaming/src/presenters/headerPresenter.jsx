@@ -44,6 +44,7 @@ export default
             closeAlert={closeAlertCustomEventHandler}
             headerTitleClicked={headerTitleClickedCustomEventHandler}
             currentCat={props.model.currentCat} //current category used for homepage button disable functionality
+            setDeleteStateFalse={setDeleteStateFalseEventHandler}//used for saved pages to reset edit mode when entering savedPages
         />
 
     );
@@ -70,5 +71,9 @@ export default
         props.model.setDates("2015-01-01,2023-12-31");
         props.model.doSearch(false); //refresh searchResults from previous searches
         props.model.setShowAbout(false); //functionality to not render about page
+    }
+
+    function setDeleteStateFalseEventHandler(){
+        props.model.setDeleteStateFalse();
     }
 }
