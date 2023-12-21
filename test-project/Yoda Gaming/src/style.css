@@ -407,7 +407,19 @@
     width: 10vw;
     min-width: 30%; 
 }
-
+.detailsInfoBox { /*The big div element below the image and above description in pageDetailsView*/
+    padding: 10px;
+    margin: 40px;
+    margin-left:auto;
+    margin-right:auto;
+    border-radius: 15px;
+    border-color: black;
+    border-style: solid;
+    background-color: #6bb300;
+    display: flex;
+    justify-content: space-between;
+    width: 50vw;
+}
 
 @media (max-width:1500px) {
 
@@ -437,6 +449,9 @@
 
     .infoBesideDescription {
         margin-right: 30%;
+    }
+    .detailsInfoBox{
+        display: inline-block;
     }
 }
 
@@ -471,7 +486,11 @@
     margin-left: 20px;
     color: #05471a;
 }
-
+.halfYoda{ /*The decimal of the score being displayed in pageDetailsView*/
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+}
 
 .gameDetailsDescriptionHeader{ /*The header of the description box in pageDetailsView, contains title of description box and yodafy button*/
     display: flex;
@@ -488,20 +507,6 @@
     border-style: solid;
     background-color: #6bb300;
     padding: 10px;
-}
-
-.detailsInfoBox { /*The big div element below the image and above description in pageDetailsView*/
-    padding: 10px;
-    margin: 40px;
-    margin-left:auto;
-    margin-right:auto;
-    border-radius: 15px;
-    border-color: black;
-    border-style: solid;
-    background-color: #6bb300;
-    display: flex;
-    justify-content: space-between;
-    width: 50vw;
 }
 
 .leftInfo,

@@ -34,7 +34,6 @@ function PageDetailsView(props) {
     function loadYodafyDescriptionACB(){
         props.loadYodafyDescriptionCustomEvent();
     }
-    
     return (
         <div className="gameDetails">
 
@@ -61,10 +60,10 @@ function PageDetailsView(props) {
                 <div className="middleInfo">
                     {props.gameDetails.released ? <h4 className="infoBoxTitles">Released: {props.gameDetails.released}</h4> : null}
                     {props.gameDetails.playtime ? <h4 className="infoBoxTitles">Playtime: {props.gameDetails.playtime} hours</h4> : null}
+                    {props.gameDetails.rating ? <h4 className="infoBoxTitles">Rating: {ratingToYodas(props.gameDetails.rating)} /5</h4> : null}
                 </div>
                 <div className="rightInfo">
                     {props.gameDetails.metacritic ? <h4 className="infoBoxTitles"> Metacritic Score: {props.gameDetails.metacritic}/100</h4> : null}
-                    {props.gameDetails.rating ? <h4 className="infoBoxTitles">Rating: {props.gameDetails.rating}/5</h4> : null}
                     {props.gameDetails.esrb_rating ? <h4 className="infoBoxTitles">Age Rating: {props.gameDetails.esrb_rating.name}</h4> : null}
                 </div>
             </div>
@@ -180,7 +179,7 @@ function PageDetailsView(props) {
         }
     function imageButtonToShow(){
         if (!props.gameScreenshots){
-            return <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={loadScreenshotsACB} >Load and Show Screenshots</CButton>
+            return <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={loadScreenshotsACB} >Load and Show Screenshots</CButton> //Inline css because giving it a class overrites the styling of the thirdParty component
         }
         if(props.showCoverImage)
             return <CButton type="submit" color="success"  style={{ margin: '10px' }} onClick={toggleShowCoverImageCB} >Show Screenshots</CButton>
@@ -202,6 +201,21 @@ function PageDetailsView(props) {
         else
             return <p className="gameDetailsDescription">{props.yodafiedDescriptionText}</p>
             
+    }
+    function ratingToYodas(rating){ //Function that takes a rating between 1-5 and returns a number of yodas based on the rating
+        const fullYodas = Math.floor(rating);
+        const halfYoda = rating - fullYodas;
+        let yodasToReturn = [];
+        for (let i = 0; i < fullYodas; i++)
+            yodasToReturn.push(<img src="https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png" alt="Yoda Icon"/>);
+        if (halfYoda) {
+            yodasToReturn.push(
+                <div className="halfYoda" style={{ width: `${28 * halfYoda + 4}px`}}> 
+                    <img src="https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png" alt="Fraction of Yoda Icon"/> 
+                </div> //Inline css because it needs to perform math uisng a variable to calculate the value for the width
+            );        
+        }
+        return yodasToReturn
     }
 }
 
