@@ -6,7 +6,7 @@ export default
     
         function recentlyReleasedCategoryClickedACB(){
             props.model.setCurrentCat(1);
-            props.model.searchParams.search=null;
+            props.model.setSearchQuery(null);
             props.model.setShowAbout(false);
             props.model.setSearchMinMetacritic(10);
             props.model.setSearchMaxMetacritic(100);
@@ -16,7 +16,7 @@ export default
         function bestLastYearCategoryClickedACB(){
             //{props.model.setSearchType("singleplayer")};
             props.model.setCurrentCat(2);
-            props.model.searchParams.search=null;
+            props.model.setSearchQuery(null);
             props.model.setShowAbout(false);
             props.model.setSearchMinMetacritic(90);
             props.model.setSearchMaxMetacritic(100);
@@ -24,13 +24,23 @@ export default
             props.model.doSearch(true);
         }
         function best2021CategoryClickedACB(){
-            props.model.setCurrentCat(3);
-            props.model.searchParams.search=null;
+            props.model.setCurrentCat(3)
+            props.model.setSearchQuery(null);
             props.model.setShowAbout(false);
             props.model.setSearchMinMetacritic(90);
             props.model.setSearchMaxMetacritic(100);
             props.model.setDates("2021-01-01,2021-12-31");
             props.model.doSearch(true);
+        }
+        function seasonalCategoryClickedACB(){
+            props.model.setCurrentCat(4);
+            props.model.setSearchQuery("santa");
+            props.model.setShowAbout(false);
+            props.model.setSearchMinMetacritic(80);
+            props.model.setSearchMaxMetacritic(100);
+            props.model.setDates("2022-01-01,2023-12-31");
+            props.model.doSearch(true);
+
         }
         function aboutCategoryClickedACB(){
             props.model.setCurrentCat(5);
@@ -65,6 +75,7 @@ export default
                         gameDetails={clickedOnGameACB}
                         bestLastYearCategory={bestLastYearCategoryClickedACB}
                         best2021Category={best2021CategoryClickedACB}
+                        seasonalCategory={seasonalCategoryClickedACB}
                         aboutCategory={aboutCategoryClickedACB}
                         About={props.model.showAbout}
                         currentCat={props.model.currentCat}
