@@ -60,18 +60,22 @@ function InitialPageView(props) {
                         <CButton color="success" size="lg" disabled={props.currentCat===5} onClick={aboutHandlerACB}>About</CButton>
                     </CButtonGroup>
                 </div>
-            <div className='homepageAbout'>Hrrmmm. A gaming wiki created by me(Yoda<img src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>) to learn about the best games Yoda gaming is,
-                home to a large community of Jedi and Sith gamers alike it is, all equal on Yoda gaming we are. A description written by me you can press the "Yodafy" button to see.
+            <div className='homepageAbout'>Hrrmmm. A gaming wiki created by me(Yoda<img src='https://www.shareicon.net/data/128x128/2016/01/16/248175_yoda_32x32.png'></img>) to learn about the best games Yoda gaming is,
+                home to a large community of Jedi and Sith gamers alike it is, all equal on Yoda gaming we are. A description written by me you can press the "Yodafy" button to see. Hrrmmm. To drive I own a <a href='https://www.youtube.com/watch?v=A0LFmGUTsJ8' style="color: #007324; text-decoration: none; cursor: help;">2001 honda civic</a> that I like. Yes, hrrrm.
                 My children/5 ratings for games are.
             </div>
-                <div className='homepagePictureOfYodaFamilyText'>A picture of my 5 children here is ↓</div>
+                <div className='homepagePictureOfYodaFamilyText'>A picture of my 5 children <a href='https://www.youtube.com/watch?v=glN0W8WogK8' style="color: #007324; text-decoration: none; cursor: help;">here</a> is ↓</div>
                 <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
                 <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
                 <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
                 <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
                 <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
 
-                <div className='homepageRealAbout'>(Website created by Yoda, Erik Paulinder, Eliaz Biderstrand, Viktor Fredlund and William Ma Jönsson. All images, un-yodafied descriptions, tags, ratings (all data on games) are from RAWG API)</div>
+                <div className='homepageRealAbout'>(Website created by Yoda, Erik Paulinder, Eliaz Biderstrand, Viktor Fredlund and William Ma Jönsson as part of the course DH2642 during the term HT23. 
+                All images, un-yodafied descriptions, tags, ratings (all data on games) are from RAWG API. Without logging in you can browse games freely, logging in gives access to upvoting and saving games. 
+                CoreUI has been used for things like buttons, carousels etc. Images for website icon and ratings used were <a href='https://www.shareicon.net/yoda-user-71338'>this one</a> and <a href='https://www.shareicon.net/yoda-248175'>this one</a>, 
+                to yodafy we used <a href='https://funtranslations.com/api/yoda'>funtranslations' yoda api</a>)
+                </div>
             </div>
             
         )
