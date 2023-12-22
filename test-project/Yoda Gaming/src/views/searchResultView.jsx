@@ -12,6 +12,7 @@ function SearchResultView(props) {
             <div className="searchResultsHeader">Search Results for "{props.search}"</div>
             <span>{props.searchResult}</span>
             {props.searchResults.map(searchResultsMapCB)}
+            <a href='https://rawg.io/apidocs'>Data from RAWG Api</a>
             <div className="searchResultsFooter">
                 {loadMoreButton()}
             </div>

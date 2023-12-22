@@ -73,7 +73,7 @@ function InitialPageView(props) {
                 <button className='homepageButton' disabled={props.currentCat === 3} onClick={best2021HandlerACB}>Best 2021</button>
                 <button className='homepageButton' disabled={props.currentCat === 4} >Seasonal(not done)</button>
                 <button className='homepageButton' onClick={aboutHandlerACB}>About</button>
-                <a href='https://rawg.io/apidocs'>Data from RAWG Api</a>
+                <a className='rawgHyperLink' href='https://rawg.io/apidocs'>Data from RAWG Api</a>
             </div>
 
             <div className='homepageCarouselDescription'>
