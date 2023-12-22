@@ -26,6 +26,7 @@ export default
     function chosenGameCustomEventHandler(game){
         props.model.setPage(game.id)
         props.model.setDeleteStateFalse();
+        props.model.changeUpdateViewHistoryValue(true);
     }
 
     function toggleDeleteStateCustomEventHandler(){
