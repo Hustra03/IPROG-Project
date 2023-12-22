@@ -39,7 +39,7 @@ function PageDetailsView(props) {
         props.addCurrentPageToViewHistoryCustomEvent();
     }
 
-    if(props.shouldViewHistoryUpdate){//only add if you should update view history
+    if(props.shouldViewHistoryUpdate){//Triggers once, when the user has clicked on a game 
         addCurrentPageToViewHistory();
     }
 
@@ -155,22 +155,22 @@ function PageDetailsView(props) {
     }
     function displayTagsCB(tags){
         return( 
-                <tr> {tags.name} </tr>
+                <tr key={tags.id}> {tags.name} </tr>
         )
     }
     function displayGenresCB(genres){
         return(
-            <tr> {genres.name} </tr>
+            <tr key={genres.id}> {genres.name} </tr>
         )
     }
     function displayPlatformsCB(platforms){
         return(
-            <tr> {platforms.platform.name} </tr>
+            <tr key={platforms.platform.id}> {platforms.platform.name} </tr>
         )
     }
     function displayStoresCB(stores){
         return(
-            <tr> {stores.store.name} </tr>
+            <tr key={stores.store.id}> {stores.store.name} </tr>
         )
     }
     function displayScreenshotsCB(gameScreenshots){
