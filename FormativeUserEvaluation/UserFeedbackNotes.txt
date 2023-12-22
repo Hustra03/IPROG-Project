@@ -18,6 +18,8 @@ Solutions:
 
 1. Ensure elements in the header have a constant relative location, add a spinner which is shown when logging in. 
 
+12. Added a button at the bottom of the page which when pressed, initiates a fetch with 10 more results, unless there are currently 40 games shown, which is the max.
+
 Implemented,
 
 2., 10. Create color palette, with a few complementary colors, and use similar styling for each element of the same type, for example decide on one font and stick to it. 
