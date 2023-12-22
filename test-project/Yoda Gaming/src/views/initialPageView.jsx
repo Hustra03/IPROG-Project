@@ -39,7 +39,7 @@ function InitialPageView(props) {
     
     if(props.About){
         return(
-            <div>
+            <div className='homepageBackground'>
                 <div> {console.log("about:"+props.About)}
                 <button className='homepageButton' onClick={recentlyReleasedHandlerACB}>Best this year</button>
                 <button className='homepageButton' onClick={bestLastYearHandlerACB}>Best 2022</button>
@@ -66,7 +66,7 @@ function InitialPageView(props) {
     
     return(
         
-        <div>
+        <div className='homepageBackground'>
             <div> {console.log("about:"+props.About)}
                 <button className='homepageButton' disabled={props.currentCat === 1} onClick={recentlyReleasedHandlerACB}>Best this year</button>
                 <button className='homepageButton' disabled={props.currentCat === 2} onClick={bestLastYearHandlerACB}>Best 2022</button>
