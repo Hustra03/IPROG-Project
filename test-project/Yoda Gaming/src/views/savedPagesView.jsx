@@ -59,7 +59,7 @@ function SavedPagesView(props){
 
             const confirmed = window.confirm("Are you sure you want to remove all saved games? This cannot be undone.");
             if (confirmed) {
-                clearSavedCB();
+                clearSavedPagesCB();
             }
         }
     
