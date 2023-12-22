@@ -40,6 +40,7 @@ export default
         props.model.setShowAbout(false);
         console.log("Fired Custom Event Click on game");
         props.model.setPage(game.id);
+        props.model.changeUpdateViewHistoryValue(true); //time to update view history
     }
 
     return (

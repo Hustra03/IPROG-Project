@@ -53,6 +53,7 @@ function Details(props) {
                     hasUserUpvotedGameCustomEvent={hasUserUpvotedGameCustomEventHandler}
                     loadYodafyDescriptionCustomEvent={loadYodafyDescriptionCustomEventHandler}
                     addCurrentPageToViewHistoryCustomEvent={addCurrentPageToViewHistoryCustomEventHandler}
+                    shouldUpdate={props.model.updateViewHistory}//boolean should you update view history?
                     />
                 </div>
             );

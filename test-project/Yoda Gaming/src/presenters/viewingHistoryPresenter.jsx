@@ -1,8 +1,10 @@
 import ViewingHistoryView from "../views/viewingHistoryView";
-
+//file mainly worked on by William Ma Jönsson
 export default
-    function ViewingHistoryPresenter() {
+    function ViewingHistoryPresenter(props) {
     return (
-        <ViewingHistoryView/>
+        <ViewingHistoryView 
+        viewHistory={props.model.viewHistory}
+        />
     );
 }

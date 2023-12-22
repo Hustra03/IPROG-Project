@@ -39,7 +39,10 @@ function PageDetailsView(props) {
         props.addCurrentPageToViewHistoryCustomEvent();
     }
 
-    addCurrentPageToViewHistory();
+    if(props.shouldUpdate){//only add if you should update view history
+        addCurrentPageToViewHistory();
+    }
+
     return (
         <div className="gameDetails">
 

@@ -54,7 +54,7 @@ export default
             <HeaderPresenter model={props.model} />
             <div className="mainContent">
                 <div className="viewHistory">
-                    <ViewingHistoryPresenter />
+                    <ViewingHistoryPresenter model={props.model}/>
                 </div>
                 <div className="mainPage">
                     <RouterView />

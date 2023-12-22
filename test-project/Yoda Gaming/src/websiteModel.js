@@ -32,6 +32,11 @@ export default {
   currentCat:0, //current category used for homepage button disable functionality
   deleteState: false, //used in delete button functionality in saved pages
   inSearchResult: false, //used to determine if the user is in search, used for load more button functionality 
+  updateViewHistory:false,
+
+  changeUpdateViewHistoryValue(val){
+    this.updateViewHistory=val;
+  },
 
   updateAvailablePlatforms()
   {
@@ -226,6 +231,7 @@ export default {
     this.viewHistory = [...this.viewHistory, pageToAdd];
     console.log("View history updated")
     console.log(this.viewHistory);
+    this.updateViewHistory=false;//set to false to prevent repetitive updates
   },
 
   setAllUpvotes(persistedAllUpvotes)
