@@ -49,6 +49,7 @@ function PageDetailsView(props) {
             <div className="gameDetailsHeader">
                 <div className="gameDetailsHeaderTitle">
                     <h2 className="detailsPageName">Details Page</h2>
+                    <a className='rawgHyperLink' href='https://rawg.io/apidocs'>Data from RAWG Api</a>
                     <h1 className="detailsGameTitle">{props.gameDetails.name ? props.gameDetails.name : "Game name missing"}</h1>
                 </div>
                 <div className="detailsButtonPair">
@@ -59,7 +60,6 @@ function PageDetailsView(props) {
             <div className="gameDetailsImages">
                 {imageToDisplay()}
                 {imageButtonToShow()}
-                <a className='rawgHyperLink' href='https://rawg.io/apidocs'>Data from RAWG Api</a>
             </div>
             <div className="detailsInfoBox">
                 <div className="leftInfo">
@@ -224,7 +224,7 @@ function PageDetailsView(props) {
             yodasToReturn.push(<img src="https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png" alt="Yoda Icon"/>);
         if (halfYoda) {
             yodasToReturn.push(
-                <div className="halfYoda" style={{ width: `${28 * halfYoda + 4}px`}}> 
+                <div className="halfYoda" style={{ width: `${25 * halfYoda + 2}px`}}> 
                     <img src="https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png" alt="Fraction of Yoda Icon"/> 
                 </div> //Inline css because it needs to perform math uisng a variable to calculate the value for the width
             );        
