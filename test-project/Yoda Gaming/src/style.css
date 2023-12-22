@@ -5,7 +5,9 @@
         height: 100%;
     }
 }
-
+.flexParent{
+    background-color: #472407;
+}
 .mainContent {
     flex: 0.5;
     display: flex;
@@ -557,7 +559,7 @@
     width: 100%;
     height: auto;
 }
-@media (max-width:1500px) {
+@media (max-width:1300px) {
 
 
     .gameDetailsImages {
@@ -590,7 +592,19 @@
     .detailsInfoBox{
         flex-direction: column;
     }
+    .infoBesideDescription{
+        width: 80%;
+    }
 
+}
+
+@media (max-width:600px) {
+    .infoBesideDescription{
+        width: 100%;
+    }
+    .gameDetailsDescriptionHeader{
+        flex-direction: column;
+    }
 }
 .homepageButton {
     background-color: lightgreen;
