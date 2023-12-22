@@ -5,37 +5,35 @@ import {CFormInput, CButton, CFormSelect, CFormCheck, CCard, CCardBody, CCardTit
 
 //File mainly worked on by Erik Paulinder
 
-// Custom component, https://coreui.io/vue/docs/forms/form-control.html 
-
 function SearchView(props) {
 
-    function searchQueryInputCB(evt) { props.onQueryInputChange(evt.target.value); }
+    function searchQueryInputCB(evt) { props.onQueryInputChangeCustomEventCB(evt.target.value); }
 
-    function searchTagsInputCB(evt) { props.onTagsInputChange(evt.target.value); }
+    function searchTagsInputCB(evt) { props.onTagsInputChangeCustomEventCB(evt.target.value); }
 
-    function searchGenreInputCB(evt) { props.onGenreInputChange(evt.target.value); }
+    function searchGenreInputCB(evt) { props.onGenreInputChangeCustomEventCB(evt.target.value); }
 
-    function searchButtonPressedCB() { props.searchCustomEvent(); window.location.hash = "#/searchResult"; }
+    function searchButtonPressedCB() { props.searchCustomEventCB(); window.location.hash = "#/searchResult"; }
 
-    function exactChangeCB(evt) { props.onExactChange(evt.target.value) }
-    function fuzzyChangeCB(evt) { props.onFuzzyChange(evt.target.value) }
+    function exactChangeCB(evt) { props.onExactChangeCustomEventCB(evt.target.value) }
+    function fuzzyChangeCB(evt) { props.onFuzzyChangeCustomEventCB(evt.target.value) }
 
-    function minMetacriticInputCB(evt) { props.onMinMetacriticChange(evt.target.value); }
-    function maxMetacriticInputCB(evt) { props.onMaxMetacriticChange(evt.target.value); }
-    function pageSizeInputCB(evt) { props.onPageSizeChange(evt.target.value); }
+    function minMetacriticInputCB(evt) { props.onMinMetacriticChangeCustomEventCB(evt.target.value); }
+    function maxMetacriticInputCB(evt) { props.onMaxMetacriticChangeCustomEventCB(evt.target.value); }
+    function pageSizeInputCB(evt) { props.onPageSizeChangeCustomEventCB(evt.target.value); }
 
-    function sortByInputCB(evt) { props.onSortByInputChange(evt.target.value); }
-    function searchDatesInput(evt) { props.onDatesInputChange(evt.target.value); }
-    function sortOrderInput() { props.onSortAscChange(); }
+    function sortByInputCB(evt) { props.onSortByInputChangeCustomEventCB(evt.target.value); }
+    function searchDatesInputCB(evt) { props.onDatesInputChangeCustomEventCB(evt.target.value); }
+    function sortOrderInputCB() { props.onSortAscChangeCustomEventCB(); }
 
     function sortOrder() {
         if (props.asc == true) {
-            return <CButton onClick={sortOrderInput} type="submit" color="primary">Sort In Order</CButton>
+            return <CButton onClick={sortOrderInputCB} type="submit" color="primary">Sort In Order</CButton>
         }
-        return <CButton onClick={sortOrderInput} type="submit" color="primary">Sort In Reverse Order</CButton>
+        return <CButton onClick={sortOrderInputCB} type="submit" color="primary">Sort In Reverse Order</CButton>
     }
 
-    function searchPlatformsInput() { 
+    function searchPlatformsInputCB() { 
 
         let currentPlatformString="";
         let allPlatformOptions=document.getElementById("multiple-select").children;
@@ -51,7 +49,7 @@ function SearchView(props) {
             }
         }
 
-        props.onPlatformsInputChange(currentPlatformString); 
+        props.onPlatformsInputChangeCustomEventCB(currentPlatformString); 
     }
     function platformOptions() {
 
@@ -63,7 +61,7 @@ function SearchView(props) {
             }
 
             return (
-                <select onChange={searchPlatformsInput} id="multiple-select" multiple>
+                <select onChange={searchPlatformsInputCB} id="multiple-select" multiple>
 
                     {props.allPlatforms.map(platformMapCB)}
 
@@ -103,7 +101,7 @@ function SearchView(props) {
                     <CListGroupItem color="success">
                         <label>Number Of Pages In Result:</label>
                         <div>
-                            <input type="range" text="Number of results to show, between 1 and 50" onChange={pageSizeInputCB} className="range" min="1" max="50" placeholder={props.page_size} />
+                            <input type="range" text="Number of results to show, between 1 and 50" onChange={pageSizeInputCB} className="range" min="1" max="40" placeholder={props.page_size} />
                             {props.page_size}
                         </div>
                     </CListGroupItem>
@@ -125,7 +123,7 @@ function SearchView(props) {
 
                     </CListGroupItem>
                     <CListGroupItem color="success">
-                        <CFormInput label="Dates" text="Specify release date range, for example 2020-10-14, 2023-10-14" type="text" value={props.dates} onChange={searchDatesInput} id="queryForm" placeholder={props.dates} />
+                        <CFormInput label="Dates" text="Specify release date range, for example 2020-10-14, 2023-10-14" type="text" value={props.dates} onChange={searchDatesInputCB} id="queryForm" placeholder={props.dates} />
                     </CListGroupItem>
 
                     <CListGroupItem color="success">

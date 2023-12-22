@@ -30,15 +30,15 @@ export default
             alertVisability={props.model.alertVisability}
             searchResultsData={props.model.searchResultsPromiseState.data}
             currentLocation={props.model.currentLocation}
-            loginCustomEvent={loginCustomEventHandler}
-            signOutCustomEvent={signOutCustomEventHandler}
-            searchCustomEvent={onSearchButtonPressCustomEventHandler}
-            onQueryInputChange={onQueryInputChangeCustomEventHandler}
-            alertBodyChange={onAlertBodyChangeCustomEventHandler}
-            closeAlert={closeAlertCustomEventHandler}
-            headerTitleClicked={headerTitleClickedCustomEventHandler}
+            loginCustomEventCB={loginCustomEventHandler}
+            signOutCustomEventCB={signOutCustomEventHandler}
+            searchCustomEventCB={onSearchButtonPressCustomEventHandler}
+            onQueryInputChangeCustomEventCB={onQueryInputChangeCustomEventHandler}
+            alertBodyChangeCustomEventCB={onAlertBodyChangeCustomEventHandler}
+            closeAlertCustomEventCB={closeAlertCustomEventHandler}
+            headerTitleClickedCustomEventCB={headerTitleClickedCustomEventHandler}
             currentCat={props.model.currentCat} //current category used for homepage button disable functionality
-            setDeleteStateFalse={setDeleteStateFalseEventHandler}//used for saved pages to reset edit mode when entering savedPages
+            setDeleteStateFalseCustomEventCB={setDeleteStateFalseEventHandler}//used for saved pages to reset edit mode when entering savedPages
         />
 
     );

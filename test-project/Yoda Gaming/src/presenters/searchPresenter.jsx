@@ -22,19 +22,19 @@ export default
                 SortBy={searchParams.SortBy}
                 allPlatforms={props.model.allPlatformsPromiseState.data}
                 searchResultsData={props.model.searchResultsPromiseState.data}
-                onQueryInputChange={onQueryInputChangeCustomEventHandler}
-                onTagsInputChange={onTagsInputChangeCustomEventHandler}
-                onGenreInputChange={onGenreInputChangeCustomEventHandler}
-                onSortByInputChange={onSortByInputChangeCustomEventHandler}
-                onMinMetacriticChange={onMinMetacriticChangeCustomEventHandler}
-                onMaxMetacriticChange={onMaxMetacriticChangeCustomEventHandler}
-                onPageSizeChange={onPageSizeChangeCustomEventHandler}
-                onExactChange={onExactInputChangeCustomEventHandler}
-                onFuzzyChange={onFuzzyInputChangeCustomEventHandler}
-                onDatesInputChange={onDatesInputChangeCustomEventHandler}
-                onPlatformsInputChange={onPlatformsInputChangeCustomEventHandler}
-                onSortAscChange={onSortByAscInputChangeCustomEventHandler}
-                searchCustomEvent={onSearchButtonPressCustomEventHandler} />
+                onQueryInputChangeCustomEventCB={onQueryInputChangeCustomEventHandler}
+                onTagsInputChangeCustomEventCB={onTagsInputChangeCustomEventHandler}
+                onGenreInputChangeCustomEventCB={onGenreInputChangeCustomEventHandler}
+                onSortByInputChangeCustomEventCB={onSortByInputChangeCustomEventHandler}
+                onMinMetacriticChangeCustomEventCB={onMinMetacriticChangeCustomEventHandler}
+                onMaxMetacriticChangeCustomEventCB={onMaxMetacriticChangeCustomEventHandler}
+                onPageSizeChangeCustomEventCB={onPageSizeChangeCustomEventHandler}
+                onExactChangeCustomEventCB={onExactInputChangeCustomEventHandler}
+                onFuzzyChangeCustomEventCB={onFuzzyInputChangeCustomEventHandler}
+                onDatesInputChangeCustomEventCB={onDatesInputChangeCustomEventHandler}
+                onPlatformsInputChangeCustomEventCB={onPlatformsInputChangeCustomEventHandler}
+                onSortAscChangeCustomEventCB={onSortByAscInputChangeCustomEventHandler}
+                searchCustomEventCB={onSearchButtonPressCustomEventHandler} />
         </div>
     );
     function onQueryInputChangeCustomEventHandler(query) {
