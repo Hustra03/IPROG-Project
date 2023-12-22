@@ -61,7 +61,7 @@ function InitialPageView(props) {
                     </CButtonGroup>
                 </div>
             <div className='homepageAbout'>Hrrmmm. A gaming wiki created by me(Yoda<img src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>) to learn about the best games Yoda gaming is,
-                home to a large community of Jedi and Sith gamers alike it is, all equal on Yoda gaming we are.
+                home to a large community of Jedi and Sith gamers alike it is, all equal on Yoda gaming we are. A description written by me you can press the "Yodafy" button to see.
                 My children/5 ratings for games are.
             </div>
                 <div className='homepagePictureOfYodaFamilyText'>A picture of my 5 children here is ↓</div>
