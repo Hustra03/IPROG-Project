@@ -16,23 +16,36 @@ Also similar to dropdown in search not being immediatly noticable.
 
 Solutions:
 
-1. Ensure elements in the header have a constant relative location,
- add a spinner which is shown when logging in. 
+1. Ensure elements in the header have a constant relative location, add a spinner which is shown when logging in. 
 
-2., 10. Create color palette, with a few complementary colors,
-and use similar styling for each element of the same type, for example decide on one font and stick to it. 
+Implemented,
 
-4. Redesign the pages so that less empty space exists, but do not remove all of the margins. 
-Ex the page likes button on the FIGMA page was pretty bad design, if included add it as part of the larger box instead of outside it.
+2., 10. Create color palette, with a few complementary colors, and use similar styling for each element of the same type, for example decide on one font and stick to it. 
+
+4. Redesign the pages so that less empty space exists, but do not remove all of the margins. Ex the page likes button on the FIGMA page was pretty bad design, if included add it as part of the larger box instead of outside it.
+
+Implemented, there is still some blank space on the page but these no longer hold elements the user needs to consider for the left, while the right hold view history which needs the potential height.
 
 5. Redesign the search dropdown menu, make the search a clearly marked button instead of plain text.
 
+Implemented, Search dropdown menu was first redesigned, with the search being placed in a button, search was then redesigned to have the input field being placed directly in the header with a detailed search button being added.
+
 6. Redesign the detailed search menu, -||- as 5., but also make the boxes have a variable width dependent on input, with a shorter initial width.
+
+Partially implemented, the design was updated, however the width was not changed since the bars are no longer stick out as much and a variable length may be more confusing since currently one can select anywhere on the bar rather than only a small part. 
 
 7. When rest is done, check if there is enough static text for the yodafy feature to have a purpose, remove or keep depending on that.
 
+Implemented, the yodafy button was removed from the header, since the current website does not have a lot of static text, so the functionality is better represented in the detailed view since that is the only variable portion.
+
 8. Make viewing history a bit like the dropdown menu, with a small but clearly marked button making it pop up.
+
+Implemnted, view history is represented by a small section, which can be pressed to show the rest.
 
 11. Make the ascending/descending part either be included in search or in search results.
 
+Ascending/Descending or sort in order/reverse order has been added as part of the detailed search.
+
 12. Add a dropdown menu from each result in search result which contains additional information. 
+
+Additional information was added to the search result, but no dropdown menu since most relevant information can only be found using another fetch and that information is available if one checks the detailed page.

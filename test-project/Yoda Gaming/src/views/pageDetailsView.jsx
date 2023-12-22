@@ -69,7 +69,7 @@ function PageDetailsView(props) {
                 <div className="middleInfo">
                     {props.gameDetails.released ? <h4 className="infoBoxTitles"><strong>Released: </strong>{props.gameDetails.released}</h4> : null}
                     {props.gameDetails.playtime ? <h4 className="infoBoxTitles"><strong>Estimated Playtime: </strong>{props.gameDetails.playtime} hours</h4> : null}
-                    {props.gameDetails.rating ? <h4 className="infoBoxTitles"><strong>Rating: </strong>{ratingToYodas(props.gameDetails.rating)} /5</h4> : null}
+                    {props.gameDetails.rating ? <h4 className="infoBoxTitles"><strong>Rating: </strong>{ratingToYodas(props.gameDetails.rating)} ({props.gameDetails.rating}) /5</h4> : null}
                 </div>
                 <div className="rightInfo">
                     {props.gameDetails.metacritic ? <h4 className="infoBoxTitles"><strong>Metacritic Score: </strong>{props.gameDetails.metacritic}/100</h4> : null}
