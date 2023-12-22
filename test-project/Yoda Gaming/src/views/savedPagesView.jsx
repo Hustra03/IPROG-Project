@@ -13,32 +13,33 @@ function SavedPagesView(props){
 
         if (props.savedPages.length == 0) {
             return <div className="noSavedPagesContainer">
-                        <div className="noSavedPages">
-                            <div>Huh, It Seems That You Don't Have Any Games Saved Yet.</div>
-                            <CButton onClick={backToMainMenuCB} className="noSavedPagesReturn">Find One In The Main Menu</CButton>
-                            <div>Or</div>
-                            <CButton onClick={backToSearchCB} className="noSavedPagesReturn">Search For One To Save</CButton>
-                        </div>
+                    <div className="noSavedPages">
+                        <div>Huh, It Seems That You Don't Have Any Games Saved Yet.</div>
+                        <CButton onClick={backToMainMenuCB} className="noSavedPagesReturn">Find One In The Main Menu</CButton>
+                        <div>Or</div>
+                        <CButton onClick={backToSearchCB} className="noSavedPagesReturn">Search For One To Save</CButton>
                     </div>
+                </div>
         }
 
         if (props.savedPages.length>0){
 
-                return <div className="savedPagesContainer">
-                    <div className="savedPagesHeader">
-                        <div className="savedPagesIntro">Your Saved Games</div>
-                        <div className="savedPagesHeaderButtons">
-                            {generateEditButton()}
-                            {generateRemoveAllGamesButton()}
-                        </div>
-                    </div>
-                    <div className="savedPagesGameContainer">
-                        {props.savedPages.map(savedPagesMapCB)}
+            return <div className="savedPagesContainer">
+                <div className="savedPagesHeader">
+                    <div className="savedPagesIntro">Your Saved Games</div>
+                    <div className="savedPagesHeaderButtons">
+                    {generateEditButton()}
+                    {generateRemoveAllGamesButton()}
                     </div>
                 </div>
-            }
+                <div className="savedPagesGameContainer">
+                    {props.savedPages.map(savedPagesMapCB)}
+                </div>
+            </div>
+        }
 
-            else{return <div>this shouldn't happen
+        else{
+            return <div>this shouldn't happen
                 <button onClick={clearSavedPagesCB}>clear saved pages</button>
                 {console.log("saved pages is an array? " + Array.isArray(props.savedPages) + " length of savedPages= ")}
                 {console.log(props.savedPages.length)}
