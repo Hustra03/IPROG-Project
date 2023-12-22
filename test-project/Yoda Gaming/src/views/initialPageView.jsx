@@ -22,7 +22,7 @@ function InitialPageView(props) {
     function aboutHandlerACB(){
         props.aboutCategory();
     }
-    function displayGameCB(game){
+    function displayGameACB(game){
         return(
             <CCarouselItem key={game.id}>
                 <img onClick={clickedOnGameHandlerACB} src={game.background_image} className='homepageImage'/>
@@ -87,7 +87,7 @@ function InitialPageView(props) {
 
             <span>
                 <CCarousel controls indicators>
-                {props.searchResults.map(displayGameCB)}
+                {props.searchResults.map(displayGameACB)}
                 </CCarousel>
                 
             </span>
