@@ -4,11 +4,11 @@ import {SearchResultView} from "../views/searchResultView";
 
 export default
     function SearchResultPresenter(props) {
-    return (
-        <div>
-            {showResult()}
-        </div>
-    );
+        return (
+            <div>
+                {showResult()}
+            </div>
+        );
 
     function showResult(){
         if (!props.model.searchResultsPromiseState.promise) {
@@ -24,8 +24,8 @@ export default
                 pages = {props.model.searchParams.page_size}
                 search={props.model.search}
                 searchResults={props.model.searchResultsPromiseState.data} 
-                chosenGame={chosenGameCustomEventHandler}
-                loadMoreGames={loadMoreGamesCustomEventHandler}
+                chosenGame={chosenGameACB}
+                loadMoreGames={loadMoreGamesACB}
             />
         }
 
@@ -37,12 +37,12 @@ export default
         return <div>{props.model.searchResultsPromiseState.error}</div>
     }
 
-    function chosenGameCustomEventHandler(game){
+    function chosenGameACB(game){
         props.model.setPage(game.id)
         props.model.changeUpdateViewHistoryValue(true);
     }
 
-    function loadMoreGamesCustomEventHandler(){
+    function loadMoreGamesACB(){
         console.log(props.model.searchParams.page_size)
         if (props.model.searchParams.page_size < 40 ){
             props.model.setSearchPageLimit(props.model.searchParams.page_size + 10);
