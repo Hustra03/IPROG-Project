@@ -1,11 +1,11 @@
 import "/src/style.css"
-import { CForm, CFormInput, CButton, CFormSelect, CFormCheck } from '@coreui/vue';
+import { CButton } from '@coreui/vue';
 
 //file mainly worked on by Eliaz Biderstrand
 
 function SearchResultView(props) {
 
-    function loadMoreGamesCB() {props.loadMoreGames();}
+    function loadMoreGamesACB() {props.loadMoreGames();}
     return(
     <div className="searchResultsOuterContainer">
         <div className="searchResultsContainer">
@@ -22,28 +22,28 @@ function SearchResultView(props) {
 
     function loadMoreButton(){
         if (props.pages < 40){
-            return <CButton onClick={loadMoreGamesCB} className="searchResultLoadMoreButton">Load More Games</CButton>
+            return <CButton onClick={loadMoreGamesACB} className="searchResultLoadMoreButton">Load More Games</CButton>
         }
         return <div className="searchResultLoadMoreButtonDeactive">No More Games To Load, Try To Search With More Detail If You Did Not Find What You Were Looking For.</div>
     }
 
     function searchResultsMapCB(game){
-        function onSearchResultClickCB(){
+        function onSearchResultClickACB(){
             props.chosenGame(game);
             window.location.hash = "#/details"
         }
 
         return (
-            <div onClick={onSearchResultClickCB} className="searchResult">
+            <div onClick={onSearchResultClickACB} className="searchResult">
                 <img
-                    onClick={onSearchResultClickCB}
+                    onClick={onSearchResultClickACB}
                     className="searchResultImage" 
                     src={game.background_image} 
                     alt="game image"
                     >
                 </img>
                 <div class="SearchResultTitleAndInfo">
-                    <div onClick={onSearchResultClickCB} className="searchResultTitle">{game.name}</div>
+                    <div onClick={onSearchResultClickACB} className="searchResultTitle">{game.name}</div>
                     <div className="searchResultRating">Rating: {game.rating}</div>
                     <span className="searchResultInfo">Released: {game.released}</span>
                 </div>

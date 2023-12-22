@@ -118,6 +118,7 @@
 
 .searchResultsContainer {
     margin:2%;
+    min-height: 87vh;
 }
 
 .searchResultsHeader {
@@ -221,7 +222,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 85.6vh;
+    min-height: 87vh;
     background-color: #4B7D00;
     padding-top: 1px;
     padding-bottom: 1px;

@@ -10,29 +10,29 @@ export default
                 savedPages={props.model.savedPages}
                 loggedIn={props.model.user}
                 inDeleteState={props.model.deleteState}
-                clearSavedPages={clearSavedPagesCustomEventHandler}
-                chosenGame={chosenGameCustomEventHandler}
-                toggleDeleteState={toggleDeleteStateCustomEventHandler}
-                removeGame={removeGameCustomEventHandler}
+                clearSavedPages={clearSavedPagesCustomEventHandlerACB}
+                chosenGame={chosenGameCustomEventHandlerACB}
+                toggleDeleteState={toggleDeleteStateCustomEventHandlerACB}
+                removeGame={removeGameCustomEventHandlerACB}
             />
         </div>
     );
 
-    function clearSavedPagesCustomEventHandler() {
+    function clearSavedPagesCustomEventHandlerACB() {
         props.model.clearSavedPages();
         props.model.setDeleteStateFalse();
     }
 
-    function chosenGameCustomEventHandler(game){
+    function chosenGameCustomEventHandlerACB(game){
         props.model.setPage(game.id)
         props.model.setDeleteStateFalse();
     }
 
-    function toggleDeleteStateCustomEventHandler(){
+    function toggleDeleteStateCustomEventHandlerACB(){
         props.model.toggleDeleteState();
     }
 
-    function removeGameCustomEventHandler(game){
+    function removeGameCustomEventHandlerACB(game){
         props.model.removeFromSavedPages(game);
     }
 

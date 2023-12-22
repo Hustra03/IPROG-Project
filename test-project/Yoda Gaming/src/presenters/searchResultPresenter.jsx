@@ -24,8 +24,8 @@ export default
                 pages = {props.model.searchParams.page_size}
                 search={props.model.search}
                 searchResults={props.model.searchResultsPromiseState.data} 
-                chosenGame={chosenGameCustomEventHandler}
-                loadMoreGames={loadMoreGamesCustomEventHandler}
+                chosenGame={chosenGameCustomEventHandlerACB}
+                loadMoreGames={loadMoreGamesCustomEventHandlerACB}
             />
         }
 
@@ -37,12 +37,12 @@ export default
         return <div>{props.model.searchResultsPromiseState.error}</div>
     }
 
-    function chosenGameCustomEventHandler(game){
+    function chosenGameCustomEventHandlerACB(game){
         props.model.setPage(game.id)
         props.model.changeUpdateViewHistoryValue(true);
     }
 
-    function loadMoreGamesCustomEventHandler(){
+    function loadMoreGamesCustomEventHandlerACB(){
         console.log(props.model.searchParams.page_size)
         if (props.model.searchParams.page_size < 40 ){
             props.model.setSearchPageLimit(props.model.searchParams.page_size + 10);

@@ -4,10 +4,10 @@ import { CButton, } from '@coreui/vue';
 
 function SavedPagesView(props){
 
-    function backToMainMenuCB() {window.location.hash = "#/"; }
-    function backToSearchCB() {window.location.hash = "#/search"; }
-    function clearSavedPagesCB() {props.clearSavedPages();}
-    function editSavedPagesCB() {props.toggleDeleteState();}
+    function backToMainMenuACB() {window.location.hash = "#/"; }
+    function backToSearchACB() {window.location.hash = "#/search"; }
+    function clearSavedPagesACB() {props.clearSavedPages();}
+    function editSavedPagesACB() {props.toggleDeleteState();}
 
     if (props.loggedIn) {
 
@@ -15,9 +15,9 @@ function SavedPagesView(props){
             return <div className="noSavedPagesContainer">
                     <div className="noSavedPages">
                         <div>Huh, It Seems That You Don't Have Any Games Saved Yet.</div>
-                        <CButton onClick={backToMainMenuCB} className="noSavedPagesReturn">Find One In The Main Menu</CButton>
+                        <CButton onClick={backToMainMenuACB} className="noSavedPagesReturn">Find One In The Main Menu</CButton>
                         <div>Or</div>
-                        <CButton onClick={backToSearchCB} className="noSavedPagesReturn">Search For One To Save</CButton>
+                        <CButton onClick={backToSearchACB} className="noSavedPagesReturn">Search For One To Save</CButton>
                     </div>
                 </div>
         }
@@ -41,7 +41,7 @@ function SavedPagesView(props){
 
         else{
             return <div>this shouldn't happen
-                <button onClick={clearSavedPagesCB}>clear saved pages</button>
+                <button onClick={clearSavedPagesACB}>clear saved pages</button>
                 {console.log("saved pages is an array? " + Array.isArray(props.savedPages) + " length of savedPages= ")}
                 {console.log(props.savedPages.length)}
             </div>
@@ -59,7 +59,7 @@ function SavedPagesView(props){
 
             const confirmed = window.confirm("Are you sure you want to remove all saved games? This cannot be undone.");
             if (confirmed) {
-                clearSavedPagesCB();
+                clearSavedPagesACB();
             }
         }
     
@@ -74,18 +74,18 @@ function SavedPagesView(props){
 
     function generateEditButton(){
         if (props.inDeleteState === false){
-            return <CButton onClick={editSavedPagesCB} className="savedPagesEditButton">Edit</CButton>
+            return <CButton onClick={editSavedPagesACB} className="savedPagesEditButton">Edit</CButton>
         }
-        return <CButton onClick={editSavedPagesCB} className="savedPagesEditButton">Done</CButton>
+        return <CButton onClick={editSavedPagesACB} className="savedPagesEditButton">Done</CButton>
     }
 
     function savedPagesMapCB(game){
-        function onSavedPageClickCB(){
+        function onSavedPageClickACB(){
             props.chosenGame(game);
             window.location.hash = "#/details"
         }
 
-        function onRemoveGameClickCB() {
+        function onRemoveGameClickACB() {
             props.removeGame(game);
         }
 
@@ -93,7 +93,7 @@ function SavedPagesView(props){
             if (props.inDeleteState == false){
                 return
             }
-            return <div><CButton className="savedPagesRemoveButton" onClick={onRemoveGameClickCB}>X</CButton></div>
+            return <div><CButton className="savedPagesRemoveButton" onClick={onRemoveGameClickACB}>X</CButton></div>
         }
 
         return (
@@ -102,13 +102,13 @@ function SavedPagesView(props){
                     <img
                         className="savedPagesImage"
                         src={game.image}
-                        onClick={onSavedPageClickCB}
+                        onClick={onSavedPageClickACB}
                         alt="game image"
                     />
                 </div>
                 {generateRemoveButton()}
                     <div className="savedPagesTitleContainer">
-                        <h3 onClick={onSavedPageClickCB} className="savedPagesGameTitle">{game.name}</h3>
+                        <h3 onClick={onSavedPageClickACB} className="savedPagesGameTitle">{game.name}</h3>
                     </div>
             </div>
         )
