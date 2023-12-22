@@ -32,7 +32,16 @@ export default {
   currentCat:0, //current category used for homepage button disable functionality
   deleteState: false, //used in delete button functionality in saved pages
   inSearchResult: false, //used to determine if the user is in search, used for load more button functionality 
+  showHistory:false,
   updateViewHistory:false,
+
+  changeShowHistoryValue(){
+    console.log(this.showHistory)
+    if(this.showHistory===true)
+    this.showHistory=false;
+    else(this.showHistory=true)
+    console.log(this.showHistory)
+  },
 
   changeUpdateViewHistoryValue(val){
     this.updateViewHistory=val;

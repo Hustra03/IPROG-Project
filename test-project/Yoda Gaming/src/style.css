@@ -13,6 +13,7 @@
     display: flex;
     flex-direction: row;
     overflow-x: auto;
+    overflow-y:hidden
 }
 
 .header {
@@ -93,8 +94,14 @@
 
 .ViewingHistory {
     border-style: solid;
-    border-color: cyan;
-    border-width: 1cap;
+    border-color: lightgreen;
+    border-width: 1px;
+    text-align: center;
+    color:#007324;
+    font-family: Georgia, serif;
+    padding:2%;
+    overflow-y: hidden;
+    font-weight: bold;
 }
 
 .viewHistory {
@@ -705,3 +712,8 @@
 .homepageBackground{
     background-color:#d0c494;
 }
+
+.hoverpointer{
+    cursor:pointer;
+}
+

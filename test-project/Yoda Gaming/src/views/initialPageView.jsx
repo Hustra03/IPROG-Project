@@ -47,7 +47,7 @@ function InitialPageView(props) {
                 <button className='homepageButton'>Seasonal(not done)</button>
                 <button className='homepageButton' disabled={props.currentCat===5} onClick={aboutHandlerACB}>About</button>
             </div>
-                <div className='homepageAbout'>A gaming wiki created by me(Yoda<img src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>) to learn about the best games Yoda gaming is,
+                <div className='homepageAbout'>Hrrmmm. A gaming wiki created by me(Yoda<img src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>) to learn about the best games Yoda gaming is,
                  home to a large community of Jedi and Sith gamers alike it is, all equal on Yoda gaming we are.
                  My children/5 ratings for games are.
                  </div>
