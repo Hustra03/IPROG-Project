@@ -224,7 +224,8 @@ export default {
     }
     this.viewHistory = this.viewHistory.filter(removePageFromViewHistoryCB);
     this.viewHistory = [...this.viewHistory, pageToAdd];
-    //console.log(this.viewHistory);
+    console.log("View history updated")
+    console.log(this.viewHistory);
   },
 
   setAllUpvotes(persistedAllUpvotes)

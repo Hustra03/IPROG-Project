@@ -52,6 +52,7 @@ function Details(props) {
                     totalUpvotesForCurrentGame={getCurrentGameUpvotes(props.model.allUpvotes, props.model.currentPagePromiseState.data.id)}
                     hasUserUpvotedGameCustomEvent={hasUserUpvotedGameCustomEventHandler}
                     loadYodafyDescriptionCustomEvent={loadYodafyDescriptionCustomEventHandler}
+                    addCurrentPageToViewHistoryCustomEvent={addCurrentPageToViewHistoryCustomEventHandler}
                     />
                 </div>
             );
@@ -84,6 +85,9 @@ function Details(props) {
     }
     function loadYodafyDescriptionCustomEventHandler(){
         props.model.loadYodafyDescription();
+    }
+    function addCurrentPageToViewHistoryCustomEventHandler(){
+        props.model.addCurrentPageToViewHistory();
     }
     return (
         <div>

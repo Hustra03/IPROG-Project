@@ -35,6 +35,11 @@ function PageDetailsView(props) {
     function loadYodafyDescriptionACB(){
         props.loadYodafyDescriptionCustomEvent();
     }
+    function addCurrentPageToViewHistory(){
+        props.addCurrentPageToViewHistoryCustomEvent();
+    }
+
+    addCurrentPageToViewHistory();
     return (
         <div className="gameDetails">
 
