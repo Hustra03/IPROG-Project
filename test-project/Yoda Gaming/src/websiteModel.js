@@ -36,11 +36,11 @@ export default {
   updateViewHistory:false,
 
   changeShowHistoryValue(){
-    console.log(this.showHistory)
+    //(this.showHistory)
     if(this.showHistory===true)
     this.showHistory=false;
     else(this.showHistory=true)
-    console.log(this.showHistory)
+    //console.log(this.showHistory)
   },
 
   changeUpdateViewHistoryValue(val){
@@ -234,8 +234,8 @@ export default {
     }
     this.viewHistory = this.viewHistory.filter(removePageFromViewHistoryCB);
     this.viewHistory = [...this.viewHistory, pageToAdd];
-    console.log("View history updated")
-    console.log(this.viewHistory);
+    //console.log("View history updated")
+    //console.log(this.viewHistory);
     this.updateViewHistory=false;//set to false to prevent repetitive updates
   },
 
