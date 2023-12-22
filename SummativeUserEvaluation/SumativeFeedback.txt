@@ -1,5 +1,7 @@
 Summative user evaluation notes:
 
+Refer to the PNG available above for the state of the website during the summative user evaluation, and the current state for the version after since these changes where among the last made to the website.
+
 Overall:
 
 1. Find a color palette, which has good readability while still being in theme. 
