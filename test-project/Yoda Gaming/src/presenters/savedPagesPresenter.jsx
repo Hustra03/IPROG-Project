@@ -9,15 +9,11 @@ export default
             <SavedPagesView
                 savedPages={props.model.savedPages}
                 loggedIn={props.model.user}
-                alertBody={props.model.alertBody}
-                alertVisability={props.model.alertVisability}
-                clearSavedPages={clearSavedPagesCustomEventHandler}
-                alertBodyChange={onAlertBodyChangeCustomEventHandler}
-                closeAlert={closeAlertCustomEventHandler}
-                chosenGame={chosenGameCustomEventHandler}
-                removeGame={removeGameCustomEventHandler}
                 deleteState={props.model.deleteState}
+                clearSavedPages={clearSavedPagesCustomEventHandler}
+                chosenGame={chosenGameCustomEventHandler}
                 toggleDeleteState={toggleDeleteStateCustomEventHandler}
+                removeGame={removeGameCustomEventHandler}
             />
         </div>
     );
@@ -39,12 +35,4 @@ export default
         props.model.removeFromSavedPages(game);
     }
 
-    function closeAlertCustomEventHandler() {
-        props.model.setAlertVisability(false); 
-    }
-
-    function onAlertBodyChangeCustomEventHandler(alertBody) {
-        props.model.setAlertBody(alertBody);
-        props.model.setAlertVisability(true);
-    }
 }
