@@ -108,7 +108,7 @@ function SavedPagesView(props){
                 </div>
                 {generateRemoveButton()}
                     <div className="savedPagesTitleContainer">
-                        <t onClick={onSavedPageClickCB} className="savedPagesGameTitle">{game.name}</t>
+                        <h3 onClick={onSavedPageClickCB} className="savedPagesGameTitle">{game.name}</h3>
                     </div>
             </div>
         )
