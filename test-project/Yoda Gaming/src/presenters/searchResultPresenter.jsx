@@ -39,6 +39,7 @@ export default
 
     function chosenGameCustomEventHandler(game){
         props.model.setPage(game.id)
+        props.model.changeUpdateViewHistoryValue(true);
     }
 
     function loadMoreGamesCustomEventHandler(){
