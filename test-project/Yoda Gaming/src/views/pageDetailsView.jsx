@@ -8,39 +8,39 @@ function PageDetailsView(props) {
 
     const firstFiveTags = props.gameDetails.tags.slice(0, 9);
     const moreTags = props.gameDetails.tags.length > 9;
-    function changeTagsToDisplayCB() {
-        props.showAllTagsCustomEvent();
+    function clickedToggleTagsToDisplayHandlerACB() {
+        props.toggleShowingTagsCustomEvent();
     }
-    function addGameToSavedPagesCB(){
+    function clickedAddGameToSavedPagesHandlerACB(){
         props.addGameToSavedPagesCustomEvent();
     }
-    function removeGameToSavedPagesCB(){
+    function clickedRemoveGameToSavedPagesHandlerACB(){
         props.removeGameToSavedPagesCustomEvent(props.gameDetails);
     }
-    function toggleShowCoverImageCB(){
+    function clickedToggleShowCoverImageHandlerACB(){
         props.toggleShowCoverImageCustomEvent();
     }
-    function loadScreenshotsACB(){
+    function clickedLoadScreenshotsHandlerACB(){
         props.loadScreenshotsCustomEvent();
     }
-    function toggleYodafyDescriptionCB(){
+    function clickedToggleYodafyDescriptionHandlerACB(){
         props.toggleYodafyDescriptionCustomEvent();
     }
-    function toggleUpvoteGameCB(){
+    function clickedToggleUpvoteGameHandlerACB(){
         props.toggleUpvoteGameCustomEvent(props.gameDetails.id);
     }
-    function hasUserUpvotedGameCB(){
+    function hasUserUpvotedGameHandlerACB(){
         return props.hasUserUpvotedGameCustomEvent(props.gameDetails.id);
     }
-    function loadYodafyDescriptionACB(){
+    function clickedLoadYodafyDescriptionHandlerACB(){
         props.loadYodafyDescriptionCustomEvent();
     }
-    function addCurrentPageToViewHistory(){
+    function addCurrentPageToViewHistoryHandlerACB(){
         props.addCurrentPageToViewHistoryCustomEvent();
     }
 
     if(props.shouldViewHistoryUpdate){//Triggers once, when the user has clicked on a game 
-        addCurrentPageToViewHistory();
+        addCurrentPageToViewHistoryHandlerACB();
     }
 
     return (
@@ -116,14 +116,14 @@ function PageDetailsView(props) {
             return (
                 <div>
                     {(firstFiveTags).map(displayTagsCB)}
-                    {moreTags ? <CButton onClick={changeTagsToDisplayCB} type="submit" color="dark" size="sm">Show more tags</CButton> : null}
+                    {moreTags ? <CButton onClick={clickedToggleTagsToDisplayHandlerACB} type="submit" color="dark" size="sm">Show more tags</CButton> : null}
                 </div>
             )
         }
         return (
             <div>
                 {(props.gameDetails.tags).map(displayTagsCB)}
-                {moreTags ? <CButton onClick={changeTagsToDisplayCB} type="submit" color="dark" size="sm">Show less tags</CButton> : null}
+                {moreTags ? <CButton onClick={clickedToggleTagsToDisplayHandlerACB} type="submit" color="dark" size="sm">Show less tags</CButton> : null}
             </div>
             
 
@@ -137,19 +137,19 @@ function PageDetailsView(props) {
             }
             if(props.savedPages.some(isGameInSavedPagesCB)){
                 return(
-                    <CButton onClick={removeGameToSavedPagesCB} type="submit" color="danger" style={{ margin: '10px' }}>Remove this game from your saved pages</CButton>
+                    <CButton onClick={clickedRemoveGameToSavedPagesHandlerACB} type="submit" color="danger" style={{ margin: '10px' }}>Remove this game from your saved pages</CButton>
                 )
             }
             else
                 return(
-                    <CButton onClick={addGameToSavedPagesCB} type="submit" color="success" style={{ margin: '10px' }} >Add this game to your saved pages</CButton>
+                    <CButton onClick={clickedAddGameToSavedPagesHandlerACB} type="submit" color="success" style={{ margin: '10px' }} >Add this game to your saved pages</CButton>
                 )
         }
     }
     function showUpvoteGameButton(){
         if(props.loggedIn){
             return(
-                <CButton onClick={toggleUpvoteGameCB} type="submit" color="success" style={{ margin: '10px' }} >{hasUserUpvotedGameCB() ? "Remove upvote | Upvotes: " + props.totalUpvotesForCurrentGame :  "Upvote game | Upvotes: " + props.totalUpvotesForCurrentGame}</CButton>
+                <CButton onClick={clickedToggleUpvoteGameHandlerACB} type="submit" color="success" style={{ margin: '10px' }} >{hasUserUpvotedGameHandlerACB() ? "Remove upvote | Upvotes: " + props.totalUpvotesForCurrentGame :  "Upvote game | Upvotes: " + props.totalUpvotesForCurrentGame}</CButton>
             )
         }
     }
@@ -193,21 +193,21 @@ function PageDetailsView(props) {
         }
     function imageButtonToShow(){
         if (!props.gameScreenshots){
-            return <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={loadScreenshotsACB} >Load and Show Screenshots</CButton> //Inline css because giving it a class overrites the styling of the thirdParty component
+            return <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={clickedLoadScreenshotsHandlerACB} >Load and Show Screenshots</CButton> //Inline css because giving it a class overrites the styling of the thirdParty component
         }
         if(props.showCoverImage)
-            return <CButton type="submit" color="success"  style={{ margin: '10px' }} onClick={toggleShowCoverImageCB} >Show Screenshots</CButton>
+            return <CButton type="submit" color="success"  style={{ margin: '10px' }} onClick={clickedToggleShowCoverImageHandlerACB} >Show Screenshots</CButton>
         else
-            return <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={toggleShowCoverImageCB} >Show Cover Image</CButton>
+            return <CButton type="submit" color="success" style={{ margin: '10px' }} onClick={clickedToggleShowCoverImageHandlerACB} >Show Cover Image</CButton>
 
     }
     function descriptionButtonToShow(){
         if(!props.yodafiedDescriptionText)
-            return  <CButton type="submit" color="success" style={{ marginLeft: 'auto' }} onClick={loadYodafyDescriptionACB} >Yodafy translate description text</CButton>
+            return  <CButton type="submit" color="success" style={{ marginLeft: 'auto' }} onClick={clickedLoadYodafyDescriptionHandlerACB} >Yodafy translate description text</CButton>
         if(props.yodafy)
-            return  <CButton type="submit" color="success" style={{ marginLeft: 'auto' }} onClick={toggleYodafyDescriptionCB} >Show original description text</CButton>
+            return  <CButton type="submit" color="success" style={{ marginLeft: 'auto' }} onClick={clickedToggleYodafyDescriptionHandlerACB} >Show original description text</CButton>
         else
-            return  <CButton type="submit" color="success" style={{ marginLeft: 'auto' }} onClick={toggleYodafyDescriptionCB} >Show Yodafied description text</CButton>
+            return  <CButton type="submit" color="success" style={{ marginLeft: 'auto' }} onClick={clickedToggleYodafyDescriptionHandlerACB} >Show Yodafied description text</CButton>
     }
     function descriptionTextToShow(){
         if(!props.yodafy || !props.yodafiedDescriptionText)

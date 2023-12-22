@@ -32,18 +32,18 @@ function Details(props) {
                     showAllTags={props.model.showAllTags} 
                     savedPages={props.model.savedPages}
                     showCoverImage={props.model.showCoverImage}
-                    showAllTagsCustomEvent={showAllTagsCustomEventHandler} 
-                    addGameToSavedPagesCustomEvent={addGameToSavedPagesCustomEventHandler}
-                    removeGameToSavedPagesCustomEvent={removeGameToSavedPagesCustomEventHandler}
+                    toggleShowingTagsCustomEvent={showAllTagsCustomEventHandlerACB} 
+                    addGameToSavedPagesCustomEvent={addGameToSavedPagesCustomEventHandlerACB}
+                    removeGameToSavedPagesCustomEvent={removeGameToSavedPagesCustomEventHandlerACB}
                     loggedIn={props.model.user}
-                    loadScreenshotsCustomEvent={loadScreenshotsCustomEventHandler}
-                    toggleShowCoverImageCustomEvent={toggleShowCoverImageCustomEventHandler}
-                    toggleYodafyDescriptionCustomEvent={toggleYodafyDescriptionCutomEventHandler}
-                    toggleUpvoteGameCustomEvent={toggleUpvoteGameCustomEventHandler}
+                    loadScreenshotsCustomEvent={loadScreenshotsCustomEventHandlerACB}
+                    toggleShowCoverImageCustomEvent={toggleShowCoverImageCustomEventHandlerACB}
+                    toggleYodafyDescriptionCustomEvent={toggleYodafyDescriptionCutomEventHandlerACB}
+                    toggleUpvoteGameCustomEvent={toggleUpvoteGameCustomEventHandlerACB}
                     totalUpvotesForCurrentGame={getCurrentGameUpvotes(props.model.allUpvotes, props.model.currentPagePromiseState.data.id)}
-                    hasUserUpvotedGameCustomEvent={hasUserUpvotedGameCustomEventHandler}
-                    loadYodafyDescriptionCustomEvent={loadYodafyDescriptionCustomEventHandler}
-                    addCurrentPageToViewHistoryCustomEvent={addCurrentPageToViewHistoryCustomEventHandler}
+                    hasUserUpvotedGameCustomEvent={hasUserUpvotedGameCustomEventHandlerACB}
+                    loadYodafyDescriptionCustomEvent={loadYodafyDescriptionCustomEventHandlerACB}
+                    addCurrentPageToViewHistoryCustomEvent={addCurrentPageToViewHistoryCustomEventHandlerACB}
                     shouldViewHistoryUpdate={props.model.updateViewHistory}//boolean should you update view history?
                     />
                 </div>
@@ -51,34 +51,34 @@ function Details(props) {
         }
     }
     
-    function showAllTagsCustomEventHandler(){
+    function showAllTagsCustomEventHandlerACB(){
         props.model.toggleShowAllTags();
     }
-    function addGameToSavedPagesCustomEventHandler(){
+    function addGameToSavedPagesCustomEventHandlerACB(){
         props.model.addGameToSavedPages();
     }
-    function removeGameToSavedPagesCustomEventHandler(game){
+    function removeGameToSavedPagesCustomEventHandlerACB(game){
         props.model.removeFromSavedPages(game);
     }
-    function toggleYodafyDescriptionCutomEventHandler(){
+    function toggleYodafyDescriptionCutomEventHandlerACB(){
         props.model.toggleYodafyValue();
     }
-    function toggleShowCoverImageCustomEventHandler(){
+    function toggleShowCoverImageCustomEventHandlerACB(){
         props.model.toggleShowCoverImage();
     }
-    function loadScreenshotsCustomEventHandler(){
+    function loadScreenshotsCustomEventHandlerACB(){
         props.model.loadScreenshotsForCurrentGame();
     }
-    function toggleUpvoteGameCustomEventHandler(id){
+    function toggleUpvoteGameCustomEventHandlerACB(id){
         props.model.updateAllUpvotes(id);
     }
-    function hasUserUpvotedGameCustomEventHandler(id){
+    function hasUserUpvotedGameCustomEventHandlerACB(id){
         return props.model.hasUserUpvotedGame(id);
     }
-    function loadYodafyDescriptionCustomEventHandler(){
+    function loadYodafyDescriptionCustomEventHandlerACB(){
         props.model.loadYodafyDescription();
     }
-    function addCurrentPageToViewHistoryCustomEventHandler(){
+    function addCurrentPageToViewHistoryCustomEventHandlerACB(){
         props.model.addCurrentPageToViewHistory();
     }
     return (
