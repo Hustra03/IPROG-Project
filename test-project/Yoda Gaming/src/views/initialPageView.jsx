@@ -28,6 +28,10 @@ function InitialPageView(props) {
         props.aboutCategory();
     }
 
+    function thisMonthHandlerACB(){
+        props.thisMonthCategory();
+    }
+
     function displayGameACB(game){
         return(
             <CCarouselItem key={game.id}>
@@ -52,6 +56,7 @@ function InitialPageView(props) {
                         <CButton color="success" size="lg" onClick={bestLastYearHandlerACB}>Best 2022</CButton>
                         <CButton color="success" size="lg" onClick={best2021HandlerACB}>Best 2021</CButton>
                         <CButton color="success" size="lg" onClick={seasonalHandlerACB}>Seasonal</CButton>
+                        <CButton color="success" size="lg" onClick={thisMonthHandlerACB}>Best This Month</CButton>
                         <CButton color="success" size="lg" disabled={props.currentCat===5} onClick={aboutHandlerACB}>About</CButton>
                     </CButtonGroup>
                 </div>
@@ -81,6 +86,7 @@ function InitialPageView(props) {
                     <CButton color="success" size="lg" disabled={props.currentCat === 2} onClick={bestLastYearHandlerACB}>Best 2022</CButton>
                     <CButton color="success" size="lg" disabled={props.currentCat === 3} onClick={best2021HandlerACB}>Best 2021</CButton>
                     <CButton color="success" size="lg" disabled={props.currentCat === 4} onClick={seasonalHandlerACB}>Seasonal</CButton>
+                    <CButton color="success" size="lg" disabled={props.currentCat === 6} onClick={thisMonthHandlerACB}>Best This Month</CButton>
                     <CButton color="success" size="lg" onClick={aboutHandlerACB}>About</CButton>
                 </CButtonGroup>
                 
