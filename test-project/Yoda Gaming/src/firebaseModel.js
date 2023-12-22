@@ -13,8 +13,8 @@ import firebaseConfig from "./firebaseConfig.js";
 const app = initializeApp(firebaseConfig)
 const db = getDatabase(app)
 
-console.log("Database")
-console.log(db)
+//console.log("Database")
+//console.log(db)
 
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth"
 const auth = getAuth(app);
