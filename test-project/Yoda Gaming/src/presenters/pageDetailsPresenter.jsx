@@ -43,6 +43,7 @@ function Details(props) {
                     showCoverImage={props.model.showCoverImage}
                     showAllTagsCustomEvent={showAllTagsCustomEventHandler} 
                     addGameToSavedPagesCustomEvent={addGameToSavedPagesCustomEventHandler}
+                    removeGameToSavedPagesCustomEvent={removeGameToSavedPagesCustomEventHandler}
                     loggedIn={props.model.user}
                     loadScreenshotsCustomEvent={loadScreenshotsCustomEventHandler}
                     toggleShowCoverImageCustomEvent={toggleShowCoverImageCustomEventHandler}
@@ -51,6 +52,8 @@ function Details(props) {
                     totalUpvotesForCurrentGame={getCurrentGameUpvotes(props.model.allUpvotes, props.model.currentPagePromiseState.data.id)}
                     hasUserUpvotedGameCustomEvent={hasUserUpvotedGameCustomEventHandler}
                     loadYodafyDescriptionCustomEvent={loadYodafyDescriptionCustomEventHandler}
+                    addCurrentPageToViewHistoryCustomEvent={addCurrentPageToViewHistoryCustomEventHandler}
+                    shouldUpdate={props.model.updateViewHistory}//boolean should you update view history?
                     />
                 </div>
             );
@@ -62,6 +65,9 @@ function Details(props) {
     }
     function addGameToSavedPagesCustomEventHandler(){
         props.model.addGameToSavedPages();
+    }
+    function removeGameToSavedPagesCustomEventHandler(game){
+        props.model.removeFromSavedPages(game);
     }
     function toggleYodafyDescriptionCutomEventHandler(){
         props.model.toggleYodafyValue();
@@ -80,6 +86,9 @@ function Details(props) {
     }
     function loadYodafyDescriptionCustomEventHandler(){
         props.model.loadYodafyDescription();
+    }
+    function addCurrentPageToViewHistoryCustomEventHandler(){
+        props.model.addCurrentPageToViewHistory();
     }
     return (
         <div>

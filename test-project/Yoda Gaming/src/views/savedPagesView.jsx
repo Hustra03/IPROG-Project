@@ -1,4 +1,3 @@
-import "/src/style.css"
 import { CButton, } from '@coreui/vue';
 
 //file mainly worked on by Eliaz Biderstrand
@@ -26,8 +25,6 @@ function SavedPagesView(props){
         if (props.savedPages.length>0){
 
                 return <div className="savedPagesContainer">
-                    {/* {console.log("savedPages:" + props.savedPages)}
-                    {console.log("saved pages is an array? " + Array.isArray(props.savedPages))} */}
                     <div className="savedPagesHeader">
                         <div className="savedPagesIntro">Your Saved Games</div>
                         <div className="savedPagesHeaderButtons">
@@ -38,7 +35,6 @@ function SavedPagesView(props){
                     <div className="savedPagesGameContainer">
                         {props.savedPages.map(savedPagesMapCB)}
                     </div>
-                    
                 </div>
             }
 

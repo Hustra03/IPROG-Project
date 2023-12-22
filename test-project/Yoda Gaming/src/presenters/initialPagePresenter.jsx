@@ -4,43 +4,44 @@ export default
     function InitialPagePresenter(props) {
         //{props.model.searchParams.search="TESTSEARCH"};
     
-    function recentlyReleasedCategoryClicked(){
-        props.model.setCurrentCat(1);
-        props.model.searchParams.search=null;
-        props.model.setShowAbout(false);
-        props.model.setSearchMinMetacritic(10);
-        props.model.setSearchMaxMetacritic(100);
-        props.model.setDates("2023-01-01,2023-12-31");
-        props.model.doSearch(true);
-    }
-    function bestLastYearCategoryClicked(){
-        //{props.model.setSearchType("singleplayer")};
-        props.model.setCurrentCat(2);
-        props.model.searchParams.search=null;
-        props.model.setShowAbout(false);
-        props.model.setSearchMinMetacritic(90);
-        props.model.setSearchMaxMetacritic(100);
-        props.model.setDates("2022-01-01,2022-12-31");
-        props.model.doSearch(true);
-    }
-    function best2021CategoryClicked(){
-        props.model.setCurrentCat(3);
-        props.model.searchParams.search=null;
-        props.model.setShowAbout(false);
-        props.model.setSearchMinMetacritic(90);
-        props.model.setSearchMaxMetacritic(100);
-        props.model.setDates("2021-01-01,2021-12-31");
-        props.model.doSearch(true);
-    }
-    function aboutCategoryClicked(){
-        props.model.setCurrentCat(5);
-        props.model.setShowAbout(true);
-    }
-    function clickedOnGame(game){
-        props.model.setShowAbout(false);
-        console.log("Fired Custom Event Click on game");
-        props.model.setPage(game.id);
-    }
+        function recentlyReleasedCategoryClicked(){
+            props.model.setCurrentCat(1);
+            props.model.searchParams.search=null;
+            props.model.setShowAbout(false);
+            props.model.setSearchMinMetacritic(10);
+            props.model.setSearchMaxMetacritic(100);
+            props.model.setDates("2023-01-01,2023-12-31");
+            props.model.doSearch(true);
+        }
+        function bestLastYearCategoryClicked(){
+            //{props.model.setSearchType("singleplayer")};
+            props.model.setCurrentCat(2);
+            props.model.searchParams.search=null;
+            props.model.setShowAbout(false);
+            props.model.setSearchMinMetacritic(90);
+            props.model.setSearchMaxMetacritic(100);
+            props.model.setDates("2022-01-01,2022-12-31");
+            props.model.doSearch(true);
+        }
+        function best2021CategoryClicked(){
+            props.model.setCurrentCat(3);
+            props.model.searchParams.search=null;
+            props.model.setShowAbout(false);
+            props.model.setSearchMinMetacritic(90);
+            props.model.setSearchMaxMetacritic(100);
+            props.model.setDates("2021-01-01,2021-12-31");
+            props.model.doSearch(true);
+        }
+        function aboutCategoryClicked(){
+            props.model.setCurrentCat(5);
+            props.model.setShowAbout(true);
+        }
+        function clickedOnGame(game){
+            props.model.setShowAbout(false);
+            console.log("Fired Custom Event Click on game");
+            props.model.setPage(game.id);
+            props.model.changeUpdateViewHistoryValue(true); //time to update view history
+        }
 
     return (
         <div>

@@ -36,7 +36,7 @@ export default
     }
 
     function removeGameCustomEventHandler(game){
-        props.model.removeGameFromSavedPages(game);
+        props.model.removeFromSavedPages(game);
     }
 
     function closeAlertCustomEventHandler() {

@@ -5,9 +5,7 @@ import "/src/style.css"
     //
 
 function PageDetailsView(props) {
-    function backToSearchResultPageCB() {
-        window.location.hash = "#/searchResult";
-    }
+
     const firstFiveTags = props.gameDetails.tags.slice(0, 9);
     const moreTags = props.gameDetails.tags.length > 9;
     function changeTagsToDisplayCB() {
@@ -15,6 +13,9 @@ function PageDetailsView(props) {
     }
     function addGameToSavedPagesCB(){
         props.addGameToSavedPagesCustomEvent();
+    }
+    function removeGameToSavedPagesCB(){
+        props.removeGameToSavedPagesCustomEvent(props.gameDetails);
     }
     function toggleShowCoverImageCB(){
         props.toggleShowCoverImageCustomEvent();
@@ -29,19 +30,27 @@ function PageDetailsView(props) {
         props.toggleUpvoteGameCustomEvent(props.gameDetails.id);
     }
     function hasUserUpvotedGameCB(){
-        return props.hasUserUpvotedGameCustomEvent(props.gameDetails.id)
+        return props.hasUserUpvotedGameCustomEvent(props.gameDetails.id);
     }
     function loadYodafyDescriptionACB(){
         props.loadYodafyDescriptionCustomEvent();
     }
+    function addCurrentPageToViewHistory(){
+        props.addCurrentPageToViewHistoryCustomEvent();
+    }
+
+    if(props.shouldUpdate){//only add if you should update view history
+        addCurrentPageToViewHistory();
+    }
+
     return (
         <div className="gameDetails">
 
             <div className="gameDetailsHeader">
                 <div className="gameDetailsHeaderTitle">
-                    <CButton onClick={backToSearchResultPageCB} component="a" color="success" size="lg">Back to search results</CButton>
                     <h2 className="detailsPageName">Details Page</h2>
                     <h1 className="detailsGameTitle">{props.gameDetails.name ? props.gameDetails.name : "Game name missing"}</h1>
+                    <a className='rawgHyperLink' href='https://rawg.io/apidocs'>Data from RAWG Api</a>
                 </div>
                 <div className="detailsButtonPair">
                     {showUpvoteGameButton()}
@@ -54,17 +63,17 @@ function PageDetailsView(props) {
             </div>
             <div className="detailsInfoBox">
                 <div className="leftInfo">
-                    {props.gameDetails.publishers[0] ? <h4 className="infoBoxTitles">Publisher: {props.gameDetails.publishers[0].name}</h4> : null}
-                    {props.gameDetails.developers[0] ? <h4 className="infoBoxTitles">Developer: {props.gameDetails.developers[0].name}</h4> : null}
+                    {props.gameDetails.publishers[0] ? <h4 className="infoBoxTitles"><strong>Publisher: </strong>{props.gameDetails.publishers[0].name}</h4> : null}
+                    {props.gameDetails.developers[0] ? <h4 className="infoBoxTitles"><strong>Developer: </strong>{props.gameDetails.developers[0].name}</h4> : null}
                 </div>
                 <div className="middleInfo">
-                    {props.gameDetails.released ? <h4 className="infoBoxTitles">Released: {props.gameDetails.released}</h4> : null}
-                    {props.gameDetails.playtime ? <h4 className="infoBoxTitles">Playtime: {props.gameDetails.playtime} hours</h4> : null}
-                    {props.gameDetails.rating ? <h4 className="infoBoxTitles">Rating: {ratingToYodas(props.gameDetails.rating)} /5</h4> : null}
+                    {props.gameDetails.released ? <h4 className="infoBoxTitles"><strong>Released: </strong>{props.gameDetails.released}</h4> : null}
+                    {props.gameDetails.playtime ? <h4 className="infoBoxTitles"><strong>Estimated Playtime: </strong>{props.gameDetails.playtime} hours</h4> : null}
+                    {props.gameDetails.rating ? <h4 className="infoBoxTitles"><strong>Rating: </strong>{ratingToYodas(props.gameDetails.rating)} /5</h4> : null}
                 </div>
                 <div className="rightInfo">
-                    {props.gameDetails.metacritic ? <h4 className="infoBoxTitles"> Metacritic Score: {props.gameDetails.metacritic}/100</h4> : null}
-                    {props.gameDetails.esrb_rating ? <h4 className="infoBoxTitles">Age Rating: {props.gameDetails.esrb_rating.name}</h4> : null}
+                    {props.gameDetails.metacritic ? <h4 className="infoBoxTitles"><strong>Metacritic Score: </strong>{props.gameDetails.metacritic}/100</h4> : null}
+                    {props.gameDetails.esrb_rating ? <h4 className="infoBoxTitles"><strong>Age Rating: </strong>{props.gameDetails.esrb_rating.name}</h4> : null}
                 </div>
             </div>
             <div className="detailsBottomInfo">
@@ -77,11 +86,11 @@ function PageDetailsView(props) {
                 </div>
                 <div className="infoBesideDescription">
                     <tbody className="detailsInfoBoxes">
-                        <h3 className="infoBoxTitle tags">Tags</h3>
+                        <h3 className="infoBoxTitle">Tags</h3>
                         {tagsToShow()}
                     </tbody>
                     <tbody className="detailsInfoBoxes">
-                        <h3 className="infoBoxTitle genres">Genres</h3>
+                        <h3 className="infoBoxTitle">Genres</h3>
                         {(props.gameDetails.genres).map(displayGenresCB)}
                     </tbody>
                 </div>
@@ -126,9 +135,15 @@ function PageDetailsView(props) {
             function isGameInSavedPagesCB(game){
                 return game.id === props.gameDetails.id;
             }
-            return(
-                <CButton onClick={addGameToSavedPagesCB} type="submit" color="success" style={{ margin: '10px' }} disabled={props.savedPages.some(isGameInSavedPagesCB)  } >Add this game to your saved pages</CButton>
-            )
+            if(props.savedPages.some(isGameInSavedPagesCB)){
+                return(
+                    <CButton onClick={removeGameToSavedPagesCB} type="submit" color="danger" style={{ margin: '10px' }}>Remove this game from your saved pages</CButton>
+                )
+            }
+            else
+                return(
+                    <CButton onClick={addGameToSavedPagesCB} type="submit" color="success" style={{ margin: '10px' }} >Add this game to your saved pages</CButton>
+                )
         }
     }
     function showUpvoteGameButton(){
@@ -166,7 +181,6 @@ function PageDetailsView(props) {
         )
     }
     function imageToDisplay(){
-        console.log(props.showCoverImage)
         if (props.gameScreenshots && !props.showCoverImage){
             return (
             <CCarousel controls indicators>

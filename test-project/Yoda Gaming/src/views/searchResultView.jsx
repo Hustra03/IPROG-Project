@@ -12,12 +12,20 @@ function SearchResultView(props) {
             <div className="searchResultsHeader">Search Results for "{props.search}"</div>
             <span>{props.searchResult}</span>
             {props.searchResults.map(searchResultsMapCB)}
+            <a href='https://rawg.io/apidocs'>Data from RAWG Api</a>
             <div className="searchResultsFooter">
-                <CButton onClick={loadMoreGamesCB} className="searchResultLoadMoreButton">Load more games</CButton>
+                {loadMoreButton()}
             </div>
         </div>
     </div>
     )
+
+    function loadMoreButton(){
+        if (props.pages < 40){
+            return <CButton onClick={loadMoreGamesCB} className="searchResultLoadMoreButton">Load More Games</CButton>
+        }
+        return <div className="searchResultLoadMoreButtonDeactive">No More Games To Load, Search With More Detail If You Did Not Find What You Were Looking For.</div>
+    }
 
     function searchResultsMapCB(game){
         function onSearchResultClickCB(){

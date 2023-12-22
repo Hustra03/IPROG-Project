@@ -1,6 +1,6 @@
 import '@coreui/coreui/dist/css/coreui.min.css'
 import "/src/style.css"
-
+import {CCarousel, CCarouselItem, CCarouselCaption} from '@coreui/vue';
 //file mainly worked on by William Ma Jönsson
 function InitialPageView(props) {
 
@@ -24,10 +24,12 @@ function InitialPageView(props) {
     }
     function displayGameCB(game){
         return(
-            <div className='homepageGame' onClick={clickedOnGameHandlerACB} key={game.id}>
-                <img className='homepageImage' src={game.background_image} height="400" width="600"></img>
-                <div>{game.name}</div>
-            </div>
+            <CCarouselItem key={game.id}>
+                <img src={game.background_image} className='homepageImage'/>
+                <CCarouselCaption>
+                    <h onClick={clickedOnGameHandlerACB} className='homepageGame'>{game.name}</h>
+                </CCarouselCaption>
+            </CCarouselItem>
         )
         function clickedOnGameHandlerACB(){
             props.gameDetails(game);
@@ -37,7 +39,7 @@ function InitialPageView(props) {
     
     if(props.About){
         return(
-            <div>
+            <div className='homepageBackground'>
                 <div> {console.log("about:"+props.About)}
                 <button className='homepageButton' onClick={recentlyReleasedHandlerACB}>Best this year</button>
                 <button className='homepageButton' onClick={bestLastYearHandlerACB}>Best 2022</button>
@@ -45,11 +47,18 @@ function InitialPageView(props) {
                 <button className='homepageButton'>Seasonal(not done)</button>
                 <button className='homepageButton' disabled={props.currentCat===5} onClick={aboutHandlerACB}>About</button>
             </div>
-                <div className='homepageAbout'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                  nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                   dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-                   deserunt mollit anim id est laborum.</div>
+                <div className='homepageAbout'>Hrrmmm. A gaming wiki created by me(Yoda<img src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>) to learn about the best games Yoda gaming is,
+                 home to a large community of Jedi and Sith gamers alike it is, all equal on Yoda gaming we are.
+                 My children/5 ratings for games are.
+                 </div>
+                 <div className='homepagePictureOfYodaFamilyText'>A picture of my 5 children here is ↓</div>
+                 <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
+                 <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
+                 <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
+                 <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
+                 <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
+
+                 <div className='homepageRealAbout'>(Website created by Yoda, Erik Paulinder, Eliaz Biderstrand, Viktor Fredlund and William Ma Jönsson. All images, un-yodafied descriptions, tags, ratings (all data on games) are from RAWG API)</div>
             </div>
             
         )
@@ -57,21 +66,42 @@ function InitialPageView(props) {
     
     return(
         
-        <div>
+        <div className='homepageBackground'>
             <div> {console.log("about:"+props.About)}
                 <button className='homepageButton' disabled={props.currentCat === 1} onClick={recentlyReleasedHandlerACB}>Best this year</button>
                 <button className='homepageButton' disabled={props.currentCat === 2} onClick={bestLastYearHandlerACB}>Best 2022</button>
                 <button className='homepageButton' disabled={props.currentCat === 3} onClick={best2021HandlerACB}>Best 2021</button>
                 <button className='homepageButton' disabled={props.currentCat === 4} >Seasonal(not done)</button>
                 <button className='homepageButton' onClick={aboutHandlerACB}>About</button>
+                <a className='rawgHyperLink' href='https://rawg.io/apidocs'>Data from RAWG Api</a>
             </div>
-        
-            <div class='homepageScroller'>
+
+            <div className='homepageCarouselDescription'>
+            ↓TOP GAMES↓
+            </div>
+
+            <span>
+                <CCarousel controls indicators>
                 {props.searchResults.map(displayGameCB)}
-            </div>
+                </CCarousel>
+                
+            </span>
         </div>
     )
     /*
+
+    <div class='homepageScroller'>
+                {props.searchResults.map(displayGameCB)}
+            </div>
+
+
+    function displayGameCB(game){
+        return(
+            <div className='homepageGame' onClick={clickedOnGameHandlerACB} key={game.id}>
+                <img className='homepageImage' src={game.background_image} height="400" width="600"></img>
+                <div>{game.name}</div>
+            </div>
+
     return (
         <div>
             <div> Popular singleplayer games </div>
