@@ -303,4 +303,21 @@ export default {
   setInSearchResultFalse(){
     this.inSearchResult = false;
   },
+
+  headerTitleClicked()
+  {
+    
+    this.setCurrentCat(0);//to disable title click to prevent unnecessary searches
+    this.nullifySearchParams()
+    this.setSearchMinMetacritic(50);
+    this.setSearchMaxMetacritic(100);
+    this.setDates("2015-01-01,2023-12-31");
+    this.doSearch(false); //refresh searchResults from previous searches
+    this.setShowAbout(false); //functionality to not render about page
+  },
+
+  nullifySearchParams()
+  {
+    this.searchParams={};
+  },
 };

@@ -9,11 +9,7 @@ export default
     
         function recentlyReleasedCategoryClickedACB(){
             props.model.setCurrentCat(1);
-            props.model.setSearchQuery(null);
-            props.model.setShowAbout(false);
-            props.model.setSearchTags(null);
-            props.model.setSearchGenres(null);
-            props.model.setPlatform(null);
+            props.model.nullifySearchParams();
             props.model.setSearchMinMetacritic(10);
             props.model.setSearchMaxMetacritic(100);
             props.model.setDates("2023-01-01,2023-12-31");
@@ -22,11 +18,7 @@ export default
         function bestLastYearCategoryClickedACB(){
             //{props.model.setSearchTags("singleplayer")};
             props.model.setCurrentCat(2);
-            props.model.setSearchQuery(null);
-            props.model.setShowAbout(false);
-            props.model.setSearchTags(null);
-            props.model.setSearchGenres(null);
-            props.model.setPlatform(null);
+            props.model.nullifySearchParams();
             props.model.setSearchMinMetacritic(90);
             props.model.setSearchMaxMetacritic(100);
             props.model.setDates("2022-01-01,2022-12-31");
@@ -34,11 +26,7 @@ export default
         }
         function best2021CategoryClickedACB(){
             props.model.setCurrentCat(3)
-            props.model.setSearchQuery(null);
-            props.model.setShowAbout(false);
-            props.model.setSearchTags(null);
-            props.model.setSearchGenres(null);
-            props.model.setPlatform(null);
+            props.model.nullifySearchParams();
             props.model.setSearchMinMetacritic(90);
             props.model.setSearchMaxMetacritic(100);
             props.model.setDates("2021-01-01,2021-12-31");
@@ -46,11 +34,9 @@ export default
         }
         function seasonalCategoryClickedACB(){
             props.model.setCurrentCat(4);
+            
+            props.model.nullifySearchParams();
             props.model.setSearchQuery("santa");
-            props.model.setShowAbout(false);
-            props.model.setSearchTags(null);
-            props.model.setSearchGenres(null);
-            props.model.setPlatform(null);
             props.model.setSearchMinMetacritic(80);
             props.model.setSearchMaxMetacritic(100);
             props.model.setDates("2022-01-01,2023-12-31");
