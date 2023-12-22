@@ -241,7 +241,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 82.2vh;
+    height: 86.9vh;;
     background-color: #4B7D00;
     padding-top: 1px;
     padding-bottom: 1px;
@@ -287,7 +287,7 @@
     background-color: #4B7D00;
     padding-top: 1px;
     padding-bottom: 1px;
-    min-height: 85.6vh;
+    min-height: 86.9vh;
 }
 
 .savedPagesHeader {
