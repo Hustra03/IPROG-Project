@@ -28,6 +28,7 @@ function InitialPageView(props) {
                 <img src={game.background_image} className='homepageImage'/>
                 <CCarouselCaption>
                     <h onClick={clickedOnGameHandlerACB} className='homepageGame'>{game.name}</h>
+                    <p><a href='https://rawg.io/apidocs'>Data from RAWG Api</a></p>
                 </CCarouselCaption>
             </CCarouselItem>
         )
