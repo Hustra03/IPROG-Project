@@ -68,11 +68,15 @@ View History:
 
 2. Remove the horizontal scrollbar
 
+3. Remove the word History from the view history
+
 How View History feedback was acted upon by William Ma Jönsson
 
 1. It was decided to implement the view history as a collasable component but with the collapsed version not changing the layout as it would disrupt the balance of page but rather having an option to show/hide the history to declutter the screen. A different color than lightblue was used (yoda brown)
 
-2. I removed the horizontal scrollbar by setting overflow-x to hidden
+2. I acted by removing the horizontal scrollbar by setting overflow-x to hidden
+
+3. I acted by removing the word History so there is only the button to show and hide the view history
 
 No other suggestions for improvements on the view history
 
