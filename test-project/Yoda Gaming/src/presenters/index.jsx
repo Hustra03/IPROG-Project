@@ -24,8 +24,6 @@ const reactiveModel = reactive(model);
 const app = createApp(<VueRoot model={reactiveModel} />);
 app.use(makeRouter(reactiveModel));
 
-// Export push at the END of your plugins chain, just before mounting the app
-
 
 app.mount('#root');
 // mounts the app in the page DIV with the id "root"
@@ -33,14 +31,13 @@ app.mount('#root');
 // vue.html, with the content <div id="root"></div> is configured in vite.config.js
 
 
-// ------ for debug purposes ----------
-reactiveModel.doSearch(false);
-reactiveModel.updateAvailablePlatforms();
+reactiveModel.doSearch(false);//Performs initial search
+reactiveModel.updateAvailablePlatforms();//Fetches available platforms from API
 window.myModel = reactiveModel; // make the model available in the Console
-connectToFirebase(reactiveModel, watch)
-window.addEventListener("hashchange", updateCurrentLocationACB)
-window.addEventListener("keydown", keydownEvent); 
-reactiveModel.setCurrentLocation(window.location.hash);
+connectToFirebase(reactiveModel, watch)//Initiate connection to firebase
+window.addEventListener("hashchange", updateCurrentLocationACB)//Adds listener, which updates currentLocation to match window.location.hash
+window.addEventListener("keydown", keydownEvent); //Adds listener, which searches if the user presses enter, but avoids repeating if the button is held in
+reactiveModel.setCurrentLocation(window.location.hash);//Sets initial currentLocation to current hash, to allow breadcrumbs to be correct
 
 function updateCurrentLocationACB()
 {
