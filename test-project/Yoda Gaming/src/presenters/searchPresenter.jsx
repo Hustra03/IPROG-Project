@@ -22,41 +22,41 @@ export default
                 SortBy={searchParams.SortBy}
                 allPlatforms={props.model.allPlatformsPromiseState.data}
                 searchResultsData={props.model.searchResultsPromiseState.data}
-                onQueryInputChangeCustomEventCB={onQueryInputChangeCustomEventHandler}
-                onTagsInputChangeCustomEventCB={onTagsInputChangeCustomEventHandler}
-                onGenreInputChangeCustomEventCB={onGenreInputChangeCustomEventHandler}
-                onSortByInputChangeCustomEventCB={onSortByInputChangeCustomEventHandler}
-                onMinMetacriticChangeCustomEventCB={onMinMetacriticChangeCustomEventHandler}
-                onMaxMetacriticChangeCustomEventCB={onMaxMetacriticChangeCustomEventHandler}
-                onPageSizeChangeCustomEventCB={onPageSizeChangeCustomEventHandler}
-                onExactChangeCustomEventCB={onExactInputChangeCustomEventHandler}
-                onFuzzyChangeCustomEventCB={onFuzzyInputChangeCustomEventHandler}
-                onDatesInputChangeCustomEventCB={onDatesInputChangeCustomEventHandler}
-                onPlatformsInputChangeCustomEventCB={onPlatformsInputChangeCustomEventHandler}
-                onSortAscChangeCustomEventCB={onSortByAscInputChangeCustomEventHandler}
-                searchCustomEventCB={onSearchButtonPressCustomEventHandler} />
+                onQueryInputChangeCustomEventCB={onQueryInputChangeCustomEventHandlerACB}
+                onTagsInputChangeCustomEventCB={onTagsInputChangeCustomEventHandlerACB}
+                onGenreInputChangeCustomEventCB={onGenreInputChangeCustomEventHandlerACB}
+                onSortByInputChangeCustomEventCB={onSortByInputChangeCustomEventHandlerACB}
+                onMinMetacriticChangeCustomEventCB={onMinMetacriticChangeCustomEventHandlerACB}
+                onMaxMetacriticChangeCustomEventCB={onMaxMetacriticChangeCustomEventHandlerACB}
+                onPageSizeChangeCustomEventCB={onPageSizeChangeCustomEventHandlerACB}
+                onExactChangeCustomEventCB={onExactInputChangeCustomEventHandlerACB}
+                onFuzzyChangeCustomEventCB={onFuzzyInputChangeCustomEventHandlerACB}
+                onDatesInputChangeCustomEventCB={onDatesInputChangeCustomEventHandlerACB}
+                onPlatformsInputChangeCustomEventCB={onPlatformsInputChangeCustomEventHandlerACB}
+                onSortAscChangeCustomEventCB={onSortByAscInputChangeCustomEventHandlerACB}
+                searchCustomEventCB={onSearchButtonPressCustomEventHandlerACB} />
         </div>
     );
-    function onQueryInputChangeCustomEventHandler(query) {
+    function onQueryInputChangeCustomEventHandlerACB(query) {
         props.model.setSearchQuery(query);
     }
 
-    function onTagsInputChangeCustomEventHandler(tags) { props.model.setSearchTags(tags); }
+    function onTagsInputChangeCustomEventHandlerACB(tags) { props.model.setSearchTags(tags); }
 
-    function onGenreInputChangeCustomEventHandler(genres) { props.model.setSearchGenres(genres); }
+    function onGenreInputChangeCustomEventHandlerACB(genres) { props.model.setSearchGenres(genres); }
 
-    function onMinMetacriticChangeCustomEventHandler(number) { props.model.setSearchMinMetacritic(number); }
+    function onMinMetacriticChangeCustomEventHandlerACB(number) { props.model.setSearchMinMetacritic(number); }
 
-    function onMaxMetacriticChangeCustomEventHandler(number) { props.model.setSearchMaxMetacritic(number); }
-    function onPageSizeChangeCustomEventHandler(pageSize) { props.model.setSearchPageLimit(pageSize); }
-    function onExactInputChangeCustomEventHandler(exact) { props.model.setSearchExactOnlyDisabled(exact) }
-    function onFuzzyInputChangeCustomEventHandler(fuzzy) { props.model.setSearchFuzzyDisabled(fuzzy) }
-    function onDatesInputChangeCustomEventHandler(dates) { props.model.setDates(dates); }
-    function onPlatformsInputChangeCustomEventHandler(platform) { props.model.setPlatform(platform); }
-    function onSortByInputChangeCustomEventHandler(ordering) { props.model.setSearchOrdering(ordering); }
-    function onSortByAscInputChangeCustomEventHandler() { props.model.setAsc(!props.model.searchParams.asc); }
+    function onMaxMetacriticChangeCustomEventHandlerACB(number) { props.model.setSearchMaxMetacritic(number); }
+    function onPageSizeChangeCustomEventHandlerACB(pageSize) { props.model.setSearchPageLimit(pageSize); }
+    function onExactInputChangeCustomEventHandlerACB(exact) { props.model.setSearchExactOnlyDisabled(exact) }
+    function onFuzzyInputChangeCustomEventHandlerACB(fuzzy) { props.model.setSearchFuzzyDisabled(fuzzy) }
+    function onDatesInputChangeCustomEventHandlerACB(dates) { props.model.setDates(dates); }
+    function onPlatformsInputChangeCustomEventHandlerACB(platform) { props.model.setPlatform(platform); }
+    function onSortByInputChangeCustomEventHandlerACB(ordering) { props.model.setSearchOrdering(ordering); }
+    function onSortByAscInputChangeCustomEventHandlerACB() { props.model.setAsc(!props.model.searchParams.asc); }
 
-    function onSearchButtonPressCustomEventHandler() {
+    function onSearchButtonPressCustomEventHandlerACB() {
         props.model.doSearch(true);
     }
 }

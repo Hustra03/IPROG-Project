@@ -6,14 +6,14 @@ import { HeaderView } from "../views/headerView.jsx";
 export default
     function HeaderPresenter(props) {
 
-    function loginCustomEventHandler() {
+    function loginCustomEventHandlerACB() {
         if (!auth.currentUser) {
             props.model.setLoggingIn(true);
             signInWithPopup(auth, provider);
         }
     }
 
-    function signOutCustomEventHandler() {
+    function signOutCustomEventHandlerACB() {
         if (auth.currentUser) {
             props.model.signOut();
             signOut(auth);
@@ -30,45 +30,35 @@ export default
             alertVisability={props.model.alertVisability}
             searchResultsData={props.model.searchResultsPromiseState.data}
             currentLocation={props.model.currentLocation}
-            loginCustomEventCB={loginCustomEventHandler}
-            signOutCustomEventCB={signOutCustomEventHandler}
-            searchCustomEventCB={onSearchButtonPressCustomEventHandler}
-            onQueryInputChangeCustomEventCB={onQueryInputChangeCustomEventHandler}
-            alertBodyChangeCustomEventCB={onAlertBodyChangeCustomEventHandler}
-            closeAlertCustomEventCB={closeAlertCustomEventHandler}
-            headerTitleClickedCustomEventCB={headerTitleClickedCustomEventHandler}
+            loginCustomEventCB={loginCustomEventHandlerACB}
+            signOutCustomEventCB={signOutCustomEventHandlerACB}
+            searchCustomEventCB={onSearchButtonPressCustomEventHandlerACB}
+            onQueryInputChangeCustomEventCB={onQueryInputChangeCustomEventHandlerACB}
+            alertBodyChangeCustomEventCB={onAlertBodyChangeCustomEventHandlerACB}
+            closeAlertCustomEventCB={closeAlertCustomEventHandlerACB}
+            headerTitleClickedCustomEventCB={headerTitleClickedCustomEventHandlerACB}
             currentCat={props.model.currentCat} //current category used for homepage button disable functionality
             setDeleteStateFalseCustomEventCB={setDeleteStateFalseEventHandler}//used for saved pages to reset edit mode when entering savedPages
         />
 
     );
 
-    function closeAlertCustomEventHandler() { props.model.setAlertVisability(false); }
+    function closeAlertCustomEventHandlerACB() { props.model.setAlertVisability(false); }
 
-    function onAlertBodyChangeCustomEventHandler(alertBody) {
+    function onAlertBodyChangeCustomEventHandlerACB(alertBody) {
         props.model.setAlertBody(alertBody);
         props.model.setAlertVisability(true);
     }
-    function onQueryInputChangeCustomEventHandler(query) {
+    function onQueryInputChangeCustomEventHandlerACB(query) {
         props.model.setSearchQuery(query);
     }
-    function onSearchButtonPressCustomEventHandler() {
+    function onSearchButtonPressCustomEventHandlerACB() {
         props.model.setCurrentCat(null); //so that you can return home after searching and seeing search results
         props.model.doSearch(true);
     }
 
-    function headerTitleClickedCustomEventHandler(){
-        props.model.setCurrentCat(0);//to disable title click to prevent unnecessary searches
-        props.model.setSearchQuery(null); //reset previous search params
-        props.model.setShowAbout(false);
-        props.model.setSearchTags(null);
-        props.model.setSearchGenres(null);
-        props.model.setPlatform(null);
-        props.model.setSearchMinMetacritic(50);
-        props.model.setSearchMaxMetacritic(100);
-        props.model.setDates("2015-01-01,2023-12-31");
-        props.model.doSearch(false); //refresh searchResults from previous searches
-        props.model.setShowAbout(false); //functionality to not render about page
+    function headerTitleClickedCustomEventHandlerACB(){
+        props.model.headerTitleClicked()//
     }
 
     function setDeleteStateFalseEventHandler(){
