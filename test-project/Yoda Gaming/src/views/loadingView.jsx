@@ -5,7 +5,9 @@ export function LoadingView()
 
 
     return (
-        <img src="https://brfenergi.se/iprog/loading.gif" alt="loading" />
+        <div>
+            <img src="https://brfenergi.se/iprog/loading.gif" alt="loading" />
+        </div>
     )
 
 }

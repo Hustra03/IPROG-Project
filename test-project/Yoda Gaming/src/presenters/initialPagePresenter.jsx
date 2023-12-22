@@ -8,8 +8,8 @@ export default
             props.model.setCurrentCat(1);
             props.model.setSearchQuery(null);
             props.model.setShowAbout(false);
-            props.model.setSearchType(null);
-            props.model.setSearchGenre(null);
+            props.model.setSearchTags(null);
+            props.model.setSearchGenres(null);
             props.model.setPlatform(null);
             props.model.setSearchMinMetacritic(10);
             props.model.setSearchMaxMetacritic(100);
@@ -17,12 +17,12 @@ export default
             props.model.doSearch(true);
         }
         function bestLastYearCategoryClickedACB(){
-            //{props.model.setSearchType("singleplayer")};
+            //{props.model.setSearchTags("singleplayer")};
             props.model.setCurrentCat(2);
             props.model.setSearchQuery(null);
             props.model.setShowAbout(false);
-            props.model.setSearchType(null);
-            props.model.setSearchGenre(null);
+            props.model.setSearchTags(null);
+            props.model.setSearchGenres(null);
             props.model.setPlatform(null);
             props.model.setSearchMinMetacritic(90);
             props.model.setSearchMaxMetacritic(100);
@@ -33,8 +33,8 @@ export default
             props.model.setCurrentCat(3)
             props.model.setSearchQuery(null);
             props.model.setShowAbout(false);
-            props.model.setSearchType(null);
-            props.model.setSearchGenre(null);
+            props.model.setSearchTags(null);
+            props.model.setSearchGenres(null);
             props.model.setPlatform(null);
             props.model.setSearchMinMetacritic(90);
             props.model.setSearchMaxMetacritic(100);
@@ -45,8 +45,8 @@ export default
             props.model.setCurrentCat(4);
             props.model.setSearchQuery("santa");
             props.model.setShowAbout(false);
-            props.model.setSearchType(null);
-            props.model.setSearchGenre(null);
+            props.model.setSearchTags(null);
+            props.model.setSearchGenres(null);
             props.model.setPlatform(null);
             props.model.setSearchMinMetacritic(80);
             props.model.setSearchMaxMetacritic(100);
@@ -63,8 +63,8 @@ export default
             props.model.setCurrentCat(6);
             props.model.setSearchQuery(null);
             props.model.setShowAbout(false);
-            props.model.setSearchType(null);
-            props.model.setSearchGenre(null);
+            props.model.setSearchTags(null);
+            props.model.setSearchGenres(null);
             props.model.setPlatform(null);
             props.model.setSearchMinMetacritic(0);
             props.model.setSearchMaxMetacritic(100);
