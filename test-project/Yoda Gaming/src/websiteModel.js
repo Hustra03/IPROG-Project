@@ -44,10 +44,6 @@ export default {
   },
 
   //Model is initially just a modified version of dinnerModel, with minor changes when relevant
-  addToSavedPage(pageToAdd, initialCategory) {
-    const savedPage = { actualPage: pageToAdd, category: initialCategory };
-    this.savedPages = [...this.savedPages, (savedPage)];
-  },//By Erik Paulinder, saves the current page with a specified category
 
   removeFromSavedPages(pageToRemove) {
     function shouldWeKeePageCB(page) {
@@ -178,13 +174,13 @@ export default {
 
   },//TODO Ensure that the search function above can accept each category, and picks the correct function to get results from the API
 
-  toggleShowAllTags() {
+  toggleShowAllTags() { //By Viktor Fredlund, toggles the showAllTags boolean
     if (this.showAllTags)
       this.showAllTags = false;
     else
       this.showAllTags = true;
   },
-  addGameToSavedPages(){
+  addGameToSavedPages(){ //By Viktor Fredlund, adds the current page to the savedPages array
     if (!Array.isArray(this.savedPages))
       this.savedPages = [];
     const gameToAdd = {
@@ -195,34 +191,27 @@ export default {
     this.savedPages = [...this.savedPages, gameToAdd];
     //console.log(this.savedPages);
   },
-  removeGameFromSavedPages(gameToRemove){
-    function removeGameFromSavedPagesCB(game) {
-      return game.id != gameToRemove.id;
-    }
-    const newPage = this.savedPages.filter(removeGameFromSavedPagesCB);
-    this.savedPages = newPage;
-  },
-  loadYodafyDescription(){
+  loadYodafyDescription(){ //By Viktor Fredlund, loads the yodafied description for the current game
     if (this.currentYodafiedDescription === this.currentPage)
       return;
     this.currentYodafiedDescription = this.currentPage;
     this.setYodafyValue(true);
     resolvePromise(yodafyText(this.currentPagePromiseState.data.description_raw), this.yodafiedDescriptionPromiseState);
   },
-  toggleShowCoverImage(){
+  toggleShowCoverImage(){ //By Viktor Fredlund, toggles the showCoverImage boolean
     if (this.showCoverImage)
       this.showCoverImage = false;
     else
       this.showCoverImage = true;
   },
-  loadScreenshotsForCurrentGame(){
+  loadScreenshotsForCurrentGame(){ //By Viktor Fredlund, loads the screenshots for the current game
     if (this.currentScreenshotPage === this.currentPage){
       return;
     }
     this.currentScreenshotPage = this.currentPage;
     resolvePromise(getGameScreenshots(this.currentPage), this.currentGameScreenshotsPromiseState);
   },
-  addCurrentPageToViewHistory(){
+  addCurrentPageToViewHistory(){ //By Viktor Fredlund, adds the current page to the viewHistory array
     const pageToAdd = {
       name: this.currentPagePromiseState.data.name,
       image: this.currentPagePromiseState.data.background_image,
@@ -241,7 +230,7 @@ export default {
   setAllUpvotes(persistedAllUpvotes)
   {this.allUpvotes=persistedAllUpvotes},//For persistence
 
-  updateAllUpvotes(idOfGame){
+  updateAllUpvotes(idOfGame){ //By Viktor Fredlund, updates the allUpvotes array with the current user's upvotes
     const currentUserID = this.user.uid;
     if (!(this.allUpvotes.some(game => game.gameID === idOfGame))){
       console.log("Adding new game to allUpvotes")
@@ -270,7 +259,7 @@ export default {
     //console.log(this.allUpvotes);
   },
   
-  hasUserUpvotedGame(idOfGame){
+  hasUserUpvotedGame(idOfGame){ //By Viktor Fredlund, returns true if the user has upvoted the game, false otherwise
     const game = this.allUpvotes.find(game => game.gameID === idOfGame);
     if (!game)
       return false;
