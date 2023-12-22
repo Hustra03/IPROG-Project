@@ -42,7 +42,7 @@ How Detailed View feedback was acted upon: (Viktor Frelund)
 7. Moved the info box that was above the image to below it, so the image is directly after the game name
 8. upvote button and "total upvotes: x" combined into just the button so button also diplays total upvotes, moved the button to top right of page above the image together with the favorites button
 9. Removed back to search result button since we now have breadcrumbs in the header
-10. Rating is not on the third row in the info box on, on its own row
+10. Rating is now placed on its own row in the second column
 
 Search Results:
 
