@@ -45,6 +45,10 @@ Search Results:
 
 1. Add margin left to the content of search results.
 
+How Search Result feedback was acted upon: (Eliaz Biderstrand)
+
+1. An overall revision of the style of the search result page which made it easier to read and with added margin.
+
 Header/Search:
 
 1. Add keyboard listener on enter for search, since user likely to try to search using that.
