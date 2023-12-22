@@ -113,7 +113,7 @@ export default {
   setLoggingIn(value) { this.loggingIn = value; },
 
   /* 
-   setting the ID of dish currently checked by the user.
+   setting the ID of page currently checked by the user.
    A strict MVC/MVP Model would not keep such data, 
    but we take a more relaxed, "Application state" approach. 
    So we store also abstract data that will influence the application status.
@@ -129,10 +129,7 @@ export default {
         resolvePromise(getGameDetails(id), this.currentPagePromiseState);
       }
     }
-
-    // note that we are adding a new object property (currentDish) which was not initialized in the constructor
   },
-  // more methods will be added here, don't forget to separate them with comma!
 
   setCurrentUser(value) {
     this.user = value;
