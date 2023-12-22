@@ -160,8 +160,8 @@ export default {
 
   setSearchParams(params) { this.searchParams = params }, //Sets all of the search params, used for persistence
   setSearchQuery(query) { this.searchParams.search = query }, //This represents the text string the user wishes to search for, ex "Zelda" or "Nintendo", meaning depends on category
-  setSearchType(type) { this.searchParams.tags = type },  //This represents what type of thing the user is searching, ex RPG or Publisher, meaning depends on category
-  setSearchGenre(genre) { this.searchParams.genres = genre }, //
+  setSearchTags(tags) { this.searchParams.tags = tags },  //This represents what type of thing the user is searching, ex RPG or Publisher, meaning depends on category
+  setSearchGenres(genres) { this.searchParams.genres = genres }, //
 
   setSearchMinMetacritic(minMetacritic) { this.searchParams.minMetacritic = minMetacritic },  //
   setSearchMaxMetacritic(maxMetacritic) { this.searchParams.maxMetacritic = maxMetacritic },  //

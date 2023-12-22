@@ -9,8 +9,8 @@ export default
         <div>
             <SearchView
                 query={searchParams.query}
-                tags={searchParams.type}
-                genre={searchParams.genre}
+                tags={searchParams.tags}
+                genre={searchParams.genres}
                 minMetacritic={searchParams.minMetacritic}
                 maxMetacritic={searchParams.maxMetacritic}
                 exact={searchParams.exact}
@@ -41,9 +41,9 @@ export default
         props.model.setSearchQuery(query);
     }
 
-    function onTagsInputChangeCustomEventHandler(tags) { props.model.setSearchType(tags); }
+    function onTagsInputChangeCustomEventHandler(tags) { props.model.setSearchTags(tags); }
 
-    function onGenreInputChangeCustomEventHandler(genres) { props.model.setSearchGenre(genres); }
+    function onGenreInputChangeCustomEventHandler(genres) { props.model.setSearchGenres(genres); }
 
     function onMinMetacriticChangeCustomEventHandler(number) { props.model.setSearchMinMetacritic(number); }
 
