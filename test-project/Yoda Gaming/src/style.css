@@ -643,6 +643,8 @@
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color:#000000;
     cursor:pointer;
+    border:1px solid black;
+    background-color: #d0c494;
 }
     
 .homepageImage {
@@ -684,9 +686,9 @@
     font-size: xx-large;
     font-family:Georgia, serif;
     font-weight:bold;
-    color:lightgreen;
+    color:#007324;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color:#007324;
+    -webkit-text-stroke-color:black;
 }
     
 .yodaFamily{
