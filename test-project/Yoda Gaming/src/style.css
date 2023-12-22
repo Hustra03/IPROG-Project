@@ -602,6 +602,12 @@
     .infoBesideDescription{
         width: 100%;
     }
+    .detailsInfoBox{
+        width: 95%;
+    }
+    .desciptionBox{
+        max-width: 100%;
+    }
     .gameDetailsDescriptionHeader{
         flex-direction: column;
     }
