@@ -14,8 +14,9 @@ William Ma Jönsson, Git account: EroHex, Canvas ID: 143089
 
 [Hosting Link](https://iprog-tw3-53504.web.app/#/ "Yodas Gaming Wiki")
 
-Icon link:
+## Icon links:
 https://www.shareicon.net/yoda-user-71338
+https://www.shareicon.net/yoda-248175
 
 ## APIs used:
 
