@@ -28,10 +28,6 @@ export function makeRouter(model) {
                 component: <SearchResultPresenter model={model} />,
             },
             {
-                path: "/results",
-                component: <InitialPagePresenter model={model} />,
-            },
-            {
                 path: "/savedPages",
                 component: <SavedPagesPresenter model={model} />,
             },
