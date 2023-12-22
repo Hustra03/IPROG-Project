@@ -19,9 +19,15 @@ function InitialPageView(props) {
     function best2021HandlerACB(){
         props.best2021Category();
     }
+
+    function seasonalHandlerACB(){
+        props.seasonalCategory();
+    }
+
     function aboutHandlerACB(){
         props.aboutCategory();
     }
+
     function displayGameACB(game){
         return(
             <CCarouselItem key={game.id}>
@@ -45,7 +51,7 @@ function InitialPageView(props) {
                         <CButton color="success" size="lg" onClick={recentlyReleasedHandlerACB}>Best this year</CButton>
                         <CButton color="success" size="lg" onClick={bestLastYearHandlerACB}>Best 2022</CButton>
                         <CButton color="success" size="lg" onClick={best2021HandlerACB}>Best 2021</CButton>
-                        <CButton color="success" size="lg" >Seasonal(not done)</CButton>
+                        <CButton color="success" size="lg" onClick={seasonalHandlerACB}>Seasonal</CButton>
                         <CButton color="success" size="lg" disabled={props.currentCat===5} onClick={aboutHandlerACB}>About</CButton>
                     </CButtonGroup>
                 </div>
@@ -74,7 +80,7 @@ function InitialPageView(props) {
                     <CButton color="success" size="lg" disabled={props.currentCat === 1} onClick={recentlyReleasedHandlerACB}>Best this year</CButton>
                     <CButton color="success" size="lg" disabled={props.currentCat === 2} onClick={bestLastYearHandlerACB}>Best 2022</CButton>
                     <CButton color="success" size="lg" disabled={props.currentCat === 3} onClick={best2021HandlerACB}>Best 2021</CButton>
-                    <CButton color="success" size="lg" disabled={props.currentCat === 4} >Seasonal(not done)</CButton>
+                    <CButton color="success" size="lg" disabled={props.currentCat === 4} onClick={seasonalHandlerACB}>Seasonal</CButton>
                     <CButton color="success" size="lg" onClick={aboutHandlerACB}>About</CButton>
                 </CButtonGroup>
                 
