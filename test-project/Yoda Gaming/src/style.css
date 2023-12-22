@@ -721,3 +721,7 @@
 .rawgHyperLink{
     margin:7%;
 }
+
+.cursorLoading{
+    cursor:wait;
+}

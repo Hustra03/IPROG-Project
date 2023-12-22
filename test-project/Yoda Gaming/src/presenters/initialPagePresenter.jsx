@@ -100,8 +100,7 @@ export default
 
             if(!props.model.searchResultsPromiseState.error){
                 return(
-                    <div>
-
+                    <div className="cursorLoading">
                         <div>Loading...</div>
                     </div>
                 )
