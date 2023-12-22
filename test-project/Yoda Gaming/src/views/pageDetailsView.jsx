@@ -50,7 +50,7 @@ function PageDetailsView(props) {
                 <div className="gameDetailsHeaderTitle">
                     <h2 className="detailsPageName">Details Page</h2>
                     <a className='rawgHyperLink' href='https://rawg.io/apidocs'>Data from RAWG Api</a>
-                    <h1 className="detailsGameTitle">{props.gameDetails.name ? props.gameDetails.name : "Game name missing"}</h1>
+                    <h1 className="detailsGameTitle">{props.gameDetails.name ? <strong>{props.gameDetails.name}</strong> : "Game name missing"}</h1>
                 </div>
                 <div className="detailsButtonPair">
                     {showUpvoteGameButton()}
@@ -79,7 +79,7 @@ function PageDetailsView(props) {
             <div className="detailsBottomInfo">
                 <div className="desciptionBox">
                     <div className="gameDetailsDescriptionHeader">
-                        <h2 className="gameDetailsDescriptionTitle">Description</h2>
+                        <h2 className="gameDetailsDescriptionTitle"><strong>Description</strong></h2>
                         {descriptionButtonToShow()}
                     </div>
                     {descriptionTextToShow()}
