@@ -193,7 +193,7 @@ export default {
       id: this.currentPage,
     };
     this.savedPages = [...this.savedPages, gameToAdd];
-    console.log(this.savedPages);
+    //console.log(this.savedPages);
   },
   removeGameFromSavedPages(gameToRemove){
     function removeGameFromSavedPagesCB(game) {
@@ -235,7 +235,7 @@ export default {
     }
     this.viewHistory = this.viewHistory.filter(removePageFromViewHistoryCB);
     this.viewHistory = [...this.viewHistory, pageToAdd];
-    console.log(this.viewHistory);
+    //console.log(this.viewHistory);
   },
 
   setAllUpvotes(persistedAllUpvotes)
@@ -267,7 +267,7 @@ export default {
       }
       this.allUpvotes = this.allUpvotes.filter(game => game.upvotes.length > 0)
     } 
-    console.log(this.allUpvotes);
+    //console.log(this.allUpvotes);
   },
   
   hasUserUpvotedGame(idOfGame){

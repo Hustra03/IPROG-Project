@@ -14,6 +14,9 @@ function PageDetailsView(props) {
     function addGameToSavedPagesCB(){
         props.addGameToSavedPagesCustomEvent();
     }
+    function removeGameToSavedPagesCB(){
+        props.removeGameToSavedPagesCustomEvent(props.gameDetails);
+    }
     function toggleShowCoverImageCB(){
         props.toggleShowCoverImageCustomEvent();
     }
@@ -27,7 +30,7 @@ function PageDetailsView(props) {
         props.toggleUpvoteGameCustomEvent(props.gameDetails.id);
     }
     function hasUserUpvotedGameCB(){
-        return props.hasUserUpvotedGameCustomEvent(props.gameDetails.id)
+        return props.hasUserUpvotedGameCustomEvent(props.gameDetails.id);
     }
     function loadYodafyDescriptionACB(){
         props.loadYodafyDescriptionCustomEvent();
@@ -123,9 +126,15 @@ function PageDetailsView(props) {
             function isGameInSavedPagesCB(game){
                 return game.id === props.gameDetails.id;
             }
-            return(
-                <CButton onClick={addGameToSavedPagesCB} type="submit" color="success" style={{ margin: '10px' }} disabled={props.savedPages.some(isGameInSavedPagesCB)  } >Add this game to your saved pages</CButton>
-            )
+            if(props.savedPages.some(isGameInSavedPagesCB)){
+                return(
+                    <CButton onClick={removeGameToSavedPagesCB} type="submit" color="danger" style={{ margin: '10px' }}>Remove this game from your saved pages</CButton>
+                )
+            }
+            else
+                return(
+                    <CButton onClick={addGameToSavedPagesCB} type="submit" color="success" style={{ margin: '10px' }} >Add this game to your saved pages</CButton>
+                )
         }
     }
     function showUpvoteGameButton(){
@@ -163,7 +172,6 @@ function PageDetailsView(props) {
         )
     }
     function imageToDisplay(){
-        console.log(props.showCoverImage)
         if (props.gameScreenshots && !props.showCoverImage){
             return (
             <CCarousel controls indicators>

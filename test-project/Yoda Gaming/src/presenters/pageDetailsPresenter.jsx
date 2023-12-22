@@ -43,6 +43,7 @@ function Details(props) {
                     showCoverImage={props.model.showCoverImage}
                     showAllTagsCustomEvent={showAllTagsCustomEventHandler} 
                     addGameToSavedPagesCustomEvent={addGameToSavedPagesCustomEventHandler}
+                    removeGameToSavedPagesCustomEvent={removeGameToSavedPagesCustomEventHandler}
                     loggedIn={props.model.user}
                     loadScreenshotsCustomEvent={loadScreenshotsCustomEventHandler}
                     toggleShowCoverImageCustomEvent={toggleShowCoverImageCustomEventHandler}
@@ -62,6 +63,9 @@ function Details(props) {
     }
     function addGameToSavedPagesCustomEventHandler(){
         props.model.addGameToSavedPages();
+    }
+    function removeGameToSavedPagesCustomEventHandler(game){
+        props.model.removeFromSavedPages(game);
     }
     function toggleYodafyDescriptionCutomEventHandler(){
         props.model.toggleYodafyValue();
