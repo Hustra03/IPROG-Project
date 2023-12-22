@@ -13,7 +13,7 @@ export default
             props.model.setSearchMinMetacritic(10);
             props.model.setSearchMaxMetacritic(100);
             props.model.setDates("2023-01-01,2023-12-31");
-            props.model.doSearch(true);
+            props.model.doSearch(false);
         }
         function bestLastYearCategoryClickedACB(){
             //{props.model.setSearchTags("singleplayer")};
@@ -22,7 +22,7 @@ export default
             props.model.setSearchMinMetacritic(90);
             props.model.setSearchMaxMetacritic(100);
             props.model.setDates("2022-01-01,2022-12-31");
-            props.model.doSearch(true);
+            props.model.doSearch(false);
         }
         function best2021CategoryClickedACB(){
             props.model.setCurrentCat(3)
@@ -30,7 +30,7 @@ export default
             props.model.setSearchMinMetacritic(90);
             props.model.setSearchMaxMetacritic(100);
             props.model.setDates("2021-01-01,2021-12-31");
-            props.model.doSearch(true);
+            props.model.doSearch(false);
         }
         function seasonalCategoryClickedACB(){
             props.model.setCurrentCat(4);
@@ -40,7 +40,7 @@ export default
             props.model.setSearchMinMetacritic(80);
             props.model.setSearchMaxMetacritic(100);
             props.model.setDates("2022-01-01,2023-12-31");
-            props.model.doSearch(true);
+            props.model.doSearch(false);
         }
 
         function aboutCategoryClickedACB(){
@@ -58,7 +58,7 @@ export default
             props.model.setSearchMinMetacritic(0);
             props.model.setSearchMaxMetacritic(100);
             props.model.setDates("2023-12-01,2023-12-31");
-            props.model.doSearch(true);
+            props.model.doSearch(false);
         }
 
         function clickedOnGameACB(game){
