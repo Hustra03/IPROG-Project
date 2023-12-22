@@ -6,7 +6,14 @@ Overall:
 2. Ensure all buttons are styled correctly.
 3. Implement a visual rating system, for ratings between 1-5, either using stars or the yoda head icon, in addition to the numerical value.
 4. Use specific fonts + bold/italics to seperate different text, such as titles or descriptions
-5. Allow non-users to access total upvote numbers, even if they can not make new votes.
+5. It is weird that for non-users the upvote numbers are always 0, since they are unable to read from the database, which may be misleading since the number may differ from 0.
+
+How Header/Search feedback was acted upon:
+1. Colors where changes, to improve readability, and these are a bit more consistent between pages. 
+2. All buttons are now styled, even if not in the exact same way for each button.
+3. A visual rating system was implemented, using the yoda head icon used in multiple places on the website.
+4. Text is better seperated using the html text objects, to better clarify what different text objects are.
+5. Upvote numbers are removed from the interface if the user is not signed in, since this information concerns the websites page and may not be relevant to someone just looking up one game, thus being something which may only be relevant for a frequent user of the website.
 
 Detailed View:
 
@@ -39,9 +46,12 @@ Search Results:
 Header/Search:
 
 1. Add keyboard listener on enter for search, since user likely to try to search using that.
-Implemented.
 2. Place a version of the icon on the header, left or right of the title, add more margin for buttons in header.
-Implemented.
+
+How Header/Search feedback was acted upon: (Erik Paulinder)
+
+1. A keyboard listner for the enter key was created, which calls the doSearch method and updates the hash address to point towards search result
+2. A version of the icon, which is Yodas head, was added to the left of the header, and a bit more margin was added to the buttons in the header, specifically to the search input. 
 
 View History:
 
