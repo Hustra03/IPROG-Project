@@ -1,6 +1,4 @@
 import {SearchResultView} from "../views/searchResultView";
-import { LoadingView } from "../views/loadingView.jsx";
-import NoDataFoundView from "../views/noDataFoundView.jsx";
 
 //file mainly worked on by Eliaz Biderstrand
 
@@ -14,7 +12,7 @@ export default
 
     function showResult(){
         if (!props.model.searchResultsPromiseState.promise) {
-            return <NoDataFoundView/>
+            return <div>no data found</div>
         }
 
         if (props.model.searchResultsPromiseState.data) {
@@ -26,25 +24,25 @@ export default
                 pages = {props.model.searchParams.page_size}
                 search={props.model.search}
                 searchResults={props.model.searchResultsPromiseState.data} 
-                chosenGame={chosenGameACB}
-                loadMoreGames={loadMoreGamesACB}
+                chosenGame={chosenGameCustomEventHandler}
+                loadMoreGames={loadMoreGamesCustomEventHandler}
             />
         }
 
         if (!props.model.searchResultsPromiseState.error){
-            return (<div className="searchResultLoading">Games are loading <LoadingView/></div> )
+            return <div className="searchResultLoading">Games are loading</div>
         }
 
         console.log(props.model.searchResultsPromiseState.error)
         return <div>{props.model.searchResultsPromiseState.error}</div>
     }
 
-    function chosenGameACB(game){
+    function chosenGameCustomEventHandler(game){
         props.model.setPage(game.id)
         props.model.changeUpdateViewHistoryValue(true);
     }
 
-    function loadMoreGamesACB(){
+    function loadMoreGamesCustomEventHandler(){
         console.log(props.model.searchParams.page_size)
         if (props.model.searchParams.page_size < 40 ){
             props.model.setSearchPageLimit(props.model.searchParams.page_size + 10);
