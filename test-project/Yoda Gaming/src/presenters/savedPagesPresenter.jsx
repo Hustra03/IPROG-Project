@@ -11,7 +11,7 @@ export default
                 loggedIn={props.model.user}
                 inDeleteState={props.model.deleteState}
                 clearSavedPages={clearSavedPagesCustomEventHandler}
-                chosenGame={chosenGameACB}
+                chosenGame={chosenGameCustomEventHandler}
                 toggleDeleteState={toggleDeleteStateCustomEventHandler}
                 removeGame={removeGameCustomEventHandler}
             />
@@ -23,10 +23,9 @@ export default
         props.model.setDeleteStateFalse();
     }
 
-    function chosenGameACB(game){
+    function chosenGameCustomEventHandler(game){
         props.model.setPage(game.id)
         props.model.setDeleteStateFalse();
-        props.model.changeUpdateViewHistoryValue(true);
     }
 
     function toggleDeleteStateCustomEventHandler(){
