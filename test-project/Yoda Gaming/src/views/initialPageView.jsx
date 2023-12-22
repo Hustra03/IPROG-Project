@@ -1,6 +1,6 @@
 import '@coreui/coreui/dist/css/coreui.min.css'
 import "/src/style.css"
-import {CCarousel, CCarouselItem, CCarouselCaption} from '@coreui/vue';
+import {CCarousel, CCarouselItem, CCarouselCaption,CButton,CButtonGroup} from '@coreui/vue';
 //file mainly worked on by William Ma Jönsson
 function InitialPageView(props) {
 
@@ -40,25 +40,27 @@ function InitialPageView(props) {
     if(props.About){
         return(
             <div className='homepageBackground'>
-                <div> {console.log("about:"+props.About)}
-                <button className='homepageButton' onClick={recentlyReleasedHandlerACB}>Best this year</button>
-                <button className='homepageButton' onClick={bestLastYearHandlerACB}>Best 2022</button>
-                <button className='homepageButton' onClick={best2021HandlerACB}>Best 2021</button>
-                <button className='homepageButton'>Seasonal(not done)</button>
-                <button className='homepageButton' disabled={props.currentCat===5} onClick={aboutHandlerACB}>About</button>
+                <div>
+                    <CButtonGroup>
+                        <CButton color="success" size="lg" onClick={recentlyReleasedHandlerACB}>Best this year</CButton>
+                        <CButton color="success" size="lg" onClick={bestLastYearHandlerACB}>Best 2022</CButton>
+                        <CButton color="success" size="lg" onClick={best2021HandlerACB}>Best 2021</CButton>
+                        <CButton color="success" size="lg" >Seasonal(not done)</CButton>
+                        <CButton color="success" size="lg" disabled={props.currentCat===5} onClick={aboutHandlerACB}>About</CButton>
+                    </CButtonGroup>
+                </div>
+            <div className='homepageAbout'>Hrrmmm. A gaming wiki created by me(Yoda<img src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>) to learn about the best games Yoda gaming is,
+                home to a large community of Jedi and Sith gamers alike it is, all equal on Yoda gaming we are.
+                My children/5 ratings for games are.
             </div>
-                <div className='homepageAbout'>Hrrmmm. A gaming wiki created by me(Yoda<img src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>) to learn about the best games Yoda gaming is,
-                 home to a large community of Jedi and Sith gamers alike it is, all equal on Yoda gaming we are.
-                 My children/5 ratings for games are.
-                 </div>
-                 <div className='homepagePictureOfYodaFamilyText'>A picture of my 5 children here is ↓</div>
-                 <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
-                 <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
-                 <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
-                 <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
-                 <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
+                <div className='homepagePictureOfYodaFamilyText'>A picture of my 5 children here is ↓</div>
+                <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
+                <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
+                <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
+                <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
+                <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
 
-                 <div className='homepageRealAbout'>(Website created by Yoda, Erik Paulinder, Eliaz Biderstrand, Viktor Fredlund and William Ma Jönsson. All images, un-yodafied descriptions, tags, ratings (all data on games) are from RAWG API)</div>
+                <div className='homepageRealAbout'>(Website created by Yoda, Erik Paulinder, Eliaz Biderstrand, Viktor Fredlund and William Ma Jönsson. All images, un-yodafied descriptions, tags, ratings (all data on games) are from RAWG API)</div>
             </div>
             
         )
@@ -68,11 +70,14 @@ function InitialPageView(props) {
         
         <div className='homepageBackground'>
             <div> {console.log("about:"+props.About)}
-                <button className='homepageButton' disabled={props.currentCat === 1} onClick={recentlyReleasedHandlerACB}>Best this year</button>
-                <button className='homepageButton' disabled={props.currentCat === 2} onClick={bestLastYearHandlerACB}>Best 2022</button>
-                <button className='homepageButton' disabled={props.currentCat === 3} onClick={best2021HandlerACB}>Best 2021</button>
-                <button className='homepageButton' disabled={props.currentCat === 4} >Seasonal(not done)</button>
-                <button className='homepageButton' onClick={aboutHandlerACB}>About</button>
+                <CButtonGroup>
+                    <CButton color="success" size="lg" disabled={props.currentCat === 1} onClick={recentlyReleasedHandlerACB}>Best this year</CButton>
+                    <CButton color="success" size="lg" disabled={props.currentCat === 2} onClick={bestLastYearHandlerACB}>Best 2022</CButton>
+                    <CButton color="success" size="lg" disabled={props.currentCat === 3} onClick={best2021HandlerACB}>Best 2021</CButton>
+                    <CButton color="success" size="lg" disabled={props.currentCat === 4} >Seasonal(not done)</CButton>
+                    <CButton color="success" size="lg" onClick={aboutHandlerACB}>About</CButton>
+                </CButtonGroup>
+                
                 <a className='rawgHyperLink' href='https://rawg.io/apidocs'>Data from RAWG Api</a>
             </div>
 
