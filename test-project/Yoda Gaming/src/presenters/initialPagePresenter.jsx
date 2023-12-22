@@ -9,6 +9,7 @@ export default
     
         function recentlyReleasedCategoryClickedACB(){
             props.model.setCurrentCat(1);
+            props.model.setShowAbout(false);
             props.model.nullifySearchParams();
             props.model.setSearchMinMetacritic(10);
             props.model.setSearchMaxMetacritic(100);
@@ -18,6 +19,7 @@ export default
         function bestLastYearCategoryClickedACB(){
             //{props.model.setSearchTags("singleplayer")};
             props.model.setCurrentCat(2);
+            props.model.setShowAbout(false);
             props.model.nullifySearchParams();
             props.model.setSearchMinMetacritic(90);
             props.model.setSearchMaxMetacritic(100);
@@ -26,6 +28,7 @@ export default
         }
         function best2021CategoryClickedACB(){
             props.model.setCurrentCat(3)
+            props.model.setShowAbout(false);
             props.model.nullifySearchParams();
             props.model.setSearchMinMetacritic(90);
             props.model.setSearchMaxMetacritic(100);
@@ -34,7 +37,7 @@ export default
         }
         function seasonalCategoryClickedACB(){
             props.model.setCurrentCat(4);
-            
+            props.model.setShowAbout(false);
             props.model.nullifySearchParams();
             props.model.setSearchQuery("santa");
             props.model.setSearchMinMetacritic(80);
