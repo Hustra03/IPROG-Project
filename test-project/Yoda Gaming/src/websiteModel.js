@@ -308,15 +308,16 @@ export default {
   {
     
     this.setCurrentCat(0);//to disable title click to prevent unnecessary searches
-    this.setSearchQuery(null); //reset previous search params
-    this.setShowAbout(false);
-    this.setSearchTags(null);
-    this.setSearchGenres(null);
-    this.setPlatform(null);
+    this.nullifySearchParams()
     this.setSearchMinMetacritic(50);
     this.setSearchMaxMetacritic(100);
     this.setDates("2015-01-01,2023-12-31");
     this.doSearch(false); //refresh searchResults from previous searches
     this.setShowAbout(false); //functionality to not render about page
+  },
+
+  nullifySearchParams()
+  {
+    this.searchParams={};
   },
 };
