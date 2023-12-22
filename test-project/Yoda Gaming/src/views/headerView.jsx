@@ -155,7 +155,7 @@ function HeaderView(props) {
 
             <div className="HeaderLeftHalf">
                 <div className="HeaderTitleSection">
-                    <img className='dontsquishyoda' onClick={headerTitleClickedHandler} src="https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png" alt="" />
+                    <img className='dontsquishyoda' onClick={headerTitleClickedHandler} src="https://www.shareicon.net/data/128x128/2016/01/16/248175_yoda_32x32.png" alt="" />
                     <h1 className="HeaderTitle" disabled={props.currentCat == 0} onClick={headerTitleClickedHandler}>Yoda Gaming</h1>
                 </div>
 
