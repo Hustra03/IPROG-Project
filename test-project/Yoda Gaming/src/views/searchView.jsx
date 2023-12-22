@@ -128,8 +128,7 @@ function SearchView(props) {
 
                     <CListGroupItem color="success">
                         {platformOptions()}
-                        <CFormText>Specify one or more platforms for which results should exclusivly be shown, for example PC would only show games available on PC, while PC and iOS would be games available on one or more of the selected options</CFormText>
-                        <a className='rawgHyperLink' href='https://rawg.io/apidocs'>Data from RAWG Api</a>
+                        <CFormText>Specify one or more platforms for which results should exclusivly be shown, for example PC would only show games available on PC, while PC and iOS would be games available on one or more of the selected options. <a className='rawgHyperLink' href='https://rawg.io/apidocs'>Data from RAWG Api</a></CFormText>
                     </CListGroupItem>
 
                     <CListGroupItem color="success">
