@@ -105,7 +105,6 @@ export default {
   {
     this.setAlertBody(this.user.email + " Logged Out");
     this.setLoggingIn(false);
-    this.setCurrentUser(null);
     this.setAlertVisability(true);
   },
   //Above handles sign out, not a similar for login since that requiers 2 methods no matter what, 
