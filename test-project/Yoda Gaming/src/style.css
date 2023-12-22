@@ -93,14 +93,12 @@
 }
 
 .ViewingHistory {
-    border-style: solid;
-    border-color: lightgreen;
-    border-width: 1px;
     text-align: center;
     color:#007324;
     font-family: Georgia, serif;
     padding:2%;
     overflow-y: hidden;
+    overflow-x:hidden;
     font-weight: bold;
 }
 

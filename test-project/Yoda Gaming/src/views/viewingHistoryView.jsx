@@ -21,7 +21,6 @@ function ViewingHistoryView(props) {
         return(
             <div className="ViewingHistory">
             <CButton onClick={showHistoryHandlerACB} color="secondary">Hide History</CButton>
-            <h1>History</h1>
             {[...props.viewHistory].reverse().map(displayHistoryACB)}
         </div>
         )
@@ -29,7 +28,6 @@ function ViewingHistoryView(props) {
     return (
         <div className="ViewingHistory">
             <CButton onClick={showHistoryHandlerACB} color="secondary">Show History</CButton>
-            <h1>History</h1>
         </div>
         
     )
