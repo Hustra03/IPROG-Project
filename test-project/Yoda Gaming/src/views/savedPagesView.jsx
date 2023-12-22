@@ -55,14 +55,14 @@ function SavedPagesView(props){
 
     function generateRemoveAllGamesButton() {
         function handleRemoveAll() {
-            
+
             const confirmed = window.confirm("Are you sure you want to remove all saved games? This cannot be undone.");
             if (confirmed) {
                 clearSavedCB();
             }
         }
     
-        if (props.deleteState === false) {
+        if (props.inDeleteState === false) {
             return;
         }
         return (
@@ -72,7 +72,7 @@ function SavedPagesView(props){
     }
 
     function generateEditButton(){
-        if (props.deleteState === false){
+        if (props.inDeleteState === false){
             return <CButton onClick={editSavedPagesCB} className="savedPagesEditButton">Edit</CButton>
         }
         return <CButton onClick={editSavedPagesCB} className="savedPagesEditButton">Done</CButton>
@@ -89,7 +89,7 @@ function SavedPagesView(props){
         }
 
         function generateRemoveButton(){
-            if (props.deleteState == false){
+            if (props.inDeleteState == false){
                 return
             }
             return <div><CButton className="savedPagesRemoveButton" onClick={onRemoveGameClickCB}>X</CButton></div>
@@ -107,7 +107,7 @@ function SavedPagesView(props){
                 </div>
                 {generateRemoveButton()}
                     <div className="savedPagesTitleContainer">
-                            <t onClick={onSavedPageClickCB} className="savedPagesGameTitle">{game.name}</t>
+                        <t onClick={onSavedPageClickCB} className="savedPagesGameTitle">{game.name}</t>
                     </div>
             </div>
         )
