@@ -51,8 +51,5 @@ Ascending/Descending or sort in order/reverse order has been added as part of th
 12. Add a dropdown menu from each result in search result which contains additional information. 
 
 Additional information was added to the search result, but no dropdown menu since most relevant information can only be found using another fetch and that information is available if one checks the detailed page.
-<<<<<<< Updated upstream
-=======
 
 10. The API has a main_color object, but it is always set to white so would be pointless to use it to dynamically change the colors of the detailsPage.
->>>>>>> Stashed changes
