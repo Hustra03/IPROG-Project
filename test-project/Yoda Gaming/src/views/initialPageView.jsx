@@ -58,7 +58,7 @@ function InitialPageView(props) {
                  <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
                  <img className='yodaFamily' src='https://www.shareicon.net/data/32x32/2015/07/18/71338_user_32x32.png'></img>
 
-                 <div className='homepageRealAbout'>(Website created by Yoda, Erik Paulinder, Eliaz Biderstrand, Viktor Fredlund and William Ma Jönsson. Credits to ...)</div>
+                 <div className='homepageRealAbout'>(Website created by Yoda, Erik Paulinder, Eliaz Biderstrand, Viktor Fredlund and William Ma Jönsson. All images, un-yodafied descriptions, tags, ratings (all data on games) are from RAWG API)</div>
             </div>
             
         )
