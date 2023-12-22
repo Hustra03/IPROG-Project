@@ -35,13 +35,6 @@ function SearchView(props) {
         return <CButton onClick={sortOrderInput} type="submit" color="primary">Sort In Reverse Order</CButton>
     }
 
-    function linkToSearchResults() {
-        if (props.searchResultsData) {
-            return <div><a href='#/searchResult'>Go To Previous Search Results</a></div>
-        }
-    }
-
-
     function searchPlatformsInput() { 
 
         let currentPlatformString="";
@@ -138,6 +131,7 @@ function SearchView(props) {
                     <CListGroupItem color="success">
                         {platformOptions()}
                         <CFormText>Specify one or more platforms for which results should exclusivly be shown, for example PC would only show games available on PC, while PC and iOS would be games available on one or more of the selected options</CFormText>
+                        <a className='rawgHyperLink' href='https://rawg.io/apidocs'>Data from RAWG Api</a>
                     </CListGroupItem>
 
                     <CListGroupItem color="success">
