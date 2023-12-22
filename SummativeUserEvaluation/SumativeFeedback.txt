@@ -37,8 +37,11 @@ How Detailed View feedback was acted upon: (Viktor Frelund)
 2. Increased size to make it look cleaner, but a scroller is necessary for tags because it can list tens of rows
 3. Changed color to match the rest of the view
 4. Image is now centered with the image button to the bottom left of it
+5. TA coach said it was okay if we didn't implement this. Not implemented because we don't know how, think it would be P-V mixup to pass promieStates to view to only change the elements which are being replaced with the API call result.
+6. Replaced "Playtime" with "Estimated Playtime"
 7. Moved the info box that was above the image to below it, so the image is directly after the game name
 8. upvote button and "total upvotes: x" combined into just the button so button also diplays total upvotes, moved the button to top right of page above the image together with the favorites button
+9. Removed back to search result button since we now have breadcrumbs in the header
 10. Rating is not on the third row in the info box on, on its own row
 
 Search Results:
