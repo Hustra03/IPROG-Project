@@ -60,6 +60,10 @@ export default
     function headerTitleClickedCustomEventHandler(){
         props.model.setCurrentCat(0);//to disable title click to prevent unnecessary searches
         props.model.setSearchQuery(null); //reset previous search params
+        props.model.setShowAbout(false);
+        props.model.setSearchType(null);
+        props.model.setSearchGenre(null);
+        props.model.setPlatform(null);
         props.model.setSearchMinMetacritic(50);
         props.model.setSearchMaxMetacritic(100);
         props.model.setDates("2015-01-01,2023-12-31");
