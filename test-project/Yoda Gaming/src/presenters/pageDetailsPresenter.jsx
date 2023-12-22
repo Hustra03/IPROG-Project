@@ -1,29 +1,20 @@
 import PageDetailsView from '../views/pageDetailsView.jsx';
 import {getCurrentGameUpvotes} from '../utilities.js';
         //file mainly worked on by Viktor Fredlund
+import { LoadingView } from "../views/loadingView.jsx";
+import NoDataFoundView from "../views/noDataFoundView.jsx";
 
 export default
 function Details(props) {
     
     function showDetailsViewOrNot(currentPagePromiseState){
         if(!currentPagePromiseState.promise){
-            console.log("no data")
-            return(
-                <div>
-                <p>no data</p>
-                </div>
-            )
+            return(<NoDataFoundView/>)
         }
         if(!currentPagePromiseState.data && !currentPagePromiseState.error){
-            console.log("loading")
-            return(
-                <div>
-                    <img src="https://brfenergi.se/iprog/loading.gif"></img>
-                </div>
-            )
+            return(<LoadingView/> )
         }
         if(!currentPagePromiseState.data && currentPagePromiseState.error){
-            console.log("oopsie")
             return(
                 <div>
                     <p>{props.model.currentPagePromiseState.error}</p>

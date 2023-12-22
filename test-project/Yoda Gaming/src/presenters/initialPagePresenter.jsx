@@ -1,4 +1,7 @@
 import { InitialPageView } from "../views/initialPageView";
+import NoDataFoundView from "../views/noDataFoundView.jsx";
+import { LoadingView } from "../views/loadingView.jsx";
+
 //file mainly worked on by William Ma Jönsson
 export default
     function InitialPagePresenter(props) {
@@ -86,7 +89,7 @@ export default
     );
         function initialSetup(){
             if (!props.model.searchResultsPromiseState.promise){
-                return <div>no data</div>
+                return <NoDataFoundView/>
             }
 
             if(props.model.searchResultsPromiseState.data){
@@ -116,7 +119,7 @@ export default
             if(!props.model.searchResultsPromiseState.error){
                 return(
                     <div className="cursorLoading">
-                        <div>Loading...</div>
+                        <LoadingView/>
                     </div>
                 )
             }

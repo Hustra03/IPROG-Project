@@ -1,4 +1,6 @@
 import {SearchResultView} from "../views/searchResultView";
+import { LoadingView } from "../views/loadingView.jsx";
+import NoDataFoundView from "../views/noDataFoundView.jsx";
 
 //file mainly worked on by Eliaz Biderstrand
 
@@ -12,7 +14,7 @@ export default
 
     function showResult(){
         if (!props.model.searchResultsPromiseState.promise) {
-            return <div>no data found</div>
+            return <NoDataFoundView/>
         }
 
         if (props.model.searchResultsPromiseState.data) {
@@ -30,7 +32,7 @@ export default
         }
 
         if (!props.model.searchResultsPromiseState.error){
-            return <div className="searchResultLoading">Games are loading</div>
+            return (<div className="searchResultLoading">Games are loading <LoadingView/></div> )
         }
 
         console.log(props.model.searchResultsPromiseState.error)
