@@ -39,7 +39,7 @@ function PageDetailsView(props) {
         props.addCurrentPageToViewHistoryCustomEvent();
     }
 
-    if(props.shouldUpdate){//only add if you should update view history
+    if(props.shouldViewHistoryUpdate){//only add if you should update view history
         addCurrentPageToViewHistory();
     }
 
