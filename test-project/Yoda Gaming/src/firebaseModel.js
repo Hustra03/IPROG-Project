@@ -130,13 +130,10 @@ function connectToFirebase(model, watchFunction) {
     model.ready = true;
     onAuthStateChanged(auth, authChangeACB)
 
-    function authChangeACB(user) {
-        if (user) {
-            model.setCurrentUser(user);
-
-
+    function authChangeACB() {
+        if (auth.currentUser) {
+            model.setCurrentUser(auth.currentUser);
             watchFunction(checkUserACB, effectUserACB);//Handles updates to user data, ex saved pages or current page
-
             watchFunction(checkGlobalACB, effectGlobalACB);//Handles updates to global data, ex upvotes
             readDataFromFirebase(model);
         }
