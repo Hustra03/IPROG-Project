@@ -24,7 +24,7 @@ function SearchResultView(props) {
         if (props.pages < 40){
             return <CButton onClick={loadMoreGamesCB} className="searchResultLoadMoreButton">Load More Games</CButton>
         }
-        return <div className="searchResultLoadMoreButtonDeactive">No More Games To Load, Search With More Detail If You Did Not Find What You Were Looking For.</div>
+        return <div className="searchResultLoadMoreButtonDeactive">No More Games To Load, Try To Search With More Detail If You Did Not Find What You Were Looking For.</div>
     }
 
     function searchResultsMapCB(game){
