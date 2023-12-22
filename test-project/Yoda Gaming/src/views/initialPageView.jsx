@@ -25,7 +25,7 @@ function InitialPageView(props) {
     function displayGameCB(game){
         return(
             <CCarouselItem key={game.id}>
-                <img src={game.background_image} className='homepageImage'/>
+                <img onClick={clickedOnGameHandlerACB} src={game.background_image} className='homepageImage'/>
                 <CCarouselCaption>
                     <h1 onClick={clickedOnGameHandlerACB} className='homepageGame'>{game.name}</h1>
                 </CCarouselCaption>
