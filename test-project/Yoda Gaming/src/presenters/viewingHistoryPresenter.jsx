@@ -3,21 +3,21 @@ import ViewingHistoryView from "../views/viewingHistoryView";
 export default
     function ViewingHistoryPresenter(props) {
 
-        function clickedGameInHistory(game){
+        function clickedGameInHistoryACB(game){
             props.model.setShowAbout(false); //hide about page so if youre in about page and click game in history and return to homepage about will be hidden
             props.model.setPage(game.id); //set current page
             props.model.changeUpdateViewHistoryValue(true); //updates view history
         }
 
-        function clickedShowHistory(){
+        function clickedShowHistoryACB(){
             props.model.changeShowHistoryValue();
         }
 
     return (
         <ViewingHistoryView 
         viewHistory={props.model.viewHistory}
-        getGameDetails={clickedGameInHistory}
-        showHistoryButton={clickedShowHistory}
+        getGameDetails={clickedGameInHistoryACB}
+        showHistoryButton={clickedShowHistoryACB}
         showHistory={props.model.showHistory}
         />
     );
