@@ -65,3 +65,28 @@ How Header/Search feedback was acted upon: (Erik Paulinder)
 View History:
 
 1. Implement view history, as a collapsable component, use differnt color than light blue.
+
+2. Remove the horizontal scrollbar
+
+How View History feedback was acted upon by William Ma Jönsson
+
+1. It was decided to implement the view history as a collasable component but with the collapsed version not changing the layout as it would disrupt the balance of page but rather having an option to show/hide the history to declutter the screen. A different color than lightblue was used (yoda brown)
+
+2. I removed the horizontal scrollbar by setting overflow-x to hidden
+
+No other suggestions for improvements on the view history
+
+Homepage/aka initial page:
+1. "Include information about the website on the homepage and highlight the benefits of logging in. It might be challenging for users to understand the website's purpose and the functionality of the "Yodafy" button."
+
+2. ""Different parts of the UI has different styles, which is distracting for the user."
+
+3. "Having to much empty space in the UI is a waste, and will make other parts smaller and less easily usable, and may be distracting."
+
+How homepage feedback was acted upon by William Ma Jönsson
+
+1. I acted upon this feedback by creating an about section on the homepage that includes information on the purpose and features of the website and the benefits of logging in.
+
+2. I acted on this by actively using fonts and colors already used on other pages for a more consitent experience.
+
+3. I acted on this by enlarging the carousel in the homepage and choosing an appropriate aspect ratio for the images used (16:9) as to not waste space.
