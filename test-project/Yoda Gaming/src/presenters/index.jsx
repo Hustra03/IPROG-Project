@@ -40,6 +40,7 @@ window.myModel = reactiveModel; // make the model available in the Console
 connectToFirebase(reactiveModel, watch)
 window.addEventListener("hashchange", updateCurrentLocationACB)
 window.addEventListener("keydown", keydownEvent); 
+reactiveModel.setCurrentLocation(window.location.hash);
 
 function updateCurrentLocationACB()
 {

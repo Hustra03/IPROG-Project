@@ -143,7 +143,7 @@ function HeaderView(props) {
 
         return (
             <CBreadcrumb style="--cui-breadcrumb-divider: '>'">
-                {breadcrumbContent}
+                {breadcrumbContent()}
             </CBreadcrumb>
         )
 

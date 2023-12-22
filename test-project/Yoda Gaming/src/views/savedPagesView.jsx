@@ -35,6 +35,7 @@ function SavedPagesView(props){
                 <div className="savedPagesGameContainer">
                     {props.savedPages.map(savedPagesMapCB)}
                 </div>
+                <a href='https://rawg.io/apidocs' className="savedPagesRAWG">Data from RAWG Api</a>
             </div>
         }
 
