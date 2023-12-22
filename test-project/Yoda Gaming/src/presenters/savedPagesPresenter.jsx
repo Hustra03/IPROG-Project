@@ -9,7 +9,7 @@ export default
             <SavedPagesView
                 savedPages={props.model.savedPages}
                 loggedIn={props.model.user}
-                deleteState={props.model.deleteState}
+                inDeleteState={props.model.deleteState}
                 clearSavedPages={clearSavedPagesCustomEventHandler}
                 chosenGame={chosenGameCustomEventHandler}
                 toggleDeleteState={toggleDeleteStateCustomEventHandler}
@@ -19,12 +19,14 @@ export default
     );
 
     function clearSavedPagesCustomEventHandler() {
-
         props.model.clearSavedPages();
+        props.model.setDeleteStateFalse();
     }
 
     function chosenGameCustomEventHandler(game){
         props.model.setPage(game.id)
+        props.model.setDeleteStateFalse();
+        props.model.changeUpdateViewHistoryValue(true);
     }
 
     function toggleDeleteStateCustomEventHandler(){
