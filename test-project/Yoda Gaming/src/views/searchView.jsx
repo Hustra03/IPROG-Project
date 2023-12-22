@@ -82,8 +82,8 @@ function SearchView(props) {
                 </CCardBody>
                 <CListGroup flush color="success">
                     <CListGroupItem color="success"><CFormInput label="Search Query" type="text" text="Name of the game, for example Minecraft" onChange={searchQueryInputCB} id="queryForm" placeholder={props.query} /></CListGroupItem>
-                    <CListGroupItem color="success"><CFormInput label="tags" type="text" text="Tags for the game, for example singleplayer, multiplayer" onChange={searchTagsInputCB} id="queryForm" placeholder={props.tags} /></CListGroupItem>
-                    <CListGroupItem color="success"><CFormInput label="genres" type="text" text="Genres for the game, for example action, indie" onChange={searchGenreInputCB} id="queryForm" placeholder={props.genre} /></CListGroupItem>
+                    <CListGroupItem color="success"><CFormInput label="Tags" type="text" text="Tags for the game, for example singleplayer, multiplayer" onChange={searchTagsInputCB} id="queryForm" placeholder={props.tags} /></CListGroupItem>
+                    <CListGroupItem color="success"><CFormInput label="Genres" type="text" text="Genres for the game, for example action, indie" onChange={searchGenreInputCB} id="queryForm" placeholder={props.genre} /></CListGroupItem>
                     <CListGroupItem color="success">
                         <label>Min Metacritic:</label>
                         <div>
